@@ -118,7 +118,6 @@ static uint32 txMsgDelay = GENERICAPP_SEND_MSG_TIMEOUT;
  * LOCAL FUNCTIONS
  */
 static void GenericApp_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg );
-static void GenericApp_HandleKeys( byte shift, byte keys );
 static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pckt );
 static void GenericApp_SendTheMessage( void );
 
@@ -231,11 +230,6 @@ uint16 GenericApp_ProcessEvent( uint8 task_id, uint16 events )
           GenericApp_ProcessZDOMsgs( (zdoIncomingMsg_t *)MSGpkt );
           LREPMaster("callback GenericApp_ProcessZDOMsgs function \n");
           break;
-
-        case KEY_CHANGE:
-          GenericApp_HandleKeys( ((keyChange_t *)MSGpkt)->state, ((keyChange_t *)MSGpkt)->keys );
-          break;
-
         case AF_DATA_CONFIRM_CMD:
           // This message is received as a confirmation of a data packet sent.
           // The status is of ZStatus_t type [defined in ZComDef.h]
@@ -246,7 +240,6 @@ uint16 GenericApp_ProcessEvent( uint8 task_id, uint16 events )
           (void)sentEP;  // This info not used now
           sentTransID = afDataConfirm->transID;
           (void)sentTransID;  // This info not used now
-
           sentStatus = afDataConfirm->hdr.status;
           // Action taken when confirmation is received.
           if ( sentStatus != ZSuccess )
@@ -258,7 +251,6 @@ uint16 GenericApp_ProcessEvent( uint8 task_id, uint16 events )
 
         case AF_INCOMING_MSG_CMD:
           GenericApp_MessageMSGCB( MSGpkt );
-          LREPMaster("callback AF_INCOMING_MSG_CMD \n");
           break;
 
         case ZDO_STATE_CHANGE:
@@ -299,8 +291,6 @@ uint16 GenericApp_ProcessEvent( uint8 task_id, uint16 events )
   {
     // Send "the" message
     GenericApp_SendTheMessage();
-
-    LREPMaster("callback GenericApp_SendTheMessage \n");
     // Setup to send message again
     osal_start_timerEx( GenericApp_TaskID,
                         GENERICAPP_SEND_MSG_EVT,
@@ -383,103 +373,7 @@ static void GenericApp_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg )
   }
 }
 
-/*********************************************************************
- * @fn      GenericApp_HandleKeys
- *
- * @brief   Handles all key events for this device.
- *
- * @param   shift - true if in shift/alt.
- * @param   keys - bit field for key events. Valid entries:
- *                 HAL_KEY_SW_4
- *                 HAL_KEY_SW_3
- *                 HAL_KEY_SW_2
- *                 HAL_KEY_SW_1
- *
- * @return  none
- */
-static void GenericApp_HandleKeys( uint8 shift, uint8 keys )
-{
-  zAddrType_t dstAddr;
-
-  // Shift is used to make each button/switch dual purpose.
-  if ( shift )
-  {
-    if ( keys & HAL_KEY_SW_1 )
-    {
-    }
-    if ( keys & HAL_KEY_SW_2 )
-    {
-    }
-    if ( keys & HAL_KEY_SW_3 )
-    {
-    }
-    if ( keys & HAL_KEY_SW_4 )
-    {
-    }
-  }
-  else
-  {
-    if ( keys & HAL_KEY_SW_1 )
-    {
-#if defined( SWITCH1_BIND )
-      // We can use SW1 to simulate SW2 for devices that only have one switch,
-      keys |= HAL_KEY_SW_2;
-#elif defined( SWITCH1_MATCH )
-      // or use SW1 to simulate SW4 for devices that only have one switch
-      keys |= HAL_KEY_SW_4;
-#else
-      // Normally, SW1 changes the rate that messages are sent
-      if ( txMsgDelay > 100 )
-      {
-        // Cut the message TX delay in half
-        txMsgDelay /= 2;
-      }
-      else
-      {
-        // Reset to the default
-        txMsgDelay = GENERICAPP_SEND_MSG_TIMEOUT;
-      }
-#endif
-    }
-
-    if ( keys & HAL_KEY_SW_2 )
-    {
-      HalLedSet ( HAL_LED_4, HAL_LED_MODE_OFF );
-
-      // Initiate an End Device Bind Request for the mandatory endpoint
-      dstAddr.addrMode = Addr16Bit;
-      dstAddr.addr.shortAddr = 0x0000; // Coordinator
-      ZDP_EndDeviceBindReq( &dstAddr, NLME_GetShortAddr(),
-                            GenericApp_epDesc.endPoint,
-                            GENERICAPP_PROFID,
-                            GENERICAPP_MAX_CLUSTERS, (cId_t *)GenericApp_ClusterList,
-                            GENERICAPP_MAX_CLUSTERS, (cId_t *)GenericApp_ClusterList,
-                            FALSE );
-    }
-
-    if ( keys & HAL_KEY_SW_3 )
-    {
-    }
-
-    if ( keys & HAL_KEY_SW_4 )
-    {
-      HalLedSet ( HAL_LED_4, HAL_LED_MODE_OFF );
-      // Initiate a Match Description Request (Service Discovery)
-      dstAddr.addrMode = AddrBroadcast;
-      dstAddr.addr.shortAddr = NWK_BROADCAST_SHORTADDR;
-      ZDP_MatchDescReq( &dstAddr, NWK_BROADCAST_SHORTADDR,
-                        GENERICAPP_PROFID,
-                        GENERICAPP_MAX_CLUSTERS, (cId_t *)GenericApp_ClusterList,
-                        GENERICAPP_MAX_CLUSTERS, (cId_t *)GenericApp_ClusterList,
-                        FALSE );
-    }
-  }
-}
-
-/*********************************************************************
- * LOCAL FUNCTIONS
- */
-
+ 
 /*********************************************************************
  * @fn      GenericApp_MessageMSGCB
  *
@@ -496,7 +390,7 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
   switch ( pkt->clusterId )
   {
     case GENERICAPP_CLUSTERID:
-      LREP("Received Data: %s", (char*)pkt->cmd.Data);
+      LREP("Received Data: %s \n", (char*)pkt->cmd.Data);
       rxMsgCount += 1;  // Count this message
       HalLedSet ( HAL_LED_4, HAL_LED_MODE_BLINK );  // Blink an LED
 #if defined( LCD_SUPPORTED )
@@ -521,7 +415,11 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
 static void GenericApp_SendTheMessage( void )
 {
   char theMessageData[] = "Hello World";
-
+	GenericApp_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+	// network addr of ZC is 0
+	GenericApp_DstAddr.addr.shortAddr = 0;
+	// endpoint of app on zc
+	GenericApp_DstAddr.endPoint = 10;
   if ( AF_DataRequest( &GenericApp_DstAddr, &GenericApp_epDesc,
                        GENERICAPP_CLUSTERID,
                        (byte)osal_strlen( theMessageData ) + 1,
@@ -529,55 +427,10 @@ static void GenericApp_SendTheMessage( void )
                        &GenericApp_TransID,
                        AF_DISCV_ROUTE, AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
   {
-    // Successfully requested to be sent.
+    LREPMaster("Successfully requested to be sent. \n");
   }
   else
   {
-    // Error occurred in request to send.
+    LREPMaster("Error occurred in request to send. \n");
   }
 }
-
-#if defined( IAR_ARMCM3_LM )
-/*********************************************************************
- * @fn      GenericApp_ProcessRtosMessage
- *
- * @brief   Receive message from RTOS queue, send response back.
- *
- * @param   none
- *
- * @return  none
- */
-static void GenericApp_ProcessRtosMessage( void )
-{
-  osalQueue_t inMsg;
-
-  if ( osal_queue_receive( OsalQueue, &inMsg, 0 ) == pdPASS )
-  {
-    uint8 cmndId = inMsg.cmnd;
-    uint32 counter = osal_build_uint32( inMsg.cbuf, 4 );
-
-    switch ( cmndId )
-    {
-      case CMD_INCR:
-        counter += 1;  /* Increment the incoming counter */
-                       /* Intentionally fall through next case */
-
-      case CMD_ECHO:
-      {
-        userQueue_t outMsg;
-
-        outMsg.resp = RSP_CODE | cmndId;  /* Response ID */
-        osal_buffer_uint32( outMsg.rbuf, counter );    /* Increment counter */
-        osal_queue_send( UserQueue1, &outMsg, 0 );  /* Send back to UserTask */
-        break;
-      }
-
-      default:
-        break;  /* Ignore unknown command */
-    }
-  }
-}
-#endif
-
-/*********************************************************************
- */
