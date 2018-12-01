@@ -415,11 +415,11 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
 static void GenericApp_SendTheMessage( void )
 {
   char theMessageData[] = "Hello World";
-	GenericApp_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
-	// network addr of ZC is 0
-	GenericApp_DstAddr.addr.shortAddr = 0;
-	// endpoint of app on zc
-	GenericApp_DstAddr.endPoint = 10;
+  GenericApp_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;
+  // network addr of ZC is 0
+  GenericApp_DstAddr.addr.shortAddr = 0;
+  // endpoint of app on zc
+  GenericApp_DstAddr.endPoint = 10;
   if ( AF_DataRequest( &GenericApp_DstAddr, &GenericApp_epDesc,
                        GENERICAPP_CLUSTERID,
                        (byte)osal_strlen( theMessageData ) + 1,
