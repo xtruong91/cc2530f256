@@ -1,0 +1,1761 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                21/Nov/2018  13:52:05
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Components\mac\low_level\srf04\mac_autopend.c
+#    Command line       =  
+#        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+#        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR | DEVICE_BUILD_ROUTER
+#        | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL -DZNP_RUN_WDOG=FALSE
+#        -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO -DZIGBEE_FRAGMENTATION
+#        -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE -DSAPI_CB_FUNC=FALSE
+#        -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT -DNUM_DISC_ATTEMPTS=0
+#        -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC -DMT_SAPI_FUNC
+#        -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC -DMT_ZDO_MGMT
+#        -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Components\mac\low_level\srf04\mac_autopend.c" -D
+#        FEATURE_SYSTEM_STATS -D POWER_SAVING -lC
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+#        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e --no_code_motion
+#        --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes
+#    List file          =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\mac_autopend.lst
+#    Object file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj\mac_autopend.r51
+#
+###############################################################################
+
+D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Components\mac\low_level\srf04\mac_autopend.c
+      1          /**************************************************************************************************
+      2            Filename:       mac_autopend.c
+      3            Revised:        $Date: 2014-05-29 13:33:32 -0700 (Thu, 29 May 2014) $
+      4            Revision:       $Revision: 38710 $
+      5          
+      6            Description:    This file implements the TIMAC Autopend feature.
+      7          
+      8          
+      9            Copyright 2006-2014 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /* low-level */
+     41          #include "mac_api.h"
+     42          #include "mac_radio_defs.h"
+     43          
+     44          /* osal */
+     45          #include "OSAL.h"
+     46          #include "saddr.h"
+     47          #include "ZComDef.h"
+     48          
+     49          #include "mac_autopend.h"
+     50          
+     51          /* ------------------------------------------------------------------------------------------------
+     52           *                                           Defines
+     53           * ------------------------------------------------------------------------------------------------
+     54           */
+     55          #define MAC_SRCMATCH_INVALID_INDEX           0xFF
+     56          
+     57          #define MAC_SRCMATCH_SHORT_ENTRY_SIZE        4
+     58          #define MAC_SRCMATCH_EXT_ENTRY_SIZE          Z_EXTADDR_LEN
+     59          
+     60          #define MAC_SRCMATCH_SHORT_MAX_NUM_ENTRIES   24
+     61          #define MAC_SRCMATCH_EXT_MAX_NUM_ENTRIES     12
+     62          
+     63          #define MAC_SRCMATCH_ENABLE_BITMAP_LEN       3
+     64          
+     65          #define EXT_ADDR_INDEX_SIZE                  2
+     66          #define SHORT_ADDR_INDEX_SIZE                1
+     67                    
+     68          /* ------------------------------------------------------------------------------------------------
+     69           *                                      Global Variables
+     70           * ------------------------------------------------------------------------------------------------
+     71           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     72          bool macSrcMatchIsEnabled = FALSE; 
+   \                     macSrcMatchIsEnabled:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     73          
+     74          /* ------------------------------------------------------------------------------------------------
+     75           *                                         Local Variables
+     76           * ------------------------------------------------------------------------------------------------
+     77           */
+     78          
+     79          /* 
+     80           The following local Varables are only set in MAC_SrcMatchEnable()  
+     81           They are read only to the rest of the module.
+     82           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     83          bool macSrcMatchIsAckAllPending = FALSE;
+   \                     macSrcMatchIsAckAllPending:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     84          
+     85          /* ------------------------------------------------------------------------------------------------
+     86           *                                         Local Functions
+     87           * ------------------------------------------------------------------------------------------------
+     88           */
+     89          static uint8 macSrcMatchFindEmptyEntry( uint8 macSrcMatchAddrMode );
+     90          static uint8 macSrcMatchCheckSrcAddr ( sAddr_t *addr, uint16 panID  );
+     91          static void macSrcMatchSetPendEnBit( uint8 index, uint8 macSrcMatchAddrMode );
+     92          static void macSrcMatchSetEnableBit( uint8 index, bool option, uint8 macSrcMatchAddrMode );
+     93          static bool macSrcMatchCheckEnableBit( uint8 index, uint24 enable );
+     94          static uint24 macSrcMatchGetShortAddrPendEnBit( void );
+     95          static uint24 macSrcMatchGetExtAddrPendEnBit( void );
+     96          static uint24 macSrcMatchGetShortAddrEnableBit( void );
+     97          static uint24 macSrcMatchGetExtAddrEnableBit( void );
+     98          
+     99          /*********************************************************************
+    100           * @fn          MAC_SrcMatchEnable
+    101           *
+    102           * @brief      Enabled AUTOPEND and source address matching. 
+    103           *             This function shall be not be called from 
+    104           *             ISR. It is not thread safe.
+    105           *
+    106           * @param     none 
+    107           *
+    108           * @return     none
+    109           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    110          void MAC_SrcMatchEnable (void)
+   \                     MAC_SrcMatchEnable:
+    111          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    112            /* Turn on Frame Filter (TIMAC enables frame filter by default), TBD */
+    113            MAC_RADIO_TURN_ON_RX_FRAME_FILTERING();
+   \   000004   906180       MOV     DPTR,#0x6180
+   \   000007   E4           CLR     A
+   \   000008   F0           MOVX    @DPTR,A
+   \   000009   E0           MOVX    A,@DPTR
+   \   00000A   4409         ORL     A,#0x9
+   \   00000C   F0           MOVX    @DPTR,A
+    114            
+    115            /* Turn on Auto ACK (TIMAC turn on Auto ACK by default), TBD */
+    116            MAC_RADIO_TURN_ON_AUTO_ACK();
+   \   00000D   906189       MOV     DPTR,#0x6189
+   \   000010   E0           MOVX    A,@DPTR
+   \   000011   D2E5         SETB    0xE0 /* A   */.5
+   \   000013   F0           MOVX    @DPTR,A
+    117            
+    118            /* Turn on Autopend: set SRCMATCH.AUTOPEND and SRCMATCH.SRC_MATCH_EN */
+    119            MAC_RADIO_TURN_ON_SRC_MATCH();
+   \   000014   906182       MOV     DPTR,#0x6182
+   \   000017   E0           MOVX    A,@DPTR
+   \   000018   D2E0         SETB    0xE0 /* A   */.0
+   \   00001A   F0           MOVX    @DPTR,A
+    120           
+    121            /* Set SRCMATCH.AUTOPEND */
+    122            MAC_RADIO_TURN_ON_AUTOPEND();
+   \   00001B   E0           MOVX    A,@DPTR
+   \   00001C   D2E1         SETB    0xE0 /* A   */.1
+   \   00001E   F0           MOVX    @DPTR,A
+    123            
+    124            /* AUTOPEND function requires that the received 
+    125             * frame is a DATA REQUEST MAC command frame
+    126             */
+    127            MAC_RADIO_TURN_ON_AUTOPEND_DATAREQ_ONLY();
+   \   00001F   E0           MOVX    A,@DPTR
+   \   000020   D2E2         SETB    0xE0 /* A   */.2
+   \   000022   F0           MOVX    @DPTR,A
+    128            
+    129            /* Configure all the globals */
+    130            macSrcMatchIsEnabled = TRUE;           
+   \   000023   90....       MOV     DPTR,#macSrcMatchIsEnabled
+   \   000026   7401         MOV     A,#0x1
+   \   000028   F0           MOVX    @DPTR,A
+    131          }
+   \   000029   02....       LJMP    ??Subroutine1_0 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine1_0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    132          
+    133          /*********************************************************************
+    134           * @fn          MAC_SrcMatchAddEntry
+    135           *
+    136           * @brief       Add a short or extended address to source address table. This 
+    137           *              function shall be not be called from ISR. It is not thread safe.
+    138           *
+    139           * @param       addr  - a pointer to sAddr_t which contains addrMode 
+    140           *                      and a union of a short 16-bit MAC address or an extended 
+    141           *                      64-bit MAC address to be added to the source address 
+    142          *                       table. 
+    143           * @param       panID - the device PAN ID. It is only used when the addr is 
+    144           *                      using short address 
+    145          
+    146           * @return      MAC_SUCCESS or MAC_NO_RESOURCES (source address table full) 
+    147           *              or MAC_DUPLICATED_ENTRY (the entry added is duplicated),
+    148           *              or MAC_INVALID_PARAMETER if the input parameters are invalid.
+    149           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    150          uint8 MAC_SrcMatchAddEntry ( sAddr_t *addr, uint16 panID )
+   \                     MAC_SrcMatchAddEntry:
+    151          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000                REQUIRE ?V8
+   \   000000                REQUIRE ?V9
+   \   000000                REQUIRE ?V10
+   \   000000                REQUIRE ?V11
+   \   000000                REQUIRE ?V12
+   \   000000                REQUIRE ?V14
+   \   000000                REQUIRE ?V15
+   \   000000   74E8         MOV     A,#-0x18
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 24
+   \   000005                ; Auto size: 10
+   \   000005   74F6         MOV     A,#-0xa
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   8A..         MOV     ?V14,R2
+   \   00000C   8B..         MOV     ?V15,R3
+   \   00000E   EC           MOV     A,R4
+   \   00000F   FE           MOV     R6,A
+   \   000010   ED           MOV     A,R5
+   \   000011   FF           MOV     R7,A
+    152            uint8 index;
+    153            uint8 entry[MAC_SRCMATCH_SHORT_ENTRY_SIZE];
+    154            
+    155            /* Check if the input parameters are valid */
+    156            if ( addr == NULL || (addr->addrMode !=  SADDR_MODE_SHORT && addr->addrMode !=  SADDR_MODE_EXT))
+   \   000012   EA           MOV     A,R2
+   \   000013   45..         ORL     A,?V15
+   \   000015   6022         JZ      ??MAC_SrcMatchAddEntry_0
+   \   000017   8A82         MOV     DPL,R2
+   \   000019   8B83         MOV     DPH,R3
+   \   00001B   A3           INC     DPTR
+   \   00001C   A3           INC     DPTR
+   \   00001D   A3           INC     DPTR
+   \   00001E   A3           INC     DPTR
+   \   00001F   A3           INC     DPTR
+   \   000020   A3           INC     DPTR
+   \   000021   A3           INC     DPTR
+   \   000022   A3           INC     DPTR
+   \   000023   E0           MOVX    A,@DPTR
+   \   000024   6402         XRL     A,#0x2
+   \   000026   6016         JZ      ??MAC_SrcMatchAddEntry_1
+   \   000028   8A82         MOV     DPL,R2
+   \   00002A   8B83         MOV     DPH,R3
+   \   00002C   A3           INC     DPTR
+   \   00002D   A3           INC     DPTR
+   \   00002E   A3           INC     DPTR
+   \   00002F   A3           INC     DPTR
+   \   000030   A3           INC     DPTR
+   \   000031   A3           INC     DPTR
+   \   000032   A3           INC     DPTR
+   \   000033   A3           INC     DPTR
+   \   000034   E0           MOVX    A,@DPTR
+   \   000035   6403         XRL     A,#0x3
+   \   000037   6005         JZ      ??MAC_SrcMatchAddEntry_1
+    157            {
+    158              return MAC_INVALID_PARAMETER;  
+   \                     ??MAC_SrcMatchAddEntry_0:
+   \   000039   79E8         MOV     R1,#-0x18
+   \   00003B   02....       LJMP    ??MAC_SrcMatchAddEntry_2 & 0xFFFF
+    159            }
+    160            
+    161            /* Check if the entry already exists. Do not add duplicated entry */
+    162            if ( macSrcMatchCheckSrcAddr( addr, panID ) != MAC_SRCMATCH_INVALID_INDEX )
+   \                     ??MAC_SrcMatchAddEntry_1:
+   \   00003E                ; Setup parameters for call to function macSrcMatchCheckSrcAddr
+   \   00003E   12....       LCALL   `??macSrcMatchCheckSrcAddr::?relay`; Banked call to: macSrcMatchCheckSrcAddr
+   \   000041   E9           MOV     A,R1
+   \   000042   F4           CPL     A
+   \   000043   6005         JZ      ??MAC_SrcMatchAddEntry_3
+    163            {
+    164              return MAC_DUPLICATED_ENTRY; 
+   \   000045   791E         MOV     R1,#0x1e
+   \   000047   02....       LJMP    ??MAC_SrcMatchAddEntry_2 & 0xFFFF
+    165            }
+    166            
+    167            /* If not duplicated, write to the radio RAM and enable the control bit */
+    168            
+    169            /* Find the first empty entry */
+    170            index = macSrcMatchFindEmptyEntry(addr->addrMode);
+   \                     ??MAC_SrcMatchAddEntry_3:
+   \   00004A   85..82       MOV     DPL,?V14
+   \   00004D   85..83       MOV     DPH,?V15
+   \   000050   A3           INC     DPTR
+   \   000051   A3           INC     DPTR
+   \   000052   A3           INC     DPTR
+   \   000053   A3           INC     DPTR
+   \   000054   A3           INC     DPTR
+   \   000055   A3           INC     DPTR
+   \   000056   A3           INC     DPTR
+   \   000057   A3           INC     DPTR
+   \   000058   E0           MOVX    A,@DPTR
+   \   000059   F5..         MOV     ?V12,A
+   \   00005B                ; Setup parameters for call to function macSrcMatchGetShortAddrEnableBit
+   \   00005B   12....       LCALL   `??macSrcMatchGetShortAddrEnableBit::?relay`; Banked call to: macSrcMatchGetShortAddrEnableBit
+   \   00005E   8A..         MOV     ?V0,R2
+   \   000060   8B..         MOV     ?V1,R3
+   \   000062   8C..         MOV     ?V2,R4
+   \   000064   8D..         MOV     ?V3,R5
+   \   000066                ; Setup parameters for call to function macSrcMatchGetExtAddrEnableBit
+   \   000066   12....       LCALL   `??macSrcMatchGetExtAddrEnableBit::?relay`; Banked call to: macSrcMatchGetExtAddrEnableBit
+   \   000069   8A..         MOV     ?V8,R2
+   \   00006B   8B..         MOV     ?V9,R3
+   \   00006D   8C..         MOV     ?V10,R4
+   \   00006F   8D..         MOV     ?V11,R5
+   \   000071   85....       MOV     ?V4,?V0
+   \   000074   85....       MOV     ?V5,?V1
+   \   000077   85....       MOV     ?V6,?V2
+   \   00007A   85....       MOV     ?V7,?V3
+   \   00007D   78..         MOV     R0,#?V4
+   \   00007F   79..         MOV     R1,#?V8
+   \   000081   12....       LCALL   ?L_IOR
+   \   000084   7402         MOV     A,#0x2
+   \   000086   65..         XRL     A,?V12
+   \   000088   75..00       MOV     ?V12,#0x0
+   \   00008B   703B         JNZ     ??MAC_SrcMatchAddEntry_4
+   \                     ??MAC_SrcMatchAddEntry_5:
+   \   00008D   8A..         MOV     ?V4,R2
+   \   00008F   8B..         MOV     ?V5,R3
+   \   000091   8C..         MOV     ?V6,R4
+   \   000093   8D..         MOV     ?V7,R5
+   \   000095   74FE         MOV     A,#-0x2
+   \   000097   55..         ANL     A,?V12
+   \   000099   78..         MOV     R0,#?V4
+   \   00009B   12....       LCALL   ?UL_SHR
+   \   00009E   E5..         MOV     A,?V4
+   \   0000A0   A2E0         MOV     C,0xE0 /* A   */.0
+   \   0000A2   4019         JC      ??MAC_SrcMatchAddEntry_6
+   \   0000A4   85....       MOV     ?V4,?V0
+   \   0000A7   85....       MOV     ?V5,?V1
+   \   0000AA   85....       MOV     ?V6,?V2
+   \   0000AD   85....       MOV     ?V7,?V3
+   \   0000B0   E5..         MOV     A,?V12
+   \   0000B2   78..         MOV     R0,#?V4
+   \   0000B4   12....       LCALL   ?UL_SHR
+   \   0000B7   E5..         MOV     A,?V4
+   \   0000B9   A2E0         MOV     C,0xE0 /* A   */.0
+   \   0000BB   5046         JNC     ??MAC_SrcMatchAddEntry_7
+   \                     ??MAC_SrcMatchAddEntry_6:
+   \   0000BD   05..         INC     ?V12
+   \   0000BF   E5..         MOV     A,?V12
+   \   0000C1   C3           CLR     C
+   \   0000C2   9418         SUBB    A,#0x18
+   \   0000C4   503D         JNC     ??MAC_SrcMatchAddEntry_7
+   \   0000C6   80C5         SJMP    ??MAC_SrcMatchAddEntry_5
+   \                     ??MAC_SrcMatchAddEntry_4:
+   \   0000C8   85....       MOV     ?V0,?V4
+   \   0000CB   85....       MOV     ?V1,?V5
+   \   0000CE   85....       MOV     ?V2,?V6
+   \   0000D1   85....       MOV     ?V3,?V7
+   \   0000D4   75..03       MOV     ?V8,#0x3
+   \   0000D7   75..00       MOV     ?V9,#0x0
+   \   0000DA   75..00       MOV     ?V10,#0x0
+   \   0000DD   75..00       MOV     ?V11,#0x0
+   \   0000E0   E5..         MOV     A,?V12
+   \   0000E2   C3           CLR     C
+   \   0000E3   33           RLC     A
+   \   0000E4   78..         MOV     R0,#?V8
+   \   0000E6   12....       LCALL   ?L_SHL
+   \   0000E9   78..         MOV     R0,#?V0
+   \   0000EB   79..         MOV     R1,#?V8
+   \   0000ED   12....       LCALL   ?L_AND
+   \   0000F0   E5..         MOV     A,?V0
+   \   0000F2   45..         ORL     A,?V1
+   \   0000F4   45..         ORL     A,?V2
+   \   0000F6   45..         ORL     A,?V3
+   \   0000F8   6009         JZ      ??MAC_SrcMatchAddEntry_7
+   \   0000FA   05..         INC     ?V12
+   \   0000FC   E5..         MOV     A,?V12
+   \   0000FE   C3           CLR     C
+   \   0000FF   940C         SUBB    A,#0xc
+   \   000101   40C5         JC      ??MAC_SrcMatchAddEntry_4
+    171            
+    172          
+    173            if ( (index == MAC_SRCMATCH_SHORT_MAX_NUM_ENTRIES && addr->addrMode == SADDR_MODE_SHORT) || 
+    174                 (index == MAC_SRCMATCH_EXT_MAX_NUM_ENTRIES && addr->addrMode == SADDR_MODE_EXT) )
+   \                     ??MAC_SrcMatchAddEntry_7:
+   \   000103   7418         MOV     A,#0x18
+   \   000105   65..         XRL     A,?V12
+   \   000107   7068         JNZ     ??MAC_SrcMatchAddEntry_8
+   \   000109   85..82       MOV     DPL,?V14
+   \   00010C   85..83       MOV     DPH,?V15
+   \   00010F   A3           INC     DPTR
+   \   000110   A3           INC     DPTR
+   \   000111   A3           INC     DPTR
+   \   000112   A3           INC     DPTR
+   \   000113   A3           INC     DPTR
+   \   000114   A3           INC     DPTR
+   \   000115   A3           INC     DPTR
+   \   000116   A3           INC     DPTR
+   \   000117   E0           MOVX    A,@DPTR
+   \   000118   6402         XRL     A,#0x2
+   \   00011A   606E         JZ      ??MAC_SrcMatchAddEntry_9
+    175            {
+    176              return MAC_NO_RESOURCES;   /* Table is full */
+    177            }
+    178            
+    179            if ( addr->addrMode == SADDR_MODE_SHORT )
+   \                     ??MAC_SrcMatchAddEntry_10:
+   \   00011C   85..82       MOV     DPL,?V14
+   \   00011F   85..83       MOV     DPH,?V15
+   \   000122   A3           INC     DPTR
+   \   000123   A3           INC     DPTR
+   \   000124   A3           INC     DPTR
+   \   000125   A3           INC     DPTR
+   \   000126   A3           INC     DPTR
+   \   000127   A3           INC     DPTR
+   \   000128   A3           INC     DPTR
+   \   000129   A3           INC     DPTR
+   \   00012A   E0           MOVX    A,@DPTR
+   \   00012B   6402         XRL     A,#0x2
+   \   00012D   7060         JNZ     ??MAC_SrcMatchAddEntry_11
+    180            {
+    181              /* Write the PanID and short address */
+    182              entry[0] = LO_UINT16( panID );  /* Little Endian for the radio RAM */
+   \   00012F   7406         MOV     A,#0x6
+   \   000131   12....       LCALL   ?XSTACK_DISP0_8
+   \   000134   EE           MOV     A,R6
+   \   000135   F0           MOVX    @DPTR,A
+    183              entry[1] = HI_UINT16( panID );
+   \   000136   7407         MOV     A,#0x7
+   \   000138   12....       LCALL   ?XSTACK_DISP0_8
+   \   00013B   EF           MOV     A,R7
+   \   00013C   F0           MOVX    @DPTR,A
+    184              entry[2] = LO_UINT16( addr->addr.shortAddr );
+   \   00013D   85..82       MOV     DPL,?V14
+   \   000140   85..83       MOV     DPH,?V15
+   \   000143   E0           MOVX    A,@DPTR
+   \   000144   C0E0         PUSH    A
+   \   000146   7408         MOV     A,#0x8
+   \   000148   12....       LCALL   ?XSTACK_DISP0_8
+   \   00014B   D0E0         POP     A
+   \   00014D   F0           MOVX    @DPTR,A
+    185              entry[3] = HI_UINT16( addr->addr.shortAddr );
+   \   00014E   85..82       MOV     DPL,?V14
+   \   000151   85..83       MOV     DPH,?V15
+   \   000154   A3           INC     DPTR
+   \   000155   E0           MOVX    A,@DPTR
+   \   000156   C0E0         PUSH    A
+   \   000158   7409         MOV     A,#0x9
+   \   00015A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00015D   D0E0         POP     A
+   \   00015F   F0           MOVX    @DPTR,A
+    186              MAC_RADIO_SRC_MATCH_TABLE_WRITE( ( index * MAC_SRCMATCH_SHORT_ENTRY_SIZE ), 
+    187                             entry, MAC_SRCMATCH_SHORT_ENTRY_SIZE );
+   \   000160                ; Setup parameters for call to function macMemWriteRam
+   \   000160   7904         MOV     R1,#0x4
+   \   000162   7406         MOV     A,#0x6
+   \   000164   12....       LCALL   ?XSTACK_DISP102_8
+   \   000167   85....       MOV     ?V0,?V12
+   \   00016A   75..00       MOV     ?V1,#0x0
+   \   00016D   7402         MOV     A,#0x2
+   \   00016F   802C         SJMP    ??MAC_SrcMatchAddEntry_12
+    188            }
+   \                     ??MAC_SrcMatchAddEntry_8:
+   \   000171   740C         MOV     A,#0xc
+   \   000173   65..         XRL     A,?V12
+   \   000175   70A5         JNZ     ??MAC_SrcMatchAddEntry_10
+   \   000177   85..82       MOV     DPL,?V14
+   \   00017A   85..83       MOV     DPH,?V15
+   \   00017D   A3           INC     DPTR
+   \   00017E   A3           INC     DPTR
+   \   00017F   A3           INC     DPTR
+   \   000180   A3           INC     DPTR
+   \   000181   A3           INC     DPTR
+   \   000182   A3           INC     DPTR
+   \   000183   A3           INC     DPTR
+   \   000184   A3           INC     DPTR
+   \   000185   E0           MOVX    A,@DPTR
+   \   000186   6403         XRL     A,#0x3
+   \   000188   7092         JNZ     ??MAC_SrcMatchAddEntry_10
+   \                     ??MAC_SrcMatchAddEntry_9:
+   \   00018A   791A         MOV     R1,#0x1a
+   \   00018C   02....       LJMP    ??MAC_SrcMatchAddEntry_2 & 0xFFFF
+    189            else
+    190            {
+    191              /* Write the extended address */
+    192              MAC_RADIO_SRC_MATCH_TABLE_WRITE( ( index * MAC_SRCMATCH_EXT_ENTRY_SIZE ), 
+    193                             addr->addr.extAddr, MAC_SRCMATCH_EXT_ENTRY_SIZE ); 
+   \                     ??MAC_SrcMatchAddEntry_11:
+   \   00018F                ; Setup parameters for call to function macMemWriteRam
+   \   00018F   7908         MOV     R1,#0x8
+   \   000191   AC..         MOV     R4,?V14
+   \   000193   AD..         MOV     R5,?V15
+   \   000195   85....       MOV     ?V0,?V12
+   \   000198   75..00       MOV     ?V1,#0x0
+   \   00019B   7403         MOV     A,#0x3
+   \                     ??MAC_SrcMatchAddEntry_12:
+   \   00019D   78..         MOV     R0,#?V0
+   \   00019F   12....       LCALL   ?S_SHL
+   \   0001A2   25..         ADD     A,?V0
+   \   0001A4   FA           MOV     R2,A
+   \   0001A5   7461         MOV     A,#0x61
+   \   0001A7   35..         ADDC    A,?V1
+   \   0001A9   FB           MOV     R3,A
+   \   0001AA   12....       LCALL   `??macMemWriteRam::?relay`; Banked call to: macMemWriteRam
+    194            }
+    195            
+    196            /* Set the Autopend enable bits */
+    197            macSrcMatchSetPendEnBit( index, addr->addrMode );
+   \   0001AD   85..82       MOV     DPL,?V14
+   \   0001B0   85..83       MOV     DPH,?V15
+   \   0001B3   A3           INC     DPTR
+   \   0001B4   A3           INC     DPTR
+   \   0001B5   A3           INC     DPTR
+   \   0001B6   A3           INC     DPTR
+   \   0001B7   A3           INC     DPTR
+   \   0001B8   A3           INC     DPTR
+   \   0001B9   A3           INC     DPTR
+   \   0001BA   A3           INC     DPTR
+   \   0001BB   E0           MOVX    A,@DPTR
+   \   0001BC   6402         XRL     A,#0x2
+   \   0001BE   7903         MOV     R1,#0x3
+   \   0001C0   AC..         MOV     R4,?XSP + 0
+   \   0001C2   AD..         MOV     R5,?XSP + 1
+   \   0001C4   704E         JNZ     ??MAC_SrcMatchAddEntry_13
+   \   0001C6                ; Setup parameters for call to function macMemReadRam
+   \   0001C6   7A67         MOV     R2,#0x67
+   \   0001C8   7B61         MOV     R3,#0x61
+   \   0001CA   12....       LCALL   `??macMemReadRam::?relay`; Banked call to: macMemReadRam
+   \   0001CD                ; Setup parameters for call to function osal_build_uint32
+   \   0001CD   7903         MOV     R1,#0x3
+   \   0001CF   AA..         MOV     R2,?XSP + 0
+   \   0001D1   AB..         MOV     R3,?XSP + 1
+   \   0001D3   12....       LCALL   `??osal_build_uint32::?relay`; Banked call to: osal_build_uint32
+   \   0001D6   8A..         MOV     ?V0,R2
+   \   0001D8   8B..         MOV     ?V1,R3
+   \   0001DA   8C..         MOV     ?V2,R4
+   \   0001DC   8D..         MOV     ?V3,R5
+   \   0001DE                ; Setup parameters for call to function osal_buffer_uint24
+   \   0001DE   75..01       MOV     ?V4,#0x1
+   \   0001E1   75..00       MOV     ?V5,#0x0
+   \   0001E4   75..00       MOV     ?V6,#0x0
+   \   0001E7   75..00       MOV     ?V7,#0x0
+   \   0001EA   E5..         MOV     A,?V12
+   \   0001EC   78..         MOV     R0,#?V4
+   \   0001EE   12....       LCALL   ?L_SHL
+   \   0001F1   78..         MOV     R0,#?V0
+   \   0001F3   79..         MOV     R1,#?V4
+   \   0001F5   12....       LCALL   ?L_IOR
+   \   0001F8   78..         MOV     R0,#?V0
+   \   0001FA   12....       LCALL   ?PUSH_XSTACK_I_FOUR
+   \   0001FD   7407         MOV     A,#0x7
+   \   0001FF   12....       LCALL   ?XSTACK_DISP101_8
+   \   000202   12....       LCALL   `??osal_buffer_uint24::?relay`; Banked call to: osal_buffer_uint24
+   \   000205   7404         MOV     A,#0x4
+   \   000207   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00020A                ; Setup parameters for call to function macMemWriteRam
+   \   00020A   7903         MOV     R1,#0x3
+   \   00020C   E9           MOV     A,R1
+   \   00020D   12....       LCALL   ?XSTACK_DISP102_8
+   \   000210   7A67         MOV     R2,#0x67
+   \   000212   806A         SJMP    ??MAC_SrcMatchAddEntry_14
+   \                     ??MAC_SrcMatchAddEntry_13:
+   \   000214                ; Setup parameters for call to function macMemReadRam
+   \   000214   7A64         MOV     R2,#0x64
+   \   000216   7B61         MOV     R3,#0x61
+   \   000218   12....       LCALL   `??macMemReadRam::?relay`; Banked call to: macMemReadRam
+   \   00021B                ; Setup parameters for call to function osal_build_uint32
+   \   00021B   7903         MOV     R1,#0x3
+   \   00021D   AA..         MOV     R2,?XSP + 0
+   \   00021F   AB..         MOV     R3,?XSP + 1
+   \   000221   12....       LCALL   `??osal_build_uint32::?relay`; Banked call to: osal_build_uint32
+   \   000224   8A..         MOV     ?V0,R2
+   \   000226   8B..         MOV     ?V1,R3
+   \   000228   8C..         MOV     ?V2,R4
+   \   00022A   8D..         MOV     ?V3,R5
+   \   00022C   E5..         MOV     A,?V12
+   \   00022E   C3           CLR     C
+   \   00022F   33           RLC     A
+   \   000230   FA           MOV     R2,A
+   \   000231                ; Setup parameters for call to function osal_buffer_uint24
+   \   000231   75..01       MOV     ?V4,#0x1
+   \   000234   75..00       MOV     ?V5,#0x0
+   \   000237   75..00       MOV     ?V6,#0x0
+   \   00023A   75..00       MOV     ?V7,#0x0
+   \   00023D   78..         MOV     R0,#?V4
+   \   00023F   12....       LCALL   ?L_SHL
+   \   000242   78..         MOV     R0,#?V0
+   \   000244   79..         MOV     R1,#?V4
+   \   000246   12....       LCALL   ?L_IOR
+   \   000249   75..01       MOV     ?V4,#0x1
+   \   00024C   75..00       MOV     ?V5,#0x0
+   \   00024F   75..00       MOV     ?V6,#0x0
+   \   000252   75..00       MOV     ?V7,#0x0
+   \   000255   7401         MOV     A,#0x1
+   \   000257   2A           ADD     A,R2
+   \   000258   78..         MOV     R0,#?V4
+   \   00025A   12....       LCALL   ?L_SHL
+   \   00025D   78..         MOV     R0,#?V0
+   \   00025F   79..         MOV     R1,#?V4
+   \   000261   12....       LCALL   ?L_IOR
+   \   000264   78..         MOV     R0,#?V0
+   \   000266   12....       LCALL   ?PUSH_XSTACK_I_FOUR
+   \   000269   7407         MOV     A,#0x7
+   \   00026B   12....       LCALL   ?XSTACK_DISP101_8
+   \   00026E   12....       LCALL   `??osal_buffer_uint24::?relay`; Banked call to: osal_buffer_uint24
+   \   000271   7404         MOV     A,#0x4
+   \   000273   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000276                ; Setup parameters for call to function macMemWriteRam
+   \   000276   7903         MOV     R1,#0x3
+   \   000278   E9           MOV     A,R1
+   \   000279   12....       LCALL   ?XSTACK_DISP102_8
+   \   00027C   7A64         MOV     R2,#0x64
+   \                     ??MAC_SrcMatchAddEntry_14:
+   \   00027E   7B61         MOV     R3,#0x61
+   \   000280   12....       LCALL   `??macMemWriteRam::?relay`; Banked call to: macMemWriteRam
+    198            
+    199            /* Set the Src Match enable bits */
+    200            macSrcMatchSetEnableBit( index, TRUE, addr->addrMode);
+   \   000283                ; Setup parameters for call to function macSrcMatchSetEnableBit
+   \   000283   85..82       MOV     DPL,?V14
+   \   000286   85..83       MOV     DPH,?V15
+   \   000289   A3           INC     DPTR
+   \   00028A   A3           INC     DPTR
+   \   00028B   A3           INC     DPTR
+   \   00028C   A3           INC     DPTR
+   \   00028D   A3           INC     DPTR
+   \   00028E   A3           INC     DPTR
+   \   00028F   A3           INC     DPTR
+   \   000290   A3           INC     DPTR
+   \   000291   E0           MOVX    A,@DPTR
+   \   000292   FB           MOV     R3,A
+   \   000293   7A01         MOV     R2,#0x1
+   \   000295   A9..         MOV     R1,?V12
+   \   000297   12....       LCALL   `??macSrcMatchSetEnableBit::?relay`; Banked call to: macSrcMatchSetEnableBit
+    201            
+    202            return MAC_SUCCESS;
+   \   00029A   7900         MOV     R1,#0x0
+   \                     ??MAC_SrcMatchAddEntry_2:
+   \   00029C   740A         MOV     A,#0xa
+   \   00029E   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0002A1   7F10         MOV     R7,#0x10
+   \   0002A3   02....       LJMP    ?BANKED_LEAVE_XDATA
+    203          }
+    204          
+    205          /*********************************************************************
+    206           * @fn         MAC_SrcMatchDeleteEntry
+    207           *
+    208           * @brief      Delete a short or extended address from source address table. 
+    209           *             This function shall be not be called from ISR. It is not thread 
+    210           *             safe.
+    211           *
+    212           * @param      addr  - a pointer to sAddr_t which contains addrMode 
+    213           *                     and a union of a short 16-bit MAC address or an extended 
+    214           *                     64-bit MAC address to be deleted from the source address 
+    215           *                     table. 
+    216           * @param      panID - the device PAN ID. It is only used when the addr is 
+    217           *                     using short address  
+    218           *
+    219           * @return     MAC_SUCCESS or MAC_INVALID_PARAMETER (address to be deleted 
+    220           *                  cannot be found in the source address table).
+    221           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    222          uint8 MAC_SrcMatchDeleteEntry ( sAddr_t *addr, uint16 panID  )
+   \                     MAC_SrcMatchDeleteEntry:
+    223          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    224            uint8 index;
+    225            
+    226            if ( addr == NULL || (addr->addrMode !=  SADDR_MODE_SHORT && addr->addrMode !=  SADDR_MODE_EXT))
+   \   000009   EE           MOV     A,R6
+   \   00000A   4F           ORL     A,R7
+   \   00000B   602C         JZ      ??MAC_SrcMatchDeleteEntry_0
+   \   00000D   8E82         MOV     DPL,R6
+   \   00000F   8F83         MOV     DPH,R7
+   \   000011   A3           INC     DPTR
+   \   000012   A3           INC     DPTR
+   \   000013   A3           INC     DPTR
+   \   000014   A3           INC     DPTR
+   \   000015   A3           INC     DPTR
+   \   000016   A3           INC     DPTR
+   \   000017   A3           INC     DPTR
+   \   000018   A3           INC     DPTR
+   \   000019   E0           MOVX    A,@DPTR
+   \   00001A   6402         XRL     A,#0x2
+   \   00001C   6011         JZ      ??MAC_SrcMatchDeleteEntry_1
+   \   00001E   8E82         MOV     DPL,R6
+   \   000020   8F83         MOV     DPH,R7
+   \   000022   A3           INC     DPTR
+   \   000023   A3           INC     DPTR
+   \   000024   A3           INC     DPTR
+   \   000025   A3           INC     DPTR
+   \   000026   A3           INC     DPTR
+   \   000027   A3           INC     DPTR
+   \   000028   A3           INC     DPTR
+   \   000029   A3           INC     DPTR
+   \   00002A   E0           MOVX    A,@DPTR
+   \   00002B   6403         XRL     A,#0x3
+   \   00002D   700A         JNZ     ??MAC_SrcMatchDeleteEntry_0
+    227            {
+    228              return MAC_INVALID_PARAMETER;  
+    229            }
+    230            
+    231            /* Look up the source address table and find the entry. */
+    232            index = macSrcMatchCheckSrcAddr( addr, panID );
+   \                     ??MAC_SrcMatchDeleteEntry_1:
+   \   00002F                ; Setup parameters for call to function macSrcMatchCheckSrcAddr
+   \   00002F   12....       LCALL   `??macSrcMatchCheckSrcAddr::?relay`; Banked call to: macSrcMatchCheckSrcAddr
+   \   000032   E9           MOV     A,R1
+   \   000033   F9           MOV     R1,A
+    233          
+    234            if( index == MAC_SRCMATCH_INVALID_INDEX )
+   \   000034   74FF         MOV     A,#-0x1
+   \   000036   69           XRL     A,R1
+   \   000037   7004         JNZ     ??MAC_SrcMatchDeleteEntry_2
+    235            {
+    236              return MAC_INVALID_PARAMETER; 
+   \                     ??MAC_SrcMatchDeleteEntry_0:
+   \   000039   79E8         MOV     R1,#-0x18
+   \   00003B   8015         SJMP    ??MAC_SrcMatchDeleteEntry_3
+    237            }
+    238            
+    239            /* Clear Src Match enable bits */
+    240            macSrcMatchSetEnableBit( index, FALSE, addr->addrMode);
+   \                     ??MAC_SrcMatchDeleteEntry_2:
+   \   00003D                ; Setup parameters for call to function macSrcMatchSetEnableBit
+   \   00003D   8E82         MOV     DPL,R6
+   \   00003F   8F83         MOV     DPH,R7
+   \   000041   A3           INC     DPTR
+   \   000042   A3           INC     DPTR
+   \   000043   A3           INC     DPTR
+   \   000044   A3           INC     DPTR
+   \   000045   A3           INC     DPTR
+   \   000046   A3           INC     DPTR
+   \   000047   A3           INC     DPTR
+   \   000048   A3           INC     DPTR
+   \   000049   E0           MOVX    A,@DPTR
+   \   00004A   FB           MOV     R3,A
+   \   00004B   7A00         MOV     R2,#0x0
+   \   00004D   12....       LCALL   `??macSrcMatchSetEnableBit::?relay`; Banked call to: macSrcMatchSetEnableBit
+    241          
+    242            return MAC_SUCCESS;
+   \   000050   7900         MOV     R1,#0x0
+   \                     ??MAC_SrcMatchDeleteEntry_3:
+   \   000052   7F01         MOV     R7,#0x1
+   \   000054   02....       LJMP    ?BANKED_LEAVE_XDATA
+    243          }
+    244                            
+    245          /*********************************************************************
+    246           * @fn          MAC_SrcMatchAckAllPending
+    247           *
+    248           * @brief       Enabled/disable acknowledging all packets with pending bit set
+    249           *              The application normally enables it when adding new entries to 
+    250           *              the source address table fails due to the table is full, or 
+    251           *              disables it when more entries are deleted and the table has
+    252           *              empty slots.
+    253           *
+    254           * @param       option - TRUE (acknowledging all packets with pending field set)
+    255           *                       FALSE (address filtering and FSM control sets the 
+    256           *                              pending field) 
+    257           *
+    258           * @return      none
+    259           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    260          void MAC_SrcMatchAckAllPending ( uint8 option  ) 
+   \                     MAC_SrcMatchAckAllPending:
+    261          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    262            if( option == TRUE )
+   \   000004   7401         MOV     A,#0x1
+   \   000006   69           XRL     A,R1
+   \   000007   90....       MOV     DPTR,#macSrcMatchIsAckAllPending
+   \   00000A   700B         JNZ     ??MAC_SrcMatchAckAllPending_0
+    263            {
+    264              macSrcMatchIsAckAllPending = TRUE;
+   \   00000C   7401         MOV     A,#0x1
+   \   00000E   F0           MOVX    @DPTR,A
+    265              
+    266              /* Set the PENDING_OR register */
+    267              MAC_RADIO_TURN_ON_PENDING_OR();
+   \   00000F   90618A       MOV     DPTR,#0x618a
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   D2E2         SETB    0xE0 /* A   */.2
+   \   000015   8008         SJMP    ??MAC_SrcMatchAckAllPending_1
+    268            }
+    269            else
+    270            {
+    271              macSrcMatchIsAckAllPending = FALSE;
+   \                     ??MAC_SrcMatchAckAllPending_0:
+   \   000017   E4           CLR     A
+   \   000018   F0           MOVX    @DPTR,A
+    272              
+    273              /* Clear the PENDING_OR register */
+    274              MAC_RADIO_TURN_OFF_PENDING_OR();
+   \   000019   90618A       MOV     DPTR,#0x618a
+   \   00001C   E0           MOVX    A,@DPTR
+   \   00001D   C2E2         CLR     0xE0 /* A   */.2
+   \                     ??MAC_SrcMatchAckAllPending_1:
+   \   00001F   F0           MOVX    @DPTR,A
+    275            }
+    276          }
+   \   000020   80..         SJMP    ??Subroutine1_0
+    277          
+    278          /*********************************************************************
+    279           * @fn          MAC_SrcMatchCheckAllPending
+    280           *
+    281           * @brief       Check if acknowledging all packets with pending bit set
+    282           *              is enabled. 
+    283           *
+    284           * @param       none 
+    285           *
+    286           * @return      MAC_AUTOACK_PENDING_ALL_ON or MAC_AUTOACK_PENDING_ALL_OFF
+    287           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    288          uint8 MAC_SrcMatchCheckAllPending ( void )
+   \                     MAC_SrcMatchCheckAllPending:
+    289          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    290            if( macSrcMatchIsAckAllPending == TRUE )
+   \   000004   90....       MOV     DPTR,#macSrcMatchIsAckAllPending
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   6401         XRL     A,#0x1
+   \   00000A   7004         JNZ     ??MAC_SrcMatchCheckAllPending_0
+    291            {
+    292              return MAC_AUTOACK_PENDING_ALL_ON; 
+   \   00000C   79FE         MOV     R1,#-0x2
+   \   00000E   8002         SJMP    ??MAC_SrcMatchCheckAllPending_1
+    293            }
+    294            
+    295            return MAC_AUTOACK_PENDING_ALL_OFF;
+   \                     ??MAC_SrcMatchCheckAllPending_0:
+   \   000010   79FF         MOV     R1,#-0x1
+   \                     ??MAC_SrcMatchCheckAllPending_1:
+   \   000012   80..         SJMP    ??Subroutine1_0
+    296          }
+    297          
+    298          /*********************************************************************
+    299           * @fn          MAC_SrcMatchCheckResult
+    300           *
+    301           * @brief       Check the result of source matching
+    302           *
+    303           * @param       index - index of the entry in the source address table
+    304           *
+    305           * @return      TRUE or FALSE
+    306           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    307          MAC_INTERNAL_API bool MAC_SrcMatchCheckResult( void )
+   \                     MAC_SrcMatchCheckResult:
+    308          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    309            uint8 resIndex;
+    310            
+    311            if ( macSrcMatchIsAckAllPending )
+   \   000004   90....       MOV     DPTR,#macSrcMatchIsAckAllPending
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   6004         JZ      ??MAC_SrcMatchCheckResult_0
+    312            {
+    313              return (TRUE);
+   \   00000A   7901         MOV     R1,#0x1
+   \   00000C   8009         SJMP    ??MAC_SrcMatchCheckResult_1
+    314            }
+    315            
+    316            MAC_RADIO_SRC_MATCH_RESINDEX( resIndex );
+   \                     ??MAC_SrcMatchCheckResult_0:
+   \   00000E   906163       MOV     DPTR,#0x6163
+   \   000011   E0           MOVX    A,@DPTR
+   \   000012   F8           MOV     R0,A
+    317            
+    318            return ( resIndex & AUTOPEND_RES );
+   \   000013   7440         MOV     A,#0x40
+   \   000015   58           ANL     A,R0
+   \   000016   F9           MOV     R1,A
+   \                     ??MAC_SrcMatchCheckResult_1:
+   \   000017   80..         SJMP    ??Subroutine1_0
+    319          }
+    320          
+    321          /*********************************************************************
+    322           * @fn          macSrcMatchFindEmptyEntry
+    323           *
+    324           * @brief       return index of the first empty entry found
+    325           *
+    326           * @param       macSrcMatchAddrMode - Address Mode for the entry. Valid values
+    327           *              are SADDR_MODE_SHORT or SADDR_MODE_EXT
+    328           *
+    329           * @return      uint8 - return index of the first empty entry found
+    330           */
+    331          static uint8 macSrcMatchFindEmptyEntry( uint8 macSrcMatchAddrMode )
+    332          {
+    333            uint8  index;
+    334            uint24 shortAddrEnable = MAC_RADIO_SRC_MATCH_GET_SHORTADDR_EN();
+    335            uint24 extAddrEnable = MAC_RADIO_SRC_MATCH_GET_EXTADDR_EN();
+    336            uint24 enable = shortAddrEnable | extAddrEnable;
+    337          
+    338            if( macSrcMatchAddrMode == SADDR_MODE_SHORT )
+    339             {
+    340               for( index = 0; index < MAC_SRCMATCH_SHORT_MAX_NUM_ENTRIES; index ++ )
+    341               {
+    342                 /* Both 2n bit of extAddrEnable and
+    343                  * corresponding bit of shortAddrEnable must be clear
+    344                  * in order to assume that the entry location for a short address
+    345                  * is not used.
+    346                  */
+    347                 if( (extAddrEnable & ((uint24)0x01 << ((index/2)*2))) == 0 &&
+    348                     (shortAddrEnable & ((uint24)0x01 << index)) == 0 )
+    349                 {
+    350                   return index;
+    351                 }
+    352               }
+    353             }
+    354             else
+    355             {
+    356               for( index = 0; index < MAC_SRCMATCH_EXT_MAX_NUM_ENTRIES; index++ )
+    357               {
+    358                 /* Both 2n bit of extAddrEnable and
+    359                  * 2n bit and 2n+1 bit of shortAddrEnable must be clear in order
+    360                  * to assume that the entry location for an extended address
+    361                  * is not used.        
+    362                  */
+    363                 if( (enable & ((uint24)0x03 << (index*2))) == 0 )
+    364                 {
+    365                   return index;
+    366                 }
+    367               }
+    368             }
+    369            return index;
+    370          }
+    371          
+    372          /*********************************************************************
+    373           * @fn         macSrcMatchCheckSrcAddr
+    374           *
+    375           * @brief      Check if a short or extended address is in the source address table.
+    376           *             This function shall not be called from ISR. It is not thread safe.
+    377           *
+    378           * @param      addr - a pointer to sAddr_t which contains addrMode 
+    379           *                    and a union of a short 16-bit MAC address or an extended 
+    380           *                    64-bit MAC address to be checked in the source address table. 
+    381           * @param      panID - the device PAN ID. It is only used when the addr is 
+    382           *                     using short address 
+    383          
+    384           * @return     uint8 - index of the entry in the table. Return 
+    385           *                     MAC_SRCMATCH_INVALID_INDEX (0xFF) if address not found.
+    386           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    387          static uint8 macSrcMatchCheckSrcAddr ( sAddr_t *addr, uint16 panID  )
+   \                     macSrcMatchCheckSrcAddr:
+    388          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000                REQUIRE ?V8
+   \   000000                REQUIRE ?V10
+   \   000000                REQUIRE ?V11
+   \   000000   74EC         MOV     A,#-0x14
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 20
+   \   000005                ; Auto size: 12
+   \   000005   74F4         MOV     A,#-0xc
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    389            uint8 index;     
+    390            uint8 *pAddr;
+    391            uint8 entrySize;
+    392            uint8 indexUsed;
+    393            uint8 indexSize;
+    394            uint8 entry[MAC_SRCMATCH_SHORT_ENTRY_SIZE];  
+    395            uint8 ramEntry[MAC_SRCMATCH_EXT_ENTRY_SIZE];
+    396            uint24 enable;
+    397            
+    398            /*
+    399             Currently, shadow memory is not supported to optimize SPI traffic.
+    400            */
+    401            if( addr->addrMode ==  SADDR_MODE_SHORT )
+   \   00000A   8A82         MOV     DPL,R2
+   \   00000C   8B83         MOV     DPH,R3
+   \   00000E   A3           INC     DPTR
+   \   00000F   A3           INC     DPTR
+   \   000010   A3           INC     DPTR
+   \   000011   A3           INC     DPTR
+   \   000012   A3           INC     DPTR
+   \   000013   A3           INC     DPTR
+   \   000014   A3           INC     DPTR
+   \   000015   A3           INC     DPTR
+   \   000016   E0           MOVX    A,@DPTR
+   \   000017   6402         XRL     A,#0x2
+   \   000019   7040         JNZ     ??macSrcMatchCheckSrcAddr_0
+    402            {
+    403              entry[0] = LO_UINT16( panID );  /* Little Endian for the radio RAM */
+   \   00001B   EC           MOV     A,R4
+   \   00001C   85..82       MOV     DPL,?XSP + 0
+   \   00001F   85..83       MOV     DPH,?XSP + 1
+   \   000022   F0           MOVX    @DPTR,A
+    404              entry[1] = HI_UINT16( panID );
+   \   000023   7401         MOV     A,#0x1
+   \   000025   12....       LCALL   ?XSTACK_DISP0_8
+   \   000028   ED           MOV     A,R5
+   \   000029   F0           MOVX    @DPTR,A
+    405              entry[2] = LO_UINT16( addr->addr.shortAddr );
+   \   00002A   8A82         MOV     DPL,R2
+   \   00002C   8B83         MOV     DPH,R3
+   \   00002E   E0           MOVX    A,@DPTR
+   \   00002F   C0E0         PUSH    A
+   \   000031   7402         MOV     A,#0x2
+   \   000033   12....       LCALL   ?XSTACK_DISP0_8
+   \   000036   D0E0         POP     A
+   \   000038   F0           MOVX    @DPTR,A
+    406              entry[3] = HI_UINT16( addr->addr.shortAddr );
+   \   000039   8A82         MOV     DPL,R2
+   \   00003B   8B83         MOV     DPH,R3
+   \   00003D   A3           INC     DPTR
+   \   00003E   E0           MOVX    A,@DPTR
+   \   00003F   C0E0         PUSH    A
+   \   000041   7403         MOV     A,#0x3
+   \   000043   12....       LCALL   ?XSTACK_DISP0_8
+   \   000046   D0E0         POP     A
+   \   000048   F0           MOVX    @DPTR,A
+    407              pAddr = entry;
+   \   000049   A8..         MOV     R0,?XSP + 0
+   \   00004B   A9..         MOV     R1,?XSP + 1
+   \   00004D   88..         MOV     ?V10,R0
+   \   00004F   89..         MOV     ?V11,R1
+    408              entrySize = MAC_SRCMATCH_SHORT_ENTRY_SIZE;
+   \   000051   7E04         MOV     R6,#0x4
+    409              indexSize = 1;
+   \   000053   75..01       MOV     ?V8,#0x1
+    410              enable = MAC_RADIO_SRC_MATCH_GET_SHORTADDR_EN();
+   \   000056                ; Setup parameters for call to function macSrcMatchGetShortAddrEnableBit
+   \   000056   12....       LCALL   `??macSrcMatchGetShortAddrEnableBit::?relay`; Banked call to: macSrcMatchGetShortAddrEnableBit
+   \   000059   800C         SJMP    ??macSrcMatchCheckSrcAddr_1
+    411            }
+    412            else
+    413            {
+    414              pAddr = addr->addr.extAddr;
+   \                     ??macSrcMatchCheckSrcAddr_0:
+   \   00005B   8A..         MOV     ?V10,R2
+   \   00005D   8B..         MOV     ?V11,R3
+    415              entrySize = MAC_SRCMATCH_EXT_ENTRY_SIZE;
+   \   00005F   7E08         MOV     R6,#0x8
+    416              indexSize = 2;
+   \   000061   75..02       MOV     ?V8,#0x2
+    417              enable = MAC_RADIO_SRC_MATCH_GET_EXTADDR_EN();
+   \   000064                ; Setup parameters for call to function macSrcMatchGetExtAddrEnableBit
+   \   000064   12....       LCALL   `??macSrcMatchGetExtAddrEnableBit::?relay`; Banked call to: macSrcMatchGetExtAddrEnableBit
+   \                     ??macSrcMatchCheckSrcAddr_1:
+   \   000067   8A..         MOV     ?V4,R2
+   \   000069   8B..         MOV     ?V5,R3
+   \   00006B   8C..         MOV     ?V6,R4
+   \   00006D   8D..         MOV     ?V7,R5
+    418            }
+    419            
+    420            for( index = 0; index < MAC_SRCMATCH_SHORT_MAX_NUM_ENTRIES; index += indexSize )
+   \   00006F   7F00         MOV     R7,#0x0
+    421            {
+    422              /* Check if the entry is enabled */
+    423              if( macSrcMatchCheckEnableBit( index, enable ) == FALSE )
+   \                     ??macSrcMatchCheckSrcAddr_2:
+   \   000071   85....       MOV     ?V0,?V4
+   \   000074   85....       MOV     ?V1,?V5
+   \   000077   85....       MOV     ?V2,?V6
+   \   00007A   85....       MOV     ?V3,?V7
+   \   00007D   EF           MOV     A,R7
+   \   00007E   78..         MOV     R0,#?V0
+   \   000080   12....       LCALL   ?UL_SHR
+   \   000083   E5..         MOV     A,?V0
+   \   000085   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000087   5053         JNC     ??macSrcMatchCheckSrcAddr_3
+    424              {
+    425                continue; 
+    426              }
+    427              
+    428              indexUsed = index / indexSize;
+   \   000089   E5..         MOV     A,?V8
+   \   00008B   F5F0         MOV     B,A
+   \   00008D   EF           MOV     A,R7
+   \   00008E   84           DIV     AB
+   \   00008F   F5..         MOV     ?V3,A
+    429                
+    430              /* Compare the short address or extended address */
+    431              MAC_RADIO_SRC_MATCH_TABLE_READ( ( indexUsed * entrySize ), ramEntry, entrySize );
+   \   000091                ; Setup parameters for call to function macMemReadRam
+   \   000091   EE           MOV     A,R6
+   \   000092   F9           MOV     R1,A
+   \   000093   7404         MOV     A,#0x4
+   \   000095   12....       LCALL   ?XSTACK_DISP102_8
+   \   000098   E5..         MOV     A,?V3
+   \   00009A   89F0         MOV     B,R1
+   \   00009C   A4           MUL     AB
+   \   00009D   FA           MOV     R2,A
+   \   00009E   A8F0         MOV     R0,B
+   \   0000A0   E4           CLR     A
+   \   0000A1   28           ADD     A,R0
+   \   0000A2   FB           MOV     R3,A
+   \   0000A3   7461         MOV     A,#0x61
+   \   0000A5   3B           ADDC    A,R3
+   \   0000A6   FB           MOV     R3,A
+   \   0000A7   12....       LCALL   `??macMemReadRam::?relay`; Banked call to: macMemReadRam
+    432               
+    433              if( osal_memcmp( pAddr, ramEntry, entrySize ) == TRUE )
+   \   0000AA                ; Setup parameters for call to function osal_memcmp
+   \   0000AA   7404         MOV     A,#0x4
+   \   0000AC   12....       LCALL   ?XSTACK_DISP100_8
+   \   0000AF   88..         MOV     ?V0,R0
+   \   0000B1   89..         MOV     ?V1,R1
+   \   0000B3   75..00       MOV     ?V2,#0x0
+   \   0000B6   78..         MOV     R0,#?V0
+   \   0000B8   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   0000BB   EE           MOV     A,R6
+   \   0000BC   FC           MOV     R4,A
+   \   0000BD   7D00         MOV     R5,#0x0
+   \   0000BF   85..82       MOV     DPL,?V10
+   \   0000C2   85..83       MOV     DPH,?V11
+   \   0000C5   A982         MOV     R1,DPL
+   \   0000C7   AA83         MOV     R2,DPH
+   \   0000C9   7B00         MOV     R3,#0x0
+   \   0000CB   12....       LCALL   `??osal_memcmp::?relay`; Banked call to: osal_memcmp
+   \   0000CE   7403         MOV     A,#0x3
+   \   0000D0   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000D3   E9           MOV     A,R1
+   \   0000D4   6401         XRL     A,#0x1
+   \   0000D6   7004         JNZ     ??macSrcMatchCheckSrcAddr_3
+    434              {
+    435                /* Match found */
+    436                return indexUsed;
+   \   0000D8   A9..         MOV     R1,?V3
+   \   0000DA   800B         SJMP    ??macSrcMatchCheckSrcAddr_4
+    437              }
+    438            }
+   \                     ??macSrcMatchCheckSrcAddr_3:
+   \   0000DC   E5..         MOV     A,?V8
+   \   0000DE   2F           ADD     A,R7
+   \   0000DF   FF           MOV     R7,A
+   \   0000E0   C3           CLR     C
+   \   0000E1   9418         SUBB    A,#0x18
+   \   0000E3   408C         JC      ??macSrcMatchCheckSrcAddr_2
+    439            
+    440            return MAC_SRCMATCH_INVALID_INDEX;
+   \   0000E5   79FF         MOV     R1,#-0x1
+   \                     ??macSrcMatchCheckSrcAddr_4:
+   \   0000E7   740C         MOV     A,#0xc
+   \   0000E9   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000EC   7F0C         MOV     R7,#0xc
+   \   0000EE   02....       LJMP    ?BANKED_LEAVE_XDATA
+    441          }
+    442          
+    443          /*********************************************************************
+    444           * @fn          macSrcMatchSetPendEnBit
+    445           *
+    446           * @brief       Set the enable bit in the source address table
+    447           *
+    448           * @param       index - index of the entry in the source address table
+    449           * @param       macSrcMatchAddrMode - Address Mode for the entry. Valid values
+    450           *              are SADDR_MODE_SHORT or SADDR_MODE_EXT
+    451           *
+    452           * @return      none
+    453           */
+    454          static void macSrcMatchSetPendEnBit( uint8 index, uint8 macSrcMatchAddrMode )
+    455          {
+    456            uint24 enable;
+    457            uint8 buf[MAC_SRCMATCH_ENABLE_BITMAP_LEN];
+    458                 
+    459            if( macSrcMatchAddrMode == SADDR_MODE_SHORT )
+    460            {
+    461              enable = MAC_RADIO_SRC_MATCH_GET_SHORTADDR_PENDEN(); 
+    462              enable |= ( (uint24)0x01 << index );
+    463              osal_buffer_uint24( buf, enable );
+    464              MAC_RADIO_SRC_MATCH_SET_SHORTPENDEN( buf );
+    465            }
+    466            else
+    467            {
+    468              enable = MAC_RADIO_SRC_MATCH_GET_EXTADDR_PENDEN(); 
+    469              enable |= ( (uint24)0x01 << ( index * EXT_ADDR_INDEX_SIZE ) );
+    470              enable |= ( (uint24)0x01 << ( ( index * EXT_ADDR_INDEX_SIZE ) + 1 ) );
+    471              osal_buffer_uint24( buf, enable );
+    472              MAC_RADIO_SRC_MATCH_SET_EXTPENDEN( buf );
+    473            }
+    474          }
+    475          
+    476          /*********************************************************************
+    477           * @fn          macSrcMatchSetEnableBit
+    478           *
+    479           * @brief       Set or clear the enable bit in the SRCMATCH EN register
+    480           *
+    481           * @param       index  - index of the entry in the source address table
+    482           * @param       option - true (set the enable bit), or false (clear the enable 
+    483           *                       bit)
+    484           * @param       macSrcMatchAddrMode - Address Mode for the entry. Valid values
+    485           *              are SADDR_MODE_SHORT or SADDR_MODE_EXT
+    486           *
+    487           * @return      none
+    488           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    489          static void macSrcMatchSetEnableBit( uint8 index, 
+   \                     macSrcMatchSetEnableBit:
+    490                                              bool option, 
+    491                                              uint8 macSrcMatchAddrMode )
+    492          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000                REQUIRE ?V6
+   \   000000                REQUIRE ?V7
+   \   000000                REQUIRE ?V8
+   \   000000   74EF         MOV     A,#-0x11
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 17
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FE           MOV     R6,A
+   \   000007   8A..         MOV     ?V8,R2
+   \   000009   EB           MOV     A,R3
+   \   00000A   FF           MOV     R7,A
+    493            uint24 enable;  
+    494            
+    495            if( option == TRUE )
+   \   00000B   7401         MOV     A,#0x1
+   \   00000D   65..         XRL     A,?V8
+   \   00000F   7053         JNZ     ??macSrcMatchSetEnableBit_0
+    496            {
+    497              if( macSrcMatchAddrMode == SADDR_MODE_SHORT )
+   \   000011   7402         MOV     A,#0x2
+   \   000013   6F           XRL     A,R7
+   \   000014   7026         JNZ     ??macSrcMatchSetEnableBit_1
+    498              {
+    499                enable = MAC_RADIO_SRC_MATCH_GET_SHORTADDR_EN(); 
+    500                enable |= ( (uint24)0x01 << index );
+    501                MAC_RADIO_SRC_MATCH_SET_SHORTEN( enable );
+   \   000016                ; Setup parameters for call to function osal_buffer_uint24
+   \   000016                ; Setup parameters for call to function macSrcMatchGetShortAddrEnableBit
+   \   000016   12....       LCALL   `??macSrcMatchGetShortAddrEnableBit::?relay`; Banked call to: macSrcMatchGetShortAddrEnableBit
+   \   000019   8A..         MOV     ?V4,R2
+   \   00001B   8B..         MOV     ?V5,R3
+   \   00001D   8C..         MOV     ?V6,R4
+   \   00001F   8D..         MOV     ?V7,R5
+   \   000021   75..01       MOV     ?V0,#0x1
+   \   000024   75..00       MOV     ?V1,#0x0
+   \   000027   75..00       MOV     ?V2,#0x0
+   \   00002A   75..00       MOV     ?V3,#0x0
+   \   00002D   EE           MOV     A,R6
+   \   00002E   78..         MOV     R0,#?V0
+   \   000030   12....       LCALL   ?L_SHL
+   \   000033   78..         MOV     R0,#?V4
+   \   000035   79..         MOV     R1,#?V0
+   \   000037   12....       LCALL   ?L_IOR
+   \   00003A   8056         SJMP    ??macSrcMatchSetEnableBit_2
+    502              }
+    503              else
+    504              {
+    505                enable = MAC_RADIO_SRC_MATCH_GET_EXTADDR_EN(); 
+    506                enable |= ( (uint24)0x01 << ( index *  EXT_ADDR_INDEX_SIZE) );
+    507                MAC_RADIO_SRC_MATCH_SET_EXTEN( enable );
+   \                     ??macSrcMatchSetEnableBit_1:
+   \   00003C                ; Setup parameters for call to function osal_buffer_uint24
+   \   00003C                ; Setup parameters for call to function macSrcMatchGetExtAddrEnableBit
+   \   00003C   12....       LCALL   `??macSrcMatchGetExtAddrEnableBit::?relay`; Banked call to: macSrcMatchGetExtAddrEnableBit
+   \   00003F   8A..         MOV     ?V4,R2
+   \   000041   8B..         MOV     ?V5,R3
+   \   000043   8C..         MOV     ?V6,R4
+   \   000045   8D..         MOV     ?V7,R5
+   \   000047   75..01       MOV     ?V0,#0x1
+   \   00004A   75..00       MOV     ?V1,#0x0
+   \   00004D   75..00       MOV     ?V2,#0x0
+   \   000050   75..00       MOV     ?V3,#0x0
+   \   000053   EE           MOV     A,R6
+   \   000054   C3           CLR     C
+   \   000055   33           RLC     A
+   \   000056   78..         MOV     R0,#?V0
+   \   000058   12....       LCALL   ?L_SHL
+   \   00005B   78..         MOV     R0,#?V4
+   \   00005D   79..         MOV     R1,#?V0
+   \   00005F   12....       LCALL   ?L_IOR
+   \   000062   8062         SJMP    ??macSrcMatchSetEnableBit_3
+    508              }
+    509            }
+    510            else
+    511            {
+    512              if( macSrcMatchAddrMode == SADDR_MODE_SHORT )
+   \                     ??macSrcMatchSetEnableBit_0:
+   \   000064   7402         MOV     A,#0x2
+   \   000066   6F           XRL     A,R7
+   \   000067   7032         JNZ     ??macSrcMatchSetEnableBit_4
+    513              {
+    514                enable = MAC_RADIO_SRC_MATCH_GET_SHORTADDR_EN();
+    515                enable &= ~( (uint24)0x01 << index );
+    516                MAC_RADIO_SRC_MATCH_SET_SHORTEN( enable );
+   \   000069                ; Setup parameters for call to function osal_buffer_uint24
+   \   000069                ; Setup parameters for call to function macSrcMatchGetShortAddrEnableBit
+   \   000069   12....       LCALL   `??macSrcMatchGetShortAddrEnableBit::?relay`; Banked call to: macSrcMatchGetShortAddrEnableBit
+   \   00006C   8A..         MOV     ?V4,R2
+   \   00006E   8B..         MOV     ?V5,R3
+   \   000070   8C..         MOV     ?V6,R4
+   \   000072   8D..         MOV     ?V7,R5
+   \   000074   75..01       MOV     ?V0,#0x1
+   \   000077   75..00       MOV     ?V1,#0x0
+   \   00007A   75..00       MOV     ?V2,#0x0
+   \   00007D   75..00       MOV     ?V3,#0x0
+   \   000080   EE           MOV     A,R6
+   \   000081   78..         MOV     R0,#?V0
+   \   000083   12....       LCALL   ?L_SHL
+   \   000086   78..         MOV     R0,#?V0
+   \   000088   12....       LCALL   ?L_NOT
+   \   00008B   78..         MOV     R0,#?V4
+   \   00008D   79..         MOV     R1,#?V0
+   \   00008F   12....       LCALL   ?L_AND
+   \                     ??macSrcMatchSetEnableBit_2:
+   \   000092   78..         MOV     R0,#?V4
+   \   000094   12....       LCALL   ?PUSH_XSTACK_I_FOUR
+   \   000097   7A83         MOV     R2,#-0x7d
+   \   000099   8032         SJMP    ??macSrcMatchSetEnableBit_5
+    517              }
+    518              else
+    519              {
+    520                enable = MAC_RADIO_SRC_MATCH_GET_EXTADDR_EN(); 
+    521                enable &= ~( (uint24)0x01 << ( index * EXT_ADDR_INDEX_SIZE ) );
+    522                MAC_RADIO_SRC_MATCH_SET_EXTEN( enable );
+   \                     ??macSrcMatchSetEnableBit_4:
+   \   00009B                ; Setup parameters for call to function osal_buffer_uint24
+   \   00009B                ; Setup parameters for call to function macSrcMatchGetExtAddrEnableBit
+   \   00009B   12....       LCALL   `??macSrcMatchGetExtAddrEnableBit::?relay`; Banked call to: macSrcMatchGetExtAddrEnableBit
+   \   00009E   8A..         MOV     ?V4,R2
+   \   0000A0   8B..         MOV     ?V5,R3
+   \   0000A2   8C..         MOV     ?V6,R4
+   \   0000A4   8D..         MOV     ?V7,R5
+   \   0000A6   75..01       MOV     ?V0,#0x1
+   \   0000A9   75..00       MOV     ?V1,#0x0
+   \   0000AC   75..00       MOV     ?V2,#0x0
+   \   0000AF   75..00       MOV     ?V3,#0x0
+   \   0000B2   EE           MOV     A,R6
+   \   0000B3   C3           CLR     C
+   \   0000B4   33           RLC     A
+   \   0000B5   78..         MOV     R0,#?V0
+   \   0000B7   12....       LCALL   ?L_SHL
+   \   0000BA   78..         MOV     R0,#?V0
+   \   0000BC   12....       LCALL   ?L_NOT
+   \   0000BF   78..         MOV     R0,#?V4
+   \   0000C1   79..         MOV     R1,#?V0
+   \   0000C3   12....       LCALL   ?L_AND
+   \                     ??macSrcMatchSetEnableBit_3:
+   \   0000C6   78..         MOV     R0,#?V4
+   \   0000C8   12....       LCALL   ?PUSH_XSTACK_I_FOUR
+   \   0000CB   7A86         MOV     R2,#-0x7a
+   \                     ??macSrcMatchSetEnableBit_5:
+   \   0000CD   7B61         MOV     R3,#0x61
+   \   0000CF   12....       LCALL   `??osal_buffer_uint24::?relay`; Banked call to: osal_buffer_uint24
+   \   0000D2   7404         MOV     A,#0x4
+   \   0000D4   12....       LCALL   ?DEALLOC_XSTACK8
+    523              }
+    524            }
+    525          }
+   \   0000D7   7F09         MOV     R7,#0x9
+   \   0000D9   02....       LJMP    ?BANKED_LEAVE_XDATA
+    526          
+    527          /*********************************************************************
+    528           * @fn          macSrcMatchCheckEnableBit
+    529           *
+    530           * @brief       Check the enable bit in the source address table
+    531           *
+    532           * @param       index - index of the entry in the source address table
+    533           * @param       enable - enable register should be read before passing 
+    534           *              it here
+    535           *
+    536           * @return      TRUE or FALSE
+    537           */
+    538          static bool macSrcMatchCheckEnableBit( uint8 index, uint24 enable)
+    539          {
+    540            if( enable & ((uint24)0x01 << index ))
+    541            {
+    542              return TRUE;
+    543            }
+    544            
+    545            return FALSE; 
+    546          }
+    547           
+    548          /*********************************************************************
+    549           * @fn          macSrcMatchGetShortAddrPendEnBit
+    550           *
+    551           * @brief       Return the SRCMATCH ShortAddr Pend enable bitmap
+    552           *
+    553           * @param       none
+    554           *
+    555           * @return      uint24 - 24 bits bitmap
+    556           */
+    557          static uint24 macSrcMatchGetShortAddrPendEnBit( void )
+    558          {
+    559            uint8 buf[MAC_SRCMATCH_ENABLE_BITMAP_LEN];
+    560            
+    561            MAC_RADIO_GET_SRC_SHORTPENDEN( buf );
+    562            
+    563            return osal_build_uint32( buf, MAC_SRCMATCH_ENABLE_BITMAP_LEN );
+    564          }
+    565          
+    566           
+    567          /*********************************************************************
+    568           * @fn          macSrcMatchGetExtAddrPendEnBit
+    569           *
+    570           * @brief       Return the SRCMATCH Extended Address Pend enable bitmap
+    571           *
+    572           * @param       none
+    573           *
+    574           * @return      uint24 - 24 bits bitmap
+    575           */
+    576          static uint24 macSrcMatchGetExtAddrPendEnBit( void )
+    577          {
+    578            uint8 buf[MAC_SRCMATCH_ENABLE_BITMAP_LEN];
+    579            
+    580            MAC_RADIO_GET_SRC_EXTENPEND( buf );
+    581            
+    582            return osal_build_uint32( buf, MAC_SRCMATCH_ENABLE_BITMAP_LEN );
+    583          }
+    584          
+    585          /*********************************************************************
+    586           * @fn          macSrcMatchGetShortAddrEnableBit
+    587           *
+    588           * @brief       Return the SRCMATCH ShortAddr enable bitmap
+    589           *
+    590           * @param       none
+    591           *
+    592           * @return      uint24 - 24 bits bitmap
+    593           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7B61         MOV     R3,#0x61
+   \   000002   12....       LCALL   `??macMemReadRam::?relay`; Banked call to: macMemReadRam
+   \   000005                ; Setup parameters for call to function osal_build_uint32
+   \   000005                ; Setup parameters for call to function osal_build_uint32
+   \   000005   7903         MOV     R1,#0x3
+   \   000007   AA..         MOV     R2,?XSP + 0
+   \   000009   AB..         MOV     R3,?XSP + 1
+   \   00000B   12....       LCALL   `??osal_build_uint32::?relay`; Banked call to: osal_build_uint32
+   \   00000E   7403         MOV     A,#0x3
+   \   000010   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000013                REQUIRE ??Subroutine1_0
+   \   000013                ; // Fall through to label ??Subroutine1_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    594          static uint24 macSrcMatchGetShortAddrEnableBit( void )
+   \                     macSrcMatchGetShortAddrEnableBit:
+    595          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 3
+   \   000004   74FD         MOV     A,#-0x3
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    596            uint8 buf[MAC_SRCMATCH_ENABLE_BITMAP_LEN];
+    597            
+    598            MAC_RADIO_GET_SRC_SHORTEN( buf );
+   \   000009                ; Setup parameters for call to function macMemReadRam
+   \   000009   7903         MOV     R1,#0x3
+   \   00000B   AC..         MOV     R4,?XSP + 0
+   \   00000D   AD..         MOV     R5,?XSP + 1
+   \   00000F   7A83         MOV     R2,#-0x7d
+   \   000011   02....       LJMP    ?Subroutine0 & 0xFFFF
+    599            
+    600            return osal_build_uint32( buf, MAC_SRCMATCH_ENABLE_BITMAP_LEN );
+    601          }
+    602          
+    603          /*********************************************************************
+    604           * @fn          macSrcMatchGetExtAddrEnBit
+    605           *
+    606           * @brief       Return the SRCMATCH ExtAddr enable bitmap
+    607           *
+    608           * @param       none
+    609           *
+    610           * @return      uint24 - 24 bits bitmap
+    611           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    612          static uint24 macSrcMatchGetExtAddrEnableBit( void )
+   \                     macSrcMatchGetExtAddrEnableBit:
+    613          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 3
+   \   000004   74FD         MOV     A,#-0x3
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    614            uint8 buf[MAC_SRCMATCH_ENABLE_BITMAP_LEN];
+    615            
+    616            MAC_RADIO_GET_SRC_EXTEN( buf );
+   \   000009                ; Setup parameters for call to function macMemReadRam
+   \   000009   7903         MOV     R1,#0x3
+   \   00000B   AC..         MOV     R4,?XSP + 0
+   \   00000D   AD..         MOV     R5,?XSP + 1
+   \   00000F   7A86         MOV     R2,#-0x7a
+   \   000011   02....       LJMP    ?Subroutine0 & 0xFFFF
+    617            
+    618            return osal_build_uint32( buf, MAC_SRCMATCH_ENABLE_BITMAP_LEN );
+    619          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MAC_SrcMatchEnable::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MAC_SrcMatchEnable
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MAC_SrcMatchAddEntry::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MAC_SrcMatchAddEntry
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MAC_SrcMatchDeleteEntry::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MAC_SrcMatchDeleteEntry
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MAC_SrcMatchAckAllPending::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MAC_SrcMatchAckAllPending
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MAC_SrcMatchCheckAllPending::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MAC_SrcMatchCheckAllPending
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MAC_SrcMatchCheckResult::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MAC_SrcMatchCheckResult
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macSrcMatchCheckSrcAddr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macSrcMatchCheckSrcAddr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macSrcMatchSetEnableBit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macSrcMatchSetEnableBit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macSrcMatchGetShortAddrEnableBit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macSrcMatchGetShortAddrEnableBit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macSrcMatchGetExtAddrEnableBit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macSrcMatchGetExtAddrEnableBit
+    620          
+    621          
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2      0   MAC_SrcMatchAckAllPending
+      1     38   MAC_SrcMatchAddEntry
+        0     34   -> macMemReadRam
+        0     34   -> macMemWriteRam
+        0     34   -> macSrcMatchCheckSrcAddr
+        0     34   -> macSrcMatchGetExtAddrEnableBit
+        0     34   -> macSrcMatchGetShortAddrEnableBit
+        0     34   -> macSrcMatchSetEnableBit
+        0     38   -> osal_buffer_uint24
+        0     34   -> osal_build_uint32
+      2      0   MAC_SrcMatchCheckAllPending
+      2      0   MAC_SrcMatchCheckResult
+      0      9   MAC_SrcMatchDeleteEntry
+        0      9   -> macSrcMatchCheckSrcAddr
+        0      9   -> macSrcMatchSetEnableBit
+      2      0   MAC_SrcMatchEnable
+      1     69   macSrcMatchCheckSrcAddr
+        0     32   -> macMemReadRam
+        0     32   -> macSrcMatchGetExtAddrEnableBit
+        0     32   -> macSrcMatchGetShortAddrEnableBit
+        0     35   -> osal_memcmp
+      2     37   macSrcMatchGetExtAddrEnableBit
+        2      3   -> macMemReadRam
+        2      3   -> osal_build_uint32
+      2     37   macSrcMatchGetShortAddrEnableBit
+        2      3   -> macMemReadRam
+        2      3   -> osal_build_uint32
+      0     55   macSrcMatchSetEnableBit
+        0     17   -> macSrcMatchGetExtAddrEnableBit
+        0     17   -> macSrcMatchGetShortAddrEnableBit
+        0     21   -> osal_buffer_uint24
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       7  ??Subroutine1_0
+      19  ?Subroutine0
+      34  MAC_SrcMatchAckAllPending
+       6  MAC_SrcMatchAckAllPending::?relay
+     678  MAC_SrcMatchAddEntry
+       6  MAC_SrcMatchAddEntry::?relay
+      20  MAC_SrcMatchCheckAllPending
+       6  MAC_SrcMatchCheckAllPending::?relay
+      25  MAC_SrcMatchCheckResult
+       6  MAC_SrcMatchCheckResult::?relay
+      87  MAC_SrcMatchDeleteEntry
+       6  MAC_SrcMatchDeleteEntry::?relay
+      44  MAC_SrcMatchEnable
+       6  MAC_SrcMatchEnable::?relay
+     241  macSrcMatchCheckSrcAddr
+       6  macSrcMatchCheckSrcAddr::?relay
+      20  macSrcMatchGetExtAddrEnableBit
+       6  macSrcMatchGetExtAddrEnableBit::?relay
+      20  macSrcMatchGetShortAddrEnableBit
+       6  macSrcMatchGetShortAddrEnableBit::?relay
+       1  macSrcMatchIsAckAllPending
+       1  macSrcMatchIsEnabled
+     220  macSrcMatchSetEnableBit
+       6  macSrcMatchSetEnableBit::?relay
+
+ 
+ 1 415 bytes in segment BANKED_CODE
+    60 bytes in segment BANK_RELAYS
+     2 bytes in segment XDATA_Z
+ 
+ 1 475 bytes of CODE  memory
+     2 bytes of XDATA memory
+
+Errors: none
+Warnings: none

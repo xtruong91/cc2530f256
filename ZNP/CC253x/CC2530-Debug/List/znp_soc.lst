@@ -1,0 +1,514 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                21/Nov/2018  13:52:23
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\Source\znp_soc.c
+#    Command line       =  
+#        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+#        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR | DEVICE_BUILD_ROUTER
+#        | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL -DZNP_RUN_WDOG=FALSE
+#        -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO -DZIGBEE_FRAGMENTATION
+#        -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE -DSAPI_CB_FUNC=FALSE
+#        -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT -DNUM_DISC_ATTEMPTS=0
+#        -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC -DMT_SAPI_FUNC
+#        -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC -DMT_ZDO_MGMT
+#        -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\Source\znp_soc.c" -D
+#        FEATURE_SYSTEM_STATS -D POWER_SAVING -lC
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+#        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e --no_code_motion
+#        --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes
+#    List file          =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\znp_soc.lst
+#    Object file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj\znp_soc.r51
+#
+###############################################################################
+
+D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Projects\zstack\ZNP\CC253x\Source\znp_soc.c
+      1          /**************************************************************************************************
+      2            Filename:       znp_soc.c
+      3            Revised:        $Date: 2010-11-22 08:13:43 -0800 (Mon, 22 Nov 2010) $
+      4            Revision:       $Revision: 24480 $
+      5          
+      6            Description:
+      7          
+      8            This file is the HAL-specific Application implementation for the ZNP by 8051 SOC.
+      9          
+     10          
+     11            Copyright 2010 Texas Instruments Incorporated. All rights reserved.
+     12          
+     13            IMPORTANT: Your use of this Software is limited to those specific rights
+     14            granted under the terms of a software license agreement between the user
+     15            who downloaded the software, his/her employer (which must be your employer)
+     16            and Texas Instruments Incorporated (the "License").  You may not use this
+     17            Software unless you agree to abide by the terms of the License. The License
+     18            limits your use, and you acknowledge, that the Software may not be modified,
+     19            copied or distributed unless embedded on a Texas Instruments microcontroller
+     20            or used solely and exclusively in conjunction with a Texas Instruments radio
+     21            frequency transceiver, which is integrated into your product.  Other than for
+     22            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     23            works of, modify, distribute, perform, display or sell this Software and/or
+     24            its documentation for any purpose.
+     25          
+     26            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     27            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     28            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     29            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     30            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     31            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     32            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     33            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     34            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     35            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     36            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     37          
+     38            Should you have any questions regarding your right to use this Software,
+     39            contact Texas Instruments Incorporated at www.TI.com.
+     40          **************************************************************************************************/
+     41          
+     42          /* ------------------------------------------------------------------------------------------------
+     43           *                                          Includes
+     44           * ------------------------------------------------------------------------------------------------
+     45           */
+     46          
+     47          #include "comdef.h"
+     48          #include "hal_board_cfg.h"
+
+   \                                 In  segment SFR_AN, at 0xe1
+   \   unsigned char volatile __sfr RFST
+   \                     RFST:
+   \   000000                DS 1
+     49          #include "mac_radio_defs.h"
+     50          #include "MT.h"
+     51          #include "OSAL.h"
+     52          #include "OSAL_Nv.h"
+     53          #include "znp_app.h"
+     54          
+     55          /* ------------------------------------------------------------------------------------------------
+     56           *                                           Macros
+     57           * ------------------------------------------------------------------------------------------------
+     58           */
+     59          
+     60          #define MAC_RADIO_TX_ON()     st( RFST = ISTXON;   )
+     61          
+     62          #define MOD_IF             4     // ~Modulation bit of MDMTEST1 register.
+     63          #define TX_PWR_MOD__SET(MOD_) st ( \
+     64            if ((MOD_)) \
+     65            { \
+     66              MDMTEST1 |= BV(MOD_IF); \
+     67            } \
+     68            else \
+     69            { \
+     70              MDMTEST1 &= ~BV(MOD_IF); \
+     71            } \
+     72          );
+     73          
+     74          #define TX_PWR_TONE_SET(TONE) st ( \
+     75            MDMTEST0 &= ~0xF0; \
+     76            MDMTEST0 |= (TONE << 4); \
+     77          )
+     78          
+     79          /**************************************************************************************************
+     80           * @fn          znpTestRF
+     81           *
+     82           * @brief       This function initializes and checks the ZNP RF Test Mode NV items. It is designed
+     83           *              to be invoked before/instead of MAC radio initialization.
+     84           *
+     85           * input parameters
+     86           *
+     87           * None.
+     88           *
+     89           * output parameters
+     90           *
+     91           * None.
+     92           *
+     93           * @return      None.
+     94           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     95          void znpTestRF(void)
+   \                     znpTestRF:
+     96          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 4
+   \   000005   74FC         MOV     A,#-0x4
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+     97            uint8 rfTestParms[4] = { 0, 0, 0, 0 };
+   \   00000A   90....       MOV     DPTR,#`?<Constant {0, 0, 0, 0}>`
+   \   00000D   AC..         MOV     R4,?XSP + 0
+   \   00000F   AD..         MOV     R5,?XSP + 1
+   \   000011   7404         MOV     A,#0x4
+   \   000013   12....       LCALL   ?MOVE_LONG8_XDATA_XDATA
+     98          
+     99            if ((SUCCESS != osal_nv_item_init(ZNP_NV_RF_TEST_PARMS, 4, rfTestParms))  ||
+    100                (SUCCESS != osal_nv_read(ZNP_NV_RF_TEST_PARMS, 0, 4, rfTestParms)) ||
+    101                (rfTestParms[0] == 0))
+   \   000016                ; Setup parameters for call to function osal_nv_item_init
+   \   000016   A8..         MOV     R0,?XSP + 0
+   \   000018   A9..         MOV     R1,?XSP + 1
+   \   00001A   88..         MOV     ?V0,R0
+   \   00001C   89..         MOV     ?V1,R1
+   \   00001E   78..         MOV     R0,#?V0
+   \   000020   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000023   7C04         MOV     R4,#0x4
+   \   000025   7D00         MOV     R5,#0x0
+   \   000027   7A07         MOV     R2,#0x7
+   \   000029   7B0F         MOV     R3,#0xf
+   \   00002B   12....       LCALL   `??osal_nv_item_init::?relay`; Banked call to: osal_nv_item_init
+   \   00002E   7402         MOV     A,#0x2
+   \   000030   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000033   E9           MOV     A,R1
+   \   000034   702C         JNZ     ??znpTestRF_0
+   \   000036                ; Setup parameters for call to function osal_nv_read
+   \   000036   78..         MOV     R0,#?V0
+   \   000038   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00003B   75..04       MOV     ?V0,#0x4
+   \   00003E   75..00       MOV     ?V1,#0x0
+   \   000041   78..         MOV     R0,#?V0
+   \   000043   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000046   7C00         MOV     R4,#0x0
+   \   000048   7D00         MOV     R5,#0x0
+   \   00004A   7A07         MOV     R2,#0x7
+   \   00004C   7B0F         MOV     R3,#0xf
+   \   00004E   12....       LCALL   `??osal_nv_read::?relay`; Banked call to: osal_nv_read
+   \   000051   7404         MOV     A,#0x4
+   \   000053   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000056   E9           MOV     A,R1
+   \   000057   7009         JNZ     ??znpTestRF_0
+   \   000059   85..82       MOV     DPL,?XSP + 0
+   \   00005C   85..83       MOV     DPH,?XSP + 1
+   \   00005F   E0           MOVX    A,@DPTR
+   \   000060   700A         JNZ     ??znpTestRF_1
+    102            {
+    103              return;
+   \                     ??znpTestRF_0:
+   \   000062   7404         MOV     A,#0x4
+   \   000064   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000067   7F02         MOV     R7,#0x2
+   \   000069   02....       LJMP    ?BANKED_LEAVE_XDATA
+    104            }
+    105          
+    106            // Settings from SmartRF Studio
+    107            MDMCTRL0 = 0x85;
+   \                     ??znpTestRF_1:
+   \   00006C   9061A8       MOV     DPTR,#0x61a8
+   \   00006F   7485         MOV     A,#-0x7b
+   \   000071   F0           MOVX    @DPTR,A
+    108            RXCTRL = 0x3F;
+   \   000072   9061AB       MOV     DPTR,#0x61ab
+   \   000075   743F         MOV     A,#0x3f
+   \   000077   F0           MOVX    @DPTR,A
+    109            FSCTRL = 0x5A;
+   \   000078   A3           INC     DPTR
+   \   000079   745A         MOV     A,#0x5a
+   \   00007B   F0           MOVX    @DPTR,A
+    110            FSCAL1 = 0x2B;
+   \   00007C   9061AE       MOV     DPTR,#0x61ae
+   \   00007F   742B         MOV     A,#0x2b
+   \   000081   F0           MOVX    @DPTR,A
+    111            AGCCTRL1 = 0x11;
+   \   000082   9061B2       MOV     DPTR,#0x61b2
+   \   000085   7411         MOV     A,#0x11
+   \   000087   F0           MOVX    @DPTR,A
+    112            ADCTEST0 = 0x10;
+   \   000088   9061B5       MOV     DPTR,#0x61b5
+   \   00008B   14           DEC     A
+   \   00008C   F0           MOVX    @DPTR,A
+    113            ADCTEST1 = 0x0E;
+   \   00008D   A3           INC     DPTR
+   \   00008E   740E         MOV     A,#0xe
+   \   000090   F0           MOVX    @DPTR,A
+    114            ADCTEST2 = 0x03;
+   \   000091   A3           INC     DPTR
+   \   000092   7403         MOV     A,#0x3
+   \   000094   F0           MOVX    @DPTR,A
+    115          
+    116            FRMCTRL0 = 0x43;
+   \   000095   906189       MOV     DPTR,#0x6189
+   \   000098   7443         MOV     A,#0x43
+   \   00009A   F0           MOVX    @DPTR,A
+    117            FRMCTRL1 = 0x00;
+   \   00009B   A3           INC     DPTR
+   \   00009C   E4           CLR     A
+   \   00009D   F0           MOVX    @DPTR,A
+    118          
+    119            MAC_RADIO_RXTX_OFF();
+   \   00009E   75E1EF       MOV     0xe1,#-0x11
+    120            MAC_RADIO_SET_CHANNEL(rfTestParms[1]);
+   \   0000A1   75F005       MOV     B,#0x5
+   \   0000A4   04           INC     A
+   \   0000A5   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000A8   E0           MOVX    A,@DPTR
+   \   0000A9   A4           MUL     AB
+   \   0000AA   24D4         ADD     A,#-0x2c
+   \   0000AC   90618F       MOV     DPTR,#0x618f
+   \   0000AF   F0           MOVX    @DPTR,A
+    121            MAC_RADIO_SET_TX_POWER(rfTestParms[2]);
+   \   0000B0   907803       MOV     DPTR,#0x7803
+   \   0000B3   E0           MOVX    A,@DPTR
+   \   0000B4   6495         XRL     A,#0x95
+   \   0000B6   6005         JZ      ??znpTestRF_2
+   \   0000B8   E0           MOVX    A,@DPTR
+   \   0000B9   6434         XRL     A,#0x34
+   \   0000BB   7025         JNZ     ??znpTestRF_3
+   \                     ??znpTestRF_2:
+   \   0000BD   90....       MOV     DPTR,#macPhyTxPower
+   \   0000C0   E0           MOVX    A,@DPTR
+   \   0000C1   906190       MOV     DPTR,#0x6190
+   \   0000C4   F0           MOVX    @DPTR,A
+   \   0000C5   90....       MOV     DPTR,#reqTxBoost
+   \   0000C8   E0           MOVX    A,@DPTR
+   \   0000C9   9061AC       MOV     DPTR,#0x61ac
+   \   0000CC   600A         JZ      ??znpTestRF_4
+   \   0000CE   74F5         MOV     A,#-0xb
+   \   0000D0   F0           MOVX    @DPTR,A
+   \   0000D1   906191       MOV     DPTR,#0x6191
+   \   0000D4   7474         MOV     A,#0x74
+   \   0000D6   8013         SJMP    ??znpTestRF_5
+   \                     ??znpTestRF_4:
+   \   0000D8   7455         MOV     A,#0x55
+   \   0000DA   F0           MOVX    @DPTR,A
+   \   0000DB   906191       MOV     DPTR,#0x6191
+   \   0000DE   7469         MOV     A,#0x69
+   \   0000E0   8009         SJMP    ??znpTestRF_5
+   \                     ??znpTestRF_3:
+   \   0000E2   7402         MOV     A,#0x2
+   \   0000E4   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000E7   E0           MOVX    A,@DPTR
+   \   0000E8   906190       MOV     DPTR,#0x6190
+   \                     ??znpTestRF_5:
+   \   0000EB   F0           MOVX    @DPTR,A
+    122            TX_PWR_TONE_SET(rfTestParms[3]);
+   \   0000EC   9061B8       MOV     DPTR,#0x61b8
+   \   0000EF   E0           MOVX    A,@DPTR
+   \   0000F0   540F         ANL     A,#0xf
+   \   0000F2   F0           MOVX    @DPTR,A
+   \   0000F3   7403         MOV     A,#0x3
+   \   0000F5   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000F8   E0           MOVX    A,@DPTR
+   \   0000F9   C4           SWAP    A
+   \   0000FA   54F0         ANL     A,#0xf0
+   \   0000FC   F8           MOV     R0,A
+   \   0000FD   9061B8       MOV     DPTR,#0x61b8
+   \   000100   E0           MOVX    A,@DPTR
+   \   000101   48           ORL     A,R0
+   \   000102   F0           MOVX    @DPTR,A
+    123          
+    124            switch (rfTestParms[0])
+   \   000103   85..82       MOV     DPL,?XSP + 0
+   \   000106   85..83       MOV     DPH,?XSP + 1
+   \   000109   E0           MOVX    A,@DPTR
+   \   00010A   14           DEC     A
+   \   00010B   6008         JZ      ??znpTestRF_6
+   \   00010D   14           DEC     A
+   \   00010E   600A         JZ      ??znpTestRF_7
+   \   000110   14           DEC     A
+   \   000111   600E         JZ      ??znpTestRF_8
+   \   000113   800F         SJMP    ??znpTestRF_9
+    125            {
+    126            case 1:  // Rx promiscuous mode.
+    127              MAC_RADIO_RX_ON();
+   \                     ??znpTestRF_6:
+   \   000115   75E1E3       MOV     0xe1,#-0x1d
+    128              break;
+   \   000118   800A         SJMP    ??znpTestRF_9
+    129          
+    130            case 2:  // Un-modulated Tx.
+    131              TX_PWR_MOD__SET(1);
+   \                     ??znpTestRF_7:
+   \   00011A   9061B9       MOV     DPTR,#0x61b9
+   \   00011D   E0           MOVX    A,@DPTR
+   \   00011E   D2E4         SETB    0xE0 /* A   */.4
+   \   000120   F0           MOVX    @DPTR,A
+    132              // no break;
+    133          
+    134            case 3:  // Modulated Tx.
+    135              // Modulated is default register setting, so no special action.
+    136          
+    137              // Now turn on Tx power for either mod or un-modulated Tx test.
+    138              MAC_RADIO_TX_ON();
+   \                     ??znpTestRF_8:
+   \   000121   75E1E9       MOV     0xe1,#-0x17
+    139              break;
+    140          
+    141            default:  // Not expected.
+    142              break;
+    143            }
+    144          
+    145            // Clear the RF test mode.
+    146            (void)osal_memset(rfTestParms, 0, 4);
+   \                     ??znpTestRF_9:
+   \   000124                ; Setup parameters for call to function osal_memset
+   \   000124   7C04         MOV     R4,#0x4
+   \   000126   7D00         MOV     R5,#0x0
+   \   000128   7900         MOV     R1,#0x0
+   \   00012A   AA..         MOV     R2,?XSP + 0
+   \   00012C   AB..         MOV     R3,?XSP + 1
+   \   00012E   12....       LCALL   `??osal_memset::?relay`; Banked call to: osal_memset
+    147            (void)osal_nv_write(ZNP_NV_RF_TEST_PARMS, 0, 4, rfTestParms);
+   \   000131                ; Setup parameters for call to function osal_nv_write
+   \   000131   A8..         MOV     R0,?XSP + 0
+   \   000133   A9..         MOV     R1,?XSP + 1
+   \   000135   88..         MOV     ?V0,R0
+   \   000137   89..         MOV     ?V1,R1
+   \   000139   78..         MOV     R0,#?V0
+   \   00013B   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00013E   75..04       MOV     ?V0,#0x4
+   \   000141   75..00       MOV     ?V1,#0x0
+   \   000144   78..         MOV     R0,#?V0
+   \   000146   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000149   7C00         MOV     R4,#0x0
+   \   00014B   7D00         MOV     R5,#0x0
+   \   00014D   7A07         MOV     R2,#0x7
+   \   00014F   7B0F         MOV     R3,#0xf
+   \   000151   12....       LCALL   `??osal_nv_write::?relay`; Banked call to: osal_nv_write
+   \   000154   7404         MOV     A,#0x4
+   \   000156   12....       LCALL   ?DEALLOC_XSTACK8
+    148          
+    149            while (1);  // Spin in RF test mode until a hard reset.
+   \                     ??znpTestRF_10:
+   \   000159   80FE         SJMP    ??znpTestRF_10
+   \   00015B                REQUIRE RFST
+    150          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??znpTestRF::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    znpTestRF
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant {0, 0, 0, 0}>`:
+   \   000000   00           DB 0
+   \   000001   00           DB 0
+   \   000002   00           DB 0
+   \   000003   00           DB 0
+    151          
+    152          /**************************************************************************************************
+    153          */
+
+   Maximum stack usage in bytes:
+
+   XSTACK Function
+   ------ --------
+     18   znpTestRF
+       14   -> osal_memset
+       16   -> osal_nv_item_init
+       18   -> osal_nv_read
+       18   -> osal_nv_write
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ?<Constant {0, 0, 0, 0}>
+       1  RFST
+     347  znpTestRF
+       6  znpTestRF::?relay
+
+ 
+ 347 bytes in segment BANKED_CODE
+   6 bytes in segment BANK_RELAYS
+   1 byte  in segment SFR_AN
+   4 bytes in segment XDATA_ROM_C
+ 
+ 353 bytes of CODE  memory
+   4 bytes of CONST memory
+   0 bytes of DATA  memory (+ 1 byte shared)
+
+Errors: none
+Warnings: none

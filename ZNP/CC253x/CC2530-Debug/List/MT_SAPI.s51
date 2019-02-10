@@ -1,0 +1,3698 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               21/Nov/2018  13:52:09
+// Copyright 2004-2015 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Components\mt\MT_SAPI.c
+//    Command line       =  
+//        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+//        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR |
+//        DEVICE_BUILD_ROUTER | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL
+//        -DZNP_RUN_WDOG=FALSE -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO
+//        -DZIGBEE_FRAGMENTATION -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE
+//        -DSAPI_CB_FUNC=FALSE -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT
+//        -DNUM_DISC_ATTEMPTS=0 -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC
+//        -DMT_SAPI_FUNC -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC
+//        -DMT_ZDO_MGMT -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -f
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Components\mt\MT_SAPI.c" -D FEATURE_SYSTEM_STATS -D
+//        POWER_SAVING -lC "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+//        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e
+//        --no_code_motion --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+//        -Ohz --require_prototypes
+//    List file          =  
+//        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\MT_SAPI.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME MT_SAPI
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?V4
+        EXTERN ?V5
+        EXTERN ?V3
+        EXTERN ?V6
+        EXTERN ?V8
+        EXTERN ?V9
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK_I_ONE
+        EXTERN ?PUSH_XSTACK_I_THREE
+        EXTERN ?PUSH_XSTACK_I_TWO
+        EXTERN ?XSP
+        EXTERN ?XSTACK_DISP0_8
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC `??MT_SapiAllowBind::?relay`
+        FUNCTION `??MT_SapiAllowBind::?relay`,0203H
+        PUBLIC `??MT_SapiAppRegister::?relay`
+        FUNCTION `??MT_SapiAppRegister::?relay`,0203H
+        PUBLIC `??MT_SapiBindDevice::?relay`
+        FUNCTION `??MT_SapiBindDevice::?relay`,0203H
+        PUBLIC `??MT_SapiCommandProcessing::?relay`
+        FUNCTION `??MT_SapiCommandProcessing::?relay`,0203H
+        PUBLIC `??MT_SapiFindDev::?relay`
+        FUNCTION `??MT_SapiFindDev::?relay`,0203H
+        PUBLIC `??MT_SapiGetDevInfo::?relay`
+        FUNCTION `??MT_SapiGetDevInfo::?relay`,0203H
+        PUBLIC `??MT_SapiPermitJoin::?relay`
+        FUNCTION `??MT_SapiPermitJoin::?relay`,0203H
+        PUBLIC `??MT_SapiReadCfg::?relay`
+        FUNCTION `??MT_SapiReadCfg::?relay`,0203H
+        PUBLIC `??MT_SapiSendData::?relay`
+        FUNCTION `??MT_SapiSendData::?relay`,0203H
+        PUBLIC `??MT_SapiStart::?relay`
+        FUNCTION `??MT_SapiStart::?relay`,0203H
+        PUBLIC `??MT_SapiSystemReset::?relay`
+        FUNCTION `??MT_SapiSystemReset::?relay`,0203H
+        PUBLIC `??MT_SapiWriteCfg::?relay`
+        FUNCTION `??MT_SapiWriteCfg::?relay`,0203H
+        PUBLIC `??zb_MTCallbackAllowBindConfirm::?relay`
+        FUNCTION `??zb_MTCallbackAllowBindConfirm::?relay`,0203H
+        PUBLIC `??zb_MTCallbackBindConfirm::?relay`
+        FUNCTION `??zb_MTCallbackBindConfirm::?relay`,0203H
+        PUBLIC `??zb_MTCallbackFindDeviceConfirm::?relay`
+        FUNCTION `??zb_MTCallbackFindDeviceConfirm::?relay`,0203H
+        PUBLIC `??zb_MTCallbackReceiveDataIndication::?relay`
+        FUNCTION `??zb_MTCallbackReceiveDataIndication::?relay`,0203H
+        PUBLIC `??zb_MTCallbackSendDataConfirm::?relay`
+        FUNCTION `??zb_MTCallbackSendDataConfirm::?relay`,0203H
+        PUBLIC `??zb_MTCallbackStartConfirm::?relay`
+        FUNCTION `??zb_MTCallbackStartConfirm::?relay`,0203H
+        PUBLIC MT_SapiAllowBind
+        FUNCTION MT_SapiAllowBind,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC MT_SapiAppRegister
+        FUNCTION MT_SapiAppRegister,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 3, STACK
+        LOCFRAME XSTACK, 1, STACK
+        PUBLIC MT_SapiBindDevice
+        FUNCTION MT_SapiBindDevice,0a1203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC MT_SapiCommandProcessing
+        FUNCTION MT_SapiCommandProcessing,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC MT_SapiFindDev
+        FUNCTION MT_SapiFindDev,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC MT_SapiGetDevInfo
+        FUNCTION MT_SapiGetDevInfo,0a1203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 14, STACK
+        PUBLIC MT_SapiPermitJoin
+        FUNCTION MT_SapiPermitJoin,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC MT_SapiReadCfg
+        FUNCTION MT_SapiReadCfg,0a1203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 14, STACK
+        PUBLIC MT_SapiSendData
+        FUNCTION MT_SapiSendData,0a1203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 15, STACK
+        PUBLIC MT_SapiStart
+        FUNCTION MT_SapiStart,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC MT_SapiSystemReset
+        FUNCTION MT_SapiSystemReset,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC MT_SapiWriteCfg
+        FUNCTION MT_SapiWriteCfg,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC _sapiCallbackSub
+        PUBLIC zb_MTCallbackAllowBindConfirm
+        FUNCTION zb_MTCallbackAllowBindConfirm,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 3, STACK
+        LOCFRAME XSTACK, 2, STACK
+        PUBLIC zb_MTCallbackBindConfirm
+        FUNCTION zb_MTCallbackBindConfirm,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 12, STACK
+        PUBLIC zb_MTCallbackFindDeviceConfirm
+        FUNCTION zb_MTCallbackFindDeviceConfirm,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 25, STACK
+        PUBLIC zb_MTCallbackReceiveDataIndication
+        FUNCTION zb_MTCallbackReceiveDataIndication,0a1203H
+        ARGFRAME XSTACK, 4, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 18, STACK
+        PUBLIC zb_MTCallbackSendDataConfirm
+        FUNCTION zb_MTCallbackSendDataConfirm,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 11, STACK
+        PUBLIC zb_MTCallbackStartConfirm
+        FUNCTION zb_MTCallbackStartConfirm,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 3, STACK
+        LOCFRAME XSTACK, 1, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+          CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+AddrMgrExtAddrValid SYMBOL "AddrMgrExtAddrValid"
+`??AddrMgrExtAddrValid::?relay` SYMBOL "?relay", AddrMgrExtAddrValid
+MT_BuildAndSendZToolResponse SYMBOL "MT_BuildAndSendZToolResponse"
+`??MT_BuildAndSendZToolResponse::?relay` SYMBOL "?relay", MT_BuildAndSendZToolResponse
+MT_BuildEndpointDesc SYMBOL "MT_BuildEndpointDesc"
+`??MT_BuildEndpointDesc::?relay` SYMBOL "?relay", MT_BuildEndpointDesc
+afRegister          SYMBOL "afRegister"
+`??afRegister::?relay` SYMBOL "?relay", afRegister
+afSetMatch          SYMBOL "afSetMatch"
+`??afSetMatch::?relay` SYMBOL "?relay", afSetMatch
+osal_mem_alloc      SYMBOL "osal_mem_alloc"
+`??osal_mem_alloc::?relay` SYMBOL "?relay", osal_mem_alloc
+osal_mem_free       SYMBOL "osal_mem_free"
+`??osal_mem_free::?relay` SYMBOL "?relay", osal_mem_free
+osal_memcpy         SYMBOL "osal_memcpy"
+`??osal_memcpy::?relay` SYMBOL "?relay", osal_memcpy
+osal_nv_item_len    SYMBOL "osal_nv_item_len"
+`??osal_nv_item_len::?relay` SYMBOL "?relay", osal_nv_item_len
+zb_AllowBind        SYMBOL "zb_AllowBind"
+`??zb_AllowBind::?relay` SYMBOL "?relay", zb_AllowBind
+zb_BindDevice       SYMBOL "zb_BindDevice"
+`??zb_BindDevice::?relay` SYMBOL "?relay", zb_BindDevice
+zb_FindDeviceRequest SYMBOL "zb_FindDeviceRequest"
+`??zb_FindDeviceRequest::?relay` SYMBOL "?relay", zb_FindDeviceRequest
+zb_GetDeviceInfo    SYMBOL "zb_GetDeviceInfo"
+`??zb_GetDeviceInfo::?relay` SYMBOL "?relay", zb_GetDeviceInfo
+zb_PermitJoiningRequest SYMBOL "zb_PermitJoiningRequest"
+`??zb_PermitJoiningRequest::?relay` SYMBOL "?relay", zb_PermitJoiningRequest
+zb_ReadConfiguration SYMBOL "zb_ReadConfiguration"
+`??zb_ReadConfiguration::?relay` SYMBOL "?relay", zb_ReadConfiguration
+zb_SendDataRequest  SYMBOL "zb_SendDataRequest"
+`??zb_SendDataRequest::?relay` SYMBOL "?relay", zb_SendDataRequest
+zb_StartRequest     SYMBOL "zb_StartRequest"
+`??zb_StartRequest::?relay` SYMBOL "?relay", zb_StartRequest
+zb_SystemReset      SYMBOL "zb_SystemReset"
+`??zb_SystemReset::?relay` SYMBOL "?relay", zb_SystemReset
+zb_WriteConfiguration SYMBOL "zb_WriteConfiguration"
+`??zb_WriteConfiguration::?relay` SYMBOL "?relay", zb_WriteConfiguration
+MT_SapiAllowBind    SYMBOL "MT_SapiAllowBind"
+`??MT_SapiAllowBind::?relay` SYMBOL "?relay", MT_SapiAllowBind
+MT_SapiAppRegister  SYMBOL "MT_SapiAppRegister"
+`??MT_SapiAppRegister::?relay` SYMBOL "?relay", MT_SapiAppRegister
+MT_SapiBindDevice   SYMBOL "MT_SapiBindDevice"
+`??MT_SapiBindDevice::?relay` SYMBOL "?relay", MT_SapiBindDevice
+MT_SapiCommandProcessing SYMBOL "MT_SapiCommandProcessing"
+`??MT_SapiCommandProcessing::?relay` SYMBOL "?relay", MT_SapiCommandProcessing
+MT_SapiFindDev      SYMBOL "MT_SapiFindDev"
+`??MT_SapiFindDev::?relay` SYMBOL "?relay", MT_SapiFindDev
+MT_SapiGetDevInfo   SYMBOL "MT_SapiGetDevInfo"
+`??MT_SapiGetDevInfo::?relay` SYMBOL "?relay", MT_SapiGetDevInfo
+MT_SapiPermitJoin   SYMBOL "MT_SapiPermitJoin"
+`??MT_SapiPermitJoin::?relay` SYMBOL "?relay", MT_SapiPermitJoin
+MT_SapiReadCfg      SYMBOL "MT_SapiReadCfg"
+`??MT_SapiReadCfg::?relay` SYMBOL "?relay", MT_SapiReadCfg
+MT_SapiSendData     SYMBOL "MT_SapiSendData"
+`??MT_SapiSendData::?relay` SYMBOL "?relay", MT_SapiSendData
+MT_SapiStart        SYMBOL "MT_SapiStart"
+`??MT_SapiStart::?relay` SYMBOL "?relay", MT_SapiStart
+MT_SapiSystemReset  SYMBOL "MT_SapiSystemReset"
+`??MT_SapiSystemReset::?relay` SYMBOL "?relay", MT_SapiSystemReset
+MT_SapiWriteCfg     SYMBOL "MT_SapiWriteCfg"
+`??MT_SapiWriteCfg::?relay` SYMBOL "?relay", MT_SapiWriteCfg
+zb_MTCallbackAllowBindConfirm SYMBOL "zb_MTCallbackAllowBindConfirm"
+`??zb_MTCallbackAllowBindConfirm::?relay` SYMBOL "?relay", zb_MTCallbackAllowBindConfirm
+zb_MTCallbackBindConfirm SYMBOL "zb_MTCallbackBindConfirm"
+`??zb_MTCallbackBindConfirm::?relay` SYMBOL "?relay", zb_MTCallbackBindConfirm
+zb_MTCallbackFindDeviceConfirm SYMBOL "zb_MTCallbackFindDeviceConfirm"
+`??zb_MTCallbackFindDeviceConfirm::?relay` SYMBOL "?relay", zb_MTCallbackFindDeviceConfirm
+zb_MTCallbackReceiveDataIndication SYMBOL "zb_MTCallbackReceiveDataIndication"
+`??zb_MTCallbackReceiveDataIndication::?relay` SYMBOL "?relay", zb_MTCallbackReceiveDataIndication
+zb_MTCallbackSendDataConfirm SYMBOL "zb_MTCallbackSendDataConfirm"
+`??zb_MTCallbackSendDataConfirm::?relay` SYMBOL "?relay", zb_MTCallbackSendDataConfirm
+zb_MTCallbackStartConfirm SYMBOL "zb_MTCallbackStartConfirm"
+`??zb_MTCallbackStartConfirm::?relay` SYMBOL "?relay", zb_MTCallbackStartConfirm
+
+        EXTERN `??AddrMgrExtAddrValid::?relay`
+        FUNCTION `??AddrMgrExtAddrValid::?relay`,00H
+        EXTERN `??MT_BuildAndSendZToolResponse::?relay`
+        FUNCTION `??MT_BuildAndSendZToolResponse::?relay`,00H
+        EXTERN `??MT_BuildEndpointDesc::?relay`
+        FUNCTION `??MT_BuildEndpointDesc::?relay`,00H
+        EXTERN `??afRegister::?relay`
+        FUNCTION `??afRegister::?relay`,00H
+        EXTERN `??afSetMatch::?relay`
+        FUNCTION `??afSetMatch::?relay`,00H
+        EXTERN `??osal_mem_alloc::?relay`
+        FUNCTION `??osal_mem_alloc::?relay`,00H
+        EXTERN `??osal_mem_free::?relay`
+        FUNCTION `??osal_mem_free::?relay`,00H
+        EXTERN `??osal_memcpy::?relay`
+        FUNCTION `??osal_memcpy::?relay`,00H
+        EXTERN `??osal_nv_item_len::?relay`
+        FUNCTION `??osal_nv_item_len::?relay`,00H
+        EXTERN `??zb_AllowBind::?relay`
+        FUNCTION `??zb_AllowBind::?relay`,00H
+        EXTERN `??zb_BindDevice::?relay`
+        FUNCTION `??zb_BindDevice::?relay`,00H
+        EXTERN `??zb_FindDeviceRequest::?relay`
+        FUNCTION `??zb_FindDeviceRequest::?relay`,00H
+        EXTERN `??zb_GetDeviceInfo::?relay`
+        FUNCTION `??zb_GetDeviceInfo::?relay`,00H
+        EXTERN `??zb_PermitJoiningRequest::?relay`
+        FUNCTION `??zb_PermitJoiningRequest::?relay`,00H
+        EXTERN `??zb_ReadConfiguration::?relay`
+        FUNCTION `??zb_ReadConfiguration::?relay`,00H
+        EXTERN `??zb_SendDataRequest::?relay`
+        FUNCTION `??zb_SendDataRequest::?relay`,00H
+        EXTERN `??zb_StartRequest::?relay`
+        FUNCTION `??zb_StartRequest::?relay`,00H
+        EXTERN `??zb_SystemReset::?relay`
+        FUNCTION `??zb_SystemReset::?relay`,00H
+        EXTERN `??zb_WriteConfiguration::?relay`
+        FUNCTION `??zb_WriteConfiguration::?relay`,00H
+        EXTERN AddrMgrExtAddrValid
+        FUNCTION AddrMgrExtAddrValid,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN MT_BuildAndSendZToolResponse
+        FUNCTION MT_BuildAndSendZToolResponse,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 22, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN MT_BuildEndpointDesc
+        FUNCTION MT_BuildEndpointDesc,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 1, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN afRegister
+        FUNCTION afRegister,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 1, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN afSetMatch
+        FUNCTION afSetMatch,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 1, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_mem_alloc
+        FUNCTION osal_mem_alloc,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_mem_free
+        FUNCTION osal_mem_free,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_memcpy
+        FUNCTION osal_memcpy,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 25, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_nv_item_len
+        FUNCTION osal_nv_item_len,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN sapi_epDesc
+        EXTERN zb_AllowBind
+        FUNCTION zb_AllowBind,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zb_BindDevice
+        FUNCTION zb_BindDevice,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zb_FindDeviceRequest
+        FUNCTION zb_FindDeviceRequest,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zb_GetDeviceInfo
+        FUNCTION zb_GetDeviceInfo,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zb_PermitJoiningRequest
+        FUNCTION zb_PermitJoiningRequest,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zb_ReadConfiguration
+        FUNCTION zb_ReadConfiguration,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zb_SendDataRequest
+        FUNCTION zb_SendDataRequest,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zb_StartRequest
+        FUNCTION zb_StartRequest,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zb_SystemReset
+        FUNCTION zb_SystemReset,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zb_WriteConfiguration
+        FUNCTION zb_WriteConfiguration,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+
+// D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Components\mt\MT_SAPI.c
+//    1 /**************************************************************************************************
+//    2   Filename:       MT_SAPI.c
+//    3   Revised:        $Date: 2012-11-21 06:19:37 -0800 (Wed, 21 Nov 2012) $
+//    4   Revision:       $Revision: 32270 $
+//    5 
+//    6   Description:    MonitorTest functions for the Simple API.
+//    7 
+//    8 
+//    9   Copyright 2007-2012 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License"). You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product. Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 
+//   39 **************************************************************************************************/
+//   40 
+//   41 /***************************************************************************************************
+//   42  * INCLUDES
+//   43  ***************************************************************************************************/
+//   44 #include "ZComDef.h"
+//   45 #include "AddrMgr.h"
+//   46 #include "OSAL.h"
+//   47 #include "OSAL_Nv.h"
+//   48 #include "OnBoard.h"
+//   49 #include "MT.h"
+//   50 #include "MT_SAPI.h"
+//   51 #include "MT_UART.h"
+//   52 
+//   53 /***************************************************************************************************
+//   54  * GLOBAL VARIABLES
+//   55  ***************************************************************************************************/
+//   56 #if defined ( MT_SAPI_CB_FUNC )
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA16
+//   57 uint16 _sapiCallbackSub;
+_sapiCallbackSub:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+//   58 #endif
+//   59 
+//   60 /***************************************************************************************************
+//   61  * LOCAL FUNCTIONS
+//   62  ***************************************************************************************************/
+//   63 void MT_SapiSystemReset(uint8 *pBuf);
+//   64 void MT_SapiStart(uint8* pBuf);
+//   65 void MT_SapiBindDevice(uint8 *pBuf);
+//   66 void MT_SapiAllowBind(uint8 *pBuf);
+//   67 void MT_SapiSendData(uint8 *pBuf);
+//   68 void MT_SapiReadCfg(uint8 *pBuf);
+//   69 void MT_SapiWriteCfg(uint8 *pBuf);
+//   70 void MT_SapiGetDevInfo(uint8 *pBuf);
+//   71 void MT_SapiFindDev(uint8 *pBuf);
+//   72 void MT_SapiPermitJoin(uint8 *pBuf);
+//   73 void MT_SapiAppRegister(uint8 *pBuf);
+//   74 
+//   75 #if defined ( MT_SAPI_FUNC )
+//   76 /***************************************************************************************************
+//   77  * @fn      MT_sapiCommandProcessing
+//   78  *
+//   79  * @brief   Process all the SAPI commands that are issued by test tool
+//   80  *
+//   81  * @param   pBuf - pointer to received buffer
+//   82  *
+//   83  * @return  MT_RPC_SUCCESS if command processed, MT_RPC_ERR_COMMAND_ID if not.
+//   84  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   85 uint8 MT_SapiCommandProcessing(uint8 *pBuf)
+MT_SapiCommandProcessing:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function MT_SapiCommandProcessing
+        CODE
+//   86 {
+        FUNCALL MT_SapiCommandProcessing, MT_SapiStart
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiCommandProcessing, MT_SapiBindDevice
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiCommandProcessing, MT_SapiAllowBind
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiCommandProcessing, MT_SapiSendData
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiCommandProcessing, MT_SapiReadCfg
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiCommandProcessing, MT_SapiWriteCfg
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiCommandProcessing, MT_SapiGetDevInfo
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiCommandProcessing, MT_SapiFindDev
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiCommandProcessing, MT_SapiPermitJoin
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiCommandProcessing, zb_SystemReset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiCommandProcessing, MT_SapiAppRegister
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+//   87   uint8 status = MT_RPC_SUCCESS;
+        MOV     R6,#0x0
+//   88 
+//   89   switch (pBuf[MT_RPC_POS_CMD1])
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        JZ      ??MT_SapiCommandProcessing_0
+        DEC     A
+        JZ      ??MT_SapiCommandProcessing_1
+        DEC     A
+        JZ      ??MT_SapiCommandProcessing_2
+        DEC     A
+        JZ      ??MT_SapiCommandProcessing_3
+        DEC     A
+        JZ      ??MT_SapiCommandProcessing_4
+        DEC     A
+        JZ      ??MT_SapiCommandProcessing_5
+        DEC     A
+        JZ      ??MT_SapiCommandProcessing_6
+        DEC     A
+        JZ      ??MT_SapiCommandProcessing_7
+        DEC     A
+        JZ      ??MT_SapiCommandProcessing_8
+        DEC     A
+        JZ      ??MT_SapiCommandProcessing_9
+        DEC     A
+        JZ      ??MT_SapiCommandProcessing_10
+        SJMP    ??MT_SapiCommandProcessing_11
+//   90   {
+//   91     case MT_SAPI_START_REQ:
+//   92       MT_SapiStart(pBuf);
+??MT_SapiCommandProcessing_0:
+        ; Setup parameters for call to function MT_SapiStart
+        LCALL   `??MT_SapiStart::?relay`; Banked call to: MT_SapiStart
+//   93       break;
+        SJMP    ??MT_SapiCommandProcessing_12
+//   94 
+//   95     case MT_SAPI_BIND_DEVICE_REQ:
+//   96       MT_SapiBindDevice(pBuf);
+??MT_SapiCommandProcessing_1:
+        ; Setup parameters for call to function MT_SapiBindDevice
+        LCALL   `??MT_SapiBindDevice::?relay`; Banked call to: MT_SapiBindDevice
+//   97       break;
+        SJMP    ??MT_SapiCommandProcessing_12
+//   98 
+//   99     case MT_SAPI_ALLOW_BIND_REQ:
+//  100       MT_SapiAllowBind(pBuf);
+??MT_SapiCommandProcessing_2:
+        ; Setup parameters for call to function MT_SapiAllowBind
+        LCALL   `??MT_SapiAllowBind::?relay`; Banked call to: MT_SapiAllowBind
+//  101       break;
+        SJMP    ??MT_SapiCommandProcessing_12
+//  102 
+//  103     case MT_SAPI_SEND_DATA_REQ:
+//  104       MT_SapiSendData(pBuf);
+??MT_SapiCommandProcessing_3:
+        ; Setup parameters for call to function MT_SapiSendData
+        LCALL   `??MT_SapiSendData::?relay`; Banked call to: MT_SapiSendData
+//  105       break;
+        SJMP    ??MT_SapiCommandProcessing_12
+//  106 
+//  107     case MT_SAPI_READ_CFG_REQ:
+//  108       MT_SapiReadCfg(pBuf);
+??MT_SapiCommandProcessing_4:
+        ; Setup parameters for call to function MT_SapiReadCfg
+        LCALL   `??MT_SapiReadCfg::?relay`; Banked call to: MT_SapiReadCfg
+//  109       break;
+        SJMP    ??MT_SapiCommandProcessing_12
+//  110 
+//  111     case MT_SAPI_WRITE_CFG_REQ:
+//  112       MT_SapiWriteCfg(pBuf);
+??MT_SapiCommandProcessing_5:
+        ; Setup parameters for call to function MT_SapiWriteCfg
+        LCALL   `??MT_SapiWriteCfg::?relay`; Banked call to: MT_SapiWriteCfg
+//  113       break;
+        SJMP    ??MT_SapiCommandProcessing_12
+//  114 
+//  115     case MT_SAPI_GET_DEV_INFO_REQ:
+//  116       MT_SapiGetDevInfo(pBuf);
+??MT_SapiCommandProcessing_6:
+        ; Setup parameters for call to function MT_SapiGetDevInfo
+        LCALL   `??MT_SapiGetDevInfo::?relay`; Banked call to: MT_SapiGetDevInfo
+//  117       break;
+        SJMP    ??MT_SapiCommandProcessing_12
+//  118 
+//  119     case MT_SAPI_FIND_DEV_REQ:
+//  120       MT_SapiFindDev(pBuf);
+??MT_SapiCommandProcessing_7:
+        ; Setup parameters for call to function MT_SapiFindDev
+        LCALL   `??MT_SapiFindDev::?relay`; Banked call to: MT_SapiFindDev
+//  121       break;
+        SJMP    ??MT_SapiCommandProcessing_12
+//  122 
+//  123     case MT_SAPI_PMT_JOIN_REQ:
+//  124       MT_SapiPermitJoin(pBuf);
+??MT_SapiCommandProcessing_8:
+        ; Setup parameters for call to function MT_SapiPermitJoin
+        LCALL   `??MT_SapiPermitJoin::?relay`; Banked call to: MT_SapiPermitJoin
+//  125       break;
+        SJMP    ??MT_SapiCommandProcessing_12
+//  126 
+//  127     case MT_SAPI_SYS_RESET:
+//  128       MT_SapiSystemReset(pBuf);
+??MT_SapiCommandProcessing_9:
+        ; Setup parameters for call to function zb_SystemReset
+        LCALL   `??zb_SystemReset::?relay`; Banked call to: zb_SystemReset
+//  129       break;
+        SJMP    ??MT_SapiCommandProcessing_12
+//  130 
+//  131     case MT_SAPI_APP_REGISTER_REQ:
+//  132       MT_SapiAppRegister(pBuf);
+??MT_SapiCommandProcessing_10:
+        ; Setup parameters for call to function MT_SapiAppRegister
+        LCALL   `??MT_SapiAppRegister::?relay`; Banked call to: MT_SapiAppRegister
+//  133       break;
+        SJMP    ??MT_SapiCommandProcessing_12
+//  134 
+//  135     default:
+//  136       status = MT_RPC_ERR_COMMAND_ID;
+??MT_SapiCommandProcessing_11:
+        MOV     R6,#0x2
+//  137       break;
+//  138   }
+//  139 
+//  140   return status;
+??MT_SapiCommandProcessing_12:
+        MOV     A,R6
+        MOV     R1,A
+        SJMP    ??Subroutine9_0
+//  141 }
+          CFI EndBlock cfiBlock0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        LCALL   ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_0:
+        MOV     R3,#0x1
+        MOV     A,R6
+        MOV     R2,A
+        MOV     R1,#0x66
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+        MOV     A,#0x1
+          CFI EndBlock cfiBlock1
+        REQUIRE ??Subroutine8_0
+        ; // Fall through to label ??Subroutine8_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine8_0:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 11)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI Invalid
+        LCALL   ?DEALLOC_XSTACK8
+          CFI EndBlock cfiBlock2
+        REQUIRE ??Subroutine9_0
+        ; // Fall through to label ??Subroutine9_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine9_0:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     R7,#0x1
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock3
+//  142 
+//  143 /***************************************************************************************************
+//  144  * @fn          MT_SapiSystemReset
+//  145  *
+//  146  * @brief       Process SAPI System Reset
+//  147  *
+//  148  * @param       pBuf - pointer to received buffer
+//  149  *
+//  150  * @return      none
+//  151  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  152 void MT_SapiSystemReset(uint8 *pBuf)
+MT_SapiSystemReset:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function MT_SapiSystemReset
+        CODE
+//  153 {
+        FUNCALL MT_SapiSystemReset, zb_SystemReset
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  154   zb_SystemReset();
+        ; Setup parameters for call to function zb_SystemReset
+        LCALL   `??zb_SystemReset::?relay`; Banked call to: zb_SystemReset
+//  155 }
+        LJMP    ??Subroutine12_0 & 0xFFFF
+          CFI EndBlock cfiBlock4
+//  156 
+//  157 /***************************************************************************************************
+//  158  * @fn          MT_SapiStart
+//  159  *
+//  160  * @brief       Process SAPI Start
+//  161  *
+//  162  * @param       pBuf - pointer to received buffer
+//  163  *
+//  164  * @return      none
+//  165  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  166 void MT_SapiStart(uint8 *pBuf)
+MT_SapiStart:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function MT_SapiStart
+        CODE
+//  167 {
+        FUNCALL MT_SapiStart, zb_StartRequest
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiStart, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  168   zb_StartRequest();
+        ; Setup parameters for call to function zb_StartRequest
+        LCALL   `??zb_StartRequest::?relay`; Banked call to: zb_StartRequest
+//  169 
+//  170   /* Build and send back the response */
+//  171   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_START_REQ, 0, NULL);
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R3,#0x0
+        MOV     R2,#0x0
+        MOV     R1,#0x66
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  172 }
+        LJMP    ??Subroutine12_0 & 0xFFFF
+          CFI EndBlock cfiBlock5
+//  173 /***************************************************************************************************
+//  174  * @fn          MT_SapiAppRegister
+//  175  *
+//  176  * @brief       Process SAPI App Register
+//  177  *
+//  178  * @param       pBuf - pointer to received buffer
+//  179  *
+//  180  * @return      none
+//  181  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  182 void MT_SapiAppRegister(uint8 *pBuf)
+MT_SapiAppRegister:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function MT_SapiAppRegister
+        CODE
+//  183 {
+        FUNCALL MT_SapiAppRegister, MT_BuildEndpointDesc
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 1, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 1, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiAppRegister, afRegister
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 1, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 1, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiAppRegister, afSetMatch
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 1, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 1, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiAppRegister, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 1, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 1, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 1)
+//  184   uint8 ret = ZApsIllegalRequest;
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     A,#-0x4d
+        MOVX    @DPTR,A
+//  185 
+//  186   /* check if sapi is alredy registered with an endpoint */
+//  187   if ( (sapi_epDesc.endPoint == 0) && (*pBuf != 0) )
+        MOV     DPTR,#sapi_epDesc
+        MOVX    A,@DPTR
+        JNZ     ??MT_SapiAppRegister_0
+        MOV     DPL,R2
+        MOV     DPH,R3
+        MOVX    A,@DPTR
+        JZ      ??MT_SapiAppRegister_0
+//  188   {
+//  189     ret = MT_BuildEndpointDesc( pBuf+MT_RPC_FRAME_HDR_SZ, &sapi_epDesc );
+        ; Setup parameters for call to function MT_BuildEndpointDesc
+        MOV     R4,#sapi_epDesc & 0xff
+        MOV     R5,#(sapi_epDesc >> 8) & 0xff
+        MOV     A,R2
+        ADD     A,#0x3
+        MOV     R2,A
+        JNC     ??MT_SapiAppRegister_1
+        INC     R3
+??MT_SapiAppRegister_1:
+        LCALL   `??MT_BuildEndpointDesc::?relay`; Banked call to: MT_BuildEndpointDesc
+        MOV     A,R1
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    @DPTR,A
+//  190     if ( ret == ZSuccess )
+        JNZ     ??MT_SapiAppRegister_2
+//  191     {
+//  192       ret = afRegister( &sapi_epDesc );
+        ; Setup parameters for call to function afRegister
+        MOV     R2,#sapi_epDesc & 0xff
+        MOV     R3,#(sapi_epDesc >> 8) & 0xff
+        LCALL   `??afRegister::?relay`; Banked call to: afRegister
+        MOV     A,R1
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    @DPTR,A
+//  193       // Turn off match descriptor response by default
+//  194       afSetMatch(sapi_epDesc.simpleDesc->EndPoint, FALSE);
+        ; Setup parameters for call to function afSetMatch
+        MOV     R2,#0x0
+        MOV     DPTR,#sapi_epDesc + 3
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPH,A
+        MOV     DPL,R0
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??afSetMatch::?relay`; Banked call to: afSetMatch
+//  195     }
+//  196 
+//  197     if ( ret != ZSuccess )
+??MT_SapiAppRegister_2:
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    A,@DPTR
+        JZ      ??MT_SapiAppRegister_0
+//  198     {
+//  199       sapi_epDesc.endPoint = 0;
+        MOV     DPTR,#sapi_epDesc
+        CLR     A
+        MOVX    @DPTR,A
+//  200     }
+//  201   }
+//  202 
+//  203   /* Build and send back the response */
+//  204   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI),
+//  205                                        MT_SAPI_APP_REGISTER_REQ, 1, &ret);
+??MT_SapiAppRegister_0:
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     R4,?XSP + 0
+        MOV     R5,?XSP + 1
+        MOV     R3,#0x1
+        MOV     R2,#0xa
+        MOV     R1,#0x66
+        LJMP    ?Subroutine1 & 0xFFFF
+//  206 }
+          CFI EndBlock cfiBlock6
+//  207 /***************************************************************************************************
+//  208  * @fn          MT_SapiBindDevice
+//  209  *
+//  210  * @brief       Process SAPI Bind Device Command
+//  211  *
+//  212  * @param       pBuf - pointer to received buffer
+//  213  *
+//  214  * @return      none
+//  215  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  216 void MT_SapiBindDevice(uint8 *pBuf)
+MT_SapiBindDevice:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function MT_SapiBindDevice
+        CODE
+//  217 {
+        FUNCALL MT_SapiBindDevice, AddrMgrExtAddrValid
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiBindDevice, zb_BindDevice
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiBindDevice, zb_BindDevice
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiBindDevice, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV     A,R2
+        MOV     R6,A
+        MOV     A,R3
+        MOV     R7,A
+//  218   uint8 cmdId;
+//  219 
+//  220   /* parse header */
+//  221   cmdId = pBuf[MT_RPC_POS_CMD1];
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V0,A
+//  222   pBuf += MT_RPC_FRAME_HDR_SZ;
+        MOV     A,R6
+        ADD     A,#0x3
+        MOV     R6,A
+        JNC     ??MT_SapiBindDevice_0
+        INC     R7
+//  223 
+//  224   if (AddrMgrExtAddrValid(pBuf+3))
+??MT_SapiBindDevice_0:
+        ; Setup parameters for call to function AddrMgrExtAddrValid
+        ADD     A,#0x3
+        MOV     R2,A
+        CLR     A
+        ADDC    A,R7
+        MOV     R3,A
+        LCALL   `??AddrMgrExtAddrValid::?relay`; Banked call to: AddrMgrExtAddrValid
+        MOV     A,R1
+        JZ      ??MT_SapiBindDevice_1
+//  225   {
+//  226     zb_BindDevice(pBuf[0], BUILD_UINT16(pBuf[1], pBuf[2]), &pBuf[3]);
+        ; Setup parameters for call to function zb_BindDevice
+        MOV     A,R6
+        ADD     A,#0x3
+        MOV     R4,A
+        CLR     A
+        ADDC    A,R7
+        MOV     R5,A
+        LCALL   ?Subroutine5 & 0xFFFF
+//  227   }
+??CrossCallReturnLabel_5:
+        MOV     R0,A
+        CLR     A
+        XCH     A,R0
+        MOV     R1,A
+        MOV     A,R2
+        ADD     A,R0
+        SJMP    ??MT_SapiBindDevice_2
+//  228   else
+//  229   {
+//  230     zb_BindDevice(pBuf[0], BUILD_UINT16(pBuf[1], pBuf[2]), (uint8 *)NULL);
+??MT_SapiBindDevice_1:
+        ; Setup parameters for call to function zb_BindDevice
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        LCALL   ?Subroutine5 & 0xFFFF
+//  231   }
+??CrossCallReturnLabel_6:
+        MOV     R1,A
+        MOV     A,R2
+        ADD     A,R4
+??MT_SapiBindDevice_2:
+        CLR     A
+        ADDC    A,R1
+        MOV     R3,A
+        MOV     DPL,R6
+        MOV     DPH,R7
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??zb_BindDevice::?relay`; Banked call to: zb_BindDevice
+//  232 
+//  233   /* Build and send back the response */
+//  234   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, 0, NULL);
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R3,#0x0
+        MOV     R2,?V0
+        SJMP    ??Subroutine10_0
+//  235 }
+          CFI EndBlock cfiBlock7
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine5:
+          CFI Block cfiCond8 Using cfiCommon0
+          CFI Function MT_SapiBindDevice
+          CFI Conditional ??CrossCallReturnLabel_5
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI Block cfiCond9 Using cfiCommon0
+          CFI (cfiCond9) Function MT_SapiBindDevice
+          CFI (cfiCond9) Conditional ??CrossCallReturnLabel_6
+          CFI (cfiCond9) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond9) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond9) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond9) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond9) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond9) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond9) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond9) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond9) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond9) CFA_SP SP+-2
+          CFI (cfiCond9) CFA_XSP16 add(XSP16, 9)
+          CFI Block cfiPicker10 Using cfiCommon1
+          CFI (cfiPicker10) NoFunction
+          CFI (cfiPicker10) Picker
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R2,A
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        RET
+          CFI EndBlock cfiCond8
+          CFI EndBlock cfiCond9
+          CFI EndBlock cfiPicker10
+//  236 
+//  237 /***************************************************************************************************
+//  238  * @fn          MT_SapiAllowBind
+//  239  *
+//  240  * @brief       Process SAPI Allow Bind
+//  241  *
+//  242  * @param       pBuf - pointer to received buffer
+//  243  *
+//  244  * @return      none
+//  245  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  246 void MT_SapiAllowBind(uint8 *pBuf)
+MT_SapiAllowBind:
+          CFI Block cfiBlock11 Using cfiCommon0
+          CFI Function MT_SapiAllowBind
+        CODE
+//  247 {
+        FUNCALL MT_SapiAllowBind, zb_AllowBind
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiAllowBind, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+//  248   uint8 cmdId;
+//  249 
+//  250   /* parse header */
+//  251   cmdId = pBuf[MT_RPC_POS_CMD1];
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R6,A
+//  252   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  253 
+//  254   zb_AllowBind(pBuf[0]);
+        ; Setup parameters for call to function zb_AllowBind
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??zb_AllowBind::?relay`; Banked call to: zb_AllowBind
+//  255 
+//  256   /* Build and send back the response */
+//  257   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, 0, NULL);
+          CFI EndBlock cfiBlock11
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        REQUIRE ?Subroutine3
+        ; // Fall through to label ?Subroutine3
+//  258 }
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine3:
+          CFI Block cfiBlock12 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R3,#0x0
+        MOV     A,R6
+        MOV     R2,A
+          CFI EndBlock cfiBlock12
+        REQUIRE ??Subroutine10_0
+        ; // Fall through to label ??Subroutine10_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine10_0:
+          CFI Block cfiBlock13 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     R1,#0x66
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+        LJMP    ??Subroutine9_0 & 0xFFFF
+          CFI EndBlock cfiBlock13
+//  259 
+//  260 /***************************************************************************************************
+//  261  * @fn          MT_SapiSendData
+//  262  *
+//  263  * @brief       Process SAPI Send Data Command
+//  264  *
+//  265  * @param       pBuf - pointer to received buffer
+//  266  *
+//  267  * @return      none
+//  268  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  269 void MT_SapiSendData(uint8 *pBuf)
+MT_SapiSendData:
+          CFI Block cfiBlock14 Using cfiCommon0
+          CFI Function MT_SapiSendData
+        CODE
+//  270 {
+        FUNCALL MT_SapiSendData, zb_SendDataRequest
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiSendData, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+//  271   uint8 cmdId;
+//  272   uint16 destination, command;
+//  273   uint8 len, handle, txOption, radius;
+//  274 
+//  275   /* parse header */
+//  276   cmdId = pBuf[MT_RPC_POS_CMD1];
+        LCALL   ?Subroutine6 & 0xFFFF
+//  277   pBuf += MT_RPC_FRAME_HDR_SZ;
+??CrossCallReturnLabel_7:
+        JNC     ??MT_SapiSendData_0
+        INC     R3
+//  278 
+//  279   /* Destination */
+//  280   destination = BUILD_UINT16(pBuf[0], pBuf[1]);
+//  281   /* Command */
+//  282   command = BUILD_UINT16(pBuf[2], pBuf[3]);
+//  283   /* Handle */
+//  284   handle = pBuf[4];
+//  285   /* txOption */
+//  286   txOption = pBuf[5];
+//  287   /* Radius */
+//  288   radius = pBuf[6];
+//  289   /* Length */
+//  290   len = pBuf[7];
+//  291 
+//  292   zb_SendDataRequest(destination, command, len, &pBuf[8], handle, txOption, radius);
+??MT_SapiSendData_0:
+        ; Setup parameters for call to function zb_SendDataRequest
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V0,A
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_ONE
+          CFI CFA_XSP16 add(XSP16, 11)
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V0,A
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_ONE
+          CFI CFA_XSP16 add(XSP16, 12)
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V0,A
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_ONE
+          CFI CFA_XSP16 add(XSP16, 13)
+        MOV     A,R2
+        ADD     A,#0x8
+        MOV     ?V0,A
+        CLR     A
+        ADDC    A,R3
+        MOV     ?V1,A
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 15)
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V0,A
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R5,A
+        MOV     R4,?V0
+        MOV     DPL,R2
+        MOV     DPH,R3
+        MOVX    A,@DPTR
+        MOV     ?V0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R3,A
+        MOV     R2,?V0
+        LCALL   `??zb_SendDataRequest::?relay`; Banked call to: zb_SendDataRequest
+        MOV     A,#0x5
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+//  293 
+//  294   /* Build and send back the response */
+//  295   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, 0, NULL);
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R3,#0x0
+        MOV     A,R6
+        MOV     R2,A
+        MOV     R1,#0x66
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  296 }
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock14
+//  297 
+//  298 /***************************************************************************************************
+//  299  * @fn          MT_SapiReadCfg
+//  300  *
+//  301  * @brief       Process SAPI Read Config Commands
+//  302  *
+//  303  * @param       pBuf - pointer to received buffer
+//  304  *
+//  305  * @return      none
+//  306  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  307 void MT_SapiReadCfg(uint8 *pBuf)
+MT_SapiReadCfg:
+          CFI Block cfiBlock15 Using cfiCommon0
+          CFI Function MT_SapiReadCfg
+        CODE
+//  308 {
+        FUNCALL MT_SapiReadCfg, osal_nv_item_len
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiReadCfg, osal_mem_alloc
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiReadCfg, zb_ReadConfiguration
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiReadCfg, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiReadCfg, osal_mem_free
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V4
+        REQUIRE ?V5
+        MOV     A,#-0xe
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 14)
+        ; Saved register size: 14
+        ; Auto size: 0
+//  309   uint8 len, retStatus;
+//  310   uint8 cfgId, cmdId;
+//  311   uint8 *pRetBuf;
+//  312 
+//  313   /* Parse header */
+//  314   cmdId = pBuf[MT_RPC_POS_CMD1];
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V2,A
+//  315   cfgId = pBuf[MT_RPC_POS_DAT0];
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V0,A
+//  316 
+//  317   /* Length of item in NV memory */
+//  318   len = (uint8)osal_nv_item_len(cfgId);
+        ; Setup parameters for call to function osal_nv_item_len
+        MOV     R2,A
+        MOV     R3,#0x0
+        LCALL   `??osal_nv_item_len::?relay`; Banked call to: osal_nv_item_len
+        MOV     A,R2
+        MOV     ?V1,A
+//  319 
+//  320   pRetBuf = osal_mem_alloc(len+3);
+        ; Setup parameters for call to function osal_mem_alloc
+        ADD     A,#0x3
+        MOV     R2,A
+        CLR     A
+        ADDC    A,#0x0
+        MOV     R3,A
+        LCALL   `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
+        MOV     ?V4,R2
+        MOV     ?V5,R3
+        MOV     R6,?V4
+        MOV     R7,?V5
+//  321   if (pRetBuf != NULL)
+        MOV     A,R6
+        ORL     A,R7
+        JZ      ??MT_SapiReadCfg_0
+//  322   {
+//  323     if (len && ((cfgId != ZCD_NV_NIB) && (cfgId != ZCD_NV_DEVICE_LIST) &&
+//  324                 (cfgId != ZCD_NV_ADDRMGR) && (cfgId != ZCD_NV_NWKKEY)))
+        MOV     A,?V1
+        JZ      ??MT_SapiReadCfg_1
+        MOV     A,#0x21
+        XRL     A,?V0
+        JZ      ??MT_SapiReadCfg_1
+        MOV     A,#0x22
+        XRL     A,?V0
+        JZ      ??MT_SapiReadCfg_1
+        MOV     A,#0x23
+        XRL     A,?V0
+        JZ      ??MT_SapiReadCfg_1
+        MOV     A,#-0x7e
+        XRL     A,?V0
+        JZ      ??MT_SapiReadCfg_1
+//  325     {
+//  326       if ((zb_ReadConfiguration(cfgId, len, pRetBuf+3)) == ZSUCCESS)
+        ; Setup parameters for call to function zb_ReadConfiguration
+        MOV     A,R6
+        ADD     A,#0x3
+        MOV     R4,A
+        CLR     A
+        ADDC    A,R7
+        MOV     R5,A
+        MOV     R2,?V1
+        MOV     R1,?V0
+        LCALL   `??zb_ReadConfiguration::?relay`; Banked call to: zb_ReadConfiguration
+        MOV     A,R1
+        JNZ     ??MT_SapiReadCfg_2
+//  327       {
+//  328         retStatus = ZSuccess;
+        MOV     A,#0x0
+        SJMP    ??MT_SapiReadCfg_3
+//  329       }
+//  330       else
+//  331       {
+//  332         retStatus = ZFailure;
+??MT_SapiReadCfg_2:
+        MOV     A,#0x1
+        SJMP    ??MT_SapiReadCfg_4
+//  333       }
+//  334     }
+//  335     else
+//  336     {
+//  337       retStatus = ZInvalidParameter;
+??MT_SapiReadCfg_1:
+        MOV     A,#0x2
+//  338     }
+//  339 
+//  340     if (retStatus != ZSuccess)
+//  341     {
+//  342        /* Don't return garbage with error */
+//  343        len = 0;
+??MT_SapiReadCfg_4:
+        MOV     ?V1,#0x0
+//  344     }
+//  345 
+//  346     /* Status */
+//  347     pRetBuf[0] = retStatus;
+??MT_SapiReadCfg_3:
+        MOV     DPL,R6
+        MOV     DPH,R7
+        MOVX    @DPTR,A
+//  348     /* Config ID */
+//  349     pRetBuf[1] = cfgId;
+        INC     DPTR
+        MOV     A,?V0
+        MOVX    @DPTR,A
+//  350     /* NV item length */
+//  351     pRetBuf[2] = len;
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        MOV     A,?V1
+        MOVX    @DPTR,A
+//  352 
+//  353     /* Build and send back the response */
+//  354     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, len+3, pRetBuf );
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     A,R6
+        MOV     R4,A
+        MOV     A,R7
+        MOV     R5,A
+        MOV     A,#0x3
+        ADD     A,?V1
+        MOV     R3,A
+        MOV     R2,?V2
+        MOV     R1,#0x66
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  355 
+//  356     osal_mem_free(pRetBuf);
+        ; Setup parameters for call to function osal_mem_free
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+//  357   }
+//  358 }
+??MT_SapiReadCfg_0:
+          CFI EndBlock cfiBlock15
+        REQUIRE ?Subroutine2
+        ; // Fall through to label ?Subroutine2
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine2:
+          CFI Block cfiBlock16 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 14)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     R7,#0x6
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock16
+//  359 
+//  360 /***************************************************************************************************
+//  361  * @fn          MT_SpiWriteCfg
+//  362  *
+//  363  * @brief       Process Write Configuration Command
+//  364  *
+//  365  * @param       pBuf - pointer to received buffer
+//  366  *
+//  367  * @return      none
+//  368  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  369 void MT_SapiWriteCfg(uint8 *pBuf)
+MT_SapiWriteCfg:
+          CFI Block cfiBlock17 Using cfiCommon0
+          CFI Function MT_SapiWriteCfg
+        CODE
+//  370 {
+        FUNCALL MT_SapiWriteCfg, zb_WriteConfiguration
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiWriteCfg, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+        MOV     A,R2
+        MOV     R0,A
+        MOV     A,R3
+        MOV     R1,A
+//  371   uint8 retValue, cmdId;
+//  372 
+//  373   /* Parse header */
+//  374   cmdId = pBuf[MT_RPC_POS_CMD1];
+        MOV     DPL,R0
+        MOV     DPH,R1
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R6,A
+//  375   pBuf += MT_RPC_FRAME_HDR_SZ;
+        MOV     A,R0
+        ADD     A,#0x3
+        MOV     R0,A
+        JNC     ??MT_SapiWriteCfg_0
+        INC     R1
+//  376 
+//  377   if ((pBuf[0] != ZCD_NV_NIB) && (pBuf[0] != ZCD_NV_DEVICE_LIST) &&
+//  378       (pBuf[0] != ZCD_NV_ADDRMGR) && (pBuf[0] != ZCD_NV_NWKKEY))
+??MT_SapiWriteCfg_0:
+        MOV     DPL,R0
+        MOV     DPH,R1
+        MOVX    A,@DPTR
+        XRL     A,#0x21
+        JZ      ??MT_SapiWriteCfg_1
+        MOVX    A,@DPTR
+        XRL     A,#0x22
+        JZ      ??MT_SapiWriteCfg_1
+        MOVX    A,@DPTR
+        XRL     A,#0x23
+        JZ      ??MT_SapiWriteCfg_1
+        MOVX    A,@DPTR
+        XRL     A,#0x82
+        JZ      ??MT_SapiWriteCfg_1
+//  379   {
+//  380     if ((zb_WriteConfiguration(pBuf[0], pBuf[1], &pBuf[2])) == ZSUCCESS)
+        ; Setup parameters for call to function zb_WriteConfiguration
+        MOV     A,R0
+        ADD     A,#0x2
+        MOV     R4,A
+        CLR     A
+        ADDC    A,R1
+        MOV     R5,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R2,A
+        MOV     DPL,R0
+        MOV     DPH,R1
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??zb_WriteConfiguration::?relay`; Banked call to: zb_WriteConfiguration
+        MOV     A,R1
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        JNZ     ??MT_SapiWriteCfg_2
+//  381     {
+//  382       retValue = ZSuccess;
+        CLR     A
+        SJMP    ??MT_SapiWriteCfg_3
+//  383     }
+//  384     else
+//  385     {
+//  386       retValue = ZFailure;
+??MT_SapiWriteCfg_2:
+        MOV     A,#0x1
+        SJMP    ??MT_SapiWriteCfg_3
+//  387     }
+//  388   }
+//  389   else
+//  390   {
+//  391     retValue = ZInvalidParameter;
+??MT_SapiWriteCfg_1:
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     A,#0x2
+//  392   }
+??MT_SapiWriteCfg_3:
+        LJMP    ?Subroutine0 & 0xFFFF
+//  393 
+//  394   /* Build and send back the response */
+//  395   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, 1, &retValue );
+//  396 }
+          CFI EndBlock cfiBlock17
+//  397 
+//  398 /***************************************************************************************************
+//  399  * @fn          MT_SapiGetDevInfo
+//  400  *
+//  401  * @brief       Process Get Device Info command
+//  402  *
+//  403  * @param       pBuf - pointer to received buffer
+//  404  *
+//  405  * @return      none
+//  406  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  407 void MT_SapiGetDevInfo(uint8 *pBuf)
+MT_SapiGetDevInfo:
+          CFI Block cfiBlock18 Using cfiCommon0
+          CFI Function MT_SapiGetDevInfo
+        CODE
+//  408 {
+        FUNCALL MT_SapiGetDevInfo, osal_mem_alloc
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiGetDevInfo, zb_GetDeviceInfo
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiGetDevInfo, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiGetDevInfo, osal_mem_free
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V4
+        REQUIRE ?V5
+        MOV     A,#-0xe
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 14)
+        ; Saved register size: 14
+        ; Auto size: 0
+        MOV     ?V1,R3
+//  409   uint8 *pRetBuf;
+//  410   uint8 cmdId;
+//  411 
+//  412   /* parse header */
+//  413   cmdId = pBuf[MT_RPC_POS_CMD1];
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V2,A
+//  414   pBuf += MT_RPC_FRAME_HDR_SZ;
+        MOV     A,R2
+        ADD     A,#0x3
+        MOV     ?V0,A
+        JNC     ??MT_SapiGetDevInfo_0
+        INC     ?V1
+//  415 
+//  416   pRetBuf = osal_mem_alloc(Z_EXTADDR_LEN+1);
+??MT_SapiGetDevInfo_0:
+        ; Setup parameters for call to function osal_mem_alloc
+        MOV     R2,#0x9
+        MOV     R3,#0x0
+        LCALL   `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
+        MOV     ?V4,R2
+        MOV     ?V5,R3
+        MOV     R6,?V4
+        MOV     R7,?V5
+//  417   if (pRetBuf)
+        MOV     A,R6
+        ORL     A,R7
+        JZ      ??MT_SapiGetDevInfo_1
+//  418   {
+//  419     zb_GetDeviceInfo(pBuf[0], pRetBuf+1);
+        ; Setup parameters for call to function zb_GetDeviceInfo
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        MOV     R2,DPL
+        MOV     R3,DPH
+        MOV     DPL,?V0
+        MOV     DPH,?V1
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??zb_GetDeviceInfo::?relay`; Banked call to: zb_GetDeviceInfo
+//  420     pRetBuf[0] = pBuf[0];
+        MOV     DPL,?V0
+        MOV     DPH,?V1
+        MOVX    A,@DPTR
+        MOV     DPL,R6
+        MOV     DPH,R7
+        MOVX    @DPTR,A
+//  421 
+//  422     /* Build and send back the response */
+//  423     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, Z_EXTADDR_LEN+1, pRetBuf );
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     A,R6
+        MOV     R4,A
+        MOV     A,R7
+        MOV     R5,A
+        MOV     R3,#0x9
+        MOV     R2,?V2
+        MOV     R1,#0x66
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  424 
+//  425     osal_mem_free(pRetBuf);
+        ; Setup parameters for call to function osal_mem_free
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+//  426   }
+//  427 }
+??MT_SapiGetDevInfo_1:
+        LJMP    ?Subroutine2 & 0xFFFF
+          CFI EndBlock cfiBlock18
+//  428 
+//  429 /***************************************************************************************************
+//  430  * @fn          MT_SapiFindDev
+//  431  *
+//  432  * @brief       Process Find Device Command
+//  433  *
+//  434  * @param       pBuf - pointer to received buffer
+//  435  *
+//  436  * @return      none
+//  437  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  438 void MT_SapiFindDev(uint8 *pBuf)
+MT_SapiFindDev:
+          CFI Block cfiBlock19 Using cfiCommon0
+          CFI Function MT_SapiFindDev
+        CODE
+//  439 {
+        FUNCALL MT_SapiFindDev, zb_FindDeviceRequest
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiFindDev, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+//  440   uint8 cmdId;
+//  441 
+//  442   /* parse header */
+//  443   cmdId = pBuf[MT_RPC_POS_CMD1];
+        LCALL   ?Subroutine6 & 0xFFFF
+//  444   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  445 
+//  446   /* Currently only supports IEEE search */
+//  447   zb_FindDeviceRequest(ZB_IEEE_SEARCH, pBuf);
+??CrossCallReturnLabel_8:
+        JNC     ??MT_SapiFindDev_0
+        INC     R3
+??MT_SapiFindDev_0:
+        MOV     R1,#0x1
+        LCALL   `??zb_FindDeviceRequest::?relay`; Banked call to: zb_FindDeviceRequest
+//  448 
+//  449   /* Build and send back the response */
+//  450   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, 0, NULL );
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        LJMP    ?Subroutine3 & 0xFFFF
+//  451 }
+          CFI EndBlock cfiBlock19
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine6:
+          CFI Block cfiCond20 Using cfiCommon0
+          CFI Function MT_SapiSendData
+          CFI Conditional ??CrossCallReturnLabel_7
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond21 Using cfiCommon0
+          CFI (cfiCond21) Function MT_SapiFindDev
+          CFI (cfiCond21) Conditional ??CrossCallReturnLabel_8
+          CFI (cfiCond21) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond21) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond21) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond21) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond21) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond21) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond21) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond21) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond21) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond21) CFA_SP SP+-2
+          CFI (cfiCond21) CFA_XSP16 add(XSP16, 9)
+          CFI Block cfiCond22 Using cfiCommon0
+          CFI (cfiCond22) Function MT_SapiPermitJoin
+          CFI (cfiCond22) Conditional ??CrossCallReturnLabel_9
+          CFI (cfiCond22) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond22) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond22) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond22) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond22) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond22) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond22) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond22) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond22) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond22) CFA_SP SP+-2
+          CFI (cfiCond22) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiPicker23 Using cfiCommon1
+          CFI (cfiPicker23) NoFunction
+          CFI (cfiPicker23) Picker
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R6,A
+        ; Setup parameters for call to function zb_FindDeviceRequest
+        MOV     A,R2
+        ADD     A,#0x3
+        MOV     R2,A
+        RET
+          CFI EndBlock cfiCond20
+          CFI EndBlock cfiCond21
+          CFI EndBlock cfiCond22
+          CFI EndBlock cfiPicker23
+//  452 
+//  453 /***************************************************************************************************
+//  454  * @fn          MT_SapiPermitJoin
+//  455  *
+//  456  * @brief       Process Permit Join Command
+//  457  *
+//  458  * @param       pBuf - pointer to received buffer
+//  459  *
+//  460  * @return      none
+//  461  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  462 void MT_SapiPermitJoin(uint8 *pBuf)
+MT_SapiPermitJoin:
+          CFI Block cfiBlock24 Using cfiCommon0
+          CFI Function MT_SapiPermitJoin
+        CODE
+//  463 {
+        FUNCALL MT_SapiPermitJoin, zb_PermitJoiningRequest
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_SapiPermitJoin, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+//  464   uint8 retValue, cmdId;
+//  465 
+//  466   /* parse header */
+//  467   cmdId = pBuf[MT_RPC_POS_CMD1];
+        LCALL   ?Subroutine6 & 0xFFFF
+//  468   pBuf += MT_RPC_FRAME_HDR_SZ;
+??CrossCallReturnLabel_9:
+        JNC     ??MT_SapiPermitJoin_0
+        INC     R3
+//  469 
+//  470   retValue = (zb_PermitJoiningRequest(BUILD_UINT16(pBuf[0], pBuf[1]), pBuf[2]));
+??MT_SapiPermitJoin_0:
+        ; Setup parameters for call to function zb_PermitJoiningRequest
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+        MOV     DPL,R2
+        MOV     DPH,R3
+        MOVX    A,@DPTR
+        MOV     R4,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R3,A
+        MOV     A,R4
+        MOV     R2,A
+        LCALL   `??zb_PermitJoiningRequest::?relay`; Banked call to: zb_PermitJoiningRequest
+        MOV     A,R1
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        LJMP    ?Subroutine0 & 0xFFFF
+//  471 
+//  472   /* Build and send back the response */
+//  473   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_SAPI), cmdId, 1, &retValue );
+//  474 
+//  475 }
+          CFI EndBlock cfiBlock24
+//  476 #endif  /* MT_SAPI_FUNC */
+//  477 
+//  478 #if defined ( MT_SAPI_CB_FUNC )
+//  479 /***************************************************************************************************
+//  480  * @fn          zb_MTCallbackStartConfirm
+//  481  *
+//  482  * @brief       Process the callback subscription for zb_StartConfirm
+//  483  *
+//  484  * @param       Status - status
+//  485  *
+//  486  * @return      none
+//  487  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  488 void zb_MTCallbackStartConfirm( uint8 status )
+zb_MTCallbackStartConfirm:
+          CFI Block cfiBlock25 Using cfiCommon0
+          CFI Function zb_MTCallbackStartConfirm
+        CODE
+//  489 {
+        FUNCALL zb_MTCallbackStartConfirm, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 1, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 1, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 1)
+        MOV     A,R1
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        LCALL   ?Subroutine4 & 0xFFFF
+//  490   /* Build and send back the response */
+//  491   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_START_CNF, 1, &status);
+??CrossCallReturnLabel_1:
+        MOV     R3,#0x1
+        MOV     R2,#-0x80
+        MOV     R1,#0x46
+        LJMP    ?Subroutine1 & 0xFFFF
+          CFI EndBlock cfiBlock25
+//  492 }
+//  493 
+//  494 /***************************************************************************************************
+//  495  * @fn          zb_MTCallbackSendDataConfirm
+//  496  *
+//  497  * @brief       Process the callback subscription for zb_SendDataConfirm
+//  498  *
+//  499  * @param
+//  500  *
+//  501  * @return      none
+//  502  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  503 void zb_MTCallbackSendDataConfirm(uint8 handle, uint8 status)
+zb_MTCallbackSendDataConfirm:
+          CFI Block cfiBlock26 Using cfiCommon0
+          CFI Function zb_MTCallbackSendDataConfirm
+        CODE
+//  504 {
+        FUNCALL zb_MTCallbackSendDataConfirm, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 2
+        MOV     A,#-0x2
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 11)
+        MOV     A,R1
+//  505   uint8 retArray[2];
+//  506 
+//  507   retArray[0] = handle;
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    @DPTR,A
+//  508   retArray[1] = status;
+        MOV     A,#0x1
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,R2
+        LCALL   ?Subroutine4 & 0xFFFF
+//  509 
+//  510   /* Build and send back the response */
+//  511   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_SEND_DATA_CNF, 2, retArray);
+??CrossCallReturnLabel_2:
+        MOV     R3,#0x2
+        MOV     R2,#-0x7d
+        MOV     R1,#0x46
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  512 
+//  513 }
+        MOV     A,#0x2
+        LJMP    ??Subroutine8_0 & 0xFFFF
+          CFI EndBlock cfiBlock26
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine4:
+          CFI Block cfiCond27 Using cfiCommon0
+          CFI Function MT_SapiWriteCfg
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond28 Using cfiCommon0
+          CFI (cfiCond28) Function MT_SapiPermitJoin
+          CFI (cfiCond28) Conditional ??CrossCallReturnLabel_0
+          CFI (cfiCond28) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond28) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond28) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond28) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond28) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond28) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond28) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond28) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond28) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond28) CFA_SP SP+-2
+          CFI (cfiCond28) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond29 Using cfiCommon0
+          CFI (cfiCond29) Function zb_MTCallbackStartConfirm
+          CFI (cfiCond29) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond29) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond29) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond29) CFA_SP SP+-7
+          CFI (cfiCond29) CFA_XSP16 add(XSP16, 1)
+          CFI Block cfiCond30 Using cfiCommon0
+          CFI (cfiCond30) Function zb_MTCallbackSendDataConfirm
+          CFI (cfiCond30) Conditional ??CrossCallReturnLabel_2
+          CFI (cfiCond30) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond30) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond30) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond30) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond30) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond30) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond30) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond30) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond30) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond30) CFA_SP SP+-2
+          CFI (cfiCond30) CFA_XSP16 add(XSP16, 11)
+          CFI Block cfiCond31 Using cfiCommon0
+          CFI (cfiCond31) Function zb_MTCallbackBindConfirm
+          CFI (cfiCond31) Conditional ??CrossCallReturnLabel_3
+          CFI (cfiCond31) R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond31) VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond31) V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond31) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond31) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond31) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond31) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond31) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond31) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond31) CFA_SP SP+-2
+          CFI (cfiCond31) CFA_XSP16 add(XSP16, 12)
+          CFI Block cfiCond32 Using cfiCommon0
+          CFI (cfiCond32) Function zb_MTCallbackAllowBindConfirm
+          CFI (cfiCond32) Conditional ??CrossCallReturnLabel_4
+          CFI (cfiCond32) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond32) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond32) CFA_SP SP+-7
+          CFI (cfiCond32) CFA_XSP16 add(XSP16, 2)
+          CFI Block cfiPicker33 Using cfiCommon1
+          CFI (cfiPicker33) NoFunction
+          CFI (cfiPicker33) Picker
+        MOVX    @DPTR,A
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     R4,?XSP + 0
+        MOV     R5,?XSP + 1
+        RET
+          CFI EndBlock cfiCond27
+          CFI EndBlock cfiCond28
+          CFI EndBlock cfiCond29
+          CFI EndBlock cfiCond30
+          CFI EndBlock cfiCond31
+          CFI EndBlock cfiCond32
+          CFI EndBlock cfiPicker33
+//  514 
+//  515 /***************************************************************************************************
+//  516  * @fn          zb_MTCallbackBindConfirm
+//  517  *
+//  518  * @brief       Process the callback subscription for zb_BindConfirm
+//  519  *
+//  520  * @param
+//  521  *
+//  522  * @return      none
+//  523  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  524 void zb_MTCallbackBindConfirm( uint16 commandId, uint8 status )
+zb_MTCallbackBindConfirm:
+          CFI Block cfiBlock34 Using cfiCommon0
+          CFI Function zb_MTCallbackBindConfirm
+        CODE
+//  525 {
+        FUNCALL zb_MTCallbackBindConfirm, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 12, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 12, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 3
+        MOV     A,#-0x3
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 12)
+//  526   uint8 retArray[3];
+//  527 
+//  528   retArray[0] = LO_UINT16(commandId);
+        MOV     A,R2
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    @DPTR,A
+//  529   retArray[1] = HI_UINT16(commandId);
+        MOV     A,#0x1
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,R3
+        MOVX    @DPTR,A
+//  530   retArray[2] = status;
+        MOV     A,#0x2
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,R1
+        LCALL   ?Subroutine4 & 0xFFFF
+//  531 
+//  532   /* Build and send back the response */
+//  533   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_BIND_CNF, 3, retArray);
+??CrossCallReturnLabel_3:
+        MOV     R3,#0x3
+        MOV     R2,#-0x7f
+        MOV     R1,#0x46
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  534 
+//  535 }
+        MOV     A,#0x3
+        LJMP    ??Subroutine8_0 & 0xFFFF
+          CFI EndBlock cfiBlock34
+//  536 /***************************************************************************************************
+//  537  * @fn          zb_MTCallbackAllowBindConfirm
+//  538  *
+//  539  * @brief       Indicates when another device attempted to bind to this device
+//  540  *
+//  541  * @param
+//  542  *
+//  543  * @return      none
+//  544  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  545 void zb_MTCallbackAllowBindConfirm( uint16 source )
+zb_MTCallbackAllowBindConfirm:
+          CFI Block cfiBlock35 Using cfiCommon0
+          CFI Function zb_MTCallbackAllowBindConfirm
+        CODE
+//  546 {
+        FUNCALL zb_MTCallbackAllowBindConfirm, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 2, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 2, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 2
+        MOV     A,#-0x2
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 2)
+//  547   uint8 retArray[2];
+//  548 
+//  549   retArray[0] = LO_UINT16(source);
+        MOV     A,R2
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    @DPTR,A
+//  550   retArray[1] = HI_UINT16(source);
+        MOV     A,#0x1
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,R3
+        LCALL   ?Subroutine4 & 0xFFFF
+//  551 
+//  552   /* Build and send back the response */
+//  553   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_ALLOW_BIND_CNF, 2, retArray);
+??CrossCallReturnLabel_4:
+        MOV     R3,#0x2
+        MOV     R2,#-0x7e
+        MOV     R1,#0x46
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  554 
+//  555 }
+        MOV     A,#0x2
+        SJMP    ??Subroutine11_0
+          CFI EndBlock cfiBlock35
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine1:
+          CFI Block cfiBlock36 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI CFA_XSP16 add(XSP16, 1)
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+        MOV     A,#0x1
+          CFI EndBlock cfiBlock36
+        REQUIRE ??Subroutine11_0
+        ; // Fall through to label ??Subroutine11_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine11_0:
+          CFI Block cfiBlock37 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI CFA_XSP16 add(XSP16, 2)
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI Invalid
+        LCALL   ?DEALLOC_XSTACK8
+          CFI EndBlock cfiBlock37
+        REQUIRE ??Subroutine12_0
+        ; // Fall through to label ??Subroutine12_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine12_0:
+          CFI Block cfiBlock38 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+        POP     DPH
+          CFI CFA_SP SP+-4
+          CFI DPH0 SameValue
+        POP     DPL
+          CFI CFA_SP SP+-3
+          CFI DPL0 SameValue
+        LJMP    ?BRET
+          CFI EndBlock cfiBlock38
+//  556 /***************************************************************************************************
+//  557  * @fn          zb_MTCallbackFindDeviceConfirm
+//  558  *
+//  559  * @brief       Process the callback subscription for zb_FindDeviceConfirm
+//  560  *
+//  561  * @param
+//  562  *
+//  563  * @return      none
+//  564  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  565 void zb_MTCallbackFindDeviceConfirm( uint8 searchType, uint8 *searchKey, uint8 *result )
+zb_MTCallbackFindDeviceConfirm:
+          CFI Block cfiBlock39 Using cfiCommon0
+          CFI Function zb_MTCallbackFindDeviceConfirm
+        CODE
+//  566 {
+        FUNCALL zb_MTCallbackFindDeviceConfirm, osal_memcpy
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 25, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 25, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zb_MTCallbackFindDeviceConfirm, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 22, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 22, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        MOV     A,#-0xb
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 11)
+        ; Saved register size: 11
+        ; Auto size: 11
+        MOV     A,#-0xb
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 22)
+//  567   uint8 retArray[SPI_CB_SAPI_FIND_DEV_CNF_LEN];
+//  568   uint16 addr = *((uint16*)searchKey);
+        MOV     DPL,R2
+        MOV     DPH,R3
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+//  569 
+//  570   // Currently only supports IEEE Addr Search
+//  571   retArray[0] = ZB_IEEE_SEARCH;
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     A,#0x1
+        MOVX    @DPTR,A
+//  572   retArray[1] = LO_UINT16(addr);
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,R0
+        MOVX    @DPTR,A
+//  573   retArray[2] = HI_UINT16(addr);
+        MOV     A,#0x2
+        LCALL   ?XSTACK_DISP0_8
+        MOV     A,R1
+        MOVX    @DPTR,A
+//  574   osal_memcpy(&retArray[3], result, Z_EXTADDR_LEN);
+        ; Setup parameters for call to function osal_memcpy
+        MOV     ?V0,R4
+        MOV     ?V1,R5
+        MOV     ?V2,#0x0
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_THREE
+          CFI CFA_XSP16 add(XSP16, 25)
+        MOV     R4,#0x8
+        MOV     R5,#0x0
+        MOV     A,#0x6
+        LCALL   ?XSTACK_DISP0_8
+        MOV     R2,DPL
+        MOV     R3,DPH
+        LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+        MOV     A,#0x3
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 22)
+//  575 
+//  576   /* Build and send back the response */
+//  577   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_FIND_DEV_CNF, 11, retArray);
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     R4,?XSP + 0
+        MOV     R5,?XSP + 1
+        MOV     R3,#0xb
+        MOV     R2,#-0x7b
+        MOV     R1,#0x46
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  578 
+//  579 }
+        MOV     A,#0xb
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 11)
+        MOV     R7,#0x3
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock39
+//  580 
+//  581 /***************************************************************************************************
+//  582  * @fn          zb_MTCallbackReceiveDataIndication
+//  583  *
+//  584  * @brief       Process the callback subscription for zb_ReceiveDataIndication
+//  585  *
+//  586  * @param
+//  587  *
+//  588  * @return      none
+//  589  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  590 void zb_MTCallbackReceiveDataIndication( uint16 source, uint16 command, uint16 len, uint8 *pData  )
+zb_MTCallbackReceiveDataIndication:
+          CFI Block cfiBlock40 Using cfiCommon0
+          CFI Function zb_MTCallbackReceiveDataIndication
+        CODE
+//  591 {
+        FUNCALL zb_MTCallbackReceiveDataIndication, osal_mem_alloc
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 18, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zb_MTCallbackReceiveDataIndication, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 18, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL zb_MTCallbackReceiveDataIndication, osal_mem_free
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 18, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        REQUIRE ?V5
+        REQUIRE ?V6
+        REQUIRE ?V8
+        REQUIRE ?V9
+        MOV     A,#-0x12
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 18)
+        ; Saved register size: 18
+        ; Auto size: 0
+        MOV     ?V2,R2
+        MOV     ?V3,R3
+        MOV     A,R4
+        MOV     R6,A
+        MOV     A,R5
+        MOV     R7,A
+        MOV     A,#0x12
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        MOV     ?V4,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V5,A
+//  592   uint8 *memPtr;
+//  593   int8 i;
+//  594   uint8 msgLen = 6 + len;
+        MOV     A,?V4
+        ADD     A,#0x6
+        MOV     ?V6,A
+//  595 
+//  596   memPtr = osal_mem_alloc(msgLen);
+        ; Setup parameters for call to function osal_mem_alloc
+        MOV     R2,A
+        MOV     R3,#0x0
+        LCALL   `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
+        MOV     ?V0,R2
+        MOV     ?V1,R3
+//  597 
+//  598   if (memPtr)
+        MOV     A,R2
+        ORL     A,?V1
+        JZ      ??zb_MTCallbackReceiveDataIndication_0
+//  599   {
+//  600     memPtr[0] = LO_UINT16(source);
+        MOV     DPL,R2
+        MOV     DPH,R3
+        MOV     A,?V2
+        MOVX    @DPTR,A
+//  601     memPtr[1] = HI_UINT16(source);
+        MOV     A,?V3
+        INC     DPTR
+        MOVX    @DPTR,A
+//  602     memPtr[2] = LO_UINT16(command);
+        MOV     A,R6
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        MOVX    @DPTR,A
+//  603     memPtr[3] = HI_UINT16(command);
+        MOV     A,R7
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        LCALL   ?Subroutine7 & 0xFFFF
+//  604     memPtr[4] = LO_UINT16(len);
+??CrossCallReturnLabel_10:
+        MOV     A,?V4
+        LCALL   ?Subroutine7 & 0xFFFF
+//  605     memPtr[5] = HI_UINT16(len);
+??CrossCallReturnLabel_11:
+        INC     DPTR
+        MOV     A,?V5
+        MOVX    @DPTR,A
+//  606 
+//  607     for (i=0; i<len; i++)
+        MOV     R4,#0x0
+        MOV     A,#0x14
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+        SJMP    ??zb_MTCallbackReceiveDataIndication_1
+//  608     {
+//  609       memPtr[6+i] = pData[i];
+??zb_MTCallbackReceiveDataIndication_2:
+        MOV     A,R0
+        ADD     A,R2
+        MOV     DPL,A
+        MOV     A,R1
+        ADDC    A,R3
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        PUSH    A
+          CFI CFA_SP SP+-1
+        MOV     A,?V0
+        ADD     A,R2
+        MOV     DPL,A
+        MOV     A,?V1
+        ADDC    A,R3
+        MOV     DPH,A
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        POP     A
+          CFI CFA_SP SP+0
+        MOVX    @DPTR,A
+//  610     }
+        INC     R4
+??zb_MTCallbackReceiveDataIndication_1:
+        MOV     A,R4
+        MOV     R2,A
+        RLC     A
+        SUBB    A,0xE0 /* A   */
+        MOV     R3,A
+        CLR     C
+        MOV     A,R2
+        SUBB    A,?V4
+        MOV     A,R3
+        SUBB    A,?V5
+        JC      ??zb_MTCallbackReceiveDataIndication_2
+//  611 
+//  612     /* Build and send back the response */
+//  613     MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_SAPI), MT_SAPI_RCV_DATA_IND, msgLen, memPtr);
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     R4,?V0
+        MOV     R5,?V1
+        MOV     R3,?V6
+        MOV     R2,#-0x79
+        MOV     R1,#0x46
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  614 
+//  615     osal_mem_free( memPtr );
+        ; Setup parameters for call to function osal_mem_free
+        MOV     R2,?V0
+        MOV     R3,?V1
+        LCALL   `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+//  616   }
+//  617 }
+??zb_MTCallbackReceiveDataIndication_0:
+        MOV     R7,#0xa
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock40
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine7:
+          CFI Block cfiCond41 Using cfiCommon0
+          CFI Function zb_MTCallbackReceiveDataIndication
+          CFI Conditional ??CrossCallReturnLabel_10
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 18)
+          CFI Block cfiCond42 Using cfiCommon0
+          CFI (cfiCond42) Function zb_MTCallbackReceiveDataIndication
+          CFI (cfiCond42) Conditional ??CrossCallReturnLabel_11
+          CFI (cfiCond42) R6 load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI (cfiCond42) VB load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI (cfiCond42) V0 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI (cfiCond42) V1 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI (cfiCond42) V2 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI (cfiCond42) V3 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI (cfiCond42) V4 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI (cfiCond42) V5 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI (cfiCond42) V6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond42) V7 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond42) V8 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond42) V9 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond42) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond42) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond42) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond42) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond42) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond42) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond42) CFA_SP SP+-2
+          CFI (cfiCond42) CFA_XSP16 add(XSP16, 18)
+          CFI Block cfiPicker43 Using cfiCommon1
+          CFI (cfiPicker43) NoFunction
+          CFI (cfiPicker43) Picker
+        MOVX    @DPTR,A
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        RET
+          CFI EndBlock cfiCond41
+          CFI EndBlock cfiCond42
+          CFI EndBlock cfiPicker43
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SapiCommandProcessing::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SapiCommandProcessing
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SapiSystemReset::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SapiSystemReset
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SapiStart::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SapiStart
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SapiAppRegister::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SapiAppRegister
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SapiBindDevice::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SapiBindDevice
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SapiAllowBind::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SapiAllowBind
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SapiSendData::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SapiSendData
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SapiReadCfg::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SapiReadCfg
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SapiWriteCfg::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SapiWriteCfg
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SapiGetDevInfo::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SapiGetDevInfo
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SapiFindDev::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SapiFindDev
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_SapiPermitJoin::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_SapiPermitJoin
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zb_MTCallbackStartConfirm::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zb_MTCallbackStartConfirm
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zb_MTCallbackSendDataConfirm::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zb_MTCallbackSendDataConfirm
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zb_MTCallbackBindConfirm::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zb_MTCallbackBindConfirm
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zb_MTCallbackAllowBindConfirm::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zb_MTCallbackAllowBindConfirm
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zb_MTCallbackFindDeviceConfirm::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zb_MTCallbackFindDeviceConfirm
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??zb_MTCallbackReceiveDataIndication::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    zb_MTCallbackReceiveDataIndication
+
+        END
+//  618 #endif  /* MT_SAPI_CB_FUNC */
+//  619 
+//  620 /***************************************************************************************************
+//  621  ***************************************************************************************************/
+// 
+// 1 459 bytes in segment BANKED_CODE
+//   108 bytes in segment BANK_RELAYS
+//     2 bytes in segment XDATA_Z
+// 
+// 1 567 bytes of CODE  memory
+//     2 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

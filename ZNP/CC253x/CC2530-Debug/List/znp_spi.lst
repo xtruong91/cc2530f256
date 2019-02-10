@@ -1,0 +1,1941 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                21/Nov/2018  13:52:24
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\Source\znp_spi.c
+#    Command line       =  
+#        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+#        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR | DEVICE_BUILD_ROUTER
+#        | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL -DZNP_RUN_WDOG=FALSE
+#        -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO -DZIGBEE_FRAGMENTATION
+#        -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE -DSAPI_CB_FUNC=FALSE
+#        -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT -DNUM_DISC_ATTEMPTS=0
+#        -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC -DMT_SAPI_FUNC
+#        -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC -DMT_ZDO_MGMT
+#        -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\Source\znp_spi.c" -D
+#        FEATURE_SYSTEM_STATS -D POWER_SAVING -lC
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+#        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e --no_code_motion
+#        --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes
+#    List file          =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\znp_spi.lst
+#    Object file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj\znp_spi.r51
+#
+###############################################################################
+
+D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Projects\zstack\ZNP\CC253x\Source\znp_spi.c
+      1          /**************************************************************************************************
+      2            Filename:       znp_spi.c
+      3            Revised:        $Date: 2010-07-28 18:42:54 -0700 (Wed, 28 Jul 2010) $
+      4            Revision:       $Revision: 23203 $
+      5          
+      6            Description:
+      7          
+      8            This file contains the interface to the H/W-specific ZNP SPI driver.
+      9          
+     10          
+     11            Copyright 2009-2010 Texas Instruments Incorporated. All rights reserved.
+     12          
+     13            IMPORTANT: Your use of this Software is limited to those specific rights
+     14            granted under the terms of a software license agreement between the user
+     15            who downloaded the software, his/her employer (which must be your employer)
+     16            and Texas Instruments Incorporated (the "License").  You may not use this
+     17            Software unless you agree to abide by the terms of the License. The License
+     18            limits your use, and you acknowledge, that the Software may not be modified,
+     19            copied or distributed unless embedded on a Texas Instruments microcontroller
+     20            or used solely and exclusively in conjunction with a Texas Instruments radio
+     21            frequency transceiver, which is integrated into your product.  Other than for
+     22            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     23            works of, modify, distribute, perform, display or sell this Software and/or
+     24            its documentation for any purpose.
+     25          
+     26            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     27            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     28            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     29            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     30            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     31            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     32            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     33            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     34            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     35            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     36            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     37          
+     38            Should you have any questions regarding your right to use this Software,
+     39            contact Texas Instruments Incorporated at www.TI.com. 
+     40          **************************************************************************************************/
+     41          
+     42          /* ------------------------------------------------------------------------------------------------
+     43           *                                          Includes
+     44           * ------------------------------------------------------------------------------------------------
+     45           */
+     46          
+     47          #include "comdef.h"
+     48          #include "hal_assert.h"
+     49          #include "hal_dma.h"
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x89
+   \   unsigned char volatile __sfr P0IFG
+   \                     P0IFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x8c
+   \   unsigned char volatile __sfr PICTL
+   \                     PICTL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x8f
+   \   unsigned char volatile __sfr P0INP
+   \                     P0INP:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xab
+   \   unsigned char volatile __sfr P0IEN
+   \                     P0IEN:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xb8
+   \   union <unnamed> volatile __sfr _A_IEN1
+   \                     _A_IEN1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc0
+   \   union <unnamed> volatile __sfr _A_IRCON
+   \                     _A_IRCON:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd1
+   \   unsigned char volatile __sfr DMAIRQ
+   \                     DMAIRQ:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd6
+   \   unsigned char volatile __sfr DMAARM
+   \                     DMAARM:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd7
+   \   unsigned char volatile __sfr DMAREQ
+   \                     DMAREQ:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf1
+   \   unsigned char volatile __sfr PERCFG
+   \                     PERCFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf3
+   \   unsigned char volatile __sfr P0SEL
+   \                     P0SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf4
+   \   unsigned char volatile __sfr P1SEL
+   \                     P1SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf5
+   \   unsigned char volatile __sfr P2SEL
+   \                     P2SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf7
+   \   unsigned char volatile __sfr P2INP
+   \                     P2INP:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf8
+   \   union <unnamed> volatile __sfr _A_U1CSR
+   \                     _A_U1CSR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfc
+   \   unsigned char volatile __sfr U1GCR
+   \                     U1GCR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+     50          #include "MT_RPC.h"
+     51          #include "OnBoard.h"
+     52          #include "osal.h"
+     53          #if defined POWER_SAVING
+     54          #include "OSAL_PwrMgr.h"
+     55          #endif        
+     56          #include "ZDApp.h"
+     57          #include "znp_app.h"
+     58          #include "znp_spi.h"
+     59          
+     60          /* ------------------------------------------------------------------------------------------------
+     61           *                                           Macros
+     62           * ------------------------------------------------------------------------------------------------
+     63           */
+     64          
+     65          /*
+     66           *  The MAC_ASSERT macro is for use during debugging.
+     67           *  The given expression must evaluate as "true" or else fatal error occurs.
+     68           *  At that point, the call stack feature of the debugger can pinpoint where the problem occurred.
+     69           *
+     70           *  To disable this feature and save code size, the project should define NP_SPI_NODEBUG to TRUE.
+     71           */
+     72          
+     73          #if !defined ( NP_SPI_NODEBUG )
+     74            #define NP_SPI_NODEBUG              TRUE
+     75          #endif
+     76          
+     77          #if ( NP_SPI_NODEBUG )
+     78            #define NP_SPI_ASSERT( expr )
+     79          #else
+     80            #define NP_SPI_ASSERT( expr)        HAL_ASSERT( expr )
+     81          #endif
+     82          
+     83          #if defined CC2530_MK
+     84          #define DMATRIG_RX  HAL_DMA_TRIG_URX0
+     85          #define DMATRIG_TX  HAL_DMA_TRIG_UTX0
+     86          #define DMA_UDBUF   NP_SPI_U0DBUF
+     87          #else
+     88          #define DMATRIG_RX  HAL_DMA_TRIG_URX1
+     89          #define DMATRIG_TX  HAL_DMA_TRIG_UTX1
+     90          #define DMA_UDBUF   NP_SPI_U1DBUF
+     91          #endif
+     92          
+     93          #define DMA_RX() \
+     94            st( \
+     95              volatile uint8 clearRx = *((uint8 *)DMA_UDBUF); \
+     96              \
+     97              HAL_DMA_CLEAR_IRQ(HAL_DMA_CH_RX); \
+     98              \
+     99              HAL_DMA_ARM_CH(HAL_DMA_CH_RX); \
+    100            )
+    101          
+    102          #define DMA_TX( buf ) \
+    103            st( \
+    104              halDMADesc_t *ch = HAL_DMA_GET_DESC1234(HAL_DMA_CH_TX); \
+    105              \
+    106              HAL_DMA_SET_SOURCE(ch, (buf)); \
+    107              \
+    108              HAL_DMA_CLEAR_IRQ(HAL_DMA_CH_TX); \
+    109              \
+    110              HAL_DMA_ARM_CH(HAL_DMA_CH_TX); \
+    111              \
+    112              HAL_DMA_START_CH(HAL_DMA_CH_TX); \
+    113            )
+    114          
+    115          #define HAL_DMA_GET_SOURCE( pDesc, src ) \
+    116            st( \
+    117              src = (uint16)(pDesc->srcAddrH) << 8; \
+    118              src += pDesc->srcAddrL; \
+    119            )
+    120          
+    121          /* ------------------------------------------------------------------------------------------------
+    122           *                                           Constants
+    123           * ------------------------------------------------------------------------------------------------
+    124           */
+    125          
+    126          #define NP_SPI_U0DBUF  0x70C1
+    127          #define NP_SPI_U1DBUF  0x70F9
+    128          
+    129          /* UxCSR - USART Control and Status Register. */
+    130          #define CSR_MODE       0x80
+    131          #define CSR_RE         0x40
+    132          #define CSR_SLAVE      0x20
+    133          #define CSR_FE         0x10
+    134          #define CSR_ERR        0x08
+    135          #define CSR_RX_BYTE    0x04
+    136          #define CSR_TX_BYTE    0x02
+    137          #define CSR_ACTIVE     0x01
+    138          
+    139          /* UxUCR - USART UART Control Register. */
+    140          #define UCR_FLUSH      0x80
+    141          #define UCR_FLOW       0x40
+    142          #define UCR_D9         0x20
+    143          #define UCR_BIT9       0x10
+    144          #define UCR_PARITY     0x08
+    145          #define UCR_SPB        0x04
+    146          #define UCR_STOP       0x02
+    147          #define UCR_START      0x01
+    148          
+    149          #define UTX0IE         0x04
+    150          #define UTX1IE         0x08
+    151          
+    152          #define NP_SPI_RX_SREQ_EVENT  ZNP_SPI_RX_SREQ_EVENT
+    153          #define NP_SPI_RX_AREQ_EVENT  ZNP_SPI_RX_AREQ_EVENT
+    154          
+    155          /* Reference data sheet section 8.2.4: When using variable-length transfers, then LEN
+    156           * should be set to the largest allowed transfer length plus one.
+    157           */
+    158          #define NP_SPI_BUF_LEN  (MT_RPC_DATA_MAX + MT_RPC_FRAME_HDR_SZ + 1)
+    159          
+    160          #if defined CC2530_MK
+    161          #define NP_RDYIn_BIT     BV(0)
+    162          #define NP_RDYIn         P2_0
+    163          #define NP_RDYOut        P1_0
+    164          #define NP_RDYOut_BIT    BV(0)
+    165          
+    166          #elif !defined CC2530ZNP_MK
+    167          
+    168          #define NP_RDYIn_BIT     BV(3)
+    169          #define NP_RDYIn         P0_3
+    170          #define NP_RDYOut        P0_4
+    171          #define NP_RDYOut_BIT    BV(4)
+    172          #endif
+    173          
+    174          #define NP_CSR_MODE      BV(5)  //  CSR_SLAVE
+    175          
+    176          /* ------------------------------------------------------------------------------------------------
+    177           *                                           TypeDefs
+    178           * ------------------------------------------------------------------------------------------------
+    179           */
+    180          
+    181          typedef enum
+    182          {
+    183            NP_SPI_IDLE,           /* Idle, no transaction in progress. */
+    184            NP_SPI_MRDY,           /* Idle, but got MRDY ISR, so waiting to enable the RX DMA. */
+    185            NP_SPI_WAIT_RX,        /* Waiting for RX to complete. */
+    186            NP_SPI_WAIT_TX,        /* Waiting for TX to complete. */
+    187            NP_SPI_WAIT_AREQ,      /* Waiting for asynchronous request to finish processing. */
+    188            NP_SPI_WAIT_SREQ       /* Waiting for a synchronous request to finish processing. */
+    189          } spiState_t;
+    190          
+    191          /* ------------------------------------------------------------------------------------------------
+    192           *                                           Local Variables
+    193           * ------------------------------------------------------------------------------------------------
+    194           */
+    195          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    196          static uint8 npSpiBuf[NP_SPI_BUF_LEN];
+   \                     npSpiBuf:
+   \   000000                DS 254
+   \   0000FE                REQUIRE __INIT_XDATA_Z
+    197          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    198          static volatile spiState_t npSpiState;
+   \                     npSpiState:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    199          
+    200          /* ------------------------------------------------------------------------------------------------
+    201           *                                           Local Functions
+    202           * ------------------------------------------------------------------------------------------------
+    203           */
+    204          
+    205          static void dmaInit(void);
+    206          
+    207          /**************************************************************************************************
+    208           * @fn          dmaInit
+    209           *
+    210           * @brief       This function initializes the DMA for the SPI driver.
+    211           *
+    212           * input parameters
+    213           *
+    214           * None.
+    215           *
+    216           * output parameters
+    217           *
+    218           * None.
+    219           *
+    220           * @return      None.
+    221           **************************************************************************************************
+    222           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    223          static void dmaInit(void)
+   \                     dmaInit:
+    224          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    225            halDMADesc_t *ch;
+    226          
+    227            /* Setup Tx by DMA. */
+    228            ch = HAL_DMA_GET_DESC1234(HAL_DMA_CH_TX);
+    229          
+    230            /* The start address of the source and destination. */
+    231            HAL_DMA_SET_SOURCE(ch, npSpiBuf);
+   \   000004   74..         MOV     A,#(npSpiBuf >> 8) & 0xff
+   \   000006   F9           MOV     R1,A
+   \   000007   90....       MOV     DPTR,#dmaCh1234 + 24
+   \   00000A   F0           MOVX    @DPTR,A
+   \   00000B   78..         MOV     R0,#npSpiBuf & 0xff
+   \   00000D   E8           MOV     A,R0
+   \   00000E   A3           INC     DPTR
+   \   00000F   F0           MOVX    @DPTR,A
+    232            HAL_DMA_SET_DEST(ch, DMA_UDBUF);
+   \   000010   A3           INC     DPTR
+   \   000011   7470         MOV     A,#0x70
+   \   000013   F0           MOVX    @DPTR,A
+   \   000014   A3           INC     DPTR
+   \   000015   74F9         MOV     A,#-0x7
+   \   000017   12....       LCALL   ?Subroutine3 & 0xFFFF
+    233          
+    234            /* Transfer the first byte + the number of bytes indicated by the first byte + 2 more bytes. */
+    235            HAL_DMA_SET_VLEN(ch, HAL_DMA_VLEN_1_P_VALOFFIRST_P_2);
+    236            HAL_DMA_SET_LEN(ch, NP_SPI_BUF_LEN);
+   \                     ??CrossCallReturnLabel_3:
+   \   00001A   90....       MOV     DPTR,#dmaCh1234 + 28
+   \   00001D   7480         MOV     A,#-0x80
+   \   00001F   F0           MOVX    @DPTR,A
+    237          
+    238            /* One byte is transferred each time. */
+    239            HAL_DMA_SET_WORD_SIZE(ch, HAL_DMA_WORDSIZE_BYTE);
+    240          
+    241            /* The bytes are transferred 1-by-1 on Tx Complete trigger. */
+    242            HAL_DMA_SET_TRIG_MODE(ch, HAL_DMA_TMODE_SINGLE);
+    243            HAL_DMA_SET_TRIG_SRC(ch, DMATRIG_TX);
+   \   000020   90....       MOV     DPTR,#dmaCh1234 + 30
+   \   000023   7411         MOV     A,#0x11
+   \   000025   F0           MOVX    @DPTR,A
+    244          
+    245            /* The source address is decremented by 1 byte after each transfer. */
+    246            HAL_DMA_SET_SRC_INC(ch, HAL_DMA_SRCINC_1);
+    247          
+    248            /* The destination address is constant - the Tx Data Buffer. */
+    249            HAL_DMA_SET_DST_INC(ch, HAL_DMA_DSTINC_0);
+    250          
+    251            /* The DMA shall issue an IRQ upon completion. */
+    252            HAL_DMA_SET_IRQ(ch, HAL_DMA_IRQMASK_ENABLE);
+    253          
+    254            /* Xfer all 8 bits of a byte xfer. */
+    255            HAL_DMA_SET_M8(ch, HAL_DMA_M8_USE_8_BITS);
+    256          
+    257            /* DMA has highest priority for memory access. */
+    258            HAL_DMA_SET_PRIORITY(ch, HAL_DMA_PRI_HIGH);
+   \   000026   A3           INC     DPTR
+   \   000027   744A         MOV     A,#0x4a
+   \   000029   F0           MOVX    @DPTR,A
+    259          
+    260            /* Setup Rx by DMA. */
+    261            ch = HAL_DMA_GET_DESC1234(HAL_DMA_CH_RX);
+    262          
+    263            /* The start address of the source and destination. */
+    264            HAL_DMA_SET_SOURCE(ch, DMA_UDBUF);
+   \   00002A   90....       MOV     DPTR,#dmaCh1234 + 16
+   \   00002D   7470         MOV     A,#0x70
+   \   00002F   F0           MOVX    @DPTR,A
+   \   000030   A3           INC     DPTR
+   \   000031   74F9         MOV     A,#-0x7
+   \   000033   F0           MOVX    @DPTR,A
+    265            HAL_DMA_SET_DEST(ch, npSpiBuf);
+   \   000034   E9           MOV     A,R1
+   \   000035   A3           INC     DPTR
+   \   000036   F0           MOVX    @DPTR,A
+   \   000037   E8           MOV     A,R0
+   \   000038   A3           INC     DPTR
+   \   000039   12....       LCALL   ?Subroutine3 & 0xFFFF
+    266          
+    267            /* Transfer the first byte + the number of bytes indicated by the first byte + 2 more bytes. */
+    268            HAL_DMA_SET_VLEN(ch, HAL_DMA_VLEN_1_P_VALOFFIRST_P_2);
+    269            HAL_DMA_SET_LEN(ch, NP_SPI_BUF_LEN);
+   \                     ??CrossCallReturnLabel_4:
+   \   00003C   90....       MOV     DPTR,#dmaCh1234 + 20
+   \   00003F   7480         MOV     A,#-0x80
+   \   000041   F0           MOVX    @DPTR,A
+    270          
+    271            HAL_DMA_SET_WORD_SIZE(ch, HAL_DMA_WORDSIZE_BYTE);
+    272          
+    273            /* The bytes are transferred 1-by-1 on Rx Complete trigger. */
+    274            HAL_DMA_SET_TRIG_MODE(ch, HAL_DMA_TMODE_SINGLE);
+    275            HAL_DMA_SET_TRIG_SRC(ch, DMATRIG_RX);
+   \   000042   90....       MOV     DPTR,#dmaCh1234 + 22
+   \   000045   7410         MOV     A,#0x10
+   \   000047   F0           MOVX    @DPTR,A
+    276          
+    277            /* The source address is constant - the Rx Data Buffer. */
+    278            HAL_DMA_SET_SRC_INC(ch, HAL_DMA_SRCINC_0);
+    279          
+    280            /* The destination address is incremented by 1 byte after each transfer. */
+    281            HAL_DMA_SET_DST_INC(ch, HAL_DMA_DSTINC_1);
+    282          
+    283            /* The DMA shall issue an IRQ upon completion. */
+    284            HAL_DMA_SET_IRQ(ch, HAL_DMA_IRQMASK_ENABLE);
+    285          
+    286            /* Xfer all 8 bits of a byte xfer. */
+    287            HAL_DMA_SET_M8(ch, HAL_DMA_M8_USE_8_BITS);
+    288          
+    289            /* DMA has highest priority for memory access. */
+    290            HAL_DMA_SET_PRIORITY(ch, HAL_DMA_PRI_HIGH);
+   \   000048   A3           INC     DPTR
+   \   000049   741A         MOV     A,#0x1a
+   \   00004B   F0           MOVX    @DPTR,A
+    291          }
+   \   00004C   02....       LJMP    ??Subroutine5_0 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   A3           INC     DPTR
+   \   000002   E0           MOVX    A,@DPTR
+   \   000003   541F         ANL     A,#0x1f
+   \   000005   F0           MOVX    @DPTR,A
+   \   000006   4480         ORL     A,#0x80
+   \   000008   F0           MOVX    @DPTR,A
+   \   000009   A3           INC     DPTR
+   \   00000A   74FE         MOV     A,#-0x2
+   \   00000C   F0           MOVX    @DPTR,A
+   \   00000D   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine5_0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    292          
+    293          /**************************************************************************************************
+    294           * @fn          npSpiInit
+    295           *
+    296           * @brief       This function is called to set up the SPI interface.
+    297           *
+    298           * input parameters
+    299           *
+    300           * None.
+    301           *
+    302           * output parameters
+    303           *
+    304           * None.
+    305           *
+    306           * @return      None.
+    307           **************************************************************************************************
+    308           */
+    309          #if defined CC2530_MK
+    310          void npSpiInit(void)  // TODO - hard-coded for USART0 alt1 SPI for now.
+    311          {
+    312            if (ZNP_CFG1_UART == znpCfg1)
+    313            {
+    314              return;
+    315            }
+    316          
+    317            /* Set bit order to MSB */
+    318            U0GCR |= BV(5);
+    319          
+    320            /* Set UART0 I/O to alternate 1 location on P1 pins. */
+    321            //PERCFG |= 0x02;  /* U1CFG */
+    322          
+    323            /* Mode select UART1 SPI Mode as slave. */
+    324            U0CSR = NP_CSR_MODE;
+    325          
+    326            /* Select peripheral function on I/O pins. */
+    327            P0SEL |= 0x3C;  /* SELP0_[5:2] */
+    328          
+    329            /* Give UART1 priority over Timer3. */
+    330            //P2SEL &= ~0x20;  /* PRI2P1 */
+    331          
+    332            /* Set RDY to inactive high. */
+    333            NP_RDYOut = 1;
+    334          
+    335            /* Select general purpose on I/O pins. */
+    336            P1SEL &= ~(NP_RDYOut_BIT);  /* P1.0 SRDY - GPIO */
+    337            P2SEL &= ~(NP_RDYIn_BIT);   /* P2.0 MRDY - GPIO */
+    338          
+    339            /* Select GPIO direction */
+    340            P1DIR |= NP_RDYOut_BIT;  /* P1.0 SRDY - OUT */
+    341            P2DIR &= ~NP_RDYIn_BIT;  /* P2.0 MRDY - IN */
+    342          
+    343            /* Falling edge on P2 pins triggers interrupt. */
+    344            PICTL |= BV(3);  /* P2ICON */
+    345          
+    346            /* Trigger an interrupt on MRDY input. */
+    347            P2IFG &= ~NP_RDYIn_BIT;
+    348            P2IEN |=  NP_RDYIn_BIT;
+    349            IEN2 |= 0x02;
+    350          
+    351            dmaInit();
+    352          
+    353            U0CSR |= CSR_RE;
+    354          }
+    355          #else
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    356          void npSpiInit(void)
+   \                     npSpiInit:
+    357          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    358            if (ZNP_CFG1_UART == znpCfg1)
+   \   000004   90....       MOV     DPTR,#znpCfg1
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   6033         JZ      ??npSpiInit_0
+    359            {
+    360              return;
+    361            }
+    362          
+    363            /* Set bit order to MSB */
+    364            U1GCR |= BV(5);
+   \   00000A   43FC20       ORL     0xfc,#0x20
+    365          
+    366            /* Set UART1 I/O to alternate 2 location on P1 pins. */
+    367            PERCFG |= 0x02;  /* U1CFG */
+   \   00000D   43F102       ORL     0xf1,#0x2
+    368          
+    369            /* Mode select UART1 SPI Mode as slave. */
+    370            U1CSR = NP_CSR_MODE;
+   \   000010   75F820       MOV     0xf8,#0x20
+    371          
+    372            /* Select peripheral function on I/O pins. */
+    373            P1SEL |= 0xF0;  /* SELP1_[7:4] */
+   \   000013   43F4F0       ORL     0xf4,#0xf0
+    374          
+    375            /* Give UART1 priority over Timer3. */
+    376            P2SEL &= ~0x20;  /* PRI2P1 */
+   \   000016   53F5DF       ANL     0xf5,#0xdf
+    377          
+    378            /* Set RDY to inactive high. */
+    379            NP_RDYOut = 1;
+   \   000019   D284         SETB    0x80.4
+    380          
+    381            /* Select general purpose on I/O pins. */
+    382            P0SEL &= ~(NP_RDYIn_BIT);   /* P0.3 MRDY - GPIO */
+   \   00001B   53F3F7       ANL     0xf3,#0xf7
+    383            P0SEL &= ~(NP_RDYOut_BIT);  /* P0.4 SRDY - GPIO */
+   \   00001E   53F3EF       ANL     0xf3,#0xef
+    384          
+    385            /* Select GPIO direction */
+    386            P0DIR &= ~NP_RDYIn_BIT;  /* P0.3 MRDY - IN */
+   \   000021   53FDF7       ANL     0xfd,#0xf7
+    387            P0DIR |= NP_RDYOut_BIT;  /* P0.4 SRDY - OUT */
+   \   000024   43FD10       ORL     0xfd,#0x10
+    388          
+    389            P0INP &= ~NP_RDYIn_BIT;  /* Pullup/down enable of MRDY input. */
+   \   000027   538FF7       ANL     0x8f,#0xf7
+    390            P2INP &= ~BV(5);         /* Pullup all P0 inputs. */
+   \   00002A   53F7DF       ANL     0xf7,#0xdf
+    391          
+    392            /* Falling edge on P0 pins triggers interrupt. */
+    393            PICTL |= BV(0);  /* P0ICON */
+   \   00002D   438C01       ORL     0x8c,#0x1
+    394          
+    395            /* Trigger an interrupt on MRDY input. */
+    396            P0IFG &= ~NP_RDYIn_BIT;
+   \   000030   5389F7       ANL     0x89,#0xf7
+    397            P0IEN |=  NP_RDYIn_BIT;
+   \   000033   43AB08       ORL     0xab,#0x8
+    398            P0IE = 1;
+   \   000036   D2BD         SETB    0xb8.5
+    399          
+    400            dmaInit();
+   \   000038                ; Setup parameters for call to function dmaInit
+   \   000038   12....       LCALL   `??dmaInit::?relay`  ; Banked call to: dmaInit
+    401          
+    402            U1CSR |= CSR_RE;
+   \   00003B   D2FE         SETB    0xf8.6
+    403          }
+   \                     ??npSpiInit_0:
+   \   00003D   02....       LJMP    ??Subroutine5_0 & 0xFFFF
+   \   000040                REQUIRE U1GCR
+   \   000040                REQUIRE PERCFG
+   \   000040                REQUIRE _A_U1CSR
+   \   000040                REQUIRE P1SEL
+   \   000040                REQUIRE P2SEL
+   \   000040                REQUIRE _A_P0
+   \   000040                REQUIRE P0SEL
+   \   000040                REQUIRE P0DIR
+   \   000040                REQUIRE P0INP
+   \   000040                REQUIRE P2INP
+   \   000040                REQUIRE PICTL
+   \   000040                REQUIRE P0IFG
+   \   000040                REQUIRE P0IEN
+   \   000040                REQUIRE _A_IEN1
+    404          #endif
+    405          
+    406          /**************************************************************************************************
+    407           * @fn          npSpiMonitor
+    408           *
+    409           * @brief       This function monitors the SPI signals for error conditions and for the end of a
+    410           *              transaction. If an error is detected it attempts to recover.
+    411           *
+    412           * input parameters
+    413           *
+    414           * None.
+    415           *
+    416           * output parameters
+    417           *
+    418           * None.
+    419           *
+    420           * @return      None.
+    421           **************************************************************************************************
+    422           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    423          void npSpiMonitor(void)
+   \                     npSpiMonitor:
+    424          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    425            if (ZNP_CFG1_UART == znpCfg1)
+   \   00000A   90....       MOV     DPTR,#znpCfg1
+   \   00000D   E0           MOVX    A,@DPTR
+   \   00000E   7003         JNZ     $+5
+   \   000010   02....       LJMP    ??npSpiMonitor_0 & 0xFFFF
+    426            {
+    427              return;
+    428            }
+    429          
+    430          #if ZNP_RUN_WDOG
+    431            if ((devState != DEV_HOLD) && (npSpiState == NP_SPI_IDLE))
+    432            {
+    433              // Enable the watchdog for 1 second period and pet it.
+    434              WatchDogEnable( WDTIMX );
+    435            }
+    436          #endif
+    437          
+    438            switch (npSpiState)
+   \   000013   90....       MOV     DPTR,#npSpiState
+   \   000016   E0           MOVX    A,@DPTR
+   \   000017   6401         XRL     A,#0x1
+   \   000019   7003         JNZ     ??CrossCallReturnLabel_0
+    439            {
+    440            case NP_SPI_IDLE:
+    441              NP_SPI_ASSERT((P1IFG & NP_RDYIn_BIT) == 0);
+    442              break;
+    443          
+    444          #if defined POWER_SAVING
+    445            case NP_SPI_MRDY:
+    446              npSpiState = NP_SPI_WAIT_RX;
+   \   00001B   12....       LCALL   ?Subroutine2 & 0xFFFF
+    447              DMA_RX();
+    448              NP_RDYOut = 0;
+    449              break;
+    450          #endif        
+    451          
+    452            case NP_SPI_WAIT_RX:
+    453              NP_SPI_ASSERT((HAL_DMA_CHECK_IRQ(HAL_DMA_CH_RX)) == 0);
+    454              break;
+    455          
+    456            case NP_SPI_WAIT_TX:
+    457              NP_SPI_ASSERT((HAL_DMA_CHECK_IRQ(HAL_DMA_CH_TX)) == 0);
+    458              break;
+    459          
+    460            case NP_SPI_WAIT_AREQ:
+    461              break;
+    462          
+    463            default:
+    464              NP_SPI_ASSERT(0);
+    465              break;
+    466            }
+    467          
+    468            if (npSpiState == NP_SPI_IDLE)
+   \                     ??CrossCallReturnLabel_0:
+   \   00001E   90....       MOV     DPTR,#npSpiState
+   \   000021   E0           MOVX    A,@DPTR
+   \   000022   7014         JNZ     ??npSpiMonitor_1
+    469            {
+    470              *((uint8 *)DMA_UDBUF) = 0;  // Clear the SPI Tx buffer to zero.
+   \   000024   9070F9       MOV     DPTR,#0x70f9
+   \   000027   E4           CLR     A
+   \   000028   F0           MOVX    @DPTR,A
+    471          
+    472              /* Poll for MRDY in case it was set before slave had setup the ISR.
+    473               * Also, async responses may get queued, so flush them out here.
+    474               */
+    475              if ((NP_RDYIn == 0) || (npSpiReadyCallback()))
+   \   000029   A283         MOV     C,0x80.3
+   \   00002B   5006         JNC     ??npSpiMonitor_2
+   \   00002D                ; Setup parameters for call to function npSpiReadyCallback
+   \   00002D   12....       LCALL   `??npSpiReadyCallback::?relay`; Banked call to: npSpiReadyCallback
+   \   000030   E9           MOV     A,R1
+   \   000031   6047         JZ      ??npSpiMonitor_3
+    476              {
+    477                npSpiAReqReady();
+   \                     ??npSpiMonitor_2:
+   \   000033                ; Setup parameters for call to function npSpiAReqReady
+   \   000033   12....       LCALL   `??npSpiAReqReady::?relay`; Banked call to: npSpiAReqReady
+   \   000036   8042         SJMP    ??npSpiMonitor_3
+    478              }
+    479            }
+    480            else
+    481            {
+    482              halIntState_t his;
+    483          
+    484              HAL_ENTER_CRITICAL_SECTION(his);
+   \                     ??npSpiMonitor_1:
+   \   000038   A2AF         MOV     C,0xa8.7
+   \   00003A   E4           CLR     A
+   \   00003B   33           RLC     A
+   \   00003C   F8           MOV     R0,A
+   \   00003D   C2AF         CLR     0xa8.7
+    485              if (((npSpiState == NP_SPI_WAIT_RX) &&
+    486                  (!HAL_DMA_CH_ARMED(HAL_DMA_CH_RX) && !HAL_DMA_CHECK_IRQ(HAL_DMA_CH_RX)))
+    487              ||  ((npSpiState == NP_SPI_WAIT_TX) &&
+    488                  (!HAL_DMA_CH_ARMED(HAL_DMA_CH_TX) && !HAL_DMA_CHECK_IRQ(HAL_DMA_CH_TX))))
+   \   00003F   E0           MOVX    A,@DPTR
+   \   000040   6402         XRL     A,#0x2
+   \   000042   700C         JNZ     ??npSpiMonitor_4
+   \   000044   E5D6         MOV     A,0xd6
+   \   000046   A2E3         MOV     C,0xE0 /* A   */.3
+   \   000048   4006         JC      ??npSpiMonitor_4
+   \   00004A   E5D1         MOV     A,0xd1
+   \   00004C   A2E3         MOV     C,0xE0 /* A   */.3
+   \   00004E   5011         JNC     ??npSpiMonitor_5
+   \                     ??npSpiMonitor_4:
+   \   000050   E0           MOVX    A,@DPTR
+   \   000051   6403         XRL     A,#0x3
+   \   000053   7020         JNZ     ??npSpiMonitor_6
+   \   000055   E5D6         MOV     A,0xd6
+   \   000057   A2E4         MOV     C,0xE0 /* A   */.4
+   \   000059   401A         JC      ??npSpiMonitor_6
+   \   00005B   E5D1         MOV     A,0xd1
+   \   00005D   A2E4         MOV     C,0xE0 /* A   */.4
+   \   00005F   4014         JC      ??npSpiMonitor_6
+    489              {
+    490                HAL_EXIT_CRITICAL_SECTION(his);
+   \                     ??npSpiMonitor_5:
+   \   000061   E8           MOV     A,R0
+   \   000062   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000064   92AF         MOV     0xa8.7,C
+    491          
+    492                if (npSpiState == NP_SPI_WAIT_RX)
+   \   000066   E0           MOVX    A,@DPTR
+   \   000067   6402         XRL     A,#0x2
+   \   000069   7005         JNZ     ??npSpiMonitor_7
+    493                {
+    494                  npSpiRxIsr();
+   \   00006B                ; Setup parameters for call to function npSpiRxIsr
+   \   00006B   12....       LCALL   `??npSpiRxIsr::?relay`; Banked call to: npSpiRxIsr
+   \   00006E   800A         SJMP    ??npSpiMonitor_3
+    495                }
+    496                else  // if (npSpiState == NP_SPI_WAIT_TX)
+    497                {
+    498                  npSpiTxIsr();
+   \                     ??npSpiMonitor_7:
+   \   000070                ; Setup parameters for call to function npSpiTxIsr
+   \   000070   12....       LCALL   `??npSpiTxIsr::?relay`; Banked call to: npSpiTxIsr
+   \   000073   8005         SJMP    ??npSpiMonitor_3
+    499                }
+    500              }
+    501              else
+    502              {
+    503                HAL_EXIT_CRITICAL_SECTION(his);
+   \                     ??npSpiMonitor_6:
+   \   000075   E8           MOV     A,R0
+   \   000076   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000078   92AF         MOV     0xa8.7,C
+    504              }
+    505            }
+    506          
+    507          #if defined POWER_SAVING
+    508            /* A simple ZAP application sending a unicast at 2-Hz was seen to bog down to < 1-Hz OTA unicast
+    509             * when the ZNP was configured to be a ZED (i.e. POWER_SAVING was enabled). So adding this delay
+    510             * of only 10 msecs before re-enabling CONSERVE showed that the problem was fixed while still
+    511             * allowing the ZNP to enter sleep.
+    512             */
+    513            static uint8 znpSpiActiveShdw;
+    514          
+    515            if (ZG_DEVICE_ENDDEVICE_TYPE && (npSpiState == NP_SPI_IDLE))
+   \                     ??npSpiMonitor_3:
+   \   00007A   90....       MOV     DPTR,#zgDeviceLogicalType
+   \   00007D   E0           MOVX    A,@DPTR
+   \   00007E   6402         XRL     A,#0x2
+   \   000080   704B         JNZ     ??npSpiMonitor_8
+   \   000082   90....       MOV     DPTR,#npSpiState
+   \   000085   E0           MOVX    A,@DPTR
+   \   000086   7045         JNZ     ??npSpiMonitor_8
+    516            {
+    517              if (znpSpiActiveShdw)
+   \   000088   90....       MOV     DPTR,#??znpSpiActiveShdw
+   \   00008B   E0           MOVX    A,@DPTR
+   \   00008C   606A         JZ      ??npSpiMonitor_0
+    518              {
+    519                uint8 rxOnIdle;
+    520                (void)ZMacGetReq(ZMacRxOnIdle, &rxOnIdle);
+   \   00008E                ; Setup parameters for call to function ZMacGetReq
+   \   00008E   AA..         MOV     R2,?XSP + 0
+   \   000090   AB..         MOV     R3,?XSP + 1
+   \   000092   7952         MOV     R1,#0x52
+   \   000094   12....       LCALL   `??ZMacGetReq::?relay`; Banked call to: ZMacGetReq
+    521                if (!rxOnIdle)
+   \   000097   85..82       MOV     DPL,?XSP + 0
+   \   00009A   85..83       MOV     DPH,?XSP + 1
+   \   00009D   E0           MOVX    A,@DPTR
+   \   00009E   7058         JNZ     ??npSpiMonitor_0
+    522                {
+    523                  znpSpiActiveShdw = FALSE;
+   \   0000A0   90....       MOV     DPTR,#??znpSpiActiveShdw
+   \   0000A3   E4           CLR     A
+   \   0000A4   F0           MOVX    @DPTR,A
+    524                  if (ZSuccess != osal_start_timerEx(znpTaskId, ZNP_PWRMGR_CONSERVE_EVENT,
+    525                                                                ZNP_PWRMGR_CONSERVE_DELAY))
+   \   0000A5                ; Setup parameters for call to function osal_start_timerEx
+   \   0000A5   90....       MOV     DPTR,#__Constant_a
+   \   0000A8   12....       LCALL   ?PUSH_XSTACK8_X_FOUR
+   \   0000AB   7A80         MOV     R2,#-0x80
+   \   0000AD   7B00         MOV     R3,#0x0
+   \   0000AF   90....       MOV     DPTR,#MT_TaskID
+   \   0000B2   E0           MOVX    A,@DPTR
+   \   0000B3   F9           MOV     R1,A
+   \   0000B4   12....       LCALL   `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   0000B7   7404         MOV     A,#0x4
+   \   0000B9   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000BC   E9           MOV     A,R1
+   \   0000BD   6039         JZ      ??npSpiMonitor_0
+    526                  {
+    527                    (void)osal_set_event(znpTaskId, ZNP_PWRMGR_CONSERVE_EVENT);
+   \   0000BF                ; Setup parameters for call to function osal_set_event
+   \   0000BF   7A80         MOV     R2,#-0x80
+   \   0000C1   7B00         MOV     R3,#0x0
+   \   0000C3   90....       MOV     DPTR,#MT_TaskID
+   \   0000C6   E0           MOVX    A,@DPTR
+   \   0000C7   F9           MOV     R1,A
+   \   0000C8   12....       LCALL   `??osal_set_event::?relay`; Banked call to: osal_set_event
+   \   0000CB   802B         SJMP    ??npSpiMonitor_0
+    528                  }
+    529                }
+    530              }
+    531            }
+    532            else if (!znpSpiActiveShdw)
+   \                     ??npSpiMonitor_8:
+   \   0000CD   90....       MOV     DPTR,#??znpSpiActiveShdw
+   \   0000D0   E0           MOVX    A,@DPTR
+   \   0000D1   7025         JNZ     ??npSpiMonitor_0
+    533            {
+    534              znpSpiActiveShdw = TRUE;
+   \   0000D3   7401         MOV     A,#0x1
+   \   0000D5   F0           MOVX    @DPTR,A
+    535              (void)osal_stop_timerEx(znpTaskId, ZNP_PWRMGR_CONSERVE_EVENT);
+   \   0000D6                ; Setup parameters for call to function osal_stop_timerEx
+   \   0000D6   7A80         MOV     R2,#-0x80
+   \   0000D8   7B00         MOV     R3,#0x0
+   \   0000DA   90....       MOV     DPTR,#MT_TaskID
+   \   0000DD   E0           MOVX    A,@DPTR
+   \   0000DE   F9           MOV     R1,A
+   \   0000DF   12....       LCALL   `??osal_stop_timerEx::?relay`; Banked call to: osal_stop_timerEx
+    536              (void)osal_clear_event(znpTaskId, ZNP_PWRMGR_CONSERVE_EVENT);
+   \   0000E2                ; Setup parameters for call to function osal_clear_event
+   \   0000E2   7A80         MOV     R2,#-0x80
+   \   0000E4   7B00         MOV     R3,#0x0
+   \   0000E6   90....       MOV     DPTR,#MT_TaskID
+   \   0000E9   E0           MOVX    A,@DPTR
+   \   0000EA   F9           MOV     R1,A
+   \   0000EB   12....       LCALL   `??osal_clear_event::?relay`; Banked call to: osal_clear_event
+    537              (void)osal_pwrmgr_task_state(znpTaskId, PWRMGR_HOLD);
+   \   0000EE                ; Setup parameters for call to function osal_pwrmgr_task_state
+   \   0000EE   7A01         MOV     R2,#0x1
+   \   0000F0   90....       MOV     DPTR,#MT_TaskID
+   \   0000F3   E0           MOVX    A,@DPTR
+   \   0000F4   F9           MOV     R1,A
+   \   0000F5   12....       LCALL   `??osal_pwrmgr_task_state::?relay`; Banked call to: osal_pwrmgr_task_state
+    538            }
+    539          #endif
+    540          }
+   \                     ??npSpiMonitor_0:
+   \   0000F8   7401         MOV     A,#0x1
+   \   0000FA   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000FD                REQUIRE ?Subroutine1
+   \   0000FD                REQUIRE DMAIRQ
+   \   0000FD                REQUIRE DMAARM
+   \   0000FD                REQUIRE _A_P0
+   \   0000FD                REQUIRE _A_IEN0
+   \   0000FD                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   7402         MOV     A,#0x2
+   \   000002   F0           MOVX    @DPTR,A
+   \   000003   9070F9       MOV     DPTR,#0x70f9
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   85..82       MOV     DPL,?XSP + 0
+   \   00000A   85..83       MOV     DPH,?XSP + 1
+   \   00000D   F0           MOVX    @DPTR,A
+   \   00000E   75D1F7       MOV     0xd1,#-0x9
+   \   000011   75D608       MOV     0xd6,#0x8
+   \   000014   C284         CLR     0x80.4
+   \   000016   22           RET
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ??znpSpiActiveShdw:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    541          
+    542          /**************************************************************************************************
+    543           * @fn          npSpiSRspAlloc
+    544           *
+    545           * @brief       This function is called by MT to allocate a buffer in which to build an SRSP frame.
+    546           *              MT must only call this function after processing a received SREQ frame.
+    547           *
+    548           * input parameters
+    549           *
+    550           * @param       len - Length of the buffer required.
+    551           *
+    552           * output parameters
+    553           *
+    554           * None.
+    555           *
+    556           * @return      NULL for failure; a pointer to the npSpiBuf on success. Success is determined by
+    557           *              the correct npSpiState and H/W signals as well as a valid length request.
+    558           **************************************************************************************************
+    559           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    560          uint8 *npSpiSRspAlloc(uint8 len)
+   \                     npSpiSRspAlloc:
+    561          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    562            if (npSpiState == NP_SPI_WAIT_SREQ)
+   \   000004   90....       MOV     DPTR,#npSpiState
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   6405         XRL     A,#0x5
+   \   00000A   7006         JNZ     ??npSpiSRspAlloc_0
+    563            {
+    564              return npSpiBuf;
+   \   00000C   7A..         MOV     R2,#npSpiBuf & 0xff
+   \   00000E   7B..         MOV     R3,#(npSpiBuf >> 8) & 0xff
+   \   000010   8004         SJMP    ??npSpiSRspAlloc_1
+    565            }
+    566            else
+    567            {
+    568              return NULL;
+   \                     ??npSpiSRspAlloc_0:
+   \   000012   7A00         MOV     R2,#0x0
+   \   000014   7B00         MOV     R3,#0x0
+    569            }
+   \                     ??npSpiSRspAlloc_1:
+   \   000016   80..         SJMP    ??Subroutine5_0
+    570          }
+    571          
+    572          /**************************************************************************************************
+    573           * @fn          npSpiAReqAlloc
+    574           *
+    575           * @brief       This function is called by MT to allocate a buffer in which to buld an AREQ frame.
+    576           *
+    577           * input parameters
+    578           *
+    579           * @param       len - Length of the buffer required.
+    580           *
+    581           * output parameters
+    582           *
+    583           * None.
+    584           *
+    585           * @return      NULL for failure; otherwise a pointer to the data of an osal message.
+    586           **************************************************************************************************
+    587           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    588          uint8 *npSpiAReqAlloc(uint8 len)
+   \                     npSpiAReqAlloc:
+    589          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+    590            return osal_msg_allocate(len + MT_RPC_FRAME_HDR_SZ);
+   \   000006                ; Setup parameters for call to function osal_msg_allocate
+   \   000006   2403         ADD     A,#0x3
+   \   000008   FA           MOV     R2,A
+   \   000009   E4           CLR     A
+   \   00000A   3400         ADDC    A,#0x0
+   \   00000C   FB           MOV     R3,A
+   \   00000D   12....       LCALL   `??osal_msg_allocate::?relay`; Banked call to: osal_msg_allocate
+   \   000010   80..         SJMP    ?Subroutine1
+    591          }
+    592          
+    593          /**************************************************************************************************
+    594           * @fn          npSpiSRspReady
+    595           *
+    596           * @brief       This function is called by MT to notify SPI driver that an SRSP is ready to Tx.
+    597           *
+    598           * input parameters
+    599           *
+    600           * @param       pBuf - Pointer to the buffer to transmit on the SPI.
+    601           *
+    602           * output parameters
+    603           *
+    604           * None.
+    605           *
+    606           * @return      None.
+    607           **************************************************************************************************
+    608           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    609          void npSpiSRspReady(uint8 *pBuf)
+   \                     npSpiSRspReady:
+    610          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    611            if ((npSpiState == NP_SPI_WAIT_SREQ) && (NP_RDYOut == 0))
+   \   000004   90....       MOV     DPTR,#npSpiState
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   6405         XRL     A,#0x5
+   \   00000A   7012         JNZ     ??npSpiSRspReady_0
+   \   00000C   A284         MOV     C,0x80.4
+   \   00000E   400E         JC      ??npSpiSRspReady_0
+    612            {
+    613              npSpiState = NP_SPI_WAIT_TX;
+   \   000010   7403         MOV     A,#0x3
+   \   000012   F0           MOVX    @DPTR,A
+    614              DMA_TX( pBuf );
+   \   000013   EB           MOV     A,R3
+   \   000014   90....       MOV     DPTR,#dmaCh1234 + 24
+   \   000017   F0           MOVX    @DPTR,A
+   \   000018   EA           MOV     A,R2
+   \   000019   12....       LCALL   ?Subroutine4 & 0xFFFF
+    615              NP_RDYOut = 1;
+   \                     ??CrossCallReturnLabel_5:
+   \   00001C   D284         SETB    0x80.4
+    616            }
+    617          }
+   \                     ??npSpiSRspReady_0:
+   \   00001E   80..         SJMP    ??Subroutine5_0
+   \   000020                REQUIRE _A_P0
+   \   000020                REQUIRE DMAIRQ
+   \   000020                REQUIRE DMAARM
+   \   000020                REQUIRE DMAREQ
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   A3           INC     DPTR
+   \   000001   F0           MOVX    @DPTR,A
+   \   000002   75D1EF       MOV     0xd1,#-0x11
+   \   000005   75D610       MOV     0xd6,#0x10
+   \   000008   75D710       MOV     0xd7,#0x10
+   \   00000B   22           RET
+    618          
+    619          /**************************************************************************************************
+    620           * @fn          npSpiAReqReady
+    621           *
+    622           * @brief       This function is called by MT to notify the SPI driver that an AREQ frame is ready
+    623           *              to be transmitted.
+    624           *
+    625           * input parameters
+    626           *
+    627           * None.
+    628           *
+    629           * output parameters
+    630           *
+    631           * None.
+    632           *
+    633           * @return      None.
+    634           **************************************************************************************************
+    635           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7401         MOV     A,#0x1
+   \   000002   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000005                REQUIRE ??Subroutine5_0
+   \   000005                ; // Fall through to label ??Subroutine5_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    636          void npSpiAReqReady(void)
+   \                     npSpiAReqReady:
+    637          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 1
+   \   000004   74FF         MOV     A,#-0x1
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    638            halIntState_t intState;
+    639            HAL_ENTER_CRITICAL_SECTION(intState);
+   \   000009   A2AF         MOV     C,0xa8.7
+   \   00000B   E4           CLR     A
+   \   00000C   33           RLC     A
+   \   00000D   F8           MOV     R0,A
+   \   00000E   C2AF         CLR     0xa8.7
+    640          
+    641            if (npSpiState == NP_SPI_IDLE)
+   \   000010   90....       MOV     DPTR,#npSpiState
+   \   000013   E0           MOVX    A,@DPTR
+   \   000014   7003         JNZ     ??CrossCallReturnLabel_1
+    642            {
+    643              npSpiState = NP_SPI_WAIT_RX;
+   \   000016   12....       LCALL   ?Subroutine2 & 0xFFFF
+    644              DMA_RX();
+    645              NP_RDYOut = 0;
+    646            }
+    647          
+    648            HAL_EXIT_CRITICAL_SECTION(intState);
+   \                     ??CrossCallReturnLabel_1:
+   \   000019   E8           MOV     A,R0
+   \   00001A   A2E0         MOV     C,0xE0 /* A   */.0
+   \   00001C   92AF         MOV     0xa8.7,C
+    649          }
+   \   00001E   80..         SJMP    ?Subroutine0
+   \   000020                REQUIRE _A_IEN0
+   \   000020                REQUIRE DMAIRQ
+   \   000020                REQUIRE DMAARM
+   \   000020                REQUIRE _A_P0
+    650          
+    651          /**************************************************************************************************
+    652           * @fn          npSpiAReqComplete
+    653           *
+    654           * @brief       This function is called by MT to notify the SPI driver that the processing of a
+    655           *              received AREQ is complete.
+    656           *
+    657           * input parameters
+    658           *
+    659           * None.
+    660           *
+    661           * output parameters
+    662           *
+    663           * None.
+    664           *
+    665           * @return      None.
+    666           **************************************************************************************************
+    667           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    668          void npSpiAReqComplete(void)
+   \                     npSpiAReqComplete:
+    669          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    670            if (npSpiState == NP_SPI_WAIT_AREQ)
+   \   000004   90....       MOV     DPTR,#npSpiState
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   6404         XRL     A,#0x4
+   \   00000A   7002         JNZ     ??npSpiAReqComplete_0
+    671            {
+    672              npSpiState = NP_SPI_IDLE;
+   \   00000C   E4           CLR     A
+   \   00000D   F0           MOVX    @DPTR,A
+    673            }
+    674          }
+   \                     ??npSpiAReqComplete_0:
+   \   00000E   80..         SJMP    ??Subroutine5_0
+    675          
+    676          /**************************************************************************************************
+    677           * @fn          npSpiGetReqBuf
+    678           *
+    679           * @brief       This function is called by the application to get the buffer containing the
+    680           *              currently received AREQ or SREQ.
+    681           *
+    682           * input parameters
+    683           *
+    684           * None.
+    685           *
+    686           * output parameters
+    687           *
+    688           * None.
+    689           *
+    690           * @return      Pointer to the buffer containing the currently received AREQ or SREQ.
+    691           **************************************************************************************************
+    692           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    693          uint8 *npSpiGetReqBuf(void)
+   \                     npSpiGetReqBuf:
+    694          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    695            if (npSpiState != NP_SPI_IDLE)
+   \   000004   90....       MOV     DPTR,#npSpiState
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   6006         JZ      ??npSpiGetReqBuf_0
+    696            {
+    697              return npSpiBuf;
+   \   00000A   7A..         MOV     R2,#npSpiBuf & 0xff
+   \   00000C   7B..         MOV     R3,#(npSpiBuf >> 8) & 0xff
+   \   00000E   8004         SJMP    ??npSpiGetReqBuf_1
+    698            }
+    699            else
+    700            {
+    701              return NULL;
+   \                     ??npSpiGetReqBuf_0:
+   \   000010   7A00         MOV     R2,#0x0
+   \   000012   7B00         MOV     R3,#0x0
+    702            }
+   \                     ??npSpiGetReqBuf_1:
+   \   000014   80..         SJMP    ??Subroutine5_0
+    703          }
+    704          
+    705          /**************************************************************************************************
+    706           * @fn          npSpiMrdyIsr
+    707           *
+    708           * @brief       This function is called when a GPIO falling-edge interrupt occurs on the MRDY.
+    709           *
+    710           * input parameters
+    711           *
+    712           * None.
+    713           *
+    714           * output parameters
+    715           *
+    716           * None.
+    717           *
+    718           * @return      None.
+    719           **************************************************************************************************
+    720           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    721          void npSpiMrdyIsr(void)
+   \                     npSpiMrdyIsr:
+    722          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 1
+   \   000004   74FF         MOV     A,#-0x1
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    723            if (npSpiState == NP_SPI_IDLE)
+   \   000009   90....       MOV     DPTR,#npSpiState
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   7013         JNZ     ??CrossCallReturnLabel_2
+    724            {
+    725          #if defined POWER_SAVING
+    726              if (ZG_DEVICE_ENDDEVICE_TYPE)
+   \   00000F   90....       MOV     DPTR,#zgDeviceLogicalType
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   6402         XRL     A,#0x2
+   \   000015   90....       MOV     DPTR,#npSpiState
+   \   000018   7005         JNZ     ??npSpiMrdyIsr_0
+    727              {
+    728                npSpiState = NP_SPI_MRDY;
+   \   00001A   7401         MOV     A,#0x1
+   \   00001C   F0           MOVX    @DPTR,A
+   \   00001D   8003         SJMP    ??CrossCallReturnLabel_2
+    729              }
+    730              else
+    731          #endif        
+    732              {
+    733                npSpiState = NP_SPI_WAIT_RX;
+   \                     ??npSpiMrdyIsr_0:
+   \   00001F   12....       LCALL   ?Subroutine2 & 0xFFFF
+    734                DMA_RX();
+    735                NP_RDYOut = 0;
+    736              }
+    737            }
+    738          }
+   \                     ??CrossCallReturnLabel_2:
+   \   000022   02....       LJMP    ?Subroutine0 & 0xFFFF
+   \   000025                REQUIRE DMAIRQ
+   \   000025                REQUIRE DMAARM
+   \   000025                REQUIRE _A_P0
+    739          
+    740          /**************************************************************************************************
+    741           * @fn          npSpiRxIsr
+    742           *
+    743           * @brief       This function handles the DMA Rx complete interrupt.
+    744           *
+    745           * input parameters
+    746           *
+    747           * None.
+    748           *
+    749           * output parameters
+    750           *
+    751           * None.
+    752           *
+    753           * @return      None.
+    754           **************************************************************************************************
+    755           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    756          void npSpiRxIsr(void)
+   \                     npSpiRxIsr:
+    757          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+    758            mtRpcCmdType_t type = (mtRpcCmdType_t)(npSpiBuf[1] & MT_RPC_CMD_TYPE_MASK);
+    759            uint8 *pBuf, rdy = 1;
+   \   000005   7E01         MOV     R6,#0x1
+    760          
+    761            NP_SPI_ASSERT(npSpiState == NP_SPI_WAIT_RX);
+    762          
+    763            switch (type)
+   \   000007   90....       MOV     DPTR,#npSpiBuf + 1
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   54E0         ANL     A,#0xe0
+   \   00000D   600A         JZ      ??npSpiRxIsr_0
+   \   00000F   24E0         ADD     A,#-0x20
+   \   000011   602F         JZ      ??npSpiRxIsr_1
+   \   000013   24E0         ADD     A,#-0x20
+   \   000015   6041         JZ      ??npSpiRxIsr_2
+   \   000017   8053         SJMP    ??npSpiRxIsr_3
+    764            {
+    765            case MT_RPC_CMD_POLL:
+    766              if ( (pBuf = npSpiPollCallback()) == NULL )
+   \                     ??npSpiRxIsr_0:
+   \   000019                ; Setup parameters for call to function npSpiPollCallback
+   \   000019   12....       LCALL   `??npSpiPollCallback::?relay`; Banked call to: npSpiPollCallback
+   \   00001C   EA           MOV     A,R2
+   \   00001D   F8           MOV     R0,A
+   \   00001E   EB           MOV     A,R3
+   \   00001F   F9           MOV     R1,A
+   \   000020   EA           MOV     A,R2
+   \   000021   4B           ORL     A,R3
+   \   000022   700D         JNZ     ??npSpiRxIsr_4
+    767              {
+    768                pBuf = npSpiBuf;
+   \   000024   78..         MOV     R0,#npSpiBuf & 0xff
+   \   000026   79..         MOV     R1,#(npSpiBuf >> 8) & 0xff
+    769                npSpiBuf[0] = 0;
+   \   000028   90....       MOV     DPTR,#npSpiBuf
+   \   00002B   E4           CLR     A
+   \   00002C   F0           MOVX    @DPTR,A
+    770                npSpiBuf[1] = 0;
+   \   00002D   A3           INC     DPTR
+   \   00002E   F0           MOVX    @DPTR,A
+    771                npSpiBuf[2] = 0;
+   \   00002F   A3           INC     DPTR
+   \   000030   F0           MOVX    @DPTR,A
+    772              }
+    773              npSpiState = NP_SPI_WAIT_TX;
+   \                     ??npSpiRxIsr_4:
+   \   000031   90....       MOV     DPTR,#npSpiState
+   \   000034   7403         MOV     A,#0x3
+   \   000036   F0           MOVX    @DPTR,A
+    774              DMA_TX(pBuf);
+   \   000037   E9           MOV     A,R1
+   \   000038   90....       MOV     DPTR,#dmaCh1234 + 24
+   \   00003B   F0           MOVX    @DPTR,A
+   \   00003C   E8           MOV     A,R0
+   \   00003D   12....       LCALL   ?Subroutine4 & 0xFFFF
+    775              break;
+   \                     ??CrossCallReturnLabel_6:
+   \   000040   802F         SJMP    ??npSpiRxIsr_5
+    776          
+    777            case MT_RPC_CMD_SREQ:
+    778              npSpiState = NP_SPI_WAIT_SREQ;
+   \                     ??npSpiRxIsr_1:
+   \   000042   90....       MOV     DPTR,#npSpiState
+   \   000045   7405         MOV     A,#0x5
+   \   000047   F0           MOVX    @DPTR,A
+    779              osal_set_event(znpTaskId, ZNP_SPI_RX_SREQ_EVENT);
+   \   000048                ; Setup parameters for call to function osal_set_event
+   \   000048   7A00         MOV     R2,#0x0
+   \   00004A   7B20         MOV     R3,#0x20
+   \   00004C   90....       MOV     DPTR,#MT_TaskID
+   \   00004F   E0           MOVX    A,@DPTR
+   \   000050   F9           MOV     R1,A
+   \   000051   12....       LCALL   `??osal_set_event::?relay`; Banked call to: osal_set_event
+    780              rdy = 0;
+   \   000054   7E00         MOV     R6,#0x0
+    781              break;
+   \   000056   8019         SJMP    ??npSpiRxIsr_5
+    782          
+    783            case MT_RPC_CMD_AREQ:
+    784              npSpiState = NP_SPI_WAIT_AREQ;
+   \                     ??npSpiRxIsr_2:
+   \   000058   90....       MOV     DPTR,#npSpiState
+   \   00005B   7404         MOV     A,#0x4
+   \   00005D   F0           MOVX    @DPTR,A
+    785              osal_set_event(znpTaskId, ZNP_SPI_RX_AREQ_EVENT);
+   \   00005E                ; Setup parameters for call to function osal_set_event
+   \   00005E   7A00         MOV     R2,#0x0
+   \   000060   7B40         MOV     R3,#0x40
+   \   000062   90....       MOV     DPTR,#MT_TaskID
+   \   000065   E0           MOVX    A,@DPTR
+   \   000066   F9           MOV     R1,A
+   \   000067   12....       LCALL   `??osal_set_event::?relay`; Banked call to: osal_set_event
+    786              break;
+   \   00006A   8005         SJMP    ??npSpiRxIsr_5
+    787          
+    788            default:
+    789              npSpiState = NP_SPI_IDLE;
+   \                     ??npSpiRxIsr_3:
+   \   00006C   90....       MOV     DPTR,#npSpiState
+   \   00006F   E4           CLR     A
+   \   000070   F0           MOVX    @DPTR,A
+    790              break;
+    791            }
+    792            NP_RDYOut = rdy;
+   \                     ??npSpiRxIsr_5:
+   \   000071   EE           MOV     A,R6
+   \   000072   C4           SWAP    A
+   \   000073   54F0         ANL     A,#0xf0
+   \   000075   F8           MOV     R0,A
+   \   000076   E580         MOV     A,0x80
+   \   000078   54EF         ANL     A,#0xef
+   \   00007A   48           ORL     A,R0
+   \   00007B   F580         MOV     0x80,A
+    793          }
+   \   00007D   7F02         MOV     R7,#0x2
+   \   00007F   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000082                REQUIRE DMAIRQ
+   \   000082                REQUIRE DMAARM
+   \   000082                REQUIRE DMAREQ
+   \   000082                REQUIRE _A_P0
+    794          
+    795          /**************************************************************************************************
+    796           * @fn          npSpiTxIsr
+    797           *
+    798           * @brief       This function handles the DMA Tx complete interrupt.
+    799           *
+    800           * input parameters
+    801           *
+    802           * None.
+    803           *
+    804           * output parameters
+    805           *
+    806           * None.
+    807           *
+    808           * @return      None.
+    809           **************************************************************************************************
+    810           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    811          void npSpiTxIsr(void)
+   \                     npSpiTxIsr:
+    812          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    813            halDMADesc_t *ch = HAL_DMA_GET_DESC1234(HAL_DMA_CH_TX);
+    814            uint16 src;
+    815          
+    816            NP_SPI_ASSERT(npSpiState == NP_SPI_WAIT_TX);
+    817          
+    818            HAL_DMA_GET_SOURCE( ch, src );
+   \   000004   90....       MOV     DPTR,#dmaCh1234 + 24
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   F9           MOV     R1,A
+   \   000009   A3           INC     DPTR
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   FA           MOV     R2,A
+   \   00000C   E9           MOV     A,R1
+   \   00000D   FB           MOV     R3,A
+    819          
+    820            if ((uint8 *)src != npSpiBuf)
+   \   00000E   74..         MOV     A,#npSpiBuf & 0xff
+   \   000010   6A           XRL     A,R2
+   \   000011   7003         JNZ     ??npSpiTxIsr_0
+   \   000013   74..         MOV     A,#(npSpiBuf >> 8) & 0xff
+   \   000015   6B           XRL     A,R3
+   \                     ??npSpiTxIsr_0:
+   \   000016   6003         JZ      ??npSpiTxIsr_1
+    821            {
+    822              osal_msg_deallocate((uint8 *)src);
+   \   000018                ; Setup parameters for call to function osal_msg_deallocate
+   \   000018   12....       LCALL   `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
+    823            }
+    824          
+    825            npSpiState = NP_SPI_IDLE;
+   \                     ??npSpiTxIsr_1:
+   \   00001B   90....       MOV     DPTR,#npSpiState
+   \   00001E   E4           CLR     A
+   \   00001F   F0           MOVX    @DPTR,A
+    826          }
+   \   000020   02....       LJMP    ??Subroutine5_0 & 0xFFFF
+    827          
+    828          /**************************************************************************************************
+    829           * @fn          npSpiIdle
+    830           *
+    831           * @brief       This function returns true if SPI is idle and there is no queued data.
+    832           *
+    833           * input parameters
+    834           *
+    835           * None.
+    836           *
+    837           * output parameters
+    838           *
+    839           * None.
+    840           *
+    841           * @return      True if SPI is idle with no quequed data.
+    842           **************************************************************************************************
+    843           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    844          bool npSpiIdle(void)
+   \                     npSpiIdle:
+    845          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    846            return (npSpiState == NP_SPI_IDLE && !npSpiReadyCallback());
+   \   000004   90....       MOV     DPTR,#npSpiState
+   \   000007   E0           MOVX    A,@DPTR
+   \   000008   700A         JNZ     ??npSpiIdle_0
+   \   00000A                ; Setup parameters for call to function npSpiReadyCallback
+   \   00000A   12....       LCALL   `??npSpiReadyCallback::?relay`; Banked call to: npSpiReadyCallback
+   \   00000D   E9           MOV     A,R1
+   \   00000E   7004         JNZ     ??npSpiIdle_0
+   \   000010   7901         MOV     R1,#0x1
+   \   000012   8002         SJMP    ??npSpiIdle_1
+   \                     ??npSpiIdle_0:
+   \   000014   7900         MOV     R1,#0x0
+   \                     ??npSpiIdle_1:
+   \   000016   02....       LJMP    ??Subroutine5_0 & 0xFFFF
+    847          }
+    848          
+    849          /**************************************************************************************************
+    850           * @fn          portN-Isr
+    851           *
+    852           * @brief       This function handles the PORT-N interrupt.
+    853           *
+    854           * input parameters
+    855           *
+    856           * None.
+    857           *
+    858           * output parameters
+    859           *
+    860           * None.
+    861           *
+    862           * @return      None.
+    863           **************************************************************************************************
+    864           */
+    865          #if defined CC2530_MK
+    866          HAL_ISR_FUNCTION(port2Isr, P2INT_VECTOR)
+    867          {
+    868            P2IFG = 0;
+    869            P2IF = 0;
+    870          #else
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+    871          HAL_ISR_FUNCTION(port0Isr, P0INT_VECTOR)
+   \                     port0Isr:
+    872          {
+   \   000000   C0E0         PUSH    A
+   \   000002   74F2         MOV     A,#-0xe
+   \   000004   12....       LCALL   ?INTERRUPT_ENTER_XSP
+   \   000007                ; Saved register size: 14
+   \   000007                ; Auto size: 0
+    873            P0IFG = 0;
+   \   000007   758900       MOV     0x89,#0x0
+    874            P0IF = 0;
+   \   00000A   C2C5         CLR     0xc0.5
+    875          #endif
+    876          
+    877            // Knowing which pin requires a #define from _hal_uart_dma.c
+    878            //if (P0IFG & NP_RDYIn_BIT)
+    879            {
+    880              if (ZNP_CFG1_UART == znpCfg1)
+   \   00000C   90....       MOV     DPTR,#znpCfg1
+   \   00000F   E0           MOVX    A,@DPTR
+   \   000010   700E         JNZ     ??port0Isr_0
+    881              {
+    882                osal_set_event(znpTaskId, ZNP_UART_TX_READY_EVENT);
+   \   000012                ; Setup parameters for call to function osal_set_event
+   \   000012   7A00         MOV     R2,#0x0
+   \   000014   7B10         MOV     R3,#0x10
+   \   000016   90....       MOV     DPTR,#MT_TaskID
+   \   000019   E0           MOVX    A,@DPTR
+   \   00001A   F9           MOV     R1,A
+   \   00001B   12....       LCALL   `??osal_set_event::?relay`; Banked call to: osal_set_event
+   \   00001E   8003         SJMP    ??port0Isr_1
+    883              }
+    884              else
+    885              {
+    886                npSpiMrdyIsr();
+   \                     ??port0Isr_0:
+   \   000020                ; Setup parameters for call to function npSpiMrdyIsr
+   \   000020   12....       LCALL   `??npSpiMrdyIsr::?relay`; Banked call to: npSpiMrdyIsr
+    887              }
+    888            }
+    889          }
+   \                     ??port0Isr_1:
+   \   000023   7F01         MOV     R7,#0x1
+   \   000025   02....       LJMP    ?INTERRUPT_LEAVE_XSP
+   \   000028                REQUIRE P0IFG
+   \   000028                REQUIRE _A_IRCON
+
+   \                                 In  segment INTVEC, offset 0x6b, root
+   \                     `??port0Isr::??INTVEC 107`:
+   \   00006B   02....       LJMP       (port0Isr)
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_a:
+   \   000000   0A000000     DD 10
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??dmaInit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    dmaInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiInit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiMonitor::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiMonitor
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiSRspAlloc::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiSRspAlloc
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiAReqAlloc::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiAReqAlloc
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiSRspReady::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiSRspReady
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiAReqReady::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiAReqReady
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiAReqComplete::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiAReqComplete
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiGetReqBuf::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiGetReqBuf
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiMrdyIsr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiMrdyIsr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiRxIsr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiRxIsr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiTxIsr::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiTxIsr
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiIdle::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiIdle
+    890          
+    891          /**************************************************************************************************
+    892          */
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2      0   dmaInit
+      0      9   npSpiAReqAlloc
+        0      9   -> osal_msg_allocate
+      2      0   npSpiAReqComplete
+      3     11   npSpiAReqReady
+      2      0   npSpiGetReqBuf
+      2      0   npSpiIdle
+        2      0   -> npSpiReadyCallback
+      2      0   npSpiInit
+        2      0   -> dmaInit
+      1     14   npSpiMonitor
+        0     10   -> ZMacGetReq
+        0     10   -> npSpiAReqReady
+        0     10   -> npSpiReadyCallback
+        0     10   -> npSpiRxIsr
+        0     10   -> npSpiTxIsr
+        0     10   -> osal_clear_event
+        0     10   -> osal_pwrmgr_task_state
+        0     10   -> osal_set_event
+        0     14   -> osal_start_timerEx
+        0     10   -> osal_stop_timerEx
+      3     15   npSpiMrdyIsr
+      0     20   npSpiRxIsr
+        0     10   -> npSpiPollCallback
+        0     10   -> osal_set_event
+      2      0   npSpiSRspAlloc
+      2      0   npSpiSRspReady
+      2     10   npSpiTxIsr
+        2      0   -> osal_msg_deallocate
+      0     14   port0Isr
+        0     14   -> npSpiMrdyIsr
+        0     14   -> osal_set_event
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       7  ??Subroutine5_0
+       5  ?Subroutine0
+       5  ?Subroutine1
+      23  ?Subroutine2
+      14  ?Subroutine3
+      12  ?Subroutine4
+       1  DMAARM
+       1  DMAIRQ
+       1  DMAREQ
+       1  P0DIR
+       1  P0IEN
+       1  P0IFG
+       1  P0INP
+       1  P0SEL
+       1  P1SEL
+       1  P2INP
+       1  P2SEL
+       1  PERCFG
+       1  PICTL
+       1  U1GCR
+       1  _A_IEN0
+       1  _A_IEN1
+       1  _A_IRCON
+       1  _A_P0
+       1  _A_U1CSR
+       4  __Constant_a
+      79  dmaInit
+       6  dmaInit::?relay
+      18  npSpiAReqAlloc
+       6  npSpiAReqAlloc::?relay
+      16  npSpiAReqComplete
+       6  npSpiAReqComplete::?relay
+      32  npSpiAReqReady
+       6  npSpiAReqReady::?relay
+     254  npSpiBuf
+      22  npSpiGetReqBuf
+       6  npSpiGetReqBuf::?relay
+      25  npSpiIdle
+       6  npSpiIdle::?relay
+      64  npSpiInit
+       6  npSpiInit::?relay
+     253  npSpiMonitor
+       6  npSpiMonitor::?relay
+      37  npSpiMrdyIsr
+       6  npSpiMrdyIsr::?relay
+     130  npSpiRxIsr
+       6  npSpiRxIsr::?relay
+      24  npSpiSRspAlloc
+       6  npSpiSRspAlloc::?relay
+      32  npSpiSRspReady
+       6  npSpiSRspReady::?relay
+       1  npSpiState
+      35  npSpiTxIsr
+       6  npSpiTxIsr::?relay
+      40  port0Isr
+       3  port0Isr::??INTVEC 107
+       1  znpSpiActiveShdw
+
+ 
+ 833 bytes in segment BANKED_CODE
+  78 bytes in segment BANK_RELAYS
+   3 bytes in segment INTVEC
+  40 bytes in segment NEAR_CODE
+  19 bytes in segment SFR_AN
+   4 bytes in segment XDATA_ROM_C
+ 256 bytes in segment XDATA_Z
+ 
+ 951 bytes of CODE  memory (+  3 bytes shared)
+   0 bytes of CONST memory (+  4 bytes shared)
+   0 bytes of DATA  memory (+ 19 bytes shared)
+ 256 bytes of XDATA memory
+
+Errors: none
+Warnings: none

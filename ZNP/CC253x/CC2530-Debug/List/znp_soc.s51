@@ -1,0 +1,746 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               21/Nov/2018  13:52:23
+// Copyright 2004-2015 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\Source\znp_soc.c
+//    Command line       =  
+//        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+//        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR |
+//        DEVICE_BUILD_ROUTER | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL
+//        -DZNP_RUN_WDOG=FALSE -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO
+//        -DZIGBEE_FRAGMENTATION -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE
+//        -DSAPI_CB_FUNC=FALSE -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT
+//        -DNUM_DISC_ATTEMPTS=0 -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC
+//        -DMT_SAPI_FUNC -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC
+//        -DMT_ZDO_MGMT -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -f
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\Source\znp_soc.c" -D
+//        FEATURE_SYSTEM_STATS -D POWER_SAVING -lC
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+//        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e
+//        --no_code_motion --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+//        -Ohz --require_prototypes
+//    List file          =  
+//        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\znp_soc.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME znp_soc
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?MOVE_LONG8_XDATA_XDATA
+        EXTERN ?PUSH_XSTACK_I_TWO
+        EXTERN ?XSP
+        EXTERN ?XSTACK_DISP0_8
+
+        PUBLIC `??znpTestRF::?relay`
+        FUNCTION `??znpTestRF::?relay`,0203H
+        PUBWEAK RFST
+        PUBLIC znpTestRF
+        FUNCTION znpTestRF,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 18, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+          CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+osal_memset         SYMBOL "osal_memset"
+`??osal_memset::?relay` SYMBOL "?relay", osal_memset
+osal_nv_item_init   SYMBOL "osal_nv_item_init"
+`??osal_nv_item_init::?relay` SYMBOL "?relay", osal_nv_item_init
+osal_nv_read        SYMBOL "osal_nv_read"
+`??osal_nv_read::?relay` SYMBOL "?relay", osal_nv_read
+osal_nv_write       SYMBOL "osal_nv_write"
+`??osal_nv_write::?relay` SYMBOL "?relay", osal_nv_write
+znpTestRF           SYMBOL "znpTestRF"
+`??znpTestRF::?relay` SYMBOL "?relay", znpTestRF
+
+        EXTERN `??osal_memset::?relay`
+        FUNCTION `??osal_memset::?relay`,00H
+        EXTERN `??osal_nv_item_init::?relay`
+        FUNCTION `??osal_nv_item_init::?relay`,00H
+        EXTERN `??osal_nv_read::?relay`
+        FUNCTION `??osal_nv_read::?relay`,00H
+        EXTERN `??osal_nv_write::?relay`
+        FUNCTION `??osal_nv_write::?relay`,00H
+        EXTERN macPhyTxPower
+        EXTERN osal_memset
+        FUNCTION osal_memset,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_nv_item_init
+        FUNCTION osal_nv_item_init,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 16, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_nv_read
+        FUNCTION osal_nv_read,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_nv_write
+        FUNCTION osal_nv_write,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN reqTxBoost
+
+// D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Projects\zstack\ZNP\CC253x\Source\znp_soc.c
+//    1 /**************************************************************************************************
+//    2   Filename:       znp_soc.c
+//    3   Revised:        $Date: 2010-11-22 08:13:43 -0800 (Mon, 22 Nov 2010) $
+//    4   Revision:       $Revision: 24480 $
+//    5 
+//    6   Description:
+//    7 
+//    8   This file is the HAL-specific Application implementation for the ZNP by 8051 SOC.
+//    9 
+//   10 
+//   11   Copyright 2010 Texas Instruments Incorporated. All rights reserved.
+//   12 
+//   13   IMPORTANT: Your use of this Software is limited to those specific rights
+//   14   granted under the terms of a software license agreement between the user
+//   15   who downloaded the software, his/her employer (which must be your employer)
+//   16   and Texas Instruments Incorporated (the "License").  You may not use this
+//   17   Software unless you agree to abide by the terms of the License. The License
+//   18   limits your use, and you acknowledge, that the Software may not be modified,
+//   19   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   20   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   21   frequency transceiver, which is integrated into your product.  Other than for
+//   22   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   23   works of, modify, distribute, perform, display or sell this Software and/or
+//   24   its documentation for any purpose.
+//   25 
+//   26   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   27   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   28   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   29   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   30   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   31   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   32   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   33   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   34   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   35   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   36   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   37 
+//   38   Should you have any questions regarding your right to use this Software,
+//   39   contact Texas Instruments Incorporated at www.TI.com.
+//   40 **************************************************************************************************/
+//   41 
+//   42 /* ------------------------------------------------------------------------------------------------
+//   43  *                                          Includes
+//   44  * ------------------------------------------------------------------------------------------------
+//   45  */
+//   46 
+//   47 #include "comdef.h"
+//   48 #include "hal_board_cfg.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,0e1H
+// unsigned char volatile __sfr RFST
+RFST:
+        DATA8
+        DS 1
+//   49 #include "mac_radio_defs.h"
+//   50 #include "MT.h"
+//   51 #include "OSAL.h"
+//   52 #include "OSAL_Nv.h"
+//   53 #include "znp_app.h"
+//   54 
+//   55 /* ------------------------------------------------------------------------------------------------
+//   56  *                                           Macros
+//   57  * ------------------------------------------------------------------------------------------------
+//   58  */
+//   59 
+//   60 #define MAC_RADIO_TX_ON()     st( RFST = ISTXON;   )
+//   61 
+//   62 #define MOD_IF             4     // ~Modulation bit of MDMTEST1 register.
+//   63 #define TX_PWR_MOD__SET(MOD_) st ( \ 
+//   64   if ((MOD_)) \ 
+//   65   { \ 
+//   66     MDMTEST1 |= BV(MOD_IF); \ 
+//   67   } \ 
+//   68   else \ 
+//   69   { \ 
+//   70     MDMTEST1 &= ~BV(MOD_IF); \ 
+//   71   } \ 
+//   72 );
+//   73 
+//   74 #define TX_PWR_TONE_SET(TONE) st ( \ 
+//   75   MDMTEST0 &= ~0xF0; \ 
+//   76   MDMTEST0 |= (TONE << 4); \ 
+//   77 )
+//   78 
+//   79 /**************************************************************************************************
+//   80  * @fn          znpTestRF
+//   81  *
+//   82  * @brief       This function initializes and checks the ZNP RF Test Mode NV items. It is designed
+//   83  *              to be invoked before/instead of MAC radio initialization.
+//   84  *
+//   85  * input parameters
+//   86  *
+//   87  * None.
+//   88  *
+//   89  * output parameters
+//   90  *
+//   91  * None.
+//   92  *
+//   93  * @return      None.
+//   94  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   95 void znpTestRF(void)
+znpTestRF:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function znpTestRF
+        CODE
+//   96 {
+        FUNCALL znpTestRF, osal_nv_item_init
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 16, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 16, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL znpTestRF, osal_nv_read
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 18, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL znpTestRF, osal_memset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL znpTestRF, osal_nv_write
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 18, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 18, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 4
+        MOV     A,#-0x4
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 14)
+//   97   uint8 rfTestParms[4] = { 0, 0, 0, 0 };
+        MOV     DPTR,#`?<Constant {0, 0, 0, 0}>`
+        MOV     R4,?XSP + 0
+        MOV     R5,?XSP + 1
+        MOV     A,#0x4
+        LCALL   ?MOVE_LONG8_XDATA_XDATA
+//   98 
+//   99   if ((SUCCESS != osal_nv_item_init(ZNP_NV_RF_TEST_PARMS, 4, rfTestParms))  ||
+//  100       (SUCCESS != osal_nv_read(ZNP_NV_RF_TEST_PARMS, 0, 4, rfTestParms)) ||
+//  101       (rfTestParms[0] == 0))
+        ; Setup parameters for call to function osal_nv_item_init
+        MOV     R0,?XSP + 0
+        MOV     R1,?XSP + 1
+        MOV     ?V0,R0
+        MOV     ?V1,R1
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 16)
+        MOV     R4,#0x4
+        MOV     R5,#0x0
+        MOV     R2,#0x7
+        MOV     R3,#0xf
+        LCALL   `??osal_nv_item_init::?relay`; Banked call to: osal_nv_item_init
+        MOV     A,#0x2
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 14)
+        MOV     A,R1
+        JNZ     ??znpTestRF_0
+        ; Setup parameters for call to function osal_nv_read
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 16)
+        MOV     ?V0,#0x4
+        MOV     ?V1,#0x0
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 18)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R2,#0x7
+        MOV     R3,#0xf
+        LCALL   `??osal_nv_read::?relay`; Banked call to: osal_nv_read
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 14)
+        MOV     A,R1
+        JNZ     ??znpTestRF_0
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    A,@DPTR
+        JNZ     ??znpTestRF_1
+//  102   {
+//  103     return;
+??znpTestRF_0:
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI CFA_XSP16 add(XSP16, 14)
+//  104   }
+//  105 
+//  106   // Settings from SmartRF Studio
+//  107   MDMCTRL0 = 0x85;
+??znpTestRF_1:
+        MOV     DPTR,#0x61a8
+        MOV     A,#-0x7b
+        MOVX    @DPTR,A
+//  108   RXCTRL = 0x3F;
+        MOV     DPTR,#0x61ab
+        MOV     A,#0x3f
+        MOVX    @DPTR,A
+//  109   FSCTRL = 0x5A;
+        INC     DPTR
+        MOV     A,#0x5a
+        MOVX    @DPTR,A
+//  110   FSCAL1 = 0x2B;
+        MOV     DPTR,#0x61ae
+        MOV     A,#0x2b
+        MOVX    @DPTR,A
+//  111   AGCCTRL1 = 0x11;
+        MOV     DPTR,#0x61b2
+        MOV     A,#0x11
+        MOVX    @DPTR,A
+//  112   ADCTEST0 = 0x10;
+        MOV     DPTR,#0x61b5
+        DEC     A
+        MOVX    @DPTR,A
+//  113   ADCTEST1 = 0x0E;
+        INC     DPTR
+        MOV     A,#0xe
+        MOVX    @DPTR,A
+//  114   ADCTEST2 = 0x03;
+        INC     DPTR
+        MOV     A,#0x3
+        MOVX    @DPTR,A
+//  115 
+//  116   FRMCTRL0 = 0x43;
+        MOV     DPTR,#0x6189
+        MOV     A,#0x43
+        MOVX    @DPTR,A
+//  117   FRMCTRL1 = 0x00;
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+//  118 
+//  119   MAC_RADIO_RXTX_OFF();
+        MOV     0xe1,#-0x11
+//  120   MAC_RADIO_SET_CHANNEL(rfTestParms[1]);
+        MOV     B,#0x5
+        INC     A
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        MUL     AB
+        ADD     A,#-0x2c
+        MOV     DPTR,#0x618f
+        MOVX    @DPTR,A
+//  121   MAC_RADIO_SET_TX_POWER(rfTestParms[2]);
+        MOV     DPTR,#0x7803
+        MOVX    A,@DPTR
+        XRL     A,#0x95
+        JZ      ??znpTestRF_2
+        MOVX    A,@DPTR
+        XRL     A,#0x34
+        JNZ     ??znpTestRF_3
+??znpTestRF_2:
+        MOV     DPTR,#macPhyTxPower
+        MOVX    A,@DPTR
+        MOV     DPTR,#0x6190
+        MOVX    @DPTR,A
+        MOV     DPTR,#reqTxBoost
+        MOVX    A,@DPTR
+        MOV     DPTR,#0x61ac
+        JZ      ??znpTestRF_4
+        MOV     A,#-0xb
+        MOVX    @DPTR,A
+        MOV     DPTR,#0x6191
+        MOV     A,#0x74
+        SJMP    ??znpTestRF_5
+??znpTestRF_4:
+        MOV     A,#0x55
+        MOVX    @DPTR,A
+        MOV     DPTR,#0x6191
+        MOV     A,#0x69
+        SJMP    ??znpTestRF_5
+??znpTestRF_3:
+        MOV     A,#0x2
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        MOV     DPTR,#0x6190
+??znpTestRF_5:
+        MOVX    @DPTR,A
+//  122   TX_PWR_TONE_SET(rfTestParms[3]);
+        MOV     DPTR,#0x61b8
+        MOVX    A,@DPTR
+        ANL     A,#0xf
+        MOVX    @DPTR,A
+        MOV     A,#0x3
+        LCALL   ?XSTACK_DISP0_8
+        MOVX    A,@DPTR
+        SWAP    A
+        ANL     A,#0xf0
+        MOV     R0,A
+        MOV     DPTR,#0x61b8
+        MOVX    A,@DPTR
+        ORL     A,R0
+        MOVX    @DPTR,A
+//  123 
+//  124   switch (rfTestParms[0])
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    A,@DPTR
+        DEC     A
+        JZ      ??znpTestRF_6
+        DEC     A
+        JZ      ??znpTestRF_7
+        DEC     A
+        JZ      ??znpTestRF_8
+        SJMP    ??znpTestRF_9
+//  125   {
+//  126   case 1:  // Rx promiscuous mode.
+//  127     MAC_RADIO_RX_ON();
+??znpTestRF_6:
+        MOV     0xe1,#-0x1d
+//  128     break;
+        SJMP    ??znpTestRF_9
+//  129 
+//  130   case 2:  // Un-modulated Tx.
+//  131     TX_PWR_MOD__SET(1);
+??znpTestRF_7:
+        MOV     DPTR,#0x61b9
+        MOVX    A,@DPTR
+        SETB    0xE0 /* A   */.4
+        MOVX    @DPTR,A
+//  132     // no break;
+//  133 
+//  134   case 3:  // Modulated Tx.
+//  135     // Modulated is default register setting, so no special action.
+//  136 
+//  137     // Now turn on Tx power for either mod or un-modulated Tx test.
+//  138     MAC_RADIO_TX_ON();
+??znpTestRF_8:
+        MOV     0xe1,#-0x17
+//  139     break;
+//  140 
+//  141   default:  // Not expected.
+//  142     break;
+//  143   }
+//  144 
+//  145   // Clear the RF test mode.
+//  146   (void)osal_memset(rfTestParms, 0, 4);
+??znpTestRF_9:
+        ; Setup parameters for call to function osal_memset
+        MOV     R4,#0x4
+        MOV     R5,#0x0
+        MOV     R1,#0x0
+        MOV     R2,?XSP + 0
+        MOV     R3,?XSP + 1
+        LCALL   `??osal_memset::?relay`; Banked call to: osal_memset
+//  147   (void)osal_nv_write(ZNP_NV_RF_TEST_PARMS, 0, 4, rfTestParms);
+        ; Setup parameters for call to function osal_nv_write
+        MOV     R0,?XSP + 0
+        MOV     R1,?XSP + 1
+        MOV     ?V0,R0
+        MOV     ?V1,R1
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 16)
+        MOV     ?V0,#0x4
+        MOV     ?V1,#0x0
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 18)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R2,#0x7
+        MOV     R3,#0xf
+        LCALL   `??osal_nv_write::?relay`; Banked call to: osal_nv_write
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 14)
+//  148 
+//  149   while (1);  // Spin in RF test mode until a hard reset.
+??znpTestRF_10:
+        SJMP    ??znpTestRF_10
+          CFI EndBlock cfiBlock0
+        REQUIRE RFST
+//  150 }
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??znpTestRF::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    znpTestRF
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+`?<Constant {0, 0, 0, 0}>`:
+        DATA8
+        DB 0
+        DB 0
+        DB 0
+        DB 0
+
+        END
+//  151 
+//  152 /**************************************************************************************************
+//  153 */
+// 
+// 347 bytes in segment BANKED_CODE
+//   6 bytes in segment BANK_RELAYS
+//   1 byte  in segment SFR_AN
+//   4 bytes in segment XDATA_ROM_C
+// 
+// 353 bytes of CODE  memory
+//   4 bytes of CONST memory
+//   0 bytes of DATA  memory (+ 1 byte shared)
+//
+//Errors: none
+//Warnings: none

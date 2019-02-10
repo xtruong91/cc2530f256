@@ -1,0 +1,437 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                21/Nov/2018  13:52:04
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Components\hal\target\CC2530ZNP\hal_dma.c
+#    Command line       =  
+#        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+#        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR | DEVICE_BUILD_ROUTER
+#        | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL -DZNP_RUN_WDOG=FALSE
+#        -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO -DZIGBEE_FRAGMENTATION
+#        -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE -DSAPI_CB_FUNC=FALSE
+#        -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT -DNUM_DISC_ATTEMPTS=0
+#        -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC -DMT_SAPI_FUNC
+#        -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC -DMT_ZDO_MGMT
+#        -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Components\hal\target\CC2530ZNP\hal_dma.c" -D
+#        FEATURE_SYSTEM_STATS -D POWER_SAVING -lC
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+#        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e --no_code_motion
+#        --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes
+#    List file          =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\hal_dma.lst
+#    Object file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj\hal_dma.r51
+#
+###############################################################################
+
+D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Components\hal\target\CC2530ZNP\hal_dma.c
+      1          /**************************************************************************************************
+      2            Filename:       hal_dma.c
+      3            Revised:        $Date: 2014-04-01 17:21:26 -0700 (Tue, 01 Apr 2014) $
+      4            Revision:       $Revision: 38014 $
+      5          
+      6            Description:    This file contains the interface to the DMA.
+      7          
+      8          
+      9            Copyright 2007-2014 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com. 
+     38          **************************************************************************************************/
+     39          
+     40          /*********************************************************************
+     41           * INCLUDES
+     42           */
+     43          
+     44          #include "hal_types.h"
+     45          #include "hal_defs.h"
+     46          #include "hal_dma.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xb8
+   \   union <unnamed> volatile __sfr _A_IEN1
+   \                     _A_IEN1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc0
+   \   union <unnamed> volatile __sfr _A_IRCON
+   \                     _A_IRCON:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd1
+   \   unsigned char volatile __sfr DMAIRQ
+   \                     DMAIRQ:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd2
+   \   unsigned char volatile __sfr DMA1CFGL
+   \                     DMA1CFGL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd3
+   \   unsigned char volatile __sfr DMA1CFGH
+   \                     DMA1CFGH:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd4
+   \   unsigned char volatile __sfr DMA0CFGL
+   \                     DMA0CFGL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xd5
+   \   unsigned char volatile __sfr DMA0CFGH
+   \                     DMA0CFGH:
+   \   000000                DS 1
+     47          #include "hal_mcu.h"
+     48          #include "hal_uart.h"
+     49          
+     50          #if (defined HAL_IRGEN) && (HAL_IRGEN == TRUE)
+     51          #include "hal_irgen.h"
+     52          #endif
+     53          
+     54          #if (defined HAL_SPI) && (HAL_SPI == TRUE)
+     55          #include "hal_spi.h"
+     56          #endif
+     57          
+     58          
+     59          #if ((defined HAL_DMA) && (HAL_DMA == TRUE))
+     60          
+     61          /*********************************************************************
+     62           * MACROS
+     63           */
+     64          
+     65          /*********************************************************************
+     66           * CONSTANTS
+     67           */
+     68          
+     69          /*********************************************************************
+     70           * TYPEDEFS
+     71           */
+     72          
+     73          /*********************************************************************
+     74           * GLOBAL VARIABLES
+     75           */
+     76          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     77          halDMADesc_t dmaCh0;
+   \                     dmaCh0:
+   \   000000                DS 8
+   \   000008                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     78          halDMADesc_t dmaCh1234[4];
+   \                     dmaCh1234:
+   \   000000                DS 32
+   \   000020                REQUIRE __INIT_XDATA_Z
+     79          
+     80          /*********************************************************************
+     81           * GLOBAL FUNCTIONS
+     82           */
+     83          
+     84          /*********************************************************************
+     85           * LOCAL VARIABLES
+     86           */
+     87          
+     88          /*********************************************************************
+     89           * LOCAL FUNCTIONS
+     90           */
+     91          
+     92          /******************************************************************************
+     93           * @fn      HalDMAInit
+     94           *
+     95           * @brief   DMA Interrupt Service Routine
+     96           *
+     97           * @param   None
+     98           *
+     99           * @return  None
+    100           *****************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    101          void HalDmaInit( void )
+   \                     HalDmaInit:
+    102          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    103            HAL_DMA_SET_ADDR_DESC0( &dmaCh0 );
+   \   000000   74..         MOV     A,#(dmaCh0 >> 8) & 0xff
+   \   000002   F5D5         MOV     0xd5,A
+   \   000004   75D4..       MOV     0xd4,#dmaCh0 & 0xff
+    104            HAL_DMA_SET_ADDR_DESC1234( dmaCh1234 );
+   \   000007   74..         MOV     A,#(dmaCh1234 >> 8) & 0xff
+   \   000009   F5D3         MOV     0xd3,A
+   \   00000B   75D2..       MOV     0xd2,#dmaCh1234 & 0xff
+    105            DMAIE = 1;
+   \   00000E   D2B8         SETB    0xb8.0
+    106          }
+   \   000010   02....       LJMP    ?BRET
+   \   000013                REQUIRE DMA0CFGH
+   \   000013                REQUIRE DMA0CFGL
+   \   000013                REQUIRE DMA1CFGH
+   \   000013                REQUIRE DMA1CFGL
+   \   000013                REQUIRE _A_IEN1
+    107          
+    108          /******************************************************************************
+    109           * @fn      HalDMAInit
+    110           *
+    111           * @brief   DMA Interrupt Service Routine
+    112           *
+    113           * @param   None
+    114           *
+    115           * @return  None
+    116           *****************************************************************************/
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+    117          HAL_ISR_FUNCTION( halDmaIsr, DMA_VECTOR )
+   \                     halDmaIsr:
+    118          {
+   \   000000   C0E0         PUSH    A
+   \   000002   74F2         MOV     A,#-0xe
+   \   000004   12....       LCALL   ?INTERRUPT_ENTER_XSP
+   \   000007                ; Saved register size: 14
+   \   000007                ; Auto size: 0
+    119            HAL_ENTER_ISR();
+   \   000007   A2AF         MOV     C,0xa8.7
+   \   000009   E4           CLR     A
+   \   00000A   33           RLC     A
+   \   00000B   FE           MOV     R6,A
+   \   00000C   D2AF         SETB    0xa8.7
+    120          
+    121            DMAIF = 0;
+   \   00000E   C2C0         CLR     0xc0.0
+    122          
+    123            if (ZNP_CFG1_UART == znpCfg1)
+   \   000010   90....       MOV     DPTR,#znpCfg1
+   \   000013   E0           MOVX    A,@DPTR
+   \   000014   700B         JNZ     ??halDmaIsr_0
+    124            {
+    125              if (HAL_DMA_CHECK_IRQ(HAL_DMA_CH_TX))
+   \   000016   E5D1         MOV     A,0xd1
+   \   000018   A2E4         MOV     C,0xE0 /* A   */.4
+   \   00001A   501D         JNC     ??halDmaIsr_1
+    126              {
+    127                extern void HalUARTIsrDMA(void);
+    128                HalUARTIsrDMA();
+   \   00001C                ; Setup parameters for call to function HalUARTIsrDMA
+   \   00001C   12....       LCALL   `??HalUARTIsrDMA::?relay`; Banked call to: HalUARTIsrDMA
+   \   00001F   8018         SJMP    ??halDmaIsr_1
+    129              }
+    130            }
+    131          #if (defined HAL_SPI) && (HAL_SPI == TRUE)
+    132            else
+    133            {
+    134              if ( HAL_DMA_CHECK_IRQ( HAL_DMA_CH_RX ) )
+   \                     ??halDmaIsr_0:
+   \   000021   E5D1         MOV     A,0xd1
+   \   000023   A2E3         MOV     C,0xE0 /* A   */.3
+   \   000025   5006         JNC     ??halDmaIsr_2
+    135              {
+    136                HAL_DMA_CLEAR_IRQ( HAL_DMA_CH_RX );
+   \   000027   75D1F7       MOV     0xd1,#-0x9
+    137                HalSpiRxIsr();
+   \   00002A                ; Setup parameters for call to function HalSpiRxIsr
+   \   00002A   12....       LCALL   `??HalSpiRxIsr::?relay`; Banked call to: HalSpiRxIsr
+    138              }
+    139          
+    140              if ( HAL_DMA_CHECK_IRQ( HAL_DMA_CH_TX ) )
+   \                     ??halDmaIsr_2:
+   \   00002D   E5D1         MOV     A,0xd1
+   \   00002F   A2E4         MOV     C,0xE0 /* A   */.4
+   \   000031   5006         JNC     ??halDmaIsr_1
+    141              {
+    142                HAL_DMA_CLEAR_IRQ( HAL_DMA_CH_TX );
+   \   000033   75D1EF       MOV     0xd1,#-0x11
+    143                HalSpiTxIsr();
+   \   000036                ; Setup parameters for call to function HalSpiTxIsr
+   \   000036   12....       LCALL   `??HalSpiTxIsr::?relay`; Banked call to: HalSpiTxIsr
+    144              }
+    145            }
+    146          #endif // #if (defined HAL_SPI) && (HAL_SPI == TRUE)
+    147          
+    148            HAL_EXIT_ISR();
+   \                     ??halDmaIsr_1:
+   \   000039   EE           MOV     A,R6
+   \   00003A   A2E0         MOV     C,0xE0 /* A   */.0
+   \   00003C   92AF         MOV     0xa8.7,C
+    149          }
+   \   00003E   7F01         MOV     R7,#0x1
+   \   000040   02....       LJMP    ?INTERRUPT_LEAVE_XSP
+   \   000043                REQUIRE _A_IEN0
+   \   000043                REQUIRE _A_IRCON
+   \   000043                REQUIRE DMAIRQ
+
+   \                                 In  segment INTVEC, offset 0x43, root
+   \                     `??halDmaIsr::??INTVEC 67`:
+   \   000043   02....       LJMP       (halDmaIsr)
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??HalDmaInit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    HalDmaInit
+    150          #endif  // #if ((defined HAL_DMA) && (HAL_DMA == TRUE))
+    151          /******************************************************************************
+    152          ******************************************************************************/
+
+   Maximum stack usage in bytes:
+
+   XSTACK Function
+   ------ --------
+      0   HalDmaInit
+     14   halDmaIsr
+       14   -> HalSpiRxIsr
+       14   -> HalSpiTxIsr
+       14   -> HalUARTIsrDMA
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       1  DMA0CFGH
+       1  DMA0CFGL
+       1  DMA1CFGH
+       1  DMA1CFGL
+       1  DMAIRQ
+      19  HalDmaInit
+       6  HalDmaInit::?relay
+       1  _A_IEN0
+       1  _A_IEN1
+       1  _A_IRCON
+       8  dmaCh0
+      32  dmaCh1234
+      67  halDmaIsr
+       3  halDmaIsr::??INTVEC 67
+
+ 
+ 19 bytes in segment BANKED_CODE
+  6 bytes in segment BANK_RELAYS
+  3 bytes in segment INTVEC
+ 67 bytes in segment NEAR_CODE
+  8 bytes in segment SFR_AN
+ 40 bytes in segment XDATA_Z
+ 
+ 92 bytes of CODE  memory (+ 3 bytes shared)
+  0 bytes of DATA  memory (+ 8 bytes shared)
+ 40 bytes of XDATA memory
+
+Errors: none
+Warnings: none

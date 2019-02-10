@@ -1,0 +1,1973 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               21/Nov/2018  13:52:11
+// Copyright 2004-2015 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Components\stack\nwk\nwk_globals.c
+//    Command line       =  
+//        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+//        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR |
+//        DEVICE_BUILD_ROUTER | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL
+//        -DZNP_RUN_WDOG=FALSE -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO
+//        -DZIGBEE_FRAGMENTATION -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE
+//        -DSAPI_CB_FUNC=FALSE -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT
+//        -DNUM_DISC_ATTEMPTS=0 -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC
+//        -DMT_SAPI_FUNC -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC
+//        -DMT_ZDO_MGMT -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -f
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Components\stack\nwk\nwk_globals.c" -D FEATURE_SYSTEM_STATS -D
+//        POWER_SAVING -lC "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+//        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e
+//        --no_code_motion --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+//        -Ohz --require_prototypes
+//    List file          =  
+//        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\nwk_globals.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME nwk_globals
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK_I_TWO
+        EXTERN __INIT_XDATA_I
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC `??NIB_init::?relay`
+        FUNCTION `??NIB_init::?relay`,0203H
+        PUBLIC `??nwk_Status::?relay`
+        FUNCTION `??nwk_Status::?relay`,0203H
+        PUBLIC `??nwk_adjustDelay::?relay`
+        FUNCTION `??nwk_adjustDelay::?relay`,0203H
+        PUBLIC `??nwk_globals_init::?relay`
+        FUNCTION `??nwk_globals_init::?relay`,0203H
+        PUBLIC AssociatedDevList
+        PUBLIC BindingTable
+        PUBLIC Cskip
+        PUBLIC CskipChldrn
+        PUBLIC CskipRtrs
+        PUBLIC NIB_init
+        FUNCTION NIB_init,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        PUBLIC apsEndDeviceBroadcastTable
+        PUBLIC bcastHoldAckMask
+        PUBLIC bcastHoldHandle
+        PUBLIC bcastTable
+        PUBLIC defaultKey
+        PUBLIC defaultTCLinkKey
+        PUBLIC gAPS_MAX_ENDDEVICE_BROADCAST_ENTRIES
+        PUBLIC gAPS_MAX_GROUPS
+        PUBLIC gBIND_REC_SIZE
+        PUBLIC gDEFAULT_ROUTE_REQUEST_RADIUS
+        PUBLIC gDEF_NWK_RADIUS
+        PUBLIC gGOOD_LINK_COST
+        PUBLIC gKEEPALIVE_TIMEOUT_MAX
+        PUBLIC gLINK_DOWN_TRIGGER
+        PUBLIC gLINK_STATUS_JITTER_MASK
+        PUBLIC gMAX_BCAST
+        PUBLIC gMAX_BINDING_CLUSTER_IDS
+        PUBLIC gMAX_BROADCAST_QUEUED
+        PUBLIC gMAX_NEIGHBOR_ENTRIES
+        PUBLIC gMAX_NOT_MYCHILD_DEVICES
+        PUBLIC gMAX_NWK_FRAMECOUNTER_CHANGES
+        PUBLIC gMAX_PASSIVE_ACK_CNT
+        PUBLIC gMAX_RREQ_ENTRIES
+        PUBLIC gMAX_RTG_ENTRIES
+        PUBLIC gMAX_RTG_SRC_ENTRIES
+        PUBLIC gMAX_SOURCE_ROUTE
+        PUBLIC gMIN_TREE_LQI
+        PUBLIC gMTO_ROUTE_EXPIRY_TIME
+        PUBLIC gMTO_RREQ_LIMIT_TIME
+        PUBLIC gNWK_CONFLICTED_ADDR_EXPIRY_TIME
+        PUBLIC gNWK_FREQ_AGILITY_ALL_MAC_ERRS
+        PUBLIC gNWK_INDIRECT_CNT_RTG_TMR
+        PUBLIC gNWK_INDIRECT_MSG_MAX_ALL
+        PUBLIC gNWK_INDIRECT_MSG_MAX_PER
+        PUBLIC gNWK_MAX_BINDING_ENTRIES
+        PUBLIC gNWK_MAX_DATABUFS_CONFIRMED
+        PUBLIC gNWK_MAX_DATABUFS_SCHEDULED
+        PUBLIC gNWK_MAX_DATABUFS_TOTAL
+        PUBLIC gNWK_MAX_DATABUFS_WAITING
+        PUBLIC gNWK_MAX_DEVICE_LIST
+        PUBLIC gNWK_MAX_SLEEPING_END_DEVICES
+        PUBLIC gNWK_MIN_ENDDEVICE_CHILDREN
+        PUBLIC gNWK_MIN_ROUTER_CHILDREN
+        PUBLIC gNWK_TREE_ALLOCATE_ROUTERADDR_FOR_ENDDEVICE
+        PUBLIC gTIMEOUT_COUNTER_MAX
+        PUBLIC neighborTable
+        PUBLIC notMyChildList
+        PUBLIC nwk_Status
+        FUNCTION nwk_Status,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC nwk_adjustDelay
+        FUNCTION nwk_adjustDelay,0a1203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC nwk_globals_init
+        FUNCTION nwk_globals_init,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC rtDiscTable
+        PUBLIC rtgSrcRelayList
+        PUBLIC rtgSrcTable
+        PUBLIC rtgTable
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+          CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+AddrMgrInit         SYMBOL "AddrMgrInit"
+`??AddrMgrInit::?relay` SYMBOL "?relay", AddrMgrInit
+NLME_InitLinkStatus SYMBOL "NLME_InitLinkStatus"
+`??NLME_InitLinkStatus::?relay` SYMBOL "?relay", NLME_InitLinkStatus
+NLME_InitStochasticAddressing SYMBOL "NLME_InitStochasticAddressing"
+`??NLME_InitStochasticAddressing::?relay` SYMBOL "?relay", NLME_InitStochasticAddressing
+NwkFreqAgilityInit  SYMBOL "NwkFreqAgilityInit"
+`??NwkFreqAgilityInit::?relay` SYMBOL "?relay", NwkFreqAgilityInit
+NwkInitChildAging   SYMBOL "NwkInitChildAging"
+`??NwkInitChildAging::?relay` SYMBOL "?relay", NwkInitChildAging
+osal_memset         SYMBOL "osal_memset"
+`??osal_memset::?relay` SYMBOL "?relay", osal_memset
+osal_nv_read        SYMBOL "osal_nv_read"
+`??osal_nv_read::?relay` SYMBOL "?relay", osal_nv_read
+osal_rand           SYMBOL "osal_rand"
+`??osal_rand::?relay` SYMBOL "?relay", osal_rand
+sAddrExtCpy         SYMBOL "sAddrExtCpy"
+`??sAddrExtCpy::?relay` SYMBOL "?relay", sAddrExtCpy
+NIB_init            SYMBOL "NIB_init"
+`??NIB_init::?relay` SYMBOL "?relay", NIB_init
+nwk_Status          SYMBOL "nwk_Status"
+`??nwk_Status::?relay` SYMBOL "?relay", nwk_Status
+nwk_adjustDelay     SYMBOL "nwk_adjustDelay"
+`??nwk_adjustDelay::?relay` SYMBOL "?relay", nwk_adjustDelay
+nwk_globals_init    SYMBOL "nwk_globals_init"
+`??nwk_globals_init::?relay` SYMBOL "?relay", nwk_globals_init
+
+        EXTERN `??AddrMgrInit::?relay`
+        FUNCTION `??AddrMgrInit::?relay`,00H
+        EXTERN `??NLME_InitLinkStatus::?relay`
+        FUNCTION `??NLME_InitLinkStatus::?relay`,00H
+        EXTERN `??NLME_InitStochasticAddressing::?relay`
+        FUNCTION `??NLME_InitStochasticAddressing::?relay`,00H
+        EXTERN `??NwkFreqAgilityInit::?relay`
+        FUNCTION `??NwkFreqAgilityInit::?relay`,00H
+        EXTERN `??NwkInitChildAging::?relay`
+        FUNCTION `??NwkInitChildAging::?relay`,00H
+        EXTERN `??osal_memset::?relay`
+        FUNCTION `??osal_memset::?relay`,00H
+        EXTERN `??osal_nv_read::?relay`
+        FUNCTION `??osal_nv_read::?relay`,00H
+        EXTERN `??osal_rand::?relay`
+        FUNCTION `??osal_rand::?relay`,00H
+        EXTERN `??sAddrExtCpy::?relay`
+        FUNCTION `??sAddrExtCpy::?relay`,00H
+        EXTERN AddrMgrInit
+        FUNCTION AddrMgrInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN NLME_InitLinkStatus
+        FUNCTION NLME_InitLinkStatus,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN NLME_InitStochasticAddressing
+        FUNCTION NLME_InitStochasticAddressing,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN NwkFreqAgilityInit
+        FUNCTION NwkFreqAgilityInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN NwkInitChildAging
+        FUNCTION NwkInitChildAging,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDO_Config_Node_Descriptor
+        EXTERN _NIB
+        EXTERN osal_memset
+        FUNCTION osal_memset,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_nv_read
+        FUNCTION osal_nv_read,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_rand
+        FUNCTION osal_rand,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN sAddrExtCpy
+        FUNCTION sAddrExtCpy,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zgBcastDeliveryTime
+        EXTERN zgChildAgingEnable
+        EXTERN zgConcentratorDiscoveryTime
+        EXTERN zgConcentratorEnable
+        EXTERN zgConcentratorRadius
+        EXTERN zgDeviceLogicalType
+        EXTERN zgExtendedPANID
+        EXTERN zgIndirectMsgTimeout
+        EXTERN zgMaxBcastRetires
+        EXTERN zgPassiveAckTimeout
+        EXTERN zgRouteDiscoveryTime
+        EXTERN zgRouteExpiryTime
+
+// D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Components\stack\nwk\nwk_globals.c
+//    1 /**************************************************************************************************
+//    2   Filename:       nwk_globals.c
+//    3   Revised:        $Date: 2014-05-17 12:12:11 -0700 (Sat, 17 May 2014) $
+//    4   Revision:       $Revision: 38578 $
+//    5 
+//    6   Description:    User definable Network Parameters.
+//    7 
+//    8 
+//    9   Copyright 2004-2014 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License"). You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product. Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 /*********************************************************************
+//   41  * INCLUDES
+//   42  */
+//   43 #include "ZComDef.h"
+//   44 #include "OSAL.h"
+//   45 #include "OSAL_Nv.h"
+//   46 #include "AddrMgr.h"
+//   47 #include "AssocList.h"
+//   48 #include "BindingTable.h"
+//   49 #include "nwk_util.h"
+//   50 #include "nwk_globals.h"
+//   51 #include "APS.h"
+//   52 #include "ssp.h"
+//   53 #include "rtg.h"
+//   54 #include "ZDConfig.h"
+//   55 #include "ZGlobals.h"
+//   56 #include "ZDApp.h"
+//   57 
+//   58 #if defined ( LCD_SUPPORTED )
+//   59   #include "OnBoard.h"
+//   60 #endif
+//   61 
+//   62 /* HAL */
+//   63 #include "hal_lcd.h"
+//   64 
+//   65 /*********************************************************************
+//   66  * MACROS
+//   67  */
+//   68 
+//   69 /*********************************************************************
+//   70  * CONSTANTS
+//   71  */
+//   72 // Maximums for the data buffer queue
+//   73 #define NWK_MAX_DATABUFS_WAITING    8     // Waiting to be sent to MAC
+//   74 #define NWK_MAX_DATABUFS_SCHEDULED  5     // Timed messages to be sent
+//   75 #define NWK_MAX_DATABUFS_CONFIRMED  5     // Held after MAC confirms
+//   76 #define NWK_MAX_DATABUFS_TOTAL      12    // Total number of buffers
+//   77 
+//   78 // 1-255 (0 -> 256) X RTG_TIMER_INTERVAL
+//   79 // A known shortcoming is that when a message is enqueued as "hold" for a
+//   80 // sleeping device, the timer tick may have counted down to 1, so that msg
+//   81 // will not be held as long as expected. If NWK_INDIRECT_MSG_TIMEOUT is set to 1
+//   82 // the hold time will vary randomly from 0 - CNT_RTG_TIMER ticks.
+//   83 // So the hold time will vary within this interval:
+//   84 // { (NWK_INDIRECT_MSG_TIMEOUT-1)*CNT_RTG_TIMER,
+//   85 //                                    NWK_INDIRECT_MSG_TIMEOUT*CNT_RTG_TIMER }
+//   86 #define NWK_INDIRECT_CNT_RTG_TMR    1
+//   87 // To hold msg for sleeping end devices for 30 secs:
+//   88 // #define CNT_RTG_TIMER            1
+//   89 // #define NWK_INDIRECT_MSG_TIMEOUT 30
+//   90 // To hold msg for sleeping end devices for 30 mins:
+//   91 // #define CNT_RTG_TIMER            60
+//   92 // #define NWK_INDIRECT_MSG_TIMEOUT 30
+//   93 // To hold msg for sleeping end devices for 30 days:
+//   94 // #define CNT_RTG_TIMER            60
+//   95 // #define NWK_INDIRECT_MSG_TIMEOUT (30 * 24 * 60)
+//   96 // Maximum msgs to hold per associated device.
+//   97 #define NWK_INDIRECT_MSG_MAX_PER    3
+//   98 // Maximum total msgs to hold for all associated devices.
+//   99 #define NWK_INDIRECT_MSG_MAX_ALL    \ 
+//  100                             (NWK_MAX_DATABUFS_TOTAL - NWK_INDIRECT_MSG_MAX_PER)
+//  101 
+//  102 /*********************************************************************
+//  103  * TYPEDEFS
+//  104  */
+//  105 
+//  106 /*********************************************************************
+//  107  * NWK GLOBAL VARIABLES
+//  108  */
+//  109 
+//  110 // Variables for MAX list size
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  111 CONST deviceTableIndex_t gNWK_MAX_DEVICE_LIST = NWK_MAX_DEVICES;
+gNWK_MAX_DEVICE_LIST:
+        DB 21
+//  112 
+//  113 // Variables for MAX Sleeping End Devices
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  114 CONST uint8 gNWK_MAX_SLEEPING_END_DEVICES = NWK_MAX_DEVICES - NWK_MAX_ROUTERS;
+gNWK_MAX_SLEEPING_END_DEVICES:
+        DB 15
+//  115 
+//  116 // Variables for MAX data buffer levels
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  117 CONST uint8 gNWK_MAX_DATABUFS_WAITING = NWK_MAX_DATABUFS_WAITING;
+gNWK_MAX_DATABUFS_WAITING:
+        DB 8
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  118 CONST uint8 gNWK_MAX_DATABUFS_SCHEDULED = NWK_MAX_DATABUFS_SCHEDULED;
+gNWK_MAX_DATABUFS_SCHEDULED:
+        DB 5
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  119 CONST uint8 gNWK_MAX_DATABUFS_CONFIRMED = NWK_MAX_DATABUFS_CONFIRMED;
+gNWK_MAX_DATABUFS_CONFIRMED:
+        DB 5
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  120 CONST uint8 gNWK_MAX_DATABUFS_TOTAL = NWK_MAX_DATABUFS_TOTAL;
+gNWK_MAX_DATABUFS_TOTAL:
+        DB 12
+//  121 
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  122 CONST uint8 gNWK_INDIRECT_CNT_RTG_TMR = NWK_INDIRECT_CNT_RTG_TMR;
+gNWK_INDIRECT_CNT_RTG_TMR:
+        DB 1
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  123 CONST uint8 gNWK_INDIRECT_MSG_MAX_PER = NWK_INDIRECT_MSG_MAX_PER;
+gNWK_INDIRECT_MSG_MAX_PER:
+        DB 3
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  124 CONST uint8 gNWK_INDIRECT_MSG_MAX_ALL = NWK_INDIRECT_MSG_MAX_ALL;
+gNWK_INDIRECT_MSG_MAX_ALL:
+        DB 9
+//  125 
+//  126 // change this if using a different stack profile...
+//  127 // Cskip array
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA16
+//  128 uint16 *Cskip;
+Cskip:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+//  129 
+//  130 #if ( STACK_PROFILE_ID == ZIGBEEPRO_PROFILE )
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  131   uint8 CskipRtrs[1] = {0};
+CskipRtrs:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  132   uint8 CskipChldrn[1] = {0};
+CskipChldrn:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//  133 #elif ( STACK_PROFILE_ID == HOME_CONTROLS )
+//  134   uint8 CskipRtrs[MAX_NODE_DEPTH+1] = {6,6,6,6,6,0};
+//  135   uint8 CskipChldrn[MAX_NODE_DEPTH+1] = {20,20,20,20,20,0};
+//  136 #elif ( STACK_PROFILE_ID == GENERIC_STAR )
+//  137   uint8 CskipRtrs[MAX_NODE_DEPTH+1] = {5,5,5,5,5,0};
+//  138   uint8 CskipChldrn[MAX_NODE_DEPTH+1] = {5,5,5,5,5,0};
+//  139 #elif ( STACK_PROFILE_ID == NETWORK_SPECIFIC )
+//  140   uint8 CskipRtrs[MAX_NODE_DEPTH+1] = {5,5,5,5,5,0};
+//  141   uint8 CskipChldrn[MAX_NODE_DEPTH+1] = {5,5,5,5,5,0};
+//  142 #endif // STACK_PROFILE_ID
+//  143 
+//  144 // Minimum lqi value that is required for association
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  145 uint8 gMIN_TREE_LQI = MIN_LQI_COST_3;
+gMIN_TREE_LQI:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for gMIN_TREE_LQI>`
+        REQUIRE __INIT_XDATA_I
+//  146 
+//  147 // Statically defined Associated Device List
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  148 associated_devices_t AssociatedDevList[NWK_MAX_DEVICES];
+AssociatedDevList:
+        DS 462
+        REQUIRE __INIT_XDATA_Z
+//  149 
+//  150 #if defined ( ZIGBEE_STOCHASTIC_ADDRESSING )
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA16
+//  151   CONST uint16 gNWK_MIN_ROUTER_CHILDREN = NWK_MIN_ROUTER_CHILDREN;
+gNWK_MIN_ROUTER_CHILDREN:
+        DW 0
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA16
+//  152   CONST uint16 gNWK_MIN_ENDDEVICE_CHILDREN = NWK_MIN_ENDDEVICE_CHILDREN;
+gNWK_MIN_ENDDEVICE_CHILDREN:
+        DW 0
+//  153 #else
+//  154   CONST uint16 gNWK_MIN_ROUTER_CHILDREN = 0;
+//  155   CONST uint16 gNWK_MIN_ENDDEVICE_CHILDREN = 0;
+//  156 #endif
+//  157 
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  158 CONFIG_ITEM rtgTableIndex_t gMAX_RTG_ENTRIES = MAX_RTG_ENTRIES;
+gMAX_RTG_ENTRIES:
+        DB 40
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  159 CONFIG_ITEM srcRtgTableIndex_t gMAX_RTG_SRC_ENTRIES = MAX_RTG_SRC_ENTRIES;
+gMAX_RTG_SRC_ENTRIES:
+        DB 12
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  160 CONFIG_ITEM rreqTableIndex_t gMAX_RREQ_ENTRIES = MAX_RREQ_ENTRIES;
+gMAX_RREQ_ENTRIES:
+        DB 8
+//  161 
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  162 CONFIG_ITEM neighborTableIndex_t gMAX_NEIGHBOR_ENTRIES = MAX_NEIGHBOR_ENTRIES;
+gMAX_NEIGHBOR_ENTRIES:
+        DB 16
+//  163 
+//  164  // Table of neighboring nodes (not including child nodes)
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  165 neighborEntry_t neighborTable[MAX_NEIGHBOR_ENTRIES];
+neighborTable:
+        DS 368
+        REQUIRE __INIT_XDATA_Z
+//  166 
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  167 CONST uint8 gMAX_SOURCE_ROUTE = MAX_SOURCE_ROUTE;
+gMAX_SOURCE_ROUTE:
+        DB 12
+//  168 
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  169 CONST uint8 gMAX_BROADCAST_QUEUED = MAX_BROADCAST_QUEUED;
+gMAX_BROADCAST_QUEUED:
+        DB 10
+//  170 
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  171 CONST uint8 gLINK_DOWN_TRIGGER = LINK_DOWN_TRIGGER;
+gLINK_DOWN_TRIGGER:
+        DB 3
+//  172 
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  173 CONST uint8 gGOOD_LINK_COST = GOOD_LINK_COST;
+gGOOD_LINK_COST:
+        DB 3
+//  174 
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  175 CONST uint8 gMAX_PASSIVE_ACK_CNT = MAX_PASSIVE_ACK_CNT;
+gMAX_PASSIVE_ACK_CNT:
+        DB 8
+//  176 
+//  177 // Routing table
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  178 rtgEntry_t rtgTable[MAX_RTG_ENTRIES];
+rtgTable:
+        DS 280
+        REQUIRE __INIT_XDATA_Z
+//  179 
+//  180 #if defined ( ZIGBEE_SOURCE_ROUTING ) || defined ( ZBIT )
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  181   rtgSrcEntry_t rtgSrcTable[MAX_RTG_SRC_ENTRIES];
+rtgSrcTable:
+        DS 72
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  182   uint16 rtgSrcRelayList[MAX_SOURCE_ROUTE];
+rtgSrcRelayList:
+        DS 24
+        REQUIRE __INIT_XDATA_Z
+//  183 #endif
+//  184 
+//  185 // Table of current RREQ packets in the network
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  186 rtDiscEntry_t rtDiscTable[MAX_RREQ_ENTRIES];
+rtDiscTable:
+        DS 64
+        REQUIRE __INIT_XDATA_Z
+//  187 
+//  188 // Table of data broadcast packets currently in circulation.
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  189 bcastEntry_t bcastTable[MAX_BCAST];
+bcastTable:
+        DS 72
+        REQUIRE __INIT_XDATA_Z
+//  190 
+//  191 // These 2 arrays are to be used as an array of struct { uint8, uint32 }.
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  192 uint8 bcastHoldHandle[MAX_BCAST];
+bcastHoldHandle:
+        DS 9
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  193 uint32 bcastHoldAckMask[MAX_BCAST];
+bcastHoldAckMask:
+        DS 36
+        REQUIRE __INIT_XDATA_Z
+//  194 
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  195 CONFIG_ITEM bcastTableIndex_t gMAX_BCAST = MAX_BCAST;
+gMAX_BCAST:
+        DB 9
+//  196 
+//  197 // For tree addressing, this switch allows the allocation of a
+//  198 // router address to an end device when end device address are
+//  199 // all used up.  If this option is enabled, address space
+//  200 // could be limited.
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  201 CONST uint8 gNWK_TREE_ALLOCATE_ROUTERADDR_FOR_ENDDEVICE = FALSE;
+gNWK_TREE_ALLOCATE_ROUTERADDR_FOR_ENDDEVICE:
+        DB 0
+//  202 
+//  203 #if defined ( ZIGBEE_STOCHASTIC_ADDRESSING ) || defined ( ZBIT )
+//  204 // number of link status periods after the last received address conflict report
+//  205 // (network status command)
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  206 CONST uint8 gNWK_CONFLICTED_ADDR_EXPIRY_TIME = NWK_CONFLICTED_ADDR_EXPIRY_TIME;
+gNWK_CONFLICTED_ADDR_EXPIRY_TIME:
+        DB 4
+//  207 #endif
+//  208 
+//  209 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZBIT )
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  210 CONST uint8 gNWK_FREQ_AGILITY_ALL_MAC_ERRS = NWK_FREQ_AGILITY_ALL_MAC_ERRS;
+gNWK_FREQ_AGILITY_ALL_MAC_ERRS:
+        DB 0
+//  211 #endif
+//  212 
+//  213 // The time limited to one MTO RReq (Concentrator Announce) in milliseconds.
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA16
+//  214 CONST uint16 gMTO_RREQ_LIMIT_TIME = MTO_RREQ_LIMIT_TIME;
+gMTO_RREQ_LIMIT_TIME:
+        DW 1000
+//  215 
+//  216 // The number of seconds a MTO routing entry will last.
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  217 CONST uint8 gMTO_ROUTE_EXPIRY_TIME = MTO_ROUTE_EXPIRY_TIME;
+gMTO_ROUTE_EXPIRY_TIME:
+        DB 255
+//  218 
+//  219 // Route Discovery Request Default Radius
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  220 CONST uint8 gDEFAULT_ROUTE_REQUEST_RADIUS = DEFAULT_ROUTE_REQUEST_RADIUS;
+gDEFAULT_ROUTE_REQUEST_RADIUS:
+        DB 30
+//  221 
+//  222 // Network message radius
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  223 CONST uint8 gDEF_NWK_RADIUS = DEF_NWK_RADIUS;
+gDEF_NWK_RADIUS:
+        DB 30
+//  224 
+//  225 #if ( ZSTACK_ROUTER_BUILD ) || defined ( ZBIT )
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA16
+//  226 CONST uint16 gLINK_STATUS_JITTER_MASK = LINK_STATUS_JITTER_MASK;
+gLINK_STATUS_JITTER_MASK:
+        DW 127
+//  227 #endif
+//  228 
+//  229 // Maximum number of devices either aged out or not recognized as child
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  230 CONST uint8 gMAX_NOT_MYCHILD_DEVICES = MAX_NOT_MYCHILD_DEVICES;
+gMAX_NOT_MYCHILD_DEVICES:
+        DB 5
+//  231 
+//  232 // Child table Management timeout values
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA16
+//  233 CONST uint16 gKEEPALIVE_TIMEOUT_MAX = KEEPALIVE_TIMEOUT_MAX;
+gKEEPALIVE_TIMEOUT_MAX:
+        DW 60
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA16
+//  234 CONST uint16 gTIMEOUT_COUNTER_MAX = TIMEOUT_COUNTER_MAX;
+gTIMEOUT_COUNTER_MAX:
+        DW 60
+//  235 
+//  236 // This table stores devices that have been aged out by the Child Aging Table
+//  237 // mechanism or have never been a child of this device
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  238 nwkNotMyChild_t notMyChildList[MAX_NOT_MYCHILD_DEVICES];
+notMyChildList:
+        DS 20
+        REQUIRE __INIT_XDATA_Z
+//  239 
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA32
+//  240 CONST uint32 gMAX_NWK_FRAMECOUNTER_CHANGES = MAX_NWK_FRAMECOUNTER_CHANGES;
+gMAX_NWK_FRAMECOUNTER_CHANGES:
+        DD 1000
+//  241 
+//  242 #if defined ( FEATURE_MNP )
+//  243   uint8 gMAX_MNP_QUEUED = MAX_MNP_QUEUED;
+//  244 #endif
+//  245 
+//  246 /*********************************************************************
+//  247  * APS GLOBAL VARIABLES
+//  248  */
+//  249 
+//  250 // The Maximum number of binding records
+//  251 // This number is defined in f8wConfig.cfg - change it there.
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  252 CONFIG_ITEM bindTableIndex_t gNWK_MAX_BINDING_ENTRIES = NWK_MAX_BINDING_ENTRIES;
+gNWK_MAX_BINDING_ENTRIES:
+        DB 4
+//  253 
+//  254 #if defined ( REFLECTOR )
+//  255   // The Maximum number of cluster IDs in a binding record
+//  256   // This number is defined in f8wConfig.cfg - change it there.
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  257   CONFIG_ITEM uint8 gMAX_BINDING_CLUSTER_IDS = MAX_BINDING_CLUSTER_IDS;
+gMAX_BINDING_CLUSTER_IDS:
+        DB 4
+//  258 
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA16
+//  259   CONST uint16 gBIND_REC_SIZE = sizeof( BindingEntry_t );
+gBIND_REC_SIZE:
+        DW 14
+//  260 
+//  261   // Binding Table
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  262   BindingEntry_t BindingTable[NWK_MAX_BINDING_ENTRIES];
+BindingTable:
+        DS 56
+        REQUIRE __INIT_XDATA_Z
+//  263 #endif
+//  264 
+//  265 // Maximum number allowed in the groups table.
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  266 CONFIG_ITEM uint8 gAPS_MAX_GROUPS = APS_MAX_GROUPS;
+gAPS_MAX_GROUPS:
+        DB 16
+//  267 
+//  268 // APS End Device Broadcast Table
+//  269 #if ( ZG_BUILD_ENDDEVICE_TYPE )
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  270   apsEndDeviceBroadcast_t apsEndDeviceBroadcastTable[APS_MAX_ENDDEVICE_BROADCAST_ENTRIES];
+apsEndDeviceBroadcastTable:
+        DS 90
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  271   uint8 gAPS_MAX_ENDDEVICE_BROADCAST_ENTRIES = APS_MAX_ENDDEVICE_BROADCAST_ENTRIES;
+gAPS_MAX_ENDDEVICE_BROADCAST_ENTRIES:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for gAPS_MAX_ENDDEVICE_BROADCAST`
+        REQUIRE __INIT_XDATA_I
+//  272 #endif
+//  273 
+//  274 /*********************************************************************
+//  275  * SECURITY GLOBAL VARIABLES
+//  276  */
+//  277 
+//  278 // This is the default pre-configured key,
+//  279 // change this to make a unique key
+//  280 // SEC_KEY_LEN is defined in ssp.h.
+//  281 
+//  282 #if defined ( DEFAULT_KEY )
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  283 CONFIG_ITEM uint8 defaultKey[SEC_KEY_LEN] = DEFAULT_KEY;
+defaultKey:
+        DB 1
+        DB 3
+        DB 5
+        DB 7
+        DB 9
+        DB 11
+        DB 13
+        DB 15
+        DB 0
+        DB 2
+        DB 4
+        DB 6
+        DB 8
+        DB 10
+        DB 12
+        DB 13
+//  284 #else
+//  285 CONST uint8 defaultKey[SEC_KEY_LEN] =
+//  286 {
+//  287 #if defined ( APP_TP ) || defined ( APP_TP2 )
+//  288   // Key for ZigBee Conformance Testing
+//  289   0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0xbb, 0xbb,
+//  290   0xaa, 0xaa, 0xaa, 0xaa, 0xaa, 0xaa, 0xaa, 0xaa
+//  291 #else
+//  292   // Key for In-House Testing
+//  293   0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+//  294   0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F
+//  295 #endif
+//  296 };
+//  297 #endif
+//  298 
+//  299 // This is the default pre-configured Trust Center Link key,
+//  300 // change this to make a unique key, SEC_KEY_LEN is defined in ssp.h.
+
+        RSEG CODE_C:CODE:REORDER:NOROOT(0)
+        DATA8
+//  301 CONST uint8 defaultTCLinkKey[SEC_KEY_LEN] = DEFAULT_TC_LINK_KEY;
+defaultTCLinkKey:
+        DB 90
+        DB 105
+        DB 103
+        DB 66
+        DB 101
+        DB 101
+        DB 65
+        DB 108
+        DB 108
+        DB 105
+        DB 97
+        DB 110
+        DB 99
+        DB 101
+        DB 48
+        DB 57
+//  302 
+//  303 /*********************************************************************
+//  304  * STATUS STRINGS
+//  305  */
+//  306 #if defined ( LCD_SUPPORTED )
+//  307   const char PingStr[]         = "Ping Rcvd from";
+//  308   const char AssocCnfStr[]     = "Assoc Cnf";
+//  309   const char SuccessStr[]      = "Success";
+//  310   const char EndDeviceStr[]    = "EndDevice:";
+//  311   const char ParentStr[]       = "Parent:";
+//  312   const char ZigbeeCoordStr[]  = "ZigBee Coord";
+//  313   const char NetworkIDStr[]    = "Network ID:";
+//  314   const char RouterStr[]       = "Router:";
+//  315   const char OrphanRspStr[]    = "Orphan Response";
+//  316   const char SentStr[]         = "Sent";
+//  317   const char FailedStr[]       = "Failed";
+//  318   const char AssocRspFailStr[] = "Assoc Rsp fail";
+//  319   const char AssocIndStr[]     = "Assoc Ind";
+//  320   const char AssocCnfFailStr[] = "Assoc Cnf fail";
+//  321   const char EnergyLevelStr[]  = "Energy Level";
+//  322   const char ScanFailedStr[]   = "Scan Failed";
+//  323 #endif
+//  324 
+//  325 /*********************************************************************
+//  326  * @fn       nwk_globals_init()
+//  327  *
+//  328  * @brief
+//  329  *
+//  330  *   Initialize nwk layer globals.  These are the system defaults and
+//  331  *   should be changed by the user here.  The default definitions are
+//  332  *   defined in nwk.h or NLMEDE.h.
+//  333  *
+//  334  * @param   none
+//  335  *
+//  336  * @return  none
+//  337  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  338 void nwk_globals_init( void )
+nwk_globals_init:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function nwk_globals_init
+        CODE
+//  339 {
+        FUNCALL nwk_globals_init, AddrMgrInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL nwk_globals_init, NLME_InitLinkStatus
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL nwk_globals_init, NwkFreqAgilityInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL nwk_globals_init, NwkInitChildAging
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  340   AddrMgrInit( NWK_MAX_ADDRESSES );
+        ; Setup parameters for call to function AddrMgrInit
+        MOV     R2,#0x1a
+        MOV     R3,#0x0
+        LCALL   `??AddrMgrInit::?relay`; Banked call to: AddrMgrInit
+//  341 
+//  342 #if !defined ( ZIGBEE_STOCHASTIC_ADDRESSING )
+//  343   if ( ZSTACK_ROUTER_BUILD )
+//  344   {
+//  345     // Initialize the Cskip Table
+//  346     Cskip = osal_mem_alloc(sizeof(uint16) *(MAX_NODE_DEPTH+1));
+//  347     RTG_FillCSkipTable(CskipChldrn, CskipRtrs, MAX_NODE_DEPTH, Cskip);
+//  348   }
+//  349 #endif
+//  350 
+//  351   // To compile out the Link Status Feature, set NWK_LINK_STATUS_PERIOD
+//  352   // to 0 (compiler flag).
+//  353   if ( ZSTACK_ROUTER_BUILD && NWK_LINK_STATUS_PERIOD )
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        JZ      ??nwk_globals_init_0
+        XRL     A,#0x1
+        JNZ     ??nwk_globals_init_1
+//  354   {
+//  355     NLME_InitLinkStatus();
+??nwk_globals_init_0:
+        ; Setup parameters for call to function NLME_InitLinkStatus
+        LCALL   `??NLME_InitLinkStatus::?relay`; Banked call to: NLME_InitLinkStatus
+//  356   }
+//  357 
+//  358 #if defined ( ZIGBEE_FREQ_AGILITY )
+//  359   NwkFreqAgilityInit();
+??nwk_globals_init_1:
+        ; Setup parameters for call to function NwkFreqAgilityInit
+        LCALL   `??NwkFreqAgilityInit::?relay`; Banked call to: NwkFreqAgilityInit
+//  360 #endif
+//  361 
+//  362 #if defined ( ZIGBEE_CHILD_AGING )
+//  363   if ( ( ZSTACK_ROUTER_BUILD ) && ( zgChildAgingEnable == TRUE ) )
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        JZ      ??nwk_globals_init_2
+        XRL     A,#0x1
+        JNZ     ??nwk_globals_init_3
+??nwk_globals_init_2:
+        MOV     DPTR,#zgChildAgingEnable
+        MOVX    A,@DPTR
+        XRL     A,#0x1
+        JNZ     ??nwk_globals_init_3
+//  364   {
+//  365     // Set the function pointers for the Child Aging feature
+//  366     NwkInitChildAging();
+        ; Setup parameters for call to function NwkInitChildAging
+        LCALL   `??NwkInitChildAging::?relay`; Banked call to: NwkInitChildAging
+//  367   }
+//  368 #endif  // ZIGBEE_CHILD_AGING
+//  369 }
+??nwk_globals_init_3:
+        POP     DPH
+          CFI DPH0 SameValue
+          CFI CFA_SP SP+-4
+        POP     DPL
+          CFI DPL0 SameValue
+          CFI CFA_SP SP+-3
+        LJMP    ?BRET
+          CFI EndBlock cfiBlock0
+//  370 
+//  371 /*********************************************************************
+//  372  * @fn       NIB_init()
+//  373  *
+//  374  * @brief
+//  375  *
+//  376  *   Initialize attribute values in NIB
+//  377  *
+//  378  * @param   none
+//  379  *
+//  380  * @return  none
+//  381  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  382 void NIB_init()
+NIB_init:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function NIB_init
+        CODE
+//  383 {
+        FUNCALL NIB_init, osal_rand
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL NIB_init, osal_memset
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL NIB_init, sAddrExtCpy
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL NIB_init, osal_nv_read
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL NIB_init, NLME_InitStochasticAddressing
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+//  384   _NIB.SequenceNum = LO_UINT16(osal_rand());
+        ; Setup parameters for call to function osal_rand
+        LCALL   `??osal_rand::?relay`; Banked call to: osal_rand
+        MOV     A,R2
+        MOV     DPTR,#_NIB
+        MOVX    @DPTR,A
+//  385 
+//  386   _NIB.nwkProtocolVersion = ZB_PROT_VERS;
+        MOV     DPTR,#_NIB + 17
+        MOV     A,#0x2
+        MOVX    @DPTR,A
+//  387   _NIB.MaxDepth = MAX_NODE_DEPTH;
+        MOV     DPTR,#_NIB + 4
+        MOV     A,#0x14
+        MOVX    @DPTR,A
+//  388 
+//  389 #if ( NWK_MODE == NWK_MODE_MESH )
+//  390   _NIB.beaconOrder = BEACON_ORDER_NO_BEACONS;
+        MOV     DPTR,#_NIB + 40
+        MOV     A,#0xf
+        MOVX    @DPTR,A
+//  391   _NIB.superFrameOrder = BEACON_ORDER_NO_BEACONS;
+        INC     DPTR
+        MOVX    @DPTR,A
+//  392 #endif
+//  393 
+//  394   // BROADCAST SETTINGS:
+//  395   // *******************
+//  396   //   Broadcast Delivery Time
+//  397   //     - set to multiples of 100ms
+//  398   //     - should be 500ms more than the retry time
+//  399   //       -  "retry time" = PassiveAckTimeout * (MaxBroadcastRetries + 1)
+//  400   //   Passive Ack Timeout
+//  401   //     - set to multiples of 100ms
+//  402   _NIB.BroadcastDeliveryTime = zgBcastDeliveryTime;
+        MOV     DPTR,#zgBcastDeliveryTime
+        MOVX    A,@DPTR
+        MOV     DPTR,#_NIB + 7
+        MOVX    @DPTR,A
+//  403   _NIB.PassiveAckTimeout     = zgPassiveAckTimeout;
+        MOV     DPTR,#zgPassiveAckTimeout
+        MOVX    A,@DPTR
+        MOV     DPTR,#_NIB + 1
+        MOVX    @DPTR,A
+//  404   _NIB.MaxBroadcastRetries   = zgMaxBcastRetires;
+        MOV     DPTR,#zgMaxBcastRetires
+        MOVX    A,@DPTR
+        MOV     DPTR,#_NIB + 2
+        MOVX    @DPTR,A
+//  405 
+//  406   _NIB.ReportConstantCost = 0;
+        MOV     DPTR,#_NIB + 8
+        CLR     A
+        MOVX    @DPTR,A
+//  407   _NIB.RouteDiscRetries = 0;
+        INC     DPTR
+        MOVX    @DPTR,A
+//  408   _NIB.SecureAllFrames = USE_NWK_SECURITY;
+        MOV     DPTR,#_NIB + 11
+        INC     A
+        MOVX    @DPTR,A
+//  409   _NIB.nwkAllFresh = NWK_ALL_FRESH;
+        MOV     DPTR,#_NIB + 104
+        MOVX    @DPTR,A
+//  410 
+//  411   if ( ZG_SECURE_ENABLED )
+//  412   {
+//  413     _NIB.SecurityLevel = SECURITY_LEVEL;
+        MOV     DPTR,#_NIB + 12
+        MOV     A,#0x5
+        MOVX    @DPTR,A
+//  414   }
+//  415   else
+//  416   {
+//  417     _NIB.SecurityLevel = 0;
+//  418   }
+//  419 
+//  420   _NIB.SymLink = TRUE;
+        INC     DPTR
+        MOV     A,#0x1
+        MOVX    @DPTR,A
+//  421 
+//  422   _NIB.CapabilityFlags = ZDO_Config_Node_Descriptor.CapabilityFlags;
+        MOV     DPTR,#ZDO_Config_Node_Descriptor + 2
+        MOVX    A,@DPTR
+        MOV     DPTR,#_NIB + 14
+        MOVX    @DPTR,A
+//  423 
+//  424   _NIB.TransactionPersistenceTime = zgIndirectMsgTimeout;
+        MOV     DPTR,#zgIndirectMsgTimeout
+        MOVX    A,@DPTR
+        MOV     DPTR,#_NIB + 15
+        MOVX    @DPTR,A
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+//  425 
+//  426   _NIB.RouteDiscoveryTime = zgRouteDiscoveryTime;
+        MOV     DPTR,#zgRouteDiscoveryTime
+        MOVX    A,@DPTR
+        MOV     DPTR,#_NIB + 18
+        MOVX    @DPTR,A
+//  427   _NIB.RouteExpiryTime = zgRouteExpiryTime;
+        MOV     DPTR,#zgRouteExpiryTime
+        MOVX    A,@DPTR
+        MOV     DPTR,#_NIB + 19
+        LCALL   ?Subroutine1 & 0xFFFF
+//  428 
+//  429   _NIB.nwkDevAddress = INVALID_NODE_ADDR;
+//  430   _NIB.nwkLogicalChannel = 0;
+??CrossCallReturnLabel_0:
+        INC     DPTR
+        CLR     A
+        LCALL   ?Subroutine1 & 0xFFFF
+//  431   _NIB.nwkCoordAddress = INVALID_NODE_ADDR;
+//  432   osal_memset( _NIB.nwkCoordExtAddress, 0, Z_EXTADDR_LEN );
+??CrossCallReturnLabel_1:
+        ; Setup parameters for call to function osal_memset
+        MOV     R4,#0x8
+        MOV     R5,#0x0
+        MOV     R1,#0x0
+        MOV     R2,#(_NIB + 25) & 0xff
+        MOV     R3,#((_NIB + 25) >> 8) & 0xff
+        LCALL   `??osal_memset::?relay`; Banked call to: osal_memset
+//  433   _NIB.nwkPanId = INVALID_NODE_ADDR;
+        MOV     DPTR,#_NIB + 33
+        MOV     A,#-0x2
+        MOVX    @DPTR,A
+        INC     DPTR
+        INC     A
+        MOVX    @DPTR,A
+//  434 
+//  435   osal_cpyExtAddr( _NIB.extendedPANID, zgExtendedPANID );
+        ; Setup parameters for call to function sAddrExtCpy
+        MOV     R4,#zgExtendedPANID & 0xff
+        MOV     R5,#(zgExtendedPANID >> 8) & 0xff
+        MOV     R2,#(_NIB + 53) & 0xff
+        MOV     R3,#((_NIB + 53) >> 8) & 0xff
+        LCALL   `??sAddrExtCpy::?relay`; Banked call to: sAddrExtCpy
+//  436 
+//  437   _NIB.nwkKeyLoaded = FALSE;
+        MOV     DPTR,#_NIB + 61
+        CLR     A
+        MOVX    @DPTR,A
+//  438 
+//  439 #if defined ( ZIGBEE_STOCHASTIC_ADDRESSING )
+//  440   _NIB.nwkAddrAlloc  = NWK_ADDRESSING_STOCHASTIC;
+        MOV     DPTR,#_NIB + 96
+        MOV     A,#0x2
+        MOVX    @DPTR,A
+//  441   _NIB.nwkUniqueAddr = FALSE;
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+//  442 #else
+//  443   _NIB.nwkAddrAlloc  = NWK_ADDRESSING_DISTRIBUTED;
+//  444   _NIB.nwkUniqueAddr = TRUE;
+//  445 #endif
+//  446 
+//  447   _NIB.nwkLinkStatusPeriod = NWK_LINK_STATUS_PERIOD;
+        INC     DPTR
+        MOV     A,#0xf
+        MOVX    @DPTR,A
+//  448   _NIB.nwkRouterAgeLimit = NWK_ROUTE_AGE_LIMIT;
+        INC     DPTR
+        MOV     A,#0x3
+        MOVX    @DPTR,A
+//  449 
+//  450   //MTO and source routing
+//  451   _NIB.nwkConcentratorDiscoveryTime = zgConcentratorDiscoveryTime;
+        MOV     DPTR,#zgConcentratorDiscoveryTime
+        MOVX    A,@DPTR
+        MOV     DPTR,#_NIB + 102
+        MOVX    @DPTR,A
+//  452   _NIB.nwkIsConcentrator = zgConcentratorEnable;
+        MOV     DPTR,#zgConcentratorEnable
+        MOVX    A,@DPTR
+        MOV     DPTR,#_NIB + 101
+        MOVX    @DPTR,A
+//  453   _NIB.nwkConcentratorRadius = zgConcentratorRadius;
+        MOV     DPTR,#zgConcentratorRadius
+        MOVX    A,@DPTR
+        MOV     DPTR,#_NIB + 103
+        MOVX    @DPTR,A
+//  454 
+//  455 #if defined ( ZIGBEE_MULTICAST )
+//  456   _NIB.nwkUseMultiCast = MULTICAST_ENABLED;
+        MOV     DPTR,#_NIB + 100
+        MOV     A,#0x1
+        MOVX    @DPTR,A
+//  457 #else
+//  458   _NIB.nwkUseMultiCast = FALSE;
+//  459 #endif
+//  460 
+//  461 #if defined ( NV_RESTORE )
+//  462   if ( osal_nv_read( ZCD_NV_NWKMGR_ADDR, 0, sizeof( _NIB.nwkManagerAddr ),
+//  463                      &_NIB.nwkManagerAddr ) != SUCCESS )
+        ; Setup parameters for call to function osal_nv_read
+        MOV     ?V0,#(_NIB + 105) & 0xff
+        MOV     ?V1,#((_NIB + 105) >> 8) & 0xff
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 12)
+        MOV     ?V0,#0x2
+        MOV     ?V1,#0x0
+        MOV     R0,#?V0
+        LCALL   ?PUSH_XSTACK_I_TWO
+          CFI CFA_XSP16 add(XSP16, 14)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R2,#-0x77
+        MOV     R3,#0x0
+        LCALL   `??osal_nv_read::?relay`; Banked call to: osal_nv_read
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+        MOV     A,R1
+        JZ      ??NIB_init_0
+//  464 #endif
+//  465   {
+//  466     _NIB.nwkManagerAddr = 0x0000;
+        MOV     DPTR,#_NIB + 105
+        CLR     A
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+//  467   }
+//  468 
+//  469   _NIB.nwkUpdateId = 0;
+??NIB_init_0:
+        MOV     DPTR,#_NIB + 109
+        CLR     A
+        MOVX    @DPTR,A
+//  470   _NIB.nwkTotalTransmissions = 0;
+        MOV     DPTR,#_NIB + 107
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+//  471 
+//  472   if ( ZSTACK_ROUTER_BUILD )
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        JZ      ??NIB_init_1
+        XRL     A,#0x1
+        JNZ     ??NIB_init_2
+//  473   {
+//  474 #if defined ( ZIGBEE_STOCHASTIC_ADDRESSING )
+//  475     NLME_InitStochasticAddressing();
+??NIB_init_1:
+        ; Setup parameters for call to function NLME_InitStochasticAddressing
+        LCALL   `??NLME_InitStochasticAddressing::?relay`; Banked call to: NLME_InitStochasticAddressing
+//  476 #else
+//  477     NLME_InitTreeAddressing();
+//  478 #endif
+//  479   }
+//  480 }
+??NIB_init_2:
+          CFI EndBlock cfiBlock1
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock2
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine1:
+          CFI Block cfiCond3 Using cfiCommon0
+          CFI Function NIB_init
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond4 Using cfiCommon0
+          CFI (cfiCond4) Function NIB_init
+          CFI (cfiCond4) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond4) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond4) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond4) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond4) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond4) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond4) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond4) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond4) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond4) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond4) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond4) CFA_SP SP+-2
+          CFI (cfiCond4) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiPicker5 Using cfiCommon1
+          CFI (cfiPicker5) NoFunction
+          CFI (cfiPicker5) Picker
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#-0x2
+        MOVX    @DPTR,A
+        INC     DPTR
+        INC     A
+        MOVX    @DPTR,A
+        RET
+          CFI EndBlock cfiCond3
+          CFI EndBlock cfiCond4
+          CFI EndBlock cfiPicker5
+//  481 
+//  482 /*********************************************************************
+//  483  * @fn       nwk_Status()
+//  484  *
+//  485  * @brief
+//  486  *
+//  487  *   Status report.
+//  488  *
+//  489  * @param   statusCode
+//  490  * @param   statusValue
+//  491  *
+//  492  * @return  none
+//  493  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  494 void nwk_Status( uint16 statusCode, uint16 statusValue )
+nwk_Status:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function nwk_Status
+        CODE
+//  495 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  496 #if defined ( LCD_SUPPORTED )
+//  497   switch ( statusCode )
+//  498   {
+//  499     case NWK_STATUS_COORD_ADDR:
+//  500       if ( ZSTACK_ROUTER_BUILD )
+//  501       {
+//  502         HalLcdWriteString( (char*)ZigbeeCoordStr, HAL_LCD_LINE_1 );
+//  503         HalLcdWriteStringValue( (char*)NetworkIDStr, statusValue, 16, HAL_LCD_LINE_2 );
+//  504         BuzzerControl( BUZZER_BLIP );
+//  505       }
+//  506       break;
+//  507 
+//  508     case NWK_STATUS_ROUTER_ADDR:
+//  509       if ( ZSTACK_ROUTER_BUILD )
+//  510       {
+//  511         HalLcdWriteStringValue( (char*)RouterStr, statusValue, 16, HAL_LCD_LINE_1 );
+//  512       }
+//  513       break;
+//  514 
+//  515     case NWK_STATUS_ORPHAN_RSP:
+//  516       if ( ZSTACK_ROUTER_BUILD )
+//  517       {
+//  518         if ( statusValue == ZSuccess )
+//  519           HalLcdWriteScreen( (char*)OrphanRspStr, (char*)SentStr );
+//  520         else
+//  521           HalLcdWriteScreen( (char*)OrphanRspStr, (char*)FailedStr );
+//  522       }
+//  523       break;
+//  524 
+//  525     case NWK_ERROR_ASSOC_RSP:
+//  526       if ( ZSTACK_ROUTER_BUILD )
+//  527       {
+//  528         HalLcdWriteString( (char*)AssocRspFailStr, HAL_LCD_LINE_1 );
+//  529         HalLcdWriteValue( (uint32)(statusValue), 16, HAL_LCD_LINE_2 );
+//  530       }
+//  531       break;
+//  532 
+//  533     case NWK_STATUS_ED_ADDR:
+//  534       if ( ZSTACK_END_DEVICE_BUILD )
+//  535       {
+//  536         HalLcdWriteStringValue( (char*)EndDeviceStr, statusValue, 16, HAL_LCD_LINE_1 );
+//  537       }
+//  538       break;
+//  539 
+//  540     case NWK_STATUS_PARENT_ADDR:
+//  541             HalLcdWriteStringValue( (char*)ParentStr, statusValue, 16, HAL_LCD_LINE_2 );
+//  542       break;
+//  543 
+//  544     case NWK_STATUS_ASSOC_CNF:
+//  545       HalLcdWriteScreen( (char*)AssocCnfStr, (char*)SuccessStr );
+//  546       break;
+//  547 
+//  548     case NWK_ERROR_ASSOC_CNF_DENIED:
+//  549       HalLcdWriteString((char*)AssocCnfFailStr, HAL_LCD_LINE_1 );
+//  550       HalLcdWriteValue( (uint32)(statusValue), 16, HAL_LCD_LINE_2 );
+//  551       break;
+//  552 
+//  553     case NWK_ERROR_ENERGY_SCAN_FAILED:
+//  554       HalLcdWriteScreen( (char*)EnergyLevelStr, (char*)ScanFailedStr );
+//  555       break;
+//  556   }
+//  557 #endif
+//  558 }
+        LJMP    ?BRET
+          CFI EndBlock cfiBlock6
+//  559 
+//  560 /*********************************************************************
+//  561  * @fn      nwk_adjustDelay()
+//  562  *
+//  563  * @brief   Adjust the retransmit delay. Modify this function to
+//  564  *          change the default delay behavior.
+//  565  *
+//  566  * @param   existingDelay - default delay
+//  567  * @param   confirmStatus - data confirm status
+//  568  * @param   bufOptions - network buffer options
+//  569  *
+//  570  * @return  delay value - this number is the number of
+//  571  *          network event ticks (~2ms).
+//  572  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  573 uint16 nwk_adjustDelay( uint16 existingDelay, uint8 confirmStatus, uint16 bufOptions )
+nwk_adjustDelay:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function nwk_adjustDelay
+        CODE
+//  574 {
+        FUNCALL nwk_adjustDelay, osal_rand
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+        MOV     A,R1
+        MOV     R6,A
+//  575   uint16 result = existingDelay;
+        MOV     A,R2
+        MOV     R0,A
+        MOV     A,R3
+        MOV     R1,A
+//  576   uint16 mask = 0;       // Random mask
+//  577   uint16 startValue = 0; // Start value
+//  578 
+//  579   switch ( confirmStatus )
+        MOV     A,R6
+        ADD     A,#0x1f
+        JZ      ??nwk_adjustDelay_0
+        ADD     A,#-0x10
+        JNZ     ??nwk_adjustDelay_1
+//  580   {
+//  581     case ZMacTransactionOverFlow:
+//  582     case ZMacChannelAccessFailure:
+//  583       if ( bufOptions & (HANDLE_DELAY | HANDLE_HI_DELAY) )
+??nwk_adjustDelay_0:
+        MOV     A,R4
+        ANL     A,#0x30
+        JZ      ??nwk_adjustDelay_1
+//  584       {
+//  585         // Delay 4 - 18 ms
+//  586         mask = 0x0007;
+//  587         startValue = 2;
+//  588       }
+//  589       break;
+//  590 
+//  591     case ZNwkNoRoute:
+//  592     case ZMAC_NO_RESOURCES:
+//  593     case ZMacNoACK:
+//  594     default:
+//  595       // leave default delay
+//  596       mask = 0;
+//  597       startValue = 0;
+//  598       break;
+//  599   }
+//  600 
+//  601   if ( (mask > 0) && (startValue > 0) )
+//  602   {
+//  603     result = (osal_rand() & mask) + startValue;
+        ; Setup parameters for call to function osal_rand
+        LCALL   `??osal_rand::?relay`; Banked call to: osal_rand
+        MOV     A,R2
+        ANL     A,#0x7
+        MOV     R1,#0x0
+        ADD     A,#0x2
+        MOV     R0,A
+        JNC     ??nwk_adjustDelay_1
+        INC     R1
+//  604   }
+//  605 
+//  606   return ( result );
+??nwk_adjustDelay_1:
+        MOV     A,R0
+        MOV     R2,A
+        MOV     A,R1
+        MOV     R3,A
+        SJMP    ?Subroutine0
+//  607 }
+          CFI EndBlock cfiBlock7
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for gMIN_TREE_LQI>`:
+        DATA8
+        DB 6
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for gAPS_MAX_ENDDEVICE_BROADCAST`:
+        DATA8
+        DB 18
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??nwk_globals_init::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    nwk_globals_init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??NIB_init::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    NIB_init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??nwk_Status::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    nwk_Status
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??nwk_adjustDelay::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    nwk_adjustDelay
+
+        END
+//  608 
+//  609 /*********************************************************************
+//  610 *********************************************************************/
+// 
+//   399 bytes in segment BANKED_CODE
+//    24 bytes in segment BANK_RELAYS
+//    79 bytes in segment CODE_C
+//     2 bytes in segment XDATA_I
+//     2 bytes in segment XDATA_ID
+// 1 557 bytes in segment XDATA_Z
+// 
+//   504 bytes of CODE  memory
+// 1 559 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

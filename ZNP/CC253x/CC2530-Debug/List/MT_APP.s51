@@ -1,0 +1,1222 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               21/Nov/2018  13:52:08
+// Copyright 2004-2015 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Components\mt\MT_APP.c
+//    Command line       =  
+//        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+//        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR |
+//        DEVICE_BUILD_ROUTER | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL
+//        -DZNP_RUN_WDOG=FALSE -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO
+//        -DZIGBEE_FRAGMENTATION -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE
+//        -DSAPI_CB_FUNC=FALSE -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT
+//        -DNUM_DISC_ATTEMPTS=0 -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC
+//        -DMT_SAPI_FUNC -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC
+//        -DMT_ZDO_MGMT -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -f
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Components\mt\MT_APP.c" -D FEATURE_SYSTEM_STATS -D POWER_SAVING
+//        -lC "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+//        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e
+//        --no_code_motion --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+//        -Ohz --require_prototypes
+//    List file          =  
+//        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\MT_APP.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME MT_APP
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?V2
+        EXTERN ?V3
+        EXTERN ?V4
+        EXTERN ?V5
+        EXTERN ?V6
+        EXTERN ?V8
+        EXTERN ?V9
+        EXTERN ?V10
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK_I_THREE
+        EXTERN ?XSP
+
+        PUBLIC `??MT_AppCommandProcessing::?relay`
+        FUNCTION `??MT_AppCommandProcessing::?relay`,0203H
+        PUBLIC `??MT_AppMsg::?relay`
+        FUNCTION `??MT_AppMsg::?relay`,0203H
+        PUBLIC `??MT_AppUserCmd::?relay`
+        FUNCTION `??MT_AppUserCmd::?relay`,0203H
+        PUBLIC MT_AppCommandProcessing
+        FUNCTION MT_AppCommandProcessing,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC MT_AppMsg
+        FUNCTION MT_AppMsg,0a1203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 23, STACK
+        PUBLIC MT_AppUserCmd
+        FUNCTION MT_AppUserCmd,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME XSTACK, 1, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+          CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+MT_BuildAndSendZToolResponse SYMBOL "MT_BuildAndSendZToolResponse"
+`??MT_BuildAndSendZToolResponse::?relay` SYMBOL "?relay", MT_BuildAndSendZToolResponse
+afFindEndPointDesc  SYMBOL "afFindEndPointDesc"
+`??afFindEndPointDesc::?relay` SYMBOL "?relay", afFindEndPointDesc
+osal_memcpy         SYMBOL "osal_memcpy"
+`??osal_memcpy::?relay` SYMBOL "?relay", osal_memcpy
+osal_msg_allocate   SYMBOL "osal_msg_allocate"
+`??osal_msg_allocate::?relay` SYMBOL "?relay", osal_msg_allocate
+osal_msg_send       SYMBOL "osal_msg_send"
+`??osal_msg_send::?relay` SYMBOL "?relay", osal_msg_send
+MT_AppCommandProcessing SYMBOL "MT_AppCommandProcessing"
+`??MT_AppCommandProcessing::?relay` SYMBOL "?relay", MT_AppCommandProcessing
+MT_AppMsg           SYMBOL "MT_AppMsg"
+`??MT_AppMsg::?relay` SYMBOL "?relay", MT_AppMsg
+MT_AppUserCmd       SYMBOL "MT_AppUserCmd"
+`??MT_AppUserCmd::?relay` SYMBOL "?relay", MT_AppUserCmd
+
+        EXTERN `??MT_BuildAndSendZToolResponse::?relay`
+        FUNCTION `??MT_BuildAndSendZToolResponse::?relay`,00H
+        EXTERN `??afFindEndPointDesc::?relay`
+        FUNCTION `??afFindEndPointDesc::?relay`,00H
+        EXTERN `??osal_memcpy::?relay`
+        FUNCTION `??osal_memcpy::?relay`,00H
+        EXTERN `??osal_msg_allocate::?relay`
+        FUNCTION `??osal_msg_allocate::?relay`,00H
+        EXTERN `??osal_msg_send::?relay`
+        FUNCTION `??osal_msg_send::?relay`,00H
+        EXTERN MT_BuildAndSendZToolResponse
+        FUNCTION MT_BuildAndSendZToolResponse,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN afFindEndPointDesc
+        FUNCTION afFindEndPointDesc,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_memcpy
+        FUNCTION osal_memcpy,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 23, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_allocate
+        FUNCTION osal_msg_allocate,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_send
+        FUNCTION osal_msg_send,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+
+// D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Components\mt\MT_APP.c
+//    1 /***************************************************************************************************
+//    2   Filename:       MT_APP.c
+//    3   Revised:        $Date: 2014-06-25 18:07:01 -0700 (Wed, 25 Jun 2014) $
+//    4   Revision:       $Revision: 39221 $
+//    5 
+//    6   Description:    MonitorTest processing for APP commands
+//    7 
+//    8   Copyright 2007-2014 Texas Instruments Incorporated. All rights reserved.
+//    9 
+//   10   IMPORTANT: Your use of this Software is limited to those specific rights
+//   11   granted under the terms of a software license agreement between the user
+//   12   who downloaded the software, his/her employer (which must be your employer)
+//   13   and Texas Instruments Incorporated (the "License"). You may not use this
+//   14   Software unless you agree to abide by the terms of the License. The License
+//   15   limits your use, and you acknowledge, that the Software may not be modified,
+//   16   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   17   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   18   frequency transceiver, which is integrated into your product. Other than for
+//   19   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   20   works of, modify, distribute, perform, display or sell this Software and/or
+//   21   its documentation for any purpose.
+//   22 
+//   23   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   24   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   25   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   26   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   27   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   28   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   29   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   30   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   31   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   32   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   33   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   34 
+//   35   Should you have any questions regarding your right to use this Software,
+//   36   contact Texas Instruments Incorporated at www.TI.com.
+//   37 
+//   38  ***************************************************************************************************/
+//   39 
+//   40 /***************************************************************************************************
+//   41  * INCLUDES
+//   42  ***************************************************************************************************/
+//   43 #include "ZComDef.h"
+//   44 #include "MT.h"        /* This is here because all the SPI_CMD_XXX are defined in this header */
+//   45 #include "MT_APP.h"
+//   46 #include "MT_AF.h"     /* This is here because this MT_APP makes some routine call to AF */
+//   47 #include "MT_RPC.h"
+//   48 
+//   49 #if defined( APP_TP )
+//   50  #include "TestProfile.h"
+//   51 #endif
+//   52 #if defined( APP_TP2 )
+//   53  #include "TestProfile2.h"
+//   54  #include "nwk_util.h"
+//   55 #endif
+//   56 
+//   57 /***************************************************************************************************
+//   58  * LOCAL FUNCTIONS
+//   59  ***************************************************************************************************/
+//   60 #if defined (MT_APP_FUNC)
+//   61 void MT_AppMsg(uint8 *pBuf);
+//   62 void MT_AppUserCmd(byte *pData);
+//   63 #endif
+//   64 
+//   65 #if defined (MT_APP_FUNC)
+//   66 /***************************************************************************************************
+//   67  * @fn      MT_AppCommandProcessing
+//   68  *
+//   69  * @brief  Process all the APP commands that are issued by test tool
+//   70  *
+//   71  * @param   pBuf - pointer to the received buffer
+//   72  *
+//   73  * @return  status
+//   74  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   75 uint8 MT_AppCommandProcessing(uint8 *pBuf)
+MT_AppCommandProcessing:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function MT_AppCommandProcessing
+        CODE
+//   76 {
+        FUNCALL MT_AppCommandProcessing, MT_AppMsg
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_AppCommandProcessing, MT_AppUserCmd
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+//   77   uint8 status = MT_RPC_SUCCESS;
+        MOV     R6,#0x0
+//   78 
+//   79   switch (pBuf[MT_RPC_POS_CMD1])
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        JZ      ??MT_AppCommandProcessing_0
+        DEC     A
+        JZ      ??MT_AppCommandProcessing_1
+        SJMP    ??MT_AppCommandProcessing_2
+//   80   {
+//   81     case MT_APP_MSG:
+//   82       MT_AppMsg(pBuf);
+??MT_AppCommandProcessing_0:
+        ; Setup parameters for call to function MT_AppMsg
+        LCALL   `??MT_AppMsg::?relay`; Banked call to: MT_AppMsg
+//   83       break;
+        SJMP    ??MT_AppCommandProcessing_3
+//   84 
+//   85     case MT_APP_USER_TEST:
+//   86       MT_AppUserCmd(pBuf);
+??MT_AppCommandProcessing_1:
+        ; Setup parameters for call to function MT_AppUserCmd
+        LCALL   `??MT_AppUserCmd::?relay`; Banked call to: MT_AppUserCmd
+//   87       break;
+        SJMP    ??MT_AppCommandProcessing_3
+//   88 
+//   89     default:
+//   90       status = MT_RPC_ERR_COMMAND_ID;
+??MT_AppCommandProcessing_2:
+        MOV     R6,#0x2
+//   91       break;
+//   92   }
+//   93 
+//   94   return status;
+??MT_AppCommandProcessing_3:
+        MOV     A,R6
+        MOV     R1,A
+        MOV     R7,#0x1
+        LJMP    ?BANKED_LEAVE_XDATA
+//   95 }
+          CFI EndBlock cfiBlock0
+//   96 
+//   97 /***************************************************************************************************
+//   98  * @fn      MT_AppMsg
+//   99  *
+//  100  * @brief   Process APP_MSG command
+//  101  *
+//  102  * @param   pBuf - pointer to the received buffer
+//  103  *
+//  104  * @return  void
+//  105  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  106 void MT_AppMsg(uint8 *pBuf)
+MT_AppMsg:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function MT_AppMsg
+        CODE
+//  107 {
+        FUNCALL MT_AppMsg, afFindEndPointDesc
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 20, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_AppMsg, osal_msg_allocate
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 20, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_AppMsg, osal_memcpy
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 23, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 23, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_AppMsg, osal_msg_send
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 20, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL MT_AppMsg, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 20, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 20, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        REQUIRE ?V2
+        REQUIRE ?V3
+        REQUIRE ?V4
+        REQUIRE ?V5
+        REQUIRE ?V6
+        REQUIRE ?V8
+        REQUIRE ?V9
+        REQUIRE ?V10
+        MOV     A,#-0x13
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V10 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V9 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V8 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V7 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI V6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-16)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-17)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-18)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-19)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 19)
+        ; Saved register size: 19
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 20)
+        MOV     ?V1,R3
+//  108   uint8 retValue = ZFailure;
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     A,#0x1
+        MOVX    @DPTR,A
+//  109   uint8 endpoint;
+//  110   endPointDesc_t *epDesc;
+//  111   mtSysAppMsg_t *msg;
+//  112   uint8 cmdId, dataLen;
+//  113 
+//  114   /* parse header */
+//  115   dataLen = pBuf[MT_RPC_POS_LEN];
+        MOV     DPL,R2
+        MOV     DPH,R3
+        MOVX    A,@DPTR
+        MOV     ?V5,A
+//  116   cmdId = pBuf[MT_RPC_POS_CMD1];
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V4,A
+//  117   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  118 
+//  119   /* Get the endpoint and skip past it.*/
+//  120   endpoint = *pBuf++;
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V6,A
+        MOV     A,R2
+        ADD     A,#0x4
+        MOV     ?V0,A
+        JNC     ??MT_AppMsg_0
+        INC     ?V1
+//  121   dataLen--;
+??MT_AppMsg_0:
+        DEC     ?V5
+//  122 
+//  123   /* Look up the endpoint */
+//  124   epDesc = afFindEndPointDesc( endpoint );
+        ; Setup parameters for call to function afFindEndPointDesc
+        MOV     R1,?V6
+        LCALL   `??afFindEndPointDesc::?relay`; Banked call to: afFindEndPointDesc
+        MOV     ?V2,R2
+        MOV     ?V3,R3
+//  125 
+//  126   if (epDesc)
+        MOV     A,R2
+        ORL     A,?V3
+        JZ      ??MT_AppMsg_1
+//  127   {
+//  128     /* Build and send the message to the APP */
+//  129     msg = (mtSysAppMsg_t *)osal_msg_allocate(sizeof(mtSysAppMsg_t) + (dataLen));
+        ; Setup parameters for call to function osal_msg_allocate
+        MOV     A,?V5
+        ADD     A,#0x6
+        MOV     R2,A
+        CLR     A
+        ADDC    A,#0x0
+        MOV     R3,A
+        LCALL   `??osal_msg_allocate::?relay`; Banked call to: osal_msg_allocate
+        MOV     ?V8,R2
+        MOV     ?V9,R3
+        MOV     R6,?V8
+        MOV     R7,?V9
+//  130     if ( msg )
+        MOV     A,R6
+        ORL     A,R7
+        JZ      ??MT_AppMsg_1
+//  131     {
+//  132       /* Build and send message up the app */
+//  133       msg->hdr.event = MT_SYS_APP_MSG;
+        MOV     DPL,R6
+        MOV     DPH,R7
+        MOV     A,#0x23
+        MOVX    @DPTR,A
+//  134       msg->endpoint = endpoint;
+        INC     DPTR
+        INC     DPTR
+        MOV     A,?V6
+        MOVX    @DPTR,A
+//  135       msg->appDataLen = dataLen;
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOV     A,?V5
+        MOVX    @DPTR,A
+//  136       msg->appData = (uint8*)(msg+1);
+        MOV     A,R6
+        ADD     A,#0x6
+        MOV     R2,A
+        CLR     A
+        ADDC    A,R7
+        MOV     R3,A
+        MOV     DPL,R6
+        MOV     DPH,R7
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOV     A,R2
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R3
+        MOVX    @DPTR,A
+//  137       osal_memcpy( msg->appData, pBuf, dataLen);
+        ; Setup parameters for call to function osal_memcpy
+        MOV     ?V8,?V0
+        MOV     ?V9,?V1
+        MOV     ?V10,#0x0
+        MOV     R0,#?V8
+        LCALL   ?PUSH_XSTACK_I_THREE
+          CFI CFA_XSP16 add(XSP16, 23)
+        MOV     R4,?V5
+        MOV     R5,#0x0
+        LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+        MOV     A,#0x3
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 20)
+//  138       osal_msg_send( *(epDesc->task_id), (uint8 *)msg );
+        ; Setup parameters for call to function osal_msg_send
+        MOV     A,R6
+        MOV     R2,A
+        MOV     A,R7
+        MOV     R3,A
+        MOV     DPL,?V2
+        MOV     DPH,?V3
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPH,A
+        MOV     DPL,R0
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??osal_msg_send::?relay`; Banked call to: osal_msg_send
+//  139 
+//  140       /* Info for response */
+//  141       retValue = ZSuccess;
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        CLR     A
+        MOVX    @DPTR,A
+//  142     }
+//  143   }
+//  144 
+//  145   /* Build and send back the response */
+//  146   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_APP), cmdId, 1, &retValue);
+??MT_AppMsg_1:
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     R4,?XSP + 0
+        MOV     R5,?XSP + 1
+        MOV     R3,#0x1
+        MOV     R2,?V4
+        MOV     R1,#0x69
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  147 }
+        MOV     A,#0x1
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 19)
+        MOV     R7,#0xb
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock1
+//  148 
+//  149 /***************************************************************************************************
+//  150  * @fn      MT_AppMsg
+//  151  *
+//  152  * @brief   Process APP_MSG command
+//  153  *
+//  154  * @param   pBuf - pointer to the received buffer
+//  155  *
+//  156  * @return  void
+//  157  ***************************************************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  158 void MT_AppUserCmd(uint8 *pBuf)
+MT_AppUserCmd:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function MT_AppUserCmd
+        CODE
+//  159 {
+        FUNCALL MT_AppUserCmd, MT_BuildAndSendZToolResponse
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 1, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 1, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 1)
+//  160 
+//  161   uint8 retValue, cmdId;
+//  162 
+//  163 #if defined (APP_TGEN) || defined (NWK_TEST) || defined (APP_TP) || defined (APP_TP2) || defined (OSAL_TOTAL_MEM) || defined (APP_DEBUG)
+//  164   uint16 app_cmd;
+//  165   uint8 srcEp;
+//  166   uint16 param1;
+//  167   uint16 param2;
+//  168 #endif
+//  169 #if defined (OSAL_TOTAL_MEM)
+//  170   uint8 pData[2];
+//  171 #endif
+//  172 
+//  173   /* parse header */
+//  174   cmdId = pBuf[MT_RPC_POS_CMD1];
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R2,A
+//  175   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  176 
+//  177   retValue = INVALID_TASK;     //should be changed later
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     A,#0x3
+        MOVX    @DPTR,A
+//  178 
+//  179 #if defined (APP_TGEN) || defined (NWK_TEST) || defined (APP_TP) || defined (APP_TP2) || defined (OSAL_TOTAL_MEM) || defined (APP_DEBUG)
+//  180 
+//  181   srcEp = *pBuf++;
+//  182 
+//  183   app_cmd = BUILD_UINT16( pBuf[0] , pBuf[1] );
+//  184   pBuf = pBuf + sizeof( uint16 );
+//  185 
+//  186   param1 = BUILD_UINT16( pBuf[0] , pBuf[1] );
+//  187   pBuf = pBuf + sizeof( uint16 );
+//  188 
+//  189   param2 = BUILD_UINT16( pBuf[0] , pBuf[1] );
+//  190 
+//  191   switch ( app_cmd )
+//  192   {
+//  193 
+//  194 #if defined (APP_TGEN)
+//  195     case TGEN_START:
+//  196       TrafficGenApp_SendCmdMSG( param1, param2, TRAFFICGENAPP_CMD_START );
+//  197       retValue = ZSUCCESS;
+//  198       break;
+//  199 
+//  200     case TGEN_STOP:
+//  201       TrafficGenApp_SendCmdMSG( param1, param2, TRAFFICGENAPP_CMD_STOP );
+//  202       retValue = ZSUCCESS;
+//  203       break;
+//  204 
+//  205     case TGEN_COUNT:
+//  206       retValue = TrafficGenApp_CountPkt( param1, param2 );
+//  207       return;
+//  208       break;
+//  209 #endif
+//  210 
+//  211 #if defined (NWK_TEST)
+//  212     case HW_TEST:
+//  213       HwApp_Start( HI_UINT16(param1), LO_UINT16(param1), HI_UINT16(param2),
+//  214                     1000, LO_UINT16(param2), 3, 0 );
+//  215       break;
+//  216 
+//  217     case HW_DISPLAY_RESULT:
+//  218       HwApp_TestInfo();
+//  219       break;
+//  220 
+//  221     case HW_SEND_STATUS:
+//  222       HwApp_SendStats();
+//  223       break;
+//  224 #endif
+//  225 
+//  226 #if defined( APP_TP ) || defined ( APP_TP2 )
+//  227   #if defined( APP_TP )
+//  228     case TP_SEND_NODATA:
+//  229       retValue = TestProfileApp_SendNoData( srcEp, (byte)param1 );
+//  230       break;
+//  231   #endif // APP_TP
+//  232 
+//  233     case TP_SEND_BUFFERTEST:
+//  234       retValue = TestProfileApp_SendBufferReq( srcEp, (uint8)param1, (uint8)param2 );
+//  235       break;
+//  236 
+//  237   #if defined( APP_TP )
+//  238     case TP_SEND_UINT8:
+//  239       retValue = TestProfileApp_SendUint8( srcEp, (byte)param1 );
+//  240       break;
+//  241 
+//  242     case TP_SEND_INT8:
+//  243       retValue = TestProfileApp_SendInt8( srcEp, (byte)param1 );
+//  244       break;
+//  245 
+//  246     case TP_SEND_UINT16:
+//  247       retValue = TestProfileApp_SendUint16( srcEp, (byte)param1 );
+//  248       break;
+//  249 
+//  250     case TP_SEND_INT16:
+//  251       retValue = TestProfileApp_SendInt16( srcEp, (byte)param1 );
+//  252       break;
+//  253 
+//  254     case TP_SEND_SEMIPREC:
+//  255       retValue = TestProfileApp_SendSemiPrec( srcEp, (byte)param1 );
+//  256       break;
+//  257 
+//  258     case TP_SEND_FREEFORM:
+//  259       retValue = TestProfileApp_SendFreeFormReq( srcEp, (byte)param1 );
+//  260       break;
+//  261 
+//  262   #else // APP_TP
+//  263     case TP_SEND_FREEFORM:
+//  264       retValue = TestProfileApp_SendFreeFormReq(srcEp, (byte)param1, (byte)param2);
+//  265       break;
+//  266   #endif
+//  267 
+//  268   #if defined( APP_TP )
+//  269     case TP_SEND_ABS_TIME:
+//  270       retValue = TestProfileApp_SendAbsTime( srcEp, (byte)param1 );
+//  271       break;
+//  272 
+//  273     case TP_SEND_REL_TIME:
+//  274       retValue = TestProfileApp_SendRelativeTime( srcEp, (byte)param1 );
+//  275       break;
+//  276 
+//  277     case TP_SEND_CHAR_STRING:
+//  278       retValue = TestProfileApp_SendCharString( srcEp, (byte)param1 );
+//  279       break;
+//  280 
+//  281     case TP_SEND_OCTET_STRING:
+//  282       retValue = TestProfileApp_SendOctetString( srcEp, (byte)param1 );
+//  283       break;
+//  284   #endif // APP_TP
+//  285 
+//  286     case TP_SET_DSTADDRESS:
+//  287       retValue = TestProfileApp_SetDestAddress(HI_UINT16(param1), LO_UINT16(param1), param2);
+//  288       break;
+//  289 
+//  290   #if defined( APP_TP2 )
+//  291     case TP_SEND_BUFFER_GROUP:
+//  292       retValue = TestProfileApp_SendBufferGroup( srcEp, (byte)param1 );
+//  293       break;
+//  294   #endif // APP_TP
+//  295 
+//  296     case TP_SEND_BUFFER:
+//  297       retValue = TestProfileApp_SendBuffer( srcEp, (byte)param1 );
+//  298       break;
+//  299 
+//  300   #if defined( APP_TP )
+//  301     case TP_SEND_MULT_KVP_8BIT:
+//  302       TestProfileApp_SendMultiKVP_8bit( srcEp, (byte)param1 );
+//  303       retValue = ZSuccess;
+//  304       break;
+//  305 
+//  306     case TP_SEND_MULT_KVP_16BIT:
+//  307       TestProfileApp_SendMultiKVP_16bit( srcEp, (byte)param1 );
+//  308       retValue = ZSuccess;
+//  309       break;
+//  310 
+//  311     case TP_SEND_MULT_KVP_TIME:
+//  312       TestProfileApp_SendMultiKVP_Time( srcEp, (byte)param1 );
+//  313       retValue = ZSuccess;
+//  314       break;
+//  315 
+//  316     case TP_SEND_MULT_KVP_STRING:
+//  317       TestProfileApp_SendMultiKVP_String( srcEp, (byte)param1 );
+//  318       retValue = ZSuccess;
+//  319       break;
+//  320 
+//  321     case TP_SEND_MULTI_KVP_STR_TIME:
+//  322       retValue = ZSuccess;
+//  323       TestProfileApp_SendMultiKVP_String_Time( srcEp, (byte)param1 );
+//  324       break;
+//  325   #endif // APP_TP
+//  326 
+//  327     case TP_SEND_COUNTED_PKTS:
+//  328       TestProfileApp_SendCountedPktsReq(HI_UINT16(param1), LO_UINT16(param1), param2);
+//  329       retValue = ZSuccess;
+//  330       break;
+//  331 
+//  332     case TP_SEND_RESET_COUNTER:
+//  333       TestProfileApp_CountedPakts_ResetCounterReq( (byte)param1 );
+//  334       retValue = ZSuccess;
+//  335       break;
+//  336 
+//  337     case TP_SEND_GET_COUNTER:
+//  338       TestProfileApp_CountedPakts_GetCounterReq( srcEp, (byte)param1 );
+//  339       retValue = ZSuccess;
+//  340       break;
+//  341 
+//  342     case TP_SET_PERMIT_JOIN:
+//  343       if ( ZG_BUILD_RTR_TYPE && ZG_DEVICE_RTR_TYPE )
+//  344       {
+//  345         NLME_PermitJoiningRequest( (byte)param1 );
+//  346         retValue = ZSuccess;
+//  347       }
+//  348       else
+//  349       {
+//  350         retValue = ZFailure;
+//  351       }
+//  352       break;
+//  353 
+//  354   #if defined ( APP_TP2 )
+//  355     case TP_ADD_GROUP:
+//  356       retValue = TestProfileApp_SetGroup( srcEp, param1 );
+//  357       break;
+//  358 
+//  359     case TP_REMOVE_GROUP:
+//  360       retValue = TestProfileApp_RemoveGroup( srcEp, param1 );
+//  361       break;
+//  362 
+//  363     case TP_SEND_UPDATE_KEY:
+//  364       retValue = TestProfileApp_UpdateKey( srcEp, (uint8)param1, param2 );
+//  365       break;
+//  366 
+//  367     case TP_SEND_SWITCH_KEY:
+//  368       retValue = TestProfileApp_SwitchKey(  srcEp, (uint8)param1, param2 );
+//  369       break;
+//  370 
+//  371     case TP_SEND_BUFFERTEST_GROUP:
+//  372       retValue = TestProfileApp_SendBufferGroupReq( srcEp, (byte)param1, (byte)param2 );
+//  373       break;
+//  374 
+//  375     case TP_SEND_ROUTE_DISC_REQ:
+//  376       retValue = TestProfileApp_SendRouteDiscReq( srcEp, param1,
+//  377                                   HI_UINT16( param2 ), LO_UINT16( param2 ) );
+//  378       break;
+//  379 
+//  380     case TP_SEND_ROUTE_DISCOVERY:
+//  381       if ( ZG_BUILD_RTR_TYPE && ZG_DEVICE_RTR_TYPE )
+//  382       {
+//  383         retValue = TestProfileApp_SendRouteDiscovery( param1,
+//  384                                     HI_UINT16( param2 ), LO_UINT16( param2 ) );
+//  385       }
+//  386       break;
+//  387 
+//  388     case TP_SEND_NEW_ADDR:
+//  389       retValue = TestProfileApp_ChangeShortAddr( param1, LO_UINT16(param2) );
+//  390       break;
+//  391 
+//  392     case TP_SEND_NWK_UPDATE:
+//  393       /* Send out a Network Update command. */
+//  394       retValue = NLME_SendNetworkUpdate( NWK_BROADCAST_SHORTADDR, NWKUPDATE_PANID_UPDATE,
+//  395                                         _NIB.extendedPANID, _NIB.nwkUpdateId+1, param1 );
+//  396       break;
+//  397 
+//  398     case TP_NWK_ADDR_CONFLICT:
+//  399       retValue = NLME_SendNetworkStatus( NWK_BROADCAST_SHORTADDR_DEVZCZR, param1,
+//  400                                          NWKSTAT_ADDRESS_CONFLICT, FALSE );
+//  401       break;
+//  402 
+//  403  #if (ZG_BUILD_JOINING_TYPE)
+//  404     case TP_AK_SETUP_PARTNER:
+//  405       retValue = TestProfileApp_AppKeySetupPartner( srcEp, param1, param2 );
+//  406       break;
+//  407 
+//  408     case TP_AK_REQ_KEY:
+//  409       retValue = TestProfileApp_AppKeyRequest( srcEp, param1, param2 );
+//  410       break;
+//  411 
+//  412     case TP_AK_PARTNER_NWKADDR:
+//  413       retValue = TestProfileApp_SetPartnerNwkAddr( srcEp, param1, param2 );
+//  414       break;
+//  415 
+//  416     case TP_AK_PARTNER_EXTADDR7654:
+//  417        retValue = TestProfileApp_SetPartnerExtAddr7654( srcEp, param1, param2 );
+//  418       break;
+//  419 
+//  420     case TP_AK_PARTNER_EXTADDR3210:
+//  421       retValue = TestProfileApp_SetPartnerExtAddr3210( srcEp, param1, param2 );
+//  422       break;
+//  423 
+//  424     case TP_AK_PARTNER_SET:
+//  425       retValue = TestProfileApp_SetPartner( srcEp, param1, param2 );
+//  426       break;
+//  427 #endif /* ZG_BUILD_JOINING_TYPE */
+//  428 
+//  429 #if (ZG_BUILD_COORDINATOR_TYPE)
+//  430     case TP_AK_TYPE_SET:
+//  431       retValue = TestProfileApp_AppKeyTypeSet( srcEp, param1, param2 );
+//  432       break;
+//  433 #endif /* ZG_BUILD_COORDINATOR_TYPE */
+//  434 
+//  435 #if defined ( ZIGBEE_FRAGMENTATION )
+//  436     case TP_FRAG_SKIP_BLOCK:
+//  437       retValue = TestProfileApp_FragSkipBlock( (uint8)param1 );
+//  438       break;
+//  439 #endif
+//  440 
+//  441     case TP_APS_REMOVE:
+//  442       retValue = TestProfileApp_APSRemove( param1, param2 );
+//  443       break;
+//  444 
+//  445 #if defined ( APP_TP2_TEST_MODE )
+//  446     case TP_GU_SET_TX_APS_SEC:
+//  447       retValue = TestProfileApp_GuSetTxApsSecurity( LO_UINT16(param1), param2 );
+//  448       break;
+//  449 
+//  450     case TP_GU_SET_RX_APS_SEC:
+//  451       retValue = TestProfileApp_GuSetRxApsSecurity( LO_UINT16(param1), param2 );
+//  452       break;
+//  453 #endif
+//  454 
+//  455     case TP_SET_LEAVE_REQ_ALLOWED:
+//  456       retValue = TestProfileApp_SetLeaveReqAllowed( LO_UINT16(param1) );
+//  457       break;
+//  458 
+//  459   case TP_SEND_REJOIN_REQ_SECURE:
+//  460       retValue = TestProfileApp_SendRejoinReqSecurity( param1, param2 );
+//  461       break;
+//  462 #endif // APP_TP2
+//  463 
+//  464 #endif  // APP_TP || APP_TP2
+//  465 
+//  466 #if defined ( OSAL_TOTAL_MEM )
+//  467     case OSAL_MEM_STACK_HIGH_WATER:
+//  468     case OSAL_MEM_HEAP_HIGH_WATER:
+//  469       if ( app_cmd == OSAL_MEM_STACK_HIGH_WATER)
+//  470       {
+//  471         param1 = osal_stack_used();
+//  472       }
+//  473       else
+//  474       {
+//  475         param1 = osal_heap_high_water();
+//  476       }
+//  477 
+//  478       pData[0] = LO_UINT16( param1 );
+//  479       pData[1] = HI_UINT16( param1 );
+//  480 
+//  481       MT_BuildAndSendZToolResponse((MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_APP), cmdId, 2, pData);
+//  482       return;
+//  483 #endif
+//  484 
+//  485 #if defined ( APP_DEBUG )
+//  486     case DEBUG_GET:
+//  487       DebugApp_SendQuery( param1 );
+//  488       retValue = ZSUCCESS;
+//  489       break;
+//  490 #endif
+//  491 
+//  492 #if defined ( APP_TP2 )
+//  493     case TP_SEND_BCAST_RSP:
+//  494       retValue = TestProfileApp_SendBcastRsp( srcEp, (byte)param1 );
+//  495       break;
+//  496 #endif
+//  497 
+//  498     default:
+//  499       break;
+//  500   }
+//  501 #endif // (APP_TGEN) || (NWK_TEST) || (APP_TP) || (APP_TP2) || (OSAL_TOTAL_MEM) || (APP_DEBUG)
+//  502 
+//  503   /* Build and send back the response */
+//  504   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_SRSP | (uint8)MT_RPC_SYS_APP), cmdId, 1, &retValue);
+        ; Setup parameters for call to function MT_BuildAndSendZToolResponse
+        MOV     R4,?XSP + 0
+        MOV     R5,?XSP + 1
+        MOV     R3,#0x1
+        MOV     R1,#0x69
+        LCALL   `??MT_BuildAndSendZToolResponse::?relay`; Banked call to: MT_BuildAndSendZToolResponse
+//  505 }
+        MOV     A,#0x1
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 XSP16+0
+        POP     DPH
+          CFI DPH0 SameValue
+          CFI CFA_SP SP+-4
+        POP     DPL
+          CFI DPL0 SameValue
+          CFI CFA_SP SP+-3
+        LJMP    ?BRET
+          CFI EndBlock cfiBlock2
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_AppCommandProcessing::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_AppCommandProcessing
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_AppMsg::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_AppMsg
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??MT_AppUserCmd::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    MT_AppUserCmd
+
+        END
+//  506 
+//  507 #endif /* MT_APP_FUNC */
+//  508 
+//  509 /***************************************************************************************************
+//  510  ***************************************************************************************************/
+// 
+// 304 bytes in segment BANKED_CODE
+//  18 bytes in segment BANK_RELAYS
+// 
+// 322 bytes of CODE memory
+//
+//Errors: none
+//Warnings: none

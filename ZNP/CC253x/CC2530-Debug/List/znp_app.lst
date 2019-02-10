@@ -1,0 +1,1688 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                21/Nov/2018  13:52:23
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\Source\znp_app.c
+#    Command line       =  
+#        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+#        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR | DEVICE_BUILD_ROUTER
+#        | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL -DZNP_RUN_WDOG=FALSE
+#        -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO -DZIGBEE_FRAGMENTATION
+#        -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE -DSAPI_CB_FUNC=FALSE
+#        -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT -DNUM_DISC_ATTEMPTS=0
+#        -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC -DMT_SAPI_FUNC
+#        -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC -DMT_ZDO_MGMT
+#        -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\Source\znp_app.c" -D FEATURE_SYSTEM_STATS -D
+#        POWER_SAVING -lC "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+#        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e --no_code_motion
+#        --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes
+#    List file          =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\znp_app.lst
+#    Object file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj\znp_app.r51
+#
+###############################################################################
+
+D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Projects\zstack\ZNP\Source\znp_app.c
+      1          /**************************************************************************************************
+      2            Filename:       znp_app.c
+      3            Revised:        $Date: 2014-03-26 10:34:30 -0700 (Wed, 26 Mar 2014) $
+      4            Revision:       $Revision: 37901 $
+      5          
+      6            Description:    This file is the Application implementation for the ZNP.
+      7          
+      8          
+      9            Copyright 2009-2014 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License"). You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product. Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /* ------------------------------------------------------------------------------------------------
+     41           *                                          Includes
+     42           * ------------------------------------------------------------------------------------------------
+     43           */
+     44          
+     45          #include "hal_board_cfg.h"
+     46          #include "mac_radio_defs.h"
+     47          #include "MT.h"
+     48          #include "MT_AF.h"
+     49          #include "MT_SYS.h"
+     50          #include "MT_UART.h"
+     51          #include "MT_UTIL.h"
+     52          #include "MT_ZDO.h"
+     53          #if defined MT_ZNP_FUNC
+     54          #include "MT_ZNP.h"
+     55          #endif
+     56          #include "OSAL.h"
+     57          #include "OSAL_Nv.h"
+     58          #if defined POWER_SAVING || defined CC2531ZNP
+     59          #include "OSAL_PwrMgr.h"
+     60          #endif
+     61          #include "ZComDef.h"
+     62          #include "ZMAC.h"
+     63          #include "znp_app.h"
+     64          #include "znp_spi.h"
+     65          
+     66          #if defined ( TC_LINKKEY_JOIN ) || defined ( ZCL_KEY_ESTABLISH )
+     67            #include "zcl.h"
+     68          #endif
+     69          
+     70          /* ------------------------------------------------------------------------------------------------
+     71           *                                           Local Functions
+     72           * ------------------------------------------------------------------------------------------------
+     73           */
+     74          
+     75          static void npInit(void);
+     76          static void npInitNV(void);
+     77          
+     78          #if defined MT_ZNP_FUNC
+     79          static void npBasicRsp(void);
+     80          #endif
+     81          
+     82          static void npUartCback(uint8 port, uint8 event);
+     83          static void npUartTxReady(void);
+     84          static uint8* npMtUartAlloc(uint8 cmd0, uint8 len);
+     85          static void npMtUartSend(uint8 *pBuf);
+     86          
+     87          #if !defined CC2531ZNP
+     88          static uint8* npMtSpiAlloc(uint8 cmd0, uint8 len);
+     89          static void npMtSpiSend(uint8 *pBuf);
+     90          uint8* npSpiPollCallback(void);
+     91          bool npSpiReadyCallback(void);
+     92          #endif
+     93          
+     94          /* ------------------------------------------------------------------------------------------------
+     95           *                                           Local Variables
+     96           * ------------------------------------------------------------------------------------------------
+     97           */
+     98          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     99          static osal_msg_q_t npTxQueue;
+   \                     npTxQueue:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    100          
+    101          /* ------------------------------------------------------------------------------------------------
+    102           *                                           Global Variables
+    103           * ------------------------------------------------------------------------------------------------
+    104           */
+    105          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    106          uint8 znpCfg1;
+   \                     znpCfg1:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    107          uint8 znpCfg0;
+   \                     znpCfg0:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    108          
+    109          #if defined TC_LINKKEY_JOIN
+    110          extern uint8 zcl_TaskID;
+    111          #endif
+    112          
+    113          /**************************************************************************************************
+    114           * @fn          znpInit
+    115           *
+    116           * @brief       This function is the OSAL task initialization callback.
+    117           *
+    118           * input parameters
+    119           *
+    120           * @param taskId - The task ID assigned to this task by the OSAL.
+    121           *
+    122           * output parameters
+    123           *
+    124           * None.
+    125           *
+    126           * @return      None.
+    127           **************************************************************************************************
+    128           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    129          void znpInit(uint8 taskId)
+   \                     znpInit:
+    130          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+    131            znpTaskId = taskId;
+   \   000006   90....       MOV     DPTR,#MT_TaskID
+   \   000009   F0           MOVX    @DPTR,A
+    132            (void)osal_set_event(taskId, ZNP_SECONDARY_INIT_EVENT);
+   \   00000A                ; Setup parameters for call to function osal_set_event
+   \   00000A   7A10         MOV     R2,#0x10
+   \   00000C   7B00         MOV     R3,#0x0
+   \   00000E   12....       LCALL   `??osal_set_event::?relay`; Banked call to: osal_set_event
+    133          #if defined MT_ZNP_FUNC
+    134            znpBasicRspRate = ZNP_BASIC_RSP_RATE;
+    135            (void)osal_start_reload_timer(taskId, ZNP_BASIC_RSP_EVENT, ZNP_BASIC_RSP_RATE);
+    136          #endif
+    137          }
+   \   000011                REQUIRE ?Subroutine0
+   \   000011                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F01         MOV     R7,#0x1
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    138          
+    139          /**************************************************************************************************
+    140           * @fn          znpEventLoop
+    141           *
+    142           * @brief       This function processes the OSAL events and messages for the application.
+    143           *
+    144           * input parameters
+    145           *
+    146           * @param taskId - The task ID assigned to this application by OSAL at system initialization.
+    147           * @param events - A bit mask of the pending event(s).
+    148           *
+    149           * output parameters
+    150           *
+    151           * None.
+    152           *
+    153           * @return      The events bit map received via parameter with the bits cleared which correspond to
+    154           *              the event(s) that were processed on this invocation.
+    155           **************************************************************************************************
+    156           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    157          uint16 znpEventLoop(uint8 taskId, uint16 events)
+   \                     znpEventLoop:
+    158          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    159            osal_event_hdr_t *pMsg;
+    160          #if !defined CC2531ZNP
+    161            uint8 *pBuf;
+    162          #endif
+    163          
+    164            if (events & SYS_EVENT_MSG)
+   \   000009   5480         ANL     A,#0x80
+   \   00000B   7021         JNZ     ??znpEventLoop_0
+    165            {
+    166              while ((pMsg = (osal_event_hdr_t *) osal_msg_receive(znpTaskId)) != NULL)
+    167              {
+    168                switch (pMsg->event)
+    169                {
+    170                /* incoming message from UART transport */
+    171                case CMD_SERIAL_MSG:
+    172                  MT_ProcessIncoming(((mtOSALSerialData_t *)pMsg)->msg);
+    173                  break;
+    174          
+    175          #if defined ZCL_KEY_ESTABLISH
+    176          #if defined (MT_UTIL_FUNC)
+    177                case ZCL_KEY_ESTABLISH_IND:
+    178                  MT_UtilKeyEstablishInd((keyEstablishmentInd_t *)pMsg);
+    179                  break;
+    180          #endif
+    181          #endif
+    182          
+    183                case AF_INCOMING_MSG_CMD:
+    184          #if defined ZCL_KEY_ESTABLISH
+    185                  if (ZCL_KEY_ESTABLISHMENT_ENDPOINT == (((afIncomingMSGPacket_t *)pMsg)->endPoint))
+    186                  {
+    187                    zcl_ProcessMessageMSG((afIncomingMSGPacket_t *)pMsg);
+    188                  }
+    189                  else
+    190          #endif
+    191                  {
+    192                    MT_AfIncomingMsg((afIncomingMSGPacket_t *)pMsg);
+    193                  }
+    194                  break;
+    195          
+    196          #ifdef MT_ZDO_FUNC
+    197                case ZDO_STATE_CHANGE:
+    198                  MT_ZdoStateChangeCB(pMsg);
+    199                  break;
+    200          
+    201                case ZDO_CB_MSG:
+    202                  MT_ZdoSendMsgCB((zdoIncomingMsg_t *)pMsg);
+    203                  break;
+    204          #endif
+    205          
+    206                case AF_DATA_CONFIRM_CMD:
+    207                  MT_AfDataConfirm((afDataConfirm_t *)pMsg);
+    208                  break;
+    209          
+    210                default:
+    211                  break;
+    212                }
+    213          
+    214                osal_msg_deallocate((byte *)pMsg);
+    215              }
+    216          
+    217              events ^= SYS_EVENT_MSG;
+    218            }
+    219          #if !defined CC2531ZNP
+    220            else if (events & ZNP_SPI_RX_AREQ_EVENT)
+   \   00000D   EF           MOV     A,R7
+   \   00000E   5440         ANL     A,#0x40
+   \   000010   6067         JZ      ??znpEventLoop_1
+    221            {
+    222              if ((pBuf = npSpiGetReqBuf()) != NULL )
+   \   000012                ; Setup parameters for call to function npSpiGetReqBuf
+   \   000012   12....       LCALL   `??npSpiGetReqBuf::?relay`; Banked call to: npSpiGetReqBuf
+   \   000015   EA           MOV     A,R2
+   \   000016   4B           ORL     A,R3
+   \   000017   6006         JZ      ??znpEventLoop_2
+    223              {
+    224                MT_ProcessIncoming(pBuf);
+   \   000019                ; Setup parameters for call to function MT_ProcessIncoming
+   \   000019   12....       LCALL   `??MT_ProcessIncoming::?relay`; Banked call to: MT_ProcessIncoming
+    225                npSpiAReqComplete();
+   \   00001C                ; Setup parameters for call to function npSpiAReqComplete
+   \   00001C   12....       LCALL   `??npSpiAReqComplete::?relay`; Banked call to: npSpiAReqComplete
+    226              }
+    227          
+    228              events ^= ZNP_SPI_RX_AREQ_EVENT;
+   \                     ??znpEventLoop_2:
+   \   00001F   7440         MOV     A,#0x40
+   \   000021   02....       LJMP    ??znpEventLoop_3 & 0xFFFF
+    229            }
+   \                     ??znpEventLoop_4:
+   \   000024                ; Setup parameters for call to function MT_AfDataConfirm
+   \   000024   12....       LCALL   `??MT_AfDataConfirm::?relay`; Banked call to: MT_AfDataConfirm
+   \                     ??znpEventLoop_5:
+   \   000027                ; Setup parameters for call to function osal_msg_deallocate
+   \   000027   AA..         MOV     R2,?V0
+   \   000029   AB..         MOV     R3,?V1
+   \   00002B   12....       LCALL   `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
+   \                     ??znpEventLoop_0:
+   \   00002E                ; Setup parameters for call to function osal_msg_receive
+   \   00002E   90....       MOV     DPTR,#MT_TaskID
+   \   000031   E0           MOVX    A,@DPTR
+   \   000032   F9           MOV     R1,A
+   \   000033   12....       LCALL   `??osal_msg_receive::?relay`; Banked call to: osal_msg_receive
+   \   000036   8A..         MOV     ?V0,R2
+   \   000038   8B..         MOV     ?V1,R3
+   \   00003A   EA           MOV     A,R2
+   \   00003B   45..         ORL     A,?V1
+   \   00003D   6035         JZ      ??znpEventLoop_6
+   \   00003F   8A82         MOV     DPL,R2
+   \   000041   8B83         MOV     DPH,R3
+   \   000043   E0           MOVX    A,@DPTR
+   \   000044   14           DEC     A
+   \   000045   6012         JZ      ??znpEventLoop_7
+   \   000047   24E7         ADD     A,#-0x19
+   \   000049   601A         JZ      ??znpEventLoop_8
+   \   00004B   2449         ADD     A,#0x49
+   \   00004D   601B         JZ      ??znpEventLoop_9
+   \   00004F   24FE         ADD     A,#-0x2
+   \   000051   601C         JZ      ??znpEventLoop_10
+   \   000053   24D6         ADD     A,#-0x2a
+   \   000055   60CD         JZ      ??znpEventLoop_4
+   \   000057   80CE         SJMP    ??znpEventLoop_5
+   \                     ??znpEventLoop_7:
+   \   000059                ; Setup parameters for call to function MT_ProcessIncoming
+   \   000059   A3           INC     DPTR
+   \   00005A   A3           INC     DPTR
+   \   00005B   E0           MOVX    A,@DPTR
+   \   00005C   FA           MOV     R2,A
+   \   00005D   A3           INC     DPTR
+   \   00005E   E0           MOVX    A,@DPTR
+   \   00005F   FB           MOV     R3,A
+   \   000060   12....       LCALL   `??MT_ProcessIncoming::?relay`; Banked call to: MT_ProcessIncoming
+   \   000063   80C2         SJMP    ??znpEventLoop_5
+   \                     ??znpEventLoop_8:
+   \   000065                ; Setup parameters for call to function MT_AfIncomingMsg
+   \   000065   12....       LCALL   `??MT_AfIncomingMsg::?relay`; Banked call to: MT_AfIncomingMsg
+   \   000068   80BD         SJMP    ??znpEventLoop_5
+   \                     ??znpEventLoop_9:
+   \   00006A                ; Setup parameters for call to function MT_ZdoStateChangeCB
+   \   00006A   12....       LCALL   `??MT_ZdoStateChangeCB::?relay`; Banked call to: MT_ZdoStateChangeCB
+   \   00006D   80B8         SJMP    ??znpEventLoop_5
+   \                     ??znpEventLoop_10:
+   \   00006F                ; Setup parameters for call to function MT_ZdoSendMsgCB
+   \   00006F   12....       LCALL   `??MT_ZdoSendMsgCB::?relay`; Banked call to: MT_ZdoSendMsgCB
+   \   000072   80B3         SJMP    ??znpEventLoop_5
+   \                     ??znpEventLoop_6:
+   \   000074   7480         MOV     A,#-0x80
+   \   000076   02....       LJMP    ??znpEventLoop_3 & 0xFFFF
+    230            else if (events & ZNP_SPI_RX_SREQ_EVENT)
+   \                     ??znpEventLoop_1:
+   \   000079   EF           MOV     A,R7
+   \   00007A   5420         ANL     A,#0x20
+   \   00007C   600F         JZ      ??znpEventLoop_11
+    231            {
+    232              if ((pBuf = npSpiGetReqBuf()) != NULL)
+   \   00007E                ; Setup parameters for call to function npSpiGetReqBuf
+   \   00007E   12....       LCALL   `??npSpiGetReqBuf::?relay`; Banked call to: npSpiGetReqBuf
+   \   000081   EA           MOV     A,R2
+   \   000082   4B           ORL     A,R3
+   \   000083   6003         JZ      ??znpEventLoop_12
+    233              {
+    234                MT_ProcessIncoming(pBuf);
+   \   000085                ; Setup parameters for call to function MT_ProcessIncoming
+   \   000085   12....       LCALL   `??MT_ProcessIncoming::?relay`; Banked call to: MT_ProcessIncoming
+    235              }
+    236          
+    237              events ^= ZNP_SPI_RX_SREQ_EVENT;
+   \                     ??znpEventLoop_12:
+   \   000088   7420         MOV     A,#0x20
+   \   00008A   02....       LJMP    ??znpEventLoop_3 & 0xFFFF
+    238            }
+    239          #endif
+    240            else if (events & ZNP_UART_TX_READY_EVENT)
+   \                     ??znpEventLoop_11:
+   \   00008D   EF           MOV     A,R7
+   \   00008E   5410         ANL     A,#0x10
+   \   000090   7003         JNZ     $+5
+   \   000092   02....       LJMP    ??znpEventLoop_13 & 0xFFFF
+    241            {
+    242              npUartTxReady();
+   \   000095   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000098   703A         JNZ     ??znpEventLoop_14
+   \   00009A                ; Setup parameters for call to function osal_msg_dequeue
+   \   00009A   7A..         MOV     R2,#npTxQueue & 0xff
+   \   00009C   7B..         MOV     R3,#(npTxQueue >> 8) & 0xff
+   \   00009E   12....       LCALL   `??osal_msg_dequeue::?relay`; Banked call to: osal_msg_dequeue
+   \   0000A1   8A..         MOV     ?V0,R2
+   \   0000A3   8B..         MOV     ?V1,R3
+   \   0000A5   A8..         MOV     R0,?V0
+   \   0000A7   A9..         MOV     R1,?V1
+   \   0000A9   90....       MOV     DPTR,#??npUartTxMsg
+   \   0000AC   E8           MOV     A,R0
+   \   0000AD   F0           MOVX    @DPTR,A
+   \   0000AE   A3           INC     DPTR
+   \   0000AF   E9           MOV     A,R1
+   \   0000B0   F0           MOVX    @DPTR,A
+   \   0000B1   90....       MOV     DPTR,#??pMsg
+   \   0000B4   E8           MOV     A,R0
+   \   0000B5   F0           MOVX    @DPTR,A
+   \   0000B6   A3           INC     DPTR
+   \   0000B7   E9           MOV     A,R1
+   \   0000B8   F0           MOVX    @DPTR,A
+   \   0000B9   E8           MOV     A,R0
+   \   0000BA   49           ORL     A,R1
+   \   0000BB   6017         JZ      ??znpEventLoop_14
+   \   0000BD   E0           MOVX    A,@DPTR
+   \   0000BE   F583         MOV     DPH,A
+   \   0000C0   8882         MOV     DPL,R0
+   \   0000C2   A3           INC     DPTR
+   \   0000C3   E0           MOVX    A,@DPTR
+   \   0000C4   7900         MOV     R1,#0x0
+   \   0000C6   2405         ADD     A,#0x5
+   \   0000C8   5001         JNC     ??znpEventLoop_15
+   \   0000CA   09           INC     R1
+   \                     ??znpEventLoop_15:
+   \   0000CB   90....       MOV     DPTR,#??npUartTxCnt
+   \   0000CE   F0           MOVX    @DPTR,A
+   \   0000CF   A3           INC     DPTR
+   \   0000D0   E9           MOV     A,R1
+   \   0000D1   F0           MOVX    @DPTR,A
+   \   0000D2   8005         SJMP    ??znpEventLoop_16
+   \                     ??znpEventLoop_14:
+   \   0000D4   12....       LCALL   ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   0000D7   604D         JZ      ??znpEventLoop_17
+   \                     ??znpEventLoop_16:
+   \   0000D9                ; Setup parameters for call to function HalUARTWrite
+   \   0000D9   90....       MOV     DPTR,#??npUartTxCnt
+   \   0000DC   E0           MOVX    A,@DPTR
+   \   0000DD   FC           MOV     R4,A
+   \   0000DE   A3           INC     DPTR
+   \   0000DF   E0           MOVX    A,@DPTR
+   \   0000E0   FD           MOV     R5,A
+   \   0000E1   90....       MOV     DPTR,#??pMsg
+   \   0000E4   E0           MOVX    A,@DPTR
+   \   0000E5   FA           MOV     R2,A
+   \   0000E6   A3           INC     DPTR
+   \   0000E7   E0           MOVX    A,@DPTR
+   \   0000E8   FB           MOV     R3,A
+   \   0000E9   7900         MOV     R1,#0x0
+   \   0000EB   12....       LCALL   `??HalUARTWrite::?relay`; Banked call to: HalUARTWrite
+   \   0000EE   90....       MOV     DPTR,#??npUartTxCnt
+   \   0000F1   C3           CLR     C
+   \   0000F2   E0           MOVX    A,@DPTR
+   \   0000F3   9A           SUBB    A,R2
+   \   0000F4   F0           MOVX    @DPTR,A
+   \   0000F5   A3           INC     DPTR
+   \   0000F6   E0           MOVX    A,@DPTR
+   \   0000F7   9B           SUBB    A,R3
+   \   0000F8   F0           MOVX    @DPTR,A
+   \   0000F9   90....       MOV     DPTR,#??npUartTxCnt
+   \   0000FC   12....       LCALL   ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   0000FF   7013         JNZ     ??znpEventLoop_18
+   \   000101                ; Setup parameters for call to function osal_msg_deallocate
+   \   000101   90....       MOV     DPTR,#??npUartTxMsg
+   \   000104   E0           MOVX    A,@DPTR
+   \   000105   FA           MOV     R2,A
+   \   000106   A3           INC     DPTR
+   \   000107   E0           MOVX    A,@DPTR
+   \   000108   FB           MOV     R3,A
+   \   000109   12....       LCALL   `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
+   \   00010C   90....       MOV     DPTR,#??npUartTxMsg
+   \   00010F   E4           CLR     A
+   \   000110   F0           MOVX    @DPTR,A
+   \   000111   A3           INC     DPTR
+   \   000112   8011         SJMP    ??znpEventLoop_19
+   \                     ??znpEventLoop_18:
+   \   000114   90....       MOV     DPTR,#??pMsg
+   \   000117   E0           MOVX    A,@DPTR
+   \   000118   2A           ADD     A,R2
+   \   000119   F8           MOV     R0,A
+   \   00011A   A3           INC     DPTR
+   \   00011B   E0           MOVX    A,@DPTR
+   \   00011C   3B           ADDC    A,R3
+   \   00011D   F9           MOV     R1,A
+   \   00011E   90....       MOV     DPTR,#??pMsg
+   \   000121   E8           MOV     A,R0
+   \   000122   F0           MOVX    @DPTR,A
+   \   000123   A3           INC     DPTR
+   \   000124   E9           MOV     A,R1
+   \                     ??znpEventLoop_19:
+   \   000125   F0           MOVX    @DPTR,A
+    243              events ^= ZNP_UART_TX_READY_EVENT;
+   \                     ??znpEventLoop_17:
+   \   000126   7410         MOV     A,#0x10
+   \   000128   8036         SJMP    ??znpEventLoop_3
+    244            }
+    245          #if defined MT_SYS_FUNC
+    246            else if (events & MT_SYS_OSAL_EVENT_0)
+   \                     ??znpEventLoop_13:
+   \   00012A   EF           MOV     A,R7
+   \   00012B   5408         ANL     A,#0x8
+   \   00012D   6009         JZ      ??znpEventLoop_20
+    247            {
+    248              MT_SysOsalTimerExpired(0x00);
+   \   00012F                ; Setup parameters for call to function MT_SysOsalTimerExpired
+   \   00012F   7900         MOV     R1,#0x0
+   \   000131   12....       LCALL   `??MT_SysOsalTimerExpired::?relay`; Banked call to: MT_SysOsalTimerExpired
+    249              events ^= MT_SYS_OSAL_EVENT_0;
+   \   000134   7408         MOV     A,#0x8
+   \   000136   8028         SJMP    ??znpEventLoop_3
+    250            }
+    251            else if (events & MT_SYS_OSAL_EVENT_1)
+   \                     ??znpEventLoop_20:
+   \   000138   EF           MOV     A,R7
+   \   000139   5404         ANL     A,#0x4
+   \   00013B   6009         JZ      ??znpEventLoop_21
+    252            {
+    253              MT_SysOsalTimerExpired(0x01);
+   \   00013D                ; Setup parameters for call to function MT_SysOsalTimerExpired
+   \   00013D   7901         MOV     R1,#0x1
+   \   00013F   12....       LCALL   `??MT_SysOsalTimerExpired::?relay`; Banked call to: MT_SysOsalTimerExpired
+    254              events ^= MT_SYS_OSAL_EVENT_1;
+   \   000142   7404         MOV     A,#0x4
+   \   000144   801A         SJMP    ??znpEventLoop_3
+    255            }
+    256            else if (events & MT_SYS_OSAL_EVENT_2)
+   \                     ??znpEventLoop_21:
+   \   000146   EF           MOV     A,R7
+   \   000147   5402         ANL     A,#0x2
+   \   000149   6009         JZ      ??znpEventLoop_22
+    257            {
+    258              MT_SysOsalTimerExpired(0x02);
+   \   00014B                ; Setup parameters for call to function MT_SysOsalTimerExpired
+   \   00014B   7902         MOV     R1,#0x2
+   \   00014D   12....       LCALL   `??MT_SysOsalTimerExpired::?relay`; Banked call to: MT_SysOsalTimerExpired
+    259              events ^= MT_SYS_OSAL_EVENT_2;
+   \   000150   7402         MOV     A,#0x2
+   \   000152   800C         SJMP    ??znpEventLoop_3
+    260            }
+    261            else if (events & MT_SYS_OSAL_EVENT_3)
+   \                     ??znpEventLoop_22:
+   \   000154   EF           MOV     A,R7
+   \   000155   5401         ANL     A,#0x1
+   \   000157   600B         JZ      ??znpEventLoop_23
+    262            {
+    263              MT_SysOsalTimerExpired(0x03);
+   \   000159                ; Setup parameters for call to function MT_SysOsalTimerExpired
+   \   000159   7903         MOV     R1,#0x3
+   \   00015B   12....       LCALL   `??MT_SysOsalTimerExpired::?relay`; Banked call to: MT_SysOsalTimerExpired
+    264              events ^= MT_SYS_OSAL_EVENT_3;
+   \   00015E   7401         MOV     A,#0x1
+   \                     ??znpEventLoop_3:
+   \   000160   6F           XRL     A,R7
+   \   000161   FF           MOV     R7,A
+   \   000162   8031         SJMP    ??znpEventLoop_24
+    265            }
+    266          #endif
+    267          #if defined POWER_SAVING
+    268            else if (events & ZNP_PWRMGR_CONSERVE_EVENT)
+   \                     ??znpEventLoop_23:
+   \   000164   EE           MOV     A,R6
+   \   000165   5480         ANL     A,#0x80
+   \   000167   600E         JZ      ??znpEventLoop_25
+    269            {
+    270              (void)osal_pwrmgr_task_state(znpTaskId, PWRMGR_CONSERVE);
+   \   000169                ; Setup parameters for call to function osal_pwrmgr_task_state
+   \   000169   7A00         MOV     R2,#0x0
+   \   00016B   90....       MOV     DPTR,#MT_TaskID
+   \   00016E   E0           MOVX    A,@DPTR
+   \   00016F   F9           MOV     R1,A
+   \   000170   12....       LCALL   `??osal_pwrmgr_task_state::?relay`; Banked call to: osal_pwrmgr_task_state
+    271              events ^= ZNP_PWRMGR_CONSERVE_EVENT;
+   \   000173   7480         MOV     A,#-0x80
+   \   000175   8016         SJMP    ??znpEventLoop_26
+    272            }
+    273          #endif
+    274            else if (events & ZNP_SECONDARY_INIT_EVENT)
+   \                     ??znpEventLoop_25:
+   \   000177   EE           MOV     A,R6
+   \   000178   5410         ANL     A,#0x10
+   \   00017A   6007         JZ      ??znpEventLoop_27
+    275            {
+    276              npInit();
+   \   00017C                ; Setup parameters for call to function npInit
+   \   00017C   12....       LCALL   `??npInit::?relay`   ; Banked call to: npInit
+    277              events ^= ZNP_SECONDARY_INIT_EVENT;
+   \   00017F   7410         MOV     A,#0x10
+   \   000181   800A         SJMP    ??znpEventLoop_26
+    278            }
+    279          #if defined MT_ZNP_FUNC
+    280            else if (events & ZNP_BASIC_RSP_EVENT)
+    281            {
+    282              npBasicRsp();
+    283              events ^= ZNP_BASIC_RSP_EVENT;
+    284            }
+    285          #endif
+    286            else if (events & MT_AF_EXEC_EVT)
+   \                     ??znpEventLoop_27:
+   \   000183   EE           MOV     A,R6
+   \   000184   5408         ANL     A,#0x8
+   \   000186   6009         JZ      ??znpEventLoop_28
+    287            {
+    288              MT_AfExec();
+   \   000188                ; Setup parameters for call to function MT_AfExec
+   \   000188   12....       LCALL   `??MT_AfExec::?relay`; Banked call to: MT_AfExec
+    289              events ^= MT_AF_EXEC_EVT;
+   \   00018B   7408         MOV     A,#0x8
+   \                     ??znpEventLoop_26:
+   \   00018D   6E           XRL     A,R6
+   \   00018E   FE           MOV     R6,A
+   \   00018F   8004         SJMP    ??znpEventLoop_24
+    290            }
+    291            else
+    292            {
+    293              events = 0;  /* Discard unknown events. */
+   \                     ??znpEventLoop_28:
+   \   000191   7E00         MOV     R6,#0x0
+   \   000193   7F00         MOV     R7,#0x0
+    294            }
+    295          
+    296            return ( events );
+   \                     ??znpEventLoop_24:
+   \   000195   EE           MOV     A,R6
+   \   000196   FA           MOV     R2,A
+   \   000197   EF           MOV     A,R7
+   \   000198   FB           MOV     R3,A
+   \   000199   7F04         MOV     R7,#0x4
+   \   00019B   02....       LJMP    ?BANKED_LEAVE_XDATA
+    297          }
+    298          
+    299          /**************************************************************************************************
+    300           * @fn          MT_TransportAlloc
+    301           *
+    302           * @brief       This function is the definition of the physical transport API for allocation a msg.
+    303           *
+    304           * input parameters
+    305           *
+    306           * @param cmd0 - The RPC command byte 0.
+    307           * @param len - The RPC data length.
+    308           *
+    309           * output parameters
+    310           *
+    311           * @param uint8 * - Pointer to the buffer to use build and send the RPC message.
+    312           *
+    313           * @return      None.
+    314           **************************************************************************************************
+    315           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    316          uint8 *MT_TransportAlloc(uint8 cmd0, uint8 len)
+   \                     MT_TransportAlloc:
+    317          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+   \   000006   FE           MOV     R6,A
+   \   000007   EA           MOV     A,R2
+   \   000008   FF           MOV     R7,A
+    318          #if !defined CC2531ZNP
+    319            if (ZNP_CFG1_UART == znpCfg1)
+   \   000009   90....       MOV     DPTR,#znpCfg1
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   7024         JNZ     ??MT_TransportAlloc_0
+    320          #endif
+    321            {
+    322              return npMtUartAlloc(cmd0, len);
+   \   00000F                ; Setup parameters for call to function osal_msg_allocate
+   \   00000F   EF           MOV     A,R7
+   \   000010   2405         ADD     A,#0x5
+   \   000012   FA           MOV     R2,A
+   \   000013   E4           CLR     A
+   \   000014   3400         ADDC    A,#0x0
+   \   000016   FB           MOV     R3,A
+   \   000017   12....       LCALL   `??osal_msg_allocate::?relay`; Banked call to: osal_msg_allocate
+   \   00001A   8A82         MOV     DPL,R2
+   \   00001C   8B83         MOV     DPH,R3
+   \   00001E   E582         MOV     A,DPL
+   \   000020   4583         ORL     A,DPH
+   \   000022   6003         JZ      ??MT_TransportAlloc_1
+   \   000024   A3           INC     DPTR
+   \   000025   8006         SJMP    ??MT_TransportAlloc_2
+   \                     ??MT_TransportAlloc_1:
+   \   000027   758200       MOV     DPL,#0x0
+   \   00002A   758300       MOV     DPH,#0x0
+    323            }
+   \                     ??MT_TransportAlloc_2:
+   \   00002D   AA82         MOV     R2,DPL
+   \   00002F   AB83         MOV     R3,DPH
+   \   000031   8013         SJMP    ??MT_TransportAlloc_3
+    324          #if !defined CC2531ZNP
+    325            else
+    326            {
+    327              return npMtSpiAlloc(cmd0, len);
+   \                     ??MT_TransportAlloc_0:
+   \   000033   74E0         MOV     A,#-0x20
+   \   000035   5E           ANL     A,R6
+   \   000036   6460         XRL     A,#0x60
+   \   000038   7007         JNZ     ??MT_TransportAlloc_4
+   \   00003A                ; Setup parameters for call to function npSpiSRspAlloc
+   \   00003A   EF           MOV     A,R7
+   \   00003B   F9           MOV     R1,A
+   \   00003C   12....       LCALL   `??npSpiSRspAlloc::?relay`; Banked call to: npSpiSRspAlloc
+   \   00003F   8005         SJMP    ??MT_TransportAlloc_3
+   \                     ??MT_TransportAlloc_4:
+   \   000041                ; Setup parameters for call to function npSpiAReqAlloc
+   \   000041   EF           MOV     A,R7
+   \   000042   F9           MOV     R1,A
+   \   000043   12....       LCALL   `??npSpiAReqAlloc::?relay`; Banked call to: npSpiAReqAlloc
+    328            }
+   \                     ??MT_TransportAlloc_3:
+   \   000046                REQUIRE ?Subroutine1
+   \   000046                ; // Fall through to label ?Subroutine1
+    329          #endif
+    330          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   7F02         MOV     R7,#0x2
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+    331          
+    332          /**************************************************************************************************
+    333           * @fn          MT_TransportSend
+    334           *
+    335           * @brief       This function is the definition of the physical transport API for sending a message.
+    336           *
+    337           * input parameters
+    338           *
+    339           * @param pBuf - Pointer to the buffer created with MT_TransportAlloc.
+    340           *
+    341           * output parameters
+    342           *
+    343           * None.
+    344           *
+    345           * @return      None.
+    346           **************************************************************************************************
+    347           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    348          void MT_TransportSend(uint8 *pBuf)
+   \                     MT_TransportSend:
+    349          {
+   \   000000                REQUIRE ?V0
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    350          #if !defined CC2531ZNP
+    351            if (ZNP_CFG1_UART == znpCfg1)
+   \   000009   90....       MOV     DPTR,#znpCfg1
+   \   00000C   E0           MOVX    A,@DPTR
+   \   00000D   8E82         MOV     DPL,R6
+   \   00000F   8F83         MOV     DPH,R7
+   \   000011   703B         JNZ     ??MT_TransportSend_0
+    352          #endif
+    353            {
+    354              npMtUartSend(pBuf);
+   \   000013   E0           MOVX    A,@DPTR
+   \   000014   2403         ADD     A,#0x3
+   \   000016   F5..         MOV     ?V0,A
+   \   000018                ; Setup parameters for call to function MT_UartCalcFCS
+   \   000018   F9           MOV     R1,A
+   \   000019   12....       LCALL   `??MT_UartCalcFCS::?relay`; Banked call to: MT_UartCalcFCS
+   \   00001C   A8..         MOV     R0,?V0
+   \   00001E   EE           MOV     A,R6
+   \   00001F   28           ADD     A,R0
+   \   000020   F582         MOV     DPL,A
+   \   000022   E4           CLR     A
+   \   000023   3F           ADDC    A,R7
+   \   000024   F583         MOV     DPH,A
+   \   000026   E9           MOV     A,R1
+   \   000027   F0           MOVX    @DPTR,A
+   \   000028   EE           MOV     A,R6
+   \   000029   24FF         ADD     A,#-0x1
+   \   00002B   F582         MOV     DPL,A
+   \   00002D   EF           MOV     A,R7
+   \   00002E   34FF         ADDC    A,#-0x1
+   \   000030   F583         MOV     DPH,A
+   \   000032   74FE         MOV     A,#-0x2
+   \   000034   F0           MOVX    @DPTR,A
+   \   000035                ; Setup parameters for call to function osal_msg_enqueue
+   \   000035   AC82         MOV     R4,DPL
+   \   000037   AD83         MOV     R5,DPH
+   \   000039   7A..         MOV     R2,#npTxQueue & 0xff
+   \   00003B   7B..         MOV     R3,#(npTxQueue >> 8) & 0xff
+   \   00003D   12....       LCALL   `??osal_msg_enqueue::?relay`; Banked call to: osal_msg_enqueue
+   \   000040                ; Setup parameters for call to function osal_set_event
+   \   000040   7A00         MOV     R2,#0x0
+   \   000042   7B10         MOV     R3,#0x10
+   \   000044   90....       MOV     DPTR,#MT_TaskID
+   \   000047   E0           MOVX    A,@DPTR
+   \   000048   F9           MOV     R1,A
+   \   000049   12....       LCALL   `??osal_set_event::?relay`; Banked call to: osal_set_event
+    355            }
+   \   00004C   801B         SJMP    ??MT_TransportSend_1
+    356          #if !defined CC2531ZNP
+    357            else
+    358            {
+    359              npMtSpiSend(pBuf);
+   \                     ??MT_TransportSend_0:
+   \   00004E   A3           INC     DPTR
+   \   00004F   E0           MOVX    A,@DPTR
+   \   000050   54E0         ANL     A,#0xe0
+   \   000052   6460         XRL     A,#0x60
+   \   000054   7005         JNZ     ??MT_TransportSend_2
+   \   000056                ; Setup parameters for call to function npSpiSRspReady
+   \   000056   12....       LCALL   `??npSpiSRspReady::?relay`; Banked call to: npSpiSRspReady
+   \   000059   800E         SJMP    ??MT_TransportSend_1
+   \                     ??MT_TransportSend_2:
+   \   00005B                ; Setup parameters for call to function osal_msg_enqueue
+   \   00005B   EE           MOV     A,R6
+   \   00005C   FC           MOV     R4,A
+   \   00005D   EF           MOV     A,R7
+   \   00005E   FD           MOV     R5,A
+   \   00005F   7A..         MOV     R2,#npTxQueue & 0xff
+   \   000061   7B..         MOV     R3,#(npTxQueue >> 8) & 0xff
+   \   000063   12....       LCALL   `??osal_msg_enqueue::?relay`; Banked call to: osal_msg_enqueue
+   \   000066                ; Setup parameters for call to function npSpiAReqReady
+   \   000066   12....       LCALL   `??npSpiAReqReady::?relay`; Banked call to: npSpiAReqReady
+    360            }
+    361          #endif
+    362          }
+   \                     ??MT_TransportSend_1:
+   \   000069   02....       LJMP    ?Subroutine0 & 0xFFFF
+    363          
+    364          /**************************************************************************************************
+    365           * @fn         npInit
+    366           *
+    367           * @brief      This function is the secondary initialization that resolves conflicts during
+    368           *             osalInitTasks(). For example, since ZNP is the highest priority task, and
+    369           *             specifically because the ZNP task is initialized before the ZDApp task, if znpInit()
+    370           *             registers anything with ZDO_RegisterForZdoCB(), it is wiped out when ZDApp task
+    371           *             initialization invokes ZDApp_InitZdoCBFunc().
+    372           *             There may be other existing or future such races, so try to do all possible
+    373           *             NP initialization here vice in znpInit().
+    374           *
+    375           * input parameters
+    376           *
+    377           * None.
+    378           *
+    379           * output parameters
+    380           *
+    381           * None.
+    382           *
+    383           * @return      None.
+    384           **************************************************************************************************
+    385           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    386          static void npInit(void)
+   \                     npInit:
+    387          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 29
+   \   000005   74E3         MOV     A,#-0x1d
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    388            if (ZNP_CFG1_UART == znpCfg1)
+   \   00000A   90....       MOV     DPTR,#znpCfg1
+   \   00000D   E0           MOVX    A,@DPTR
+   \   00000E   705E         JNZ     ??npInit_0
+    389            {
+    390              halUARTCfg_t uartConfig;
+    391          
+    392              uartConfig.configured           = TRUE;
+   \   000010   85..82       MOV     DPL,?XSP + 0
+   \   000013   85..83       MOV     DPH,?XSP + 1
+   \   000016   7401         MOV     A,#0x1
+   \   000018   F0           MOVX    @DPTR,A
+    393              uartConfig.baudRate             = ZNP_UART_BAUD;
+   \   000019   12....       LCALL   ?XSTACK_DISP0_8
+   \   00001C   7404         MOV     A,#0x4
+   \   00001E   F0           MOVX    @DPTR,A
+    394          #ifdef ZNP_ALT
+    395              uartConfig.flowControl          = FALSE;
+    396          #else
+    397              uartConfig.flowControl          = TRUE;
+   \   00001F   7402         MOV     A,#0x2
+   \   000021   12....       LCALL   ?XSTACK_DISP0_8
+   \   000024   7401         MOV     A,#0x1
+   \   000026   F0           MOVX    @DPTR,A
+    398          #endif
+    399              uartConfig.flowControlThreshold = HAL_UART_FLOW_THRESHOLD;
+   \   000027   7403         MOV     A,#0x3
+   \   000029   12....       LCALL   ?XSTACK_DISP0_8
+   \   00002C   E4           CLR     A
+   \   00002D   F0           MOVX    @DPTR,A
+   \   00002E   A3           INC     DPTR
+   \   00002F   F0           MOVX    @DPTR,A
+    400              uartConfig.rx.maxBufSize        = HAL_UART_RX_BUF_SIZE;
+   \   000030   740A         MOV     A,#0xa
+   \   000032   12....       LCALL   ?XSTACK_DISP0_8
+   \   000035   E4           CLR     A
+   \   000036   F0           MOVX    @DPTR,A
+   \   000037   A3           INC     DPTR
+   \   000038   F0           MOVX    @DPTR,A
+    401              uartConfig.tx.maxBufSize        = HAL_UART_TX_BUF_SIZE;
+   \   000039   7412         MOV     A,#0x12
+   \   00003B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00003E   E4           CLR     A
+   \   00003F   F0           MOVX    @DPTR,A
+   \   000040   A3           INC     DPTR
+   \   000041   F0           MOVX    @DPTR,A
+    402              uartConfig.idleTimeout          = HAL_UART_IDLE_TIMEOUT;
+   \   000042   7405         MOV     A,#0x5
+   \   000044   12....       LCALL   ?XSTACK_DISP0_8
+   \   000047   E4           CLR     A
+   \   000048   F0           MOVX    @DPTR,A
+    403              uartConfig.intEnable            = TRUE;
+   \   000049   7416         MOV     A,#0x16
+   \   00004B   12....       LCALL   ?XSTACK_DISP0_8
+   \   00004E   7401         MOV     A,#0x1
+   \   000050   F0           MOVX    @DPTR,A
+    404              uartConfig.callBackFunc         = npUartCback;
+   \   000051   741B         MOV     A,#0x1b
+   \   000053   12....       LCALL   ?XSTACK_DISP0_8
+   \   000056   74..         MOV     A,#`??npUartCback::?relay` & 0xff
+   \   000058   F0           MOVX    @DPTR,A
+   \   000059   A3           INC     DPTR
+   \   00005A   74..         MOV     A,#(`??npUartCback::?relay` >> 8) & 0xff
+   \   00005C   F0           MOVX    @DPTR,A
+    405              HalUARTOpen(HAL_UART_PORT, &uartConfig);
+   \   00005D                ; Setup parameters for call to function HalUARTOpen
+   \   00005D   AA..         MOV     R2,?XSP + 0
+   \   00005F   AB..         MOV     R3,?XSP + 1
+   \   000061   7900         MOV     R1,#0x0
+   \   000063   12....       LCALL   `??HalUARTOpen::?relay`; Banked call to: HalUARTOpen
+    406              MT_UartRegisterTaskID(znpTaskId);
+   \   000066                ; Setup parameters for call to function MT_UartRegisterTaskID
+   \   000066   90....       MOV     DPTR,#MT_TaskID
+   \   000069   E0           MOVX    A,@DPTR
+   \   00006A   F9           MOV     R1,A
+   \   00006B   12....       LCALL   `??MT_UartRegisterTaskID::?relay`; Banked call to: MT_UartRegisterTaskID
+    407            }
+    408            else
+    409            {
+    410              /* npSpiInit() is called by hal_spi.c: HalSpiInit().*/
+    411            }
+    412          
+    413            npInitNV();
+   \                     ??npInit_0:
+   \   00006E                ; Setup parameters for call to function osal_nv_item_init
+   \   00006E   E4           CLR     A
+   \   00006F   F5..         MOV     ?V0,A
+   \   000071   F5..         MOV     ?V1,A
+   \   000073   78..         MOV     R0,#?V0
+   \   000075   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000078   7C02         MOV     R4,#0x2
+   \   00007A   7D00         MOV     R5,#0x0
+   \   00007C   7A01         MOV     R2,#0x1
+   \   00007E   7B0F         MOV     R3,#0xf
+   \   000080   12....       LCALL   `??osal_nv_item_init::?relay`; Banked call to: osal_nv_item_init
+   \   000083   7402         MOV     A,#0x2
+   \   000085   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000088                ; Setup parameters for call to function osal_nv_item_init
+   \   000088   78..         MOV     R0,#?V0
+   \   00008A   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00008D   7C02         MOV     R4,#0x2
+   \   00008F   7D00         MOV     R5,#0x0
+   \   000091   7A02         MOV     R2,#0x2
+   \   000093   7B0F         MOV     R3,#0xf
+   \   000095   12....       LCALL   `??osal_nv_item_init::?relay`; Banked call to: osal_nv_item_init
+   \   000098   7402         MOV     A,#0x2
+   \   00009A   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00009D                ; Setup parameters for call to function osal_nv_item_init
+   \   00009D   78..         MOV     R0,#?V0
+   \   00009F   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000A2   7C02         MOV     R4,#0x2
+   \   0000A4   7D00         MOV     R5,#0x0
+   \   0000A6   7A03         MOV     R2,#0x3
+   \   0000A8   7B0F         MOV     R3,#0xf
+   \   0000AA   12....       LCALL   `??osal_nv_item_init::?relay`; Banked call to: osal_nv_item_init
+   \   0000AD   7402         MOV     A,#0x2
+   \   0000AF   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000B2                ; Setup parameters for call to function osal_nv_item_init
+   \   0000B2   78..         MOV     R0,#?V0
+   \   0000B4   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000B7   7C02         MOV     R4,#0x2
+   \   0000B9   7D00         MOV     R5,#0x0
+   \   0000BB   7A04         MOV     R2,#0x4
+   \   0000BD   7B0F         MOV     R3,#0xf
+   \   0000BF   12....       LCALL   `??osal_nv_item_init::?relay`; Banked call to: osal_nv_item_init
+   \   0000C2   7402         MOV     A,#0x2
+   \   0000C4   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000C7                ; Setup parameters for call to function osal_nv_item_init
+   \   0000C7   78..         MOV     R0,#?V0
+   \   0000C9   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000CC   7C10         MOV     R4,#0x10
+   \   0000CE   7D00         MOV     R5,#0x0
+   \   0000D0   7A05         MOV     R2,#0x5
+   \   0000D2   7B0F         MOV     R3,#0xf
+   \   0000D4   12....       LCALL   `??osal_nv_item_init::?relay`; Banked call to: osal_nv_item_init
+   \   0000D7   7402         MOV     A,#0x2
+   \   0000D9   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000DC                ; Setup parameters for call to function osal_nv_item_init
+   \   0000DC   78..         MOV     R0,#?V0
+   \   0000DE   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000E1   7C10         MOV     R4,#0x10
+   \   0000E3   7D00         MOV     R5,#0x0
+   \   0000E5   7A06         MOV     R2,#0x6
+   \   0000E7   7B0F         MOV     R3,#0xf
+   \   0000E9   12....       LCALL   `??osal_nv_item_init::?relay`; Banked call to: osal_nv_item_init
+   \   0000EC   7402         MOV     A,#0x2
+   \   0000EE   12....       LCALL   ?DEALLOC_XSTACK8
+    414          #if defined (MT_ZDO_FUNC)
+    415            MT_ZdoInit();
+   \   0000F1                ; Setup parameters for call to function MT_ZdoInit
+   \   0000F1   12....       LCALL   `??MT_ZdoInit::?relay`; Banked call to: MT_ZdoInit
+    416          #endif
+    417            MT_SysResetInd();
+   \   0000F4                ; Setup parameters for call to function MT_SysResetInd
+   \   0000F4   12....       LCALL   `??MT_SysResetInd::?relay`; Banked call to: MT_SysResetInd
+    418          #if defined ZCL_KEY_ESTABLISH
+    419          #if defined TC_LINKKEY_JOIN
+    420            zcl_TaskID = znpTaskId;
+    421          #endif
+    422          #endif
+    423          #if LQI_ADJUST
+    424            ZMacLqiAdjustMode(LQI_ADJ_MODE1);
+    425          #endif
+    426          #if defined CC2531ZNP
+    427            (void)osal_pwrmgr_task_state(znpTaskId, PWRMGR_HOLD);
+    428          #endif
+    429          }
+   \   0000F7   741D         MOV     A,#0x1d
+   \   0000F9   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000FC   02....       LJMP    ?Subroutine1 & 0xFFFF
+    430          
+    431          /**************************************************************************************************
+    432           * @fn         npInitNV
+    433           *
+    434           * @brief
+    435           *
+    436           * input parameters
+    437           *
+    438           * None.
+    439           *
+    440           * output parameters
+    441           *
+    442           * None.
+    443           *
+    444           * @return      None.
+    445           **************************************************************************************************
+    446           */
+    447          static void npInitNV(void)
+    448          {
+    449            /* 4 x 2 bytes ZNP_NV_APP_ITEM_X */
+    450            osal_nv_item_init(ZNP_NV_APP_ITEM_1, 2, NULL);
+    451            osal_nv_item_init(ZNP_NV_APP_ITEM_2, 2, NULL);
+    452            osal_nv_item_init(ZNP_NV_APP_ITEM_3, 2, NULL);
+    453            osal_nv_item_init(ZNP_NV_APP_ITEM_4, 2, NULL);
+    454          
+    455            /* 2 x 16 bytes ZNP_NV_APP_ITEM_X */
+    456            osal_nv_item_init(ZNP_NV_APP_ITEM_5, 16, NULL);
+    457            osal_nv_item_init(ZNP_NV_APP_ITEM_6, 16, NULL);
+    458          }
+    459          
+    460          #if defined MT_ZNP_FUNC
+    461          /**************************************************************************************************
+    462           * @fn         npBasicRsp
+    463           *
+    464           * @brief      Generate the ZNP Basic Response message to the ZAP.
+    465           *
+    466           * input parameters
+    467           *
+    468           * None.
+    469           *
+    470           * output parameters
+    471           *
+    472           * None.
+    473           *
+    474           * @return      None.
+    475           **************************************************************************************************
+    476           */
+    477          static void npBasicRsp(void)
+    478          {
+    479            if (MT_ZnpBasicRsp() == false)
+    480            {
+    481              (void)osal_set_event(znpTaskId, ZNP_BASIC_RSP_EVENT);
+    482            }
+    483          }
+    484          #endif
+    485          
+    486          /**************************************************************************************************
+    487           * @fn          npUartCback
+    488           *
+    489           * @brief       This function is the UART callback processor.
+    490           *
+    491           * input parameters
+    492           *
+    493           * @param port - The port being used for UART.
+    494           * @param event - The reason for the callback.
+    495           *
+    496           * output parameters
+    497           *
+    498           * None.
+    499           *
+    500           * @return      None.
+    501           **************************************************************************************************
+    502           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    503          static void npUartCback(uint8 port, uint8 event)
+   \                     npUartCback:
+    504          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+    505            switch (event) {
+   \   000006   14           DEC     A
+   \   000007   600D         JZ      ??npUartCback_0
+   \   000009   14           DEC     A
+   \   00000A   600A         JZ      ??npUartCback_0
+   \   00000C   24FE         ADD     A,#-0x2
+   \   00000E   6006         JZ      ??npUartCback_0
+   \   000010   24F4         ADD     A,#-0xc
+   \   000012   600C         JZ      ??npUartCback_1
+   \   000014   8016         SJMP    ??npUartCback_2
+    506            case HAL_UART_RX_FULL:
+    507            case HAL_UART_RX_ABOUT_FULL:
+    508            case HAL_UART_RX_TIMEOUT:
+    509              MT_UartProcessZToolData(port, znpTaskId);
+   \                     ??npUartCback_0:
+   \   000016                ; Setup parameters for call to function MT_UartProcessZToolData
+   \   000016   90....       MOV     DPTR,#MT_TaskID
+   \   000019   E0           MOVX    A,@DPTR
+   \   00001A   FA           MOV     R2,A
+   \   00001B   12....       LCALL   `??MT_UartProcessZToolData::?relay`; Banked call to: MT_UartProcessZToolData
+    510              break;
+   \   00001E   800C         SJMP    ??npUartCback_2
+    511          
+    512            case HAL_UART_TX_EMPTY:
+    513              osal_set_event(znpTaskId, ZNP_UART_TX_READY_EVENT);
+   \                     ??npUartCback_1:
+   \   000020                ; Setup parameters for call to function osal_set_event
+   \   000020   7A00         MOV     R2,#0x0
+   \   000022   7B10         MOV     R3,#0x10
+   \   000024   90....       MOV     DPTR,#MT_TaskID
+   \   000027   E0           MOVX    A,@DPTR
+   \   000028   F9           MOV     R1,A
+   \   000029   12....       LCALL   `??osal_set_event::?relay`; Banked call to: osal_set_event
+    514              break;
+    515          
+    516            default:
+    517              break;
+    518            }
+    519          }
+   \                     ??npUartCback_2:
+   \   00002C   02....       LJMP    ?Subroutine0 & 0xFFFF
+    520          
+    521          /**************************************************************************************************
+    522           * @fn          npUartTxReady
+    523           *
+    524           * @brief       This function gets and writes the next chunk of data to the UART.
+    525           *
+    526           * input parameters
+    527           *
+    528           * None.
+    529           *
+    530           * output parameters
+    531           *
+    532           * None.
+    533           *
+    534           * @return      None.
+    535           **************************************************************************************************
+    536           */
+    537          static void npUartTxReady(void)
+    538          {
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    539            static uint16 npUartTxCnt = 0;
+   \                     ??npUartTxCnt:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    540            static uint8 *npUartTxMsg = NULL;
+   \                     ??npUartTxMsg:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    541            static uint8 *pMsg = NULL;
+   \                     ??pMsg:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    542          
+    543            if (!npUartTxMsg)
+    544            {
+    545              if ((pMsg = npUartTxMsg = osal_msg_dequeue(&npTxQueue)))
+    546              {
+    547                /* | SOP | Data Length | CMD |  DATA   | FSC |
+    548                 * |  1  |     1       |  2  | as dLen |  1  |
+    549                 */
+    550                npUartTxCnt = pMsg[1] + MT_UART_FRAME_OVHD + MT_RPC_FRAME_HDR_SZ;
+    551              }
+    552            }
+    553          
+    554            if (npUartTxMsg)
+    555            {
+    556              uint16 len = HalUARTWrite(HAL_UART_PORT, pMsg, npUartTxCnt);
+    557              npUartTxCnt -= len;
+    558          
+    559              if (npUartTxCnt == 0)
+    560              {
+    561                osal_msg_deallocate(npUartTxMsg);
+    562                npUartTxMsg = NULL;
+    563              }
+    564              else
+    565              {
+    566                pMsg += len;
+    567              }
+    568            }
+    569          }
+    570          
+    571          /**************************************************************************************************
+    572           * @fn          npMtUartAlloc
+    573           *
+    574           * @brief       This function allocates a buffer for Txing on UART.
+    575           *
+    576           * input parameters
+    577           *
+    578           * @param cmd0 - The first byte of the MT command id containing the command type and subsystem.
+    579           * @param len - Data length required.
+    580           *
+    581           * output parameters
+    582           *
+    583           * None.
+    584           *
+    585           * @return      Pointer to the buffer obtained; possibly NULL if an allocation failed.
+    586           **************************************************************************************************
+    587           */
+    588          static uint8* npMtUartAlloc(uint8 cmd0, uint8 len)
+    589          {
+    590            uint8 *p;
+    591          
+    592            if ((p = osal_msg_allocate(len + MT_RPC_FRAME_HDR_SZ + MT_UART_FRAME_OVHD)) != NULL)
+    593            {
+    594              return p + 1;
+    595            }
+    596          
+    597            return NULL;
+    598          }
+    599          
+    600          /**************************************************************************************************
+    601           * @fn          npMtUartSend
+    602           *
+    603           * @brief       This function transmits or enqueues the buffer for transmitting on UART.
+    604           *
+    605           * input parameters
+    606           *
+    607           * @param pBuf - Pointer to the buffer to transmit on the UART.
+    608           *
+    609           * output parameters
+    610           *
+    611           * None.
+    612           *
+    613           * @return      None.
+    614           **************************************************************************************************
+    615           */
+    616          static void npMtUartSend(uint8 *pBuf)
+    617          {
+    618            uint8 len = pBuf[0] + MT_RPC_FRAME_HDR_SZ;
+    619          
+    620            pBuf[len] = MT_UartCalcFCS(pBuf, len);
+    621            pBuf--;
+    622            pBuf[0] = MT_UART_SOF;
+    623          
+    624            osal_msg_enqueue(&npTxQueue, pBuf);
+    625            osal_set_event(znpTaskId, ZNP_UART_TX_READY_EVENT);
+    626          }
+    627          
+    628          #if !defined CC2531ZNP
+    629          /**************************************************************************************************
+    630           * @fn          npMtSpiAlloc
+    631           *
+    632           * @brief       This function gets or allocates a buffer for Txing on SPI.
+    633           *
+    634           * input parameters
+    635           *
+    636           * @param cmd0 - The first byte of the MT command id containing the command type and subsystem.
+    637           * @param len - Data length required.
+    638           *
+    639           * output parameters
+    640           *
+    641           * None.
+    642           *
+    643           * @return      Pointer to the buffer obtained; possibly NULL if an allocation failed.
+    644           **************************************************************************************************
+    645           */
+    646          static uint8* npMtSpiAlloc(uint8 cmd0, uint8 len)
+    647          {
+    648            if ((cmd0 & MT_RPC_CMD_TYPE_MASK) == MT_RPC_CMD_SRSP)
+    649            {
+    650              return npSpiSRspAlloc(len);
+    651            }
+    652            else
+    653            {
+    654              return npSpiAReqAlloc(len);
+    655            }
+    656          }
+    657          
+    658          /**************************************************************************************************
+    659           * @fn          npMtSpiSend
+    660           *
+    661           * @brief       This function transmits or enqueues the buffer for transmitting on SPI.
+    662           *
+    663           * input parameters
+    664           *
+    665           * @param pBuf - Pointer to the buffer to transmit on the SPI.
+    666           *
+    667           * output parameters
+    668           *
+    669           * None.
+    670           *
+    671           * @return      None.
+    672           **************************************************************************************************
+    673           */
+    674          static void npMtSpiSend(uint8 *pBuf)
+    675          {
+    676            if ((pBuf[1] & MT_RPC_CMD_TYPE_MASK) == MT_RPC_CMD_SRSP)
+    677            {
+    678              npSpiSRspReady(pBuf);
+    679            }
+    680            else
+    681            {
+    682              osal_msg_enqueue(&npTxQueue, pBuf);
+    683              npSpiAReqReady();
+    684            }
+    685          }
+    686          
+    687          /**************************************************************************************************
+    688           * @fn          npSpiPollCallback
+    689           *
+    690           * @brief       This function is called by the SPI driver when a POLL frame is received.
+    691           *
+    692           * input parameters
+    693           *
+    694           * None.
+    695           *
+    696           * output parameters
+    697           *
+    698           * None.
+    699           *
+    700           * @return      A pointer to an OSAL message buffer containing the next AREQ frame to transmit,
+    701           *              if any; NULL otherwise.
+    702           **************************************************************************************************
+    703           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    704          uint8* npSpiPollCallback(void)
+   \                     npSpiPollCallback:
+    705          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    706            return osal_msg_dequeue(&npTxQueue);
+   \   000004                ; Setup parameters for call to function osal_msg_dequeue
+   \   000004   7A..         MOV     R2,#npTxQueue & 0xff
+   \   000006   7B..         MOV     R3,#(npTxQueue >> 8) & 0xff
+   \   000008   12....       LCALL   `??osal_msg_dequeue::?relay`; Banked call to: osal_msg_dequeue
+   \   00000B                REQUIRE ?Subroutine2
+   \   00000B                ; // Fall through to label ?Subroutine2
+    707          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    708          
+    709          /**************************************************************************************************
+    710           * @fn          npSpiReadyCallback
+    711           *
+    712           * @brief       This function is called by the SPI driver to check if any data is ready to send.
+    713           *
+    714           * input parameters
+    715           *
+    716           * None.
+    717           *
+    718           * output parameters
+    719           *
+    720           * None.
+    721           *
+    722           * @return      TRUE if data is ready to send; FALSE otherwise.
+    723           **************************************************************************************************
+    724           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    725          bool npSpiReadyCallback(void)
+   \                     npSpiReadyCallback:
+    726          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    727            return !OSAL_MSG_Q_EMPTY(&npTxQueue);
+   \   000004   90....       MOV     DPTR,#npTxQueue
+   \   000007   12....       LCALL   ??Subroutine4_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   00000A   6004         JZ      ??npSpiReadyCallback_0
+   \   00000C   7901         MOV     R1,#0x1
+   \   00000E   8002         SJMP    ??npSpiReadyCallback_1
+   \                     ??npSpiReadyCallback_0:
+   \   000010   7900         MOV     R1,#0x0
+   \                     ??npSpiReadyCallback_1:
+   \   000012   80..         SJMP    ?Subroutine2
+    728          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine4_0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   E8           MOV     A,R0
+   \   000006   49           ORL     A,R1
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   90....       MOV     DPTR,#??npUartTxMsg
+   \   000003                REQUIRE ??Subroutine4_0
+   \   000003                ; // Fall through to label ??Subroutine4_0
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??znpInit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    znpInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??znpEventLoop::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    znpEventLoop
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MT_TransportAlloc::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_TransportAlloc
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MT_TransportSend::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_TransportSend
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npInit::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npUartCback::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npUartCback
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiPollCallback::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiPollCallback
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??npSpiReadyCallback::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    npSpiReadyCallback
+    729          #endif
+    730          
+    731          /**************************************************************************************************
+    732          */
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      0     10   MT_TransportAlloc
+        0     10   -> npSpiAReqAlloc
+        0     10   -> npSpiSRspAlloc
+        0     10   -> osal_msg_allocate
+      1      9   MT_TransportSend
+        0      9   -> MT_UartCalcFCS
+        0      9   -> npSpiAReqReady
+        0      9   -> npSpiSRspReady
+        0      9   -> osal_msg_enqueue
+        0      9   -> osal_set_event
+      0     53   npInit
+        0     39   -> HalUARTOpen
+        0     39   -> MT_SysResetInd
+        0     39   -> MT_UartRegisterTaskID
+        0     39   -> MT_ZdoInit
+        0     41   -> osal_nv_item_init
+      2      0   npSpiPollCallback
+        2      0   -> osal_msg_dequeue
+      2      0   npSpiReadyCallback
+      0      9   npUartCback
+        0      9   -> MT_UartProcessZToolData
+        0      9   -> osal_set_event
+      0     12   znpEventLoop
+        0     12   -> HalUARTWrite
+        0     12   -> MT_AfDataConfirm
+        0     12   -> MT_AfExec
+        0     12   -> MT_AfIncomingMsg
+        0     12   -> MT_ProcessIncoming
+        0     12   -> MT_SysOsalTimerExpired
+        0     12   -> MT_ZdoSendMsgCB
+        0     12   -> MT_ZdoStateChangeCB
+        0     12   -> npInit
+        0     12   -> npSpiAReqComplete
+        0     12   -> npSpiGetReqBuf
+        0     12   -> osal_msg_deallocate
+        0     12   -> osal_msg_dequeue
+        0     12   -> osal_msg_receive
+        0     12   -> osal_pwrmgr_task_state
+      0      9   znpInit
+        0      9   -> osal_set_event
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       8  ??Subroutine4_0
+       5  ?Subroutine0
+       5  ?Subroutine1
+       7  ?Subroutine2
+       3  ?Subroutine3
+      70  MT_TransportAlloc
+       6  MT_TransportAlloc::?relay
+     108  MT_TransportSend
+       6  MT_TransportSend::?relay
+     255  npInit
+       6  npInit::?relay
+      11  npSpiPollCallback
+       6  npSpiPollCallback::?relay
+      20  npSpiReadyCallback
+       6  npSpiReadyCallback::?relay
+       2  npTxQueue
+      47  npUartCback
+       6  npUartCback::?relay
+       2  npUartTxCnt
+       2  npUartTxMsg
+       2  pMsg
+       1  znpCfg0
+       1  znpCfg1
+     414  znpEventLoop
+       6  znpEventLoop::?relay
+      17  znpInit
+       6  znpInit::?relay
+
+ 
+ 970 bytes in segment BANKED_CODE
+  48 bytes in segment BANK_RELAYS
+  10 bytes in segment XDATA_Z
+ 
+ 1 018 bytes of CODE  memory
+    10 bytes of XDATA memory
+
+Errors: none
+Warnings: none

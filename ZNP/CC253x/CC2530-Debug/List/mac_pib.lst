@@ -1,0 +1,1488 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                21/Nov/2018  13:52:06
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Components\mac\high_level\mac_pib.c
+#    Command line       =  
+#        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+#        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR | DEVICE_BUILD_ROUTER
+#        | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL -DZNP_RUN_WDOG=FALSE
+#        -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO -DZIGBEE_FRAGMENTATION
+#        -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE -DSAPI_CB_FUNC=FALSE
+#        -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT -DNUM_DISC_ATTEMPTS=0
+#        -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC -DMT_SAPI_FUNC
+#        -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC -DMT_ZDO_MGMT
+#        -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Components\mac\high_level\mac_pib.c" -D FEATURE_SYSTEM_STATS -D
+#        POWER_SAVING -lC "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+#        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e --no_code_motion
+#        --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes
+#    List file          =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\mac_pib.lst
+#    Object file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj\mac_pib.r51
+#
+###############################################################################
+
+D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Components\mac\high_level\mac_pib.c
+      1          /**************************************************************************************************
+      2            Filename:       mac_pib.c
+      3            Revised:        $Date: 2014-07-22 11:05:31 -0700 (Tue, 22 Jul 2014) $
+      4            Revision:       $Revision: 39478 $
+      5          
+      6            Description:    This module contains procedures for the MAC PIB.
+      7          
+      8          
+      9            Copyright 2006-2014 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /* ------------------------------------------------------------------------------------------------
+     41           *                                          Includes
+     42           * ------------------------------------------------------------------------------------------------
+     43           */
+     44          #include "hal_mcu.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+     45          #include "hal_board.h"
+     46          #include "mac_api.h"
+     47          #include "mac_spec.h"
+     48          #include "mac_low_level.h"
+     49          #include "mac_radio_defs.h"
+     50          #include "mac_main.h"
+     51          #include "mac_pib.h"
+     52          #include "OSAL.h"
+     53          #include <stddef.h>
+     54          
+     55          #include "R2R_FlashJT.h"
+     56          #if defined( CC26XX ) || defined( CC26XX_PG2 )
+     57          #include "R2F_FlashJT.h"
+     58          #endif /* CC26XX || CC26XX_PG2 */
+     59          
+     60          /* ------------------------------------------------------------------------------------------------
+     61           *                                           Constants
+     62           * ------------------------------------------------------------------------------------------------
+     63           */
+     64          
+     65          /* Attribute index constants, based on attribute ID values from spec */
+     66          #define MAC_ATTR_SET1_START       0x40
+     67          #define MAC_ATTR_SET1_END         0x5D
+     68          #define MAC_ATTR_SET1_OFFSET      0
+     69          #define MAC_ATTR_SET2_START       0xE0
+     70          #define MAC_ATTR_SET2_END         0xEF
+     71          #define MAC_ATTR_SET2_OFFSET      (MAC_ATTR_SET1_END - MAC_ATTR_SET1_START + MAC_ATTR_SET1_OFFSET + 1)
+     72          
+     73          /* frame response values */
+     74          #define MAC_MAX_FRAME_RESPONSE_MIN  143
+     75          #define MAC_MAX_FRAME_RESPONSE_MAX  25776
+     76          
+     77          /* ------------------------------------------------------------------------------------------------
+     78           *                                           Typedefs
+     79           * ------------------------------------------------------------------------------------------------
+     80           */
+     81          
+     82          /* PIB access and min/max table type */
+     83          typedef struct
+     84          {
+     85            uint8     offset;
+     86            uint8     len;
+     87            uint8     min;
+     88            uint8     max;
+     89          } macPibTbl_t;
+     90          
+     91          /* ------------------------------------------------------------------------------------------------
+     92           *                                           Local Variables
+     93           * ------------------------------------------------------------------------------------------------
+     94           */
+     95          
+     96          /* PIB default values */
+
+   \                                 In  segment CODE_C, align 1
+     97          static CODE const macPib_t macPibDefaults =
+   \                     macPibDefaults:
+   \   000000   36           DB 54
+   \   000001   00           DB 0
+   \   000002   01           DB 1
+   \   000003   00           DB 0
+   \   000004   06           DB 6
+   \   000005   0000         DW 0H
+   \   000007   00           DB 0
+   \   000008   0F           DB 15
+   \   000009   00000000     DD 0
+   \   00000D   00           DB 0
+   \   00000E   0000         DW 0
+   \   000010   00000000     DB 0, 0, 0, 0, 0, 0
+   \            0000    
+   \   000016   03           DB 3
+   \   000017   FFFF         DW 65535
+   \   000019   00           DB 0
+   \   00001A   00           DB 0
+   \   00001B   04           DB 4
+   \   00001C   03           DB 3
+   \   00001D   FFFF         DW 65535
+   \   00001F   00           DB 0
+   \   000020   00           DB 0
+   \   000021   FFFF         DW 65535
+   \   000023   0F           DB 15
+   \   000024   F401         DW 500
+   \   000026   00           DB 0
+   \   000027   05           DB 5
+   \   000028   C404         DW 1220
+   \   00002A   03           DB 3
+   \   00002B   20           DB 32
+   \   00002C   00           DB 0
+   \   00002D   01           DB 1
+   \   00002E   00           DB 0
+   \   00002F   00           DB 0
+   \   000030   0B           DB 11
+   \   000031   0000         DW 0
+   \   000033   00000000     DB 0, 0, 0, 0, 0, 0
+   \            0000    
+   \   000039   03           DB 3
+   \   00003A   01           DB 1
+   \   00003B   0F           DB 15
+   \   00003C   00           DB 0
+   \   00003D   00           DB 0
+   \   00003E   00000000     DD 0
+   \   000042   00000000     DD 0
+   \   000046   00000000     DD 0
+   \   00004A   00000000     DD 0
+   \   00004E   00000000     DD 0
+   \   000052   00000000     DD 0
+   \   000056   00000000     DD 0
+   \   00005A   00000000     DD 0
+   \   00005E   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000066   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   00006E   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+   \   000076   00000000     DB 0, 0, 0, 0, 0, 0, 0, 0
+   \            00000000
+     98          {
+     99            54,                                         /* ackWaitDuration */
+    100            FALSE,                                      /* associationPermit */
+    101            TRUE,                                       /* autoRequest */
+    102            FALSE,                                      /* battLifeExt */
+    103            6,                                          /* battLifeExtPeriods */
+    104          
+    105            NULL,                                       /* *pMacBeaconPayload */
+    106            0,                                          /* beaconPayloadLength */
+    107            MAC_BO_NON_BEACON,                          /* beaconOrder */
+    108            0,                                          /* beaconTxTime */
+    109            0,                                          /* bsn */
+    110          
+    111            {0, SADDR_MODE_EXT},                        /* coordExtendedAddress */
+    112            MAC_SHORT_ADDR_NONE,                        /* coordShortAddress */
+    113            0,                                          /* dsn */
+    114            FALSE,                                      /* gtsPermit */
+    115            4,                                          /* maxCsmaBackoffs */
+    116          
+    117            3,                                          /* minBe */
+    118            0xFFFF,                                     /* panId */
+    119            FALSE,                                      /* promiscuousMode */
+    120            FALSE,                                      /* rxOnWhenIdle */
+    121            MAC_SHORT_ADDR_NONE,                        /* shortAddress */
+    122          
+    123            MAC_SO_NONE,                                /* superframeOrder */
+    124            0x01F4,                                     /* transactionPersistenceTime */
+    125            FALSE,                                      /* assocciatedPanCoord */
+    126            5,                                          /* maxBe */
+    127            1220,                                       /* maxFrameTotalWaitTime */
+    128          
+    129            3,                                          /* maxFrameRetries */
+    130            32,                                         /* ResponseWaitTime */
+    131            0,                                          /* syncSymbolOffset */
+    132            TRUE,                                       /* timeStampSupported */
+    133            FALSE,                                      /* securityEnabled */
+    134          
+    135            /* Proprietary */
+    136            0,                                          /* phyTransmitPower */
+    137            MAC_CHAN_11,                                /* logicalChannel */
+    138            {0, SADDR_MODE_EXT},                        /* extendedAddress */
+    139            1,                                          /* altBe */
+    140            MAC_BO_NON_BEACON,                          /* deviceBeaconOrder */
+    141            0,                                          /* power savings for rf4ce */
+    142            0,                                          /* default is frame Ver is always 0, 
+    143                                                           except for security enabled packets */
+    144            0,                                          /* diagsRxCrcPass */
+    145            0,                                          /* diagsRxCrcFail */
+    146            0,                                          /* diagsRxBcast */
+    147            0,                                          /* diagsTxBcast */
+    148            0,                                          /* diagsRxUcast */
+    149            0,                                          /* diagsTxUcast */
+    150            0,                                          /* diagsTxUcastRetry */
+    151            0                                           /* diagsTxUcastFail */
+    152          };
+    153          
+    154          /* PIB access and min/max table.  min/max of 0/0 means not checked; if min/max are
+    155           * equal, element is read-only
+    156           */
+
+   \                                 In  segment CODE_C, align 1
+    157          static CODE const macPibTbl_t macPibTbl[] =
+   \                     macPibTbl:
+   \   000000   00           DB 0
+   \   000001   01           DB 1
+   \   000002   36           DB 54
+   \   000003   36           DB 54
+   \   000004   01           DB 1
+   \   000005   01           DB 1
+   \   000006   00           DB 0
+   \   000007   01           DB 1
+   \   000008   02           DB 2
+   \   000009   01           DB 1
+   \   00000A   00           DB 0
+   \   00000B   01           DB 1
+   \   00000C   03           DB 3
+   \   00000D   01           DB 1
+   \   00000E   00           DB 0
+   \   00000F   01           DB 1
+   \   000010   04           DB 4
+   \   000011   01           DB 1
+   \   000012   06           DB 6
+   \   000013   06           DB 6
+   \   000014   05           DB 5
+   \   000015   02           DB 2
+   \   000016   00           DB 0
+   \   000017   00           DB 0
+   \   000018   07           DB 7
+   \   000019   01           DB 1
+   \   00001A   00           DB 0
+   \   00001B   34           DB 52
+   \   00001C   08           DB 8
+   \   00001D   01           DB 1
+   \   00001E   00           DB 0
+   \   00001F   0F           DB 15
+   \   000020   09           DB 9
+   \   000021   04           DB 4
+   \   000022   01           DB 1
+   \   000023   01           DB 1
+   \   000024   0D           DB 13
+   \   000025   01           DB 1
+   \   000026   00           DB 0
+   \   000027   FF           DB 255
+   \   000028   0E           DB 14
+   \   000029   08           DB 8
+   \   00002A   00           DB 0
+   \   00002B   00           DB 0
+   \   00002C   17           DB 23
+   \   00002D   02           DB 2
+   \   00002E   00           DB 0
+   \   00002F   00           DB 0
+   \   000030   19           DB 25
+   \   000031   01           DB 1
+   \   000032   00           DB 0
+   \   000033   FF           DB 255
+   \   000034   1A           DB 26
+   \   000035   01           DB 1
+   \   000036   00           DB 0
+   \   000037   01           DB 1
+   \   000038   1B           DB 27
+   \   000039   01           DB 1
+   \   00003A   00           DB 0
+   \   00003B   FE           DB 254
+   \   00003C   1C           DB 28
+   \   00003D   01           DB 1
+   \   00003E   00           DB 0
+   \   00003F   08           DB 8
+   \   000040   1D           DB 29
+   \   000041   02           DB 2
+   \   000042   00           DB 0
+   \   000043   00           DB 0
+   \   000044   1F           DB 31
+   \   000045   01           DB 1
+   \   000046   00           DB 0
+   \   000047   01           DB 1
+   \   000048   20           DB 32
+   \   000049   01           DB 1
+   \   00004A   00           DB 0
+   \   00004B   01           DB 1
+   \   00004C   21           DB 33
+   \   00004D   02           DB 2
+   \   00004E   00           DB 0
+   \   00004F   00           DB 0
+   \   000050   23           DB 35
+   \   000051   01           DB 1
+   \   000052   00           DB 0
+   \   000053   0F           DB 15
+   \   000054   24           DB 36
+   \   000055   02           DB 2
+   \   000056   00           DB 0
+   \   000057   00           DB 0
+   \   000058   26           DB 38
+   \   000059   01           DB 1
+   \   00005A   00           DB 0
+   \   00005B   01           DB 1
+   \   00005C   27           DB 39
+   \   00005D   01           DB 1
+   \   00005E   00           DB 0
+   \   00005F   08           DB 8
+   \   000060   28           DB 40
+   \   000061   02           DB 2
+   \   000062   00           DB 0
+   \   000063   FF           DB 255
+   \   000064   2A           DB 42
+   \   000065   01           DB 1
+   \   000066   00           DB 0
+   \   000067   07           DB 7
+   \   000068   2B           DB 43
+   \   000069   01           DB 1
+   \   00006A   02           DB 2
+   \   00006B   40           DB 64
+   \   00006C   2C           DB 44
+   \   00006D   01           DB 1
+   \   00006E   00           DB 0
+   \   00006F   00           DB 0
+   \   000070   2D           DB 45
+   \   000071   01           DB 1
+   \   000072   00           DB 0
+   \   000073   01           DB 1
+   \   000074   2E           DB 46
+   \   000075   01           DB 1
+   \   000076   00           DB 0
+   \   000077   01           DB 1
+   \   000078   2F           DB 47
+   \   000079   01           DB 1
+   \   00007A   00           DB 0
+   \   00007B   FF           DB 255
+   \   00007C   30           DB 48
+   \   00007D   01           DB 1
+   \   00007E   0B           DB 11
+   \   00007F   1C           DB 28
+   \   000080   31           DB 49
+   \   000081   08           DB 8
+   \   000082   00           DB 0
+   \   000083   00           DB 0
+   \   000084   3A           DB 58
+   \   000085   01           DB 1
+   \   000086   00           DB 0
+   \   000087   08           DB 8
+   \   000088   3B           DB 59
+   \   000089   01           DB 1
+   \   00008A   00           DB 0
+   \   00008B   0F           DB 15
+   \   00008C   3C           DB 60
+   \   00008D   01           DB 1
+   \   00008E   00           DB 0
+   \   00008F   01           DB 1
+   \   000090   3D           DB 61
+   \   000091   01           DB 1
+   \   000092   00           DB 0
+   \   000093   FF           DB 255
+   \   000094   3E           DB 62
+   \   000095   04           DB 4
+   \   000096   00           DB 0
+   \   000097   00           DB 0
+   \   000098   42           DB 66
+   \   000099   04           DB 4
+   \   00009A   00           DB 0
+   \   00009B   00           DB 0
+   \   00009C   46           DB 70
+   \   00009D   04           DB 4
+   \   00009E   00           DB 0
+   \   00009F   00           DB 0
+   \   0000A0   4A           DB 74
+   \   0000A1   04           DB 4
+   \   0000A2   00           DB 0
+   \   0000A3   00           DB 0
+   \   0000A4   4E           DB 78
+   \   0000A5   04           DB 4
+   \   0000A6   00           DB 0
+   \   0000A7   00           DB 0
+   \   0000A8   52           DB 82
+   \   0000A9   04           DB 4
+   \   0000AA   00           DB 0
+   \   0000AB   00           DB 0
+   \   0000AC   56           DB 86
+   \   0000AD   04           DB 4
+   \   0000AE   00           DB 0
+   \   0000AF   00           DB 0
+   \   0000B0   5A           DB 90
+   \   0000B1   04           DB 4
+   \   0000B2   00           DB 0
+   \   0000B3   00           DB 0
+   \   0000B4   5E           DB 94
+   \   0000B5   20           DB 32
+   \   0000B6   FF           DB 255
+   \   0000B7   FF           DB 255
+    158          {
+    159            {offsetof(macPib_t, ackWaitDuration), sizeof(uint8), 54, 54},                      /* MAC_ACK_WAIT_DURATION */
+    160            {offsetof(macPib_t, associationPermit), sizeof(bool), FALSE, TRUE},                /* MAC_ASSOCIATION_PERMIT */
+    161            {offsetof(macPib_t, autoRequest), sizeof(bool), FALSE, TRUE},                      /* MAC_AUTO_REQUEST */
+    162            {offsetof(macPib_t, battLifeExt), sizeof(bool), FALSE, TRUE},                      /* MAC_BATT_LIFE_EXT */
+    163            {offsetof(macPib_t, battLifeExtPeriods), sizeof(uint8), 6, 6},                     /* MAC_BATT_LIFE_EXT_PERIODS */
+    164          
+    165            {offsetof(macPib_t, pBeaconPayload), sizeof(uint8 *), 0, 0},                       /* MAC_BEACON_PAYLOAD */
+    166            {offsetof(macPib_t, beaconPayloadLength), sizeof(uint8), 0, 52},                   /* MAC_BEACON_PAYLOAD_LENGTH */
+    167            {offsetof(macPib_t, beaconOrder), sizeof(uint8), 0, 15},                           /* MAC_BEACON_ORDER */
+    168            {offsetof(macPib_t, beaconTxTime), sizeof(uint32), 1, 1},                          /* MAC_BEACON_TX_TIME */
+    169            {offsetof(macPib_t, bsn), sizeof(uint8), 0x00, 0xFF},                              /* MAC_BSN */
+    170          
+    171            {offsetof(macPib_t, coordExtendedAddress.addr.extAddr), sizeof(sAddrExt_t), 0, 0}, /* MAC_COORD_EXTENDED_ADDRESS */
+    172            {offsetof(macPib_t, coordShortAddress), sizeof(uint16), 0, 0},                     /* MAC_COORD_SHORT_ADDRESS */
+    173            {offsetof(macPib_t, dsn), sizeof(uint8), 0x00, 0xFF},                              /* MAC_DSN */
+    174            {offsetof(macPib_t, gtsPermit), sizeof(bool), FALSE, TRUE},                        /* MAC_GTS_PERMIT */
+    175          
+    176            /* Range of maxCsmaBackoffs is between 0 and 5 in IEEE 802.15.4.
+    177             * Such restriction is removed here to allow 802.15.4 non-compliant experimental
+    178             * applications.
+    179             * To be compliant with 802.15.4, application or upper layer must not set this
+    180             * PIB attribute out of range of 802.15.4.
+    181             * The range is still restricted to 254 since value 255 would cause backoff
+    182             * counter to overflow, wrap around and loop infinitely. */
+    183            {offsetof(macPib_t, maxCsmaBackoffs), sizeof(uint8), 0, 254},                      /* MAC_MAX_CSMA_BACKOFFS */
+    184          
+    185            {offsetof(macPib_t, minBe), sizeof(uint8), 0, 8},                                  /* MAC_MIN_BE */
+    186            {offsetof(macPib_t, panId), sizeof(uint16), 0, 0},                                 /* MAC_PAN_ID */
+    187            {offsetof(macPib_t, promiscuousMode), sizeof(bool), FALSE, TRUE},                  /* MAC_PROMISCUOUS_MODE */
+    188            {offsetof(macPib_t, rxOnWhenIdle), sizeof(bool), FALSE, TRUE},                     /* MAC_RX_ON_WHEN_IDLE */
+    189            {offsetof(macPib_t, shortAddress), sizeof(uint16), 0, 0},                          /* MAC_SHORT_ADDRESS */
+    190          
+    191            {offsetof(macPib_t, superframeOrder), sizeof(uint8), 0, 15},                       /* MAC_SUPERFRAME_ORDER */
+    192            {offsetof(macPib_t, transactionPersistenceTime), sizeof(uint16), 0, 0},            /* MAC_TRANSACTION_PERSISTENCE_TIME */
+    193            {offsetof(macPib_t, associatedPanCoord), sizeof(bool), FALSE, TRUE},               /* MAC_ASSOCIATED_PAN_COORD */
+    194          
+    195            /* Range of maxBe is between 3 and 8 in IEEE 802.15.4.
+    196             * Such restriction is removed here to allow 802.15.4 non-compliant experimental
+    197             * applications.
+    198             * To be compliant with 802.15.4, application or upper layer must not set this
+    199             * PIB attribute out of range of 802.15.4. */
+    200            {offsetof(macPib_t, maxBe), sizeof(uint8), 0, 8},                                  /* MAC_MAX_BE */
+    201            {offsetof(macPib_t, maxFrameTotalWaitTime), sizeof(uint16), 0x00, 0xFF},           /* MAC_MAX_FRAME_RESPONSE_TIME */
+    202          
+    203            {offsetof(macPib_t, maxFrameRetries), sizeof(uint8), 0, 7},                        /* MAC_MAX_FRAME_RETRIES */
+    204            {offsetof(macPib_t, responseWaitTime), sizeof(uint8), 2, 64},                      /* MAC_RESPONSE_WAIT_TIME */
+    205            {offsetof(macPib_t, syncSymbolOffset), sizeof(uint8), 0, 0},                       /* MAC_SYNC_SYMBOL_OFFSET */
+    206            {offsetof(macPib_t, timeStampSupported), sizeof(bool), FALSE, TRUE},               /* MAC_TIMESTAMP_SUPPORTED */
+    207            {offsetof(macPib_t, securityEnabled), sizeof(bool), FALSE, TRUE},                  /* MAC_SECURITY_ENABLED */
+    208          
+    209            /* Proprietary PIBs */
+    210            {offsetof(macPib_t, phyTransmitPower), sizeof(uint8), 0, 0xFF},                    /* MAC_PHY_TRANSMIT_POWER_SIGNED */
+    211            {offsetof(macPib_t, logicalChannel), sizeof(uint8), MAC_CHAN_11, MAC_CHAN_28},     /* MAC_LOGICAL_CHANNEL */
+    212            {offsetof(macPib_t, extendedAddress.addr.extAddr), sizeof(sAddrExt_t), 0, 0},      /* MAC_EXTENDED_ADDRESS */
+    213            {offsetof(macPib_t, altBe), sizeof(uint8), 0, 8},                                  /* MAC_ALT_BE */
+    214            {offsetof(macPib_t, deviceBeaconOrder), sizeof(uint8), 0, 15},                     /* MAC_DEVICE_BEACON_ORDER */
+    215            {offsetof(macPib_t, rf4cepowerSavings), sizeof(uint8), 0, 1},                      /* MAC_RF4CE_POWER_SAVINGS */
+    216            {offsetof(macPib_t, frameVersionSupport), sizeof(uint8), 0, 0xFF},                 /* MAC_FRAME_VERSION_SUPPORT */
+    217            {offsetof(macPib_t, diagsRxCrcPass), sizeof(uint32), 0, 0},                        /* MAC_DIAGS_RX_CRC_PASS */
+    218            {offsetof(macPib_t, diagsRxCrcFail), sizeof(uint32), 0, 0},                        /* MAC_DIAGS_RX_CRC_FAIL */
+    219            {offsetof(macPib_t, diagsRxBcast), sizeof(uint32), 0, 0},                          /* MAC_DIAGS_RX_BCAST */
+    220            {offsetof(macPib_t, diagsTxBcast), sizeof(uint32), 0, 0},                          /* MAC_DIAGS_TX_BCAST */
+    221            {offsetof(macPib_t, diagsRxUcast), sizeof(uint32), 0, 0},                          /* MAC_DIAGS_RX_UCAST */
+    222            {offsetof(macPib_t, diagsTxUcast), sizeof(uint32), 0, 0},                          /* MAC_DIAGS_TX_UCAST */
+    223            {offsetof(macPib_t, diagsTxUcastRetry), sizeof(uint32), 0, 0},                     /* MAC_DIAGS_TX_UCAST_RETRY */
+    224            {offsetof(macPib_t, diagsTxUcastFail), sizeof(uint32), 0, 0},                      /* MAC_DIAGS_TX_UCAST_FAIL *//* MAC_DIAGS_TX_UCAST_FAIL */
+    225            {offsetof(macPib_t, randomSeed), MAC_RANDOM_SEED_LEN, 0xFF, 0xFF}                  /* MAC_RANDOM_SEED */
+    226          };
+    227          
+    228          /* Invalid PIB table index used for error code */
+    229          #define MAC_PIB_INVALID     ((uint8) (sizeof(macPibTbl) / sizeof(macPibTbl[0])))
+    230          
+    231          /* ------------------------------------------------------------------------------------------------
+    232           *                                           Global Variables
+    233           * ------------------------------------------------------------------------------------------------
+    234           */
+    235          
+    236          /* MAC PIB */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    237          macPib_t macPib;
+   \                     macPib:
+   \   000000                DS 126
+   \   00007E                REQUIRE __INIT_XDATA_Z
+    238          
+    239          extern uint8 MAC_MlmeGetReqSize( uint8 pibAttribute );
+    240          
+    241          #if defined( FEATURE_MAC_PIB_PTR )
+    242          
+    243          /* Pointer to the MAC PIB */
+    244          macPib_t* pMacPib = &macPib;
+    245          
+    246          /**************************************************************************************************
+    247           * @fn          MAC_MlmeSetActivePib
+    248           *
+    249           * @brief       This function initializes the PIB.
+    250           *
+    251           * input parameters
+    252           *
+    253           * @param       None.
+    254           *
+    255           * output parameters
+    256           *
+    257           * None.
+    258           *
+    259           * @return      None.
+    260           **************************************************************************************************
+    261           */
+    262          void MAC_MlmeSetActivePib( void* pPib )
+    263          {
+    264            halIntState_t intState;
+    265            HAL_ENTER_CRITICAL_SECTION(intState);
+    266            pMacPib = (macPib_t *)pPib;
+    267            HAL_EXIT_CRITICAL_SECTION(intState);
+    268          }
+    269          #endif /* FEATURE_MAC_PIB_PTR */
+    270          
+    271          /**************************************************************************************************
+    272           * @fn          macPibReset
+    273           *
+    274           * @brief       This function initializes the PIB.
+    275           *
+    276           * input parameters
+    277           *
+    278           * @param       None.
+    279           *
+    280           * output parameters
+    281           *
+    282           * None.
+    283           *
+    284           * @return      None.
+    285           **************************************************************************************************
+    286           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    287          MAC_INTERNAL_API void macPibReset(void)
+   \                     macPibReset:
+    288          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000   74F5         MOV     A,#-0xb
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 11
+   \   000005                ; Auto size: 32
+   \   000005   74E0         MOV     A,#-0x20
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+    289            /* Preserve initialized proprietary values. */
+    290            uint8 randomSeed[MAC_RANDOM_SEED_LEN];
+    291            osal_memcpy(randomSeed, pMacPib->randomSeed, MAC_RANDOM_SEED_LEN);
+   \   00000A                ; Setup parameters for call to function osal_memcpy
+   \   00000A   75....       MOV     ?V0,#(macPib + 94) & 0xff
+   \   00000D   75....       MOV     ?V1,#((macPib + 94) >> 8) & 0xff
+   \   000010   75..00       MOV     ?V2,#0x0
+   \   000013   78..         MOV     R0,#?V0
+   \   000015   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   000018   7C20         MOV     R4,#0x20
+   \   00001A   7D00         MOV     R5,#0x0
+   \   00001C   7403         MOV     A,#0x3
+   \   00001E   12....       LCALL   ?XSTACK_DISP101_8
+   \   000021   12....       LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+   \   000024   7403         MOV     A,#0x3
+   \   000026   12....       LCALL   ?DEALLOC_XSTACK8
+    292          
+    293            /* copy PIB defaults */
+    294          #if defined( FEATURE_MAC_PIB_PTR )  
+    295            *pMacPib = macPibDefaults;
+    296          #else
+    297            macPib = macPibDefaults;
+   \   000029   90....       MOV     DPTR,#macPibDefaults
+   \   00002C   7C..         MOV     R4,#macPib & 0xff
+   \   00002E   7D..         MOV     R5,#(macPib >> 8) & 0xff
+   \   000030   747E         MOV     A,#0x7e
+   \   000032   12....       LCALL   ?MOVE_LONG8_XDATA_CODE
+    298          #endif /* FEATURE_MAC_PIB_PTR */
+    299            
+    300            osal_memcpy(pMacPib->randomSeed, randomSeed, MAC_RANDOM_SEED_LEN);
+   \   000035                ; Setup parameters for call to function osal_memcpy
+   \   000035   A8..         MOV     R0,?XSP + 0
+   \   000037   A9..         MOV     R1,?XSP + 1
+   \   000039   88..         MOV     ?V0,R0
+   \   00003B   89..         MOV     ?V1,R1
+   \   00003D   78..         MOV     R0,#?V0
+   \   00003F   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   000042   7C20         MOV     R4,#0x20
+   \   000044   7D00         MOV     R5,#0x0
+   \   000046   7A..         MOV     R2,#(macPib + 94) & 0xff
+   \   000048   7B..         MOV     R3,#((macPib + 94) >> 8) & 0xff
+   \   00004A   12....       LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+   \   00004D   7403         MOV     A,#0x3
+   \   00004F   12....       LCALL   ?DEALLOC_XSTACK8
+    301          
+    302            /* initialize random sequence numbers */
+    303            pMacPib->dsn = macRadioRandomByte();
+   \   000052                ; Setup parameters for call to function macRadioRandomByte
+   \   000052   12....       LCALL   `??macRadioRandomByte::?relay`; Banked call to: macRadioRandomByte
+   \   000055   E9           MOV     A,R1
+   \   000056   90....       MOV     DPTR,#macPib + 25
+   \   000059   F0           MOVX    @DPTR,A
+    304            pMacPib->bsn = macRadioRandomByte();
+   \   00005A                ; Setup parameters for call to function macRadioRandomByte
+   \   00005A   12....       LCALL   `??macRadioRandomByte::?relay`; Banked call to: macRadioRandomByte
+   \   00005D   E9           MOV     A,R1
+   \   00005E   90....       MOV     DPTR,#macPib + 13
+   \   000061   F0           MOVX    @DPTR,A
+    305          }
+   \   000062   7420         MOV     A,#0x20
+   \   000064   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000067   7F03         MOV     R7,#0x3
+   \   000069   02....       LJMP    ?BANKED_LEAVE_XDATA
+    306          
+    307          /**************************************************************************************************
+    308           * @fn          macPibIndex
+    309           *
+    310           * @brief       This function takes an PIB attribute and returns the index in to
+    311           *              macPibTbl for the attribute.
+    312           *
+    313           * input parameters
+    314           *
+    315           * @param       pibAttribute - PIB attribute to look up.
+    316           *
+    317           * output parameters
+    318           *
+    319           * None.
+    320           *
+    321           * @return      Index in to macPibTbl for the attribute or MAC_PIB_INVALID.
+    322           **************************************************************************************************
+    323           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    324          MAC_INTERNAL_API uint8 macPibIndex(uint8 pibAttribute)
+   \                     macPibIndex:
+    325          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+    326            if ((pibAttribute >= MAC_ATTR_SET1_START) && (pibAttribute <= MAC_ATTR_SET1_END))
+   \   000000   74C0         MOV     A,#-0x40
+   \   000002   29           ADD     A,R1
+   \   000003   C3           CLR     C
+   \   000004   941E         SUBB    A,#0x1e
+   \   000006   5004         JNC     ??macPibIndex_0
+    327            {
+    328              return (pibAttribute - MAC_ATTR_SET1_START + MAC_ATTR_SET1_OFFSET);
+   \   000008   74C0         MOV     A,#-0x40
+   \   00000A   800A         SJMP    ??macPibIndex_1
+    329            }
+    330            else if ((pibAttribute >= MAC_ATTR_SET2_START) && (pibAttribute <= MAC_ATTR_SET2_END))
+   \                     ??macPibIndex_0:
+   \   00000C   7420         MOV     A,#0x20
+   \   00000E   29           ADD     A,R1
+   \   00000F   C3           CLR     C
+   \   000010   9410         SUBB    A,#0x10
+   \   000012   5006         JNC     ??macPibIndex_2
+    331            {
+    332              return (pibAttribute - MAC_ATTR_SET2_START + MAC_ATTR_SET2_OFFSET);
+   \   000014   743E         MOV     A,#0x3e
+   \                     ??macPibIndex_1:
+   \   000016   29           ADD     A,R1
+   \   000017   F9           MOV     R1,A
+   \   000018   8002         SJMP    ??macPibIndex_3
+    333            }
+    334            else
+    335            {
+    336              return MAC_PIB_INVALID;
+   \                     ??macPibIndex_2:
+   \   00001A   792E         MOV     R1,#0x2e
+   \                     ??macPibIndex_3:
+   \   00001C   02....       LJMP    ?BRET
+    337            }
+    338          }
+    339          
+    340          
+    341          /**************************************************************************************************
+    342           * @fn          MAC_MlmeGetReq
+    343           *
+    344           * @brief       This direct execute function retrieves an attribute value
+    345           *              from the MAC PIB.
+    346           *
+    347           * input parameters
+    348           *
+    349           * @param       pibAttribute - The attribute identifier.
+    350           * @param       pValue - pointer to the attribute value.
+    351           *
+    352           * output parameters
+    353           *
+    354           * @param       pValue - pointer to the attribute value.
+    355           *
+    356           * @return      The status of the request, as follows:
+    357           *              MAC_SUCCESS Operation successful.
+    358           *              MAC_UNSUPPORTED_ATTRIBUTE Attribute not found.
+    359           *
+    360           **************************************************************************************************
+    361           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    362          uint8 MAC_MlmeGetReq(uint8 pibAttribute, void *pValue)
+   \                     MAC_MlmeGetReq:
+    363          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000   74F3         MOV     A,#-0xd
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 13
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV     A,R2
+   \   000006   FE           MOV     R6,A
+   \   000007   EB           MOV     A,R3
+   \   000008   FF           MOV     R7,A
+    364            uint8         i;
+    365            halIntState_t intState;
+    366          
+    367            if ((i = MAP_macPibIndex(pibAttribute)) == MAC_PIB_INVALID)
+   \   000009                ; Setup parameters for call to function macPibIndex
+   \   000009   12....       LCALL   `??macPibIndex::?relay`; Banked call to: macPibIndex
+   \   00000C   E9           MOV     A,R1
+   \   00000D   F5..         MOV     ?V0,A
+   \   00000F   742E         MOV     A,#0x2e
+   \   000011   65..         XRL     A,?V0
+   \   000013   7004         JNZ     ??MAC_MlmeGetReq_0
+    368            {
+    369              return MAC_UNSUPPORTED_ATTRIBUTE;
+   \   000015   79F4         MOV     R1,#-0xc
+   \   000017   8057         SJMP    ??MAC_MlmeGetReq_1
+    370            }
+    371          
+    372            HAL_ENTER_CRITICAL_SECTION(intState);
+   \                     ??MAC_MlmeGetReq_0:
+   \   000019   85A8..       MOV     ?V3,0xa8+0x0
+   \   00001C   C2AF         CLR     0xa8.7
+    373            osal_memcpy(pValue, (uint8 *) pMacPib + macPibTbl[i].offset, macPibTbl[i].len);
+   \   00001E   75..00       MOV     ?V1,#0x0
+   \   000021   7402         MOV     A,#0x2
+   \   000023   78..         MOV     R0,#?V0
+   \   000025   12....       LCALL   ?S_SHL
+   \   000028   74..         MOV     A,#macPibTbl & 0xff
+   \   00002A   25..         ADD     A,?V0
+   \   00002C   FA           MOV     R2,A
+   \   00002D   74..         MOV     A,#(macPibTbl >> 8) & 0xff
+   \   00002F   35..         ADDC    A,?V1
+   \   000031   FB           MOV     R3,A
+   \   000032                ; Setup parameters for call to function osal_memcpy
+   \   000032   8A82         MOV     DPL,R2
+   \   000034   8B83         MOV     DPH,R3
+   \   000036   E4           CLR     A
+   \   000037   93           MOVC    A,@A+DPTR
+   \   000038   F8           MOV     R0,A
+   \   000039   74..         MOV     A,#macPib & 0xff
+   \   00003B   28           ADD     A,R0
+   \   00003C   F5..         MOV     ?V0,A
+   \   00003E   E4           CLR     A
+   \   00003F   34..         ADDC    A,#(macPib >> 8) & 0xff
+   \   000041   F5..         MOV     ?V1,A
+   \   000043   75..00       MOV     ?V2,#0x0
+   \   000046   78..         MOV     R0,#?V0
+   \   000048   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   00004B   8A82         MOV     DPL,R2
+   \   00004D   8B83         MOV     DPH,R3
+   \   00004F   A3           INC     DPTR
+   \   000050   E4           CLR     A
+   \   000051   93           MOVC    A,@A+DPTR
+   \   000052   FC           MOV     R4,A
+   \   000053   7D00         MOV     R5,#0x0
+   \   000055   EE           MOV     A,R6
+   \   000056   FA           MOV     R2,A
+   \   000057   EF           MOV     A,R7
+   \   000058   FB           MOV     R3,A
+   \   000059   12....       LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+   \   00005C   7403         MOV     A,#0x3
+   \   00005E   12....       LCALL   ?DEALLOC_XSTACK8
+    374            HAL_EXIT_CRITICAL_SECTION(intState);
+   \   000061   E5..         MOV     A,?V3
+   \   000063   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000065   E4           CLR     A
+   \   000066   33           RLC     A
+   \   000067   F8           MOV     R0,A
+   \   000068   E5..         MOV     A,?V3
+   \   00006A   A2E7         MOV     C,0xE0 /* A   */.7
+   \   00006C   92AF         MOV     0xa8.7,C
+    375            return MAC_SUCCESS;
+   \   00006E   7900         MOV     R1,#0x0
+   \                     ??MAC_MlmeGetReq_1:
+   \   000070   7F05         MOV     R7,#0x5
+   \   000072   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000075                REQUIRE _A_IEN0
+    376          }
+    377          
+    378          /**************************************************************************************************
+    379           * @fn          MAC_MlmeGetReqSize
+    380           *
+    381           * @brief       This direct execute function gets the MAC PIB attribute size
+    382           *
+    383           * input parameters
+    384           *
+    385           * @param       pibAttribute - The attribute identifier.
+    386           *
+    387           * output parameters
+    388           *
+    389           * None.
+    390           *
+    391           * @return      size in bytes
+    392           *
+    393           **************************************************************************************************
+    394           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    395          uint8 MAC_MlmeGetReqSize( uint8 pibAttribute )
+   \                     MAC_MlmeGetReqSize:
+    396          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+    397            uint8 index;
+    398          
+    399            if ((index = MAP_macPibIndex(pibAttribute)) == MAC_PIB_INVALID)
+   \   000005                ; Setup parameters for call to function macPibIndex
+   \   000005   12....       LCALL   `??macPibIndex::?relay`; Banked call to: macPibIndex
+   \   000008   E9           MOV     A,R1
+   \   000009   F5..         MOV     ?V0,A
+   \   00000B   742E         MOV     A,#0x2e
+   \   00000D   65..         XRL     A,?V0
+   \   00000F   7004         JNZ     ??MAC_MlmeGetReqSize_0
+    400            {
+    401              return 0;
+   \   000011   7900         MOV     R1,#0x0
+   \   000013   8019         SJMP    ??MAC_MlmeGetReqSize_1
+    402            }
+    403          
+    404            return ( macPibTbl[index].len );
+   \                     ??MAC_MlmeGetReqSize_0:
+   \   000015   75..00       MOV     ?V1,#0x0
+   \   000018   7402         MOV     A,#0x2
+   \   00001A   78..         MOV     R0,#?V0
+   \   00001C   12....       LCALL   ?S_SHL
+   \   00001F   74..         MOV     A,#(macPibTbl + 1) & 0xff
+   \   000021   25..         ADD     A,?V0
+   \   000023   F582         MOV     DPL,A
+   \   000025   74..         MOV     A,#((macPibTbl + 1) >> 8) & 0xff
+   \   000027   35..         ADDC    A,?V1
+   \   000029   F583         MOV     DPH,A
+   \   00002B   E4           CLR     A
+   \   00002C   93           MOVC    A,@A+DPTR
+   \   00002D   F9           MOV     R1,A
+   \                     ??MAC_MlmeGetReqSize_1:
+   \   00002E   7F02         MOV     R7,#0x2
+   \   000030   02....       LJMP    ?BANKED_LEAVE_XDATA
+    405          }
+    406          
+    407          /**************************************************************************************************
+    408           * @fn          MAC_MlmeSetReq
+    409           *
+    410           * @brief       This direct execute function sets an attribute value
+    411           *              in the MAC PIB.
+    412           *
+    413           * input parameters
+    414           *
+    415           * @param       pibAttribute - The attribute identifier.
+    416           * @param       pValue - pointer to the attribute value.
+    417           *
+    418           * output parameters
+    419           *
+    420           * None.
+    421           *
+    422           * @return      The status of the request, as follows:
+    423           *              MAC_SUCCESS Operation successful.
+    424           *              MAC_UNSUPPORTED_ATTRIBUTE Attribute not found.
+    425           *
+    426           **************************************************************************************************
+    427           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    428          uint8 MAC_MlmeSetReq(uint8 pibAttribute, void *pValue)
+   \                     MAC_MlmeSetReq:
+    429          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV     ?V3,R1
+   \   000007   EA           MOV     A,R2
+   \   000008   FE           MOV     R6,A
+   \   000009   EB           MOV     A,R3
+   \   00000A   FF           MOV     R7,A
+    430            uint8         i;
+    431            halIntState_t intState;
+    432          
+    433            if (pibAttribute == MAC_BEACON_PAYLOAD)
+   \   00000B   7445         MOV     A,#0x45
+   \   00000D   65..         XRL     A,?V3
+   \   00000F   700A         JNZ     ??MAC_MlmeSetReq_0
+    434            {
+    435              pMacPib->pBeaconPayload = pValue;
+   \   000011   90....       MOV     DPTR,#macPib + 5
+   \   000014   EE           MOV     A,R6
+   \   000015   F0           MOVX    @DPTR,A
+   \   000016   A3           INC     DPTR
+   \   000017   EF           MOV     A,R7
+   \   000018   02....       LJMP    ??MAC_MlmeSetReq_1 & 0xFFFF
+    436              return MAC_SUCCESS;
+    437            }
+    438          
+    439            /* look up attribute in PIB table */
+    440            if ((i = MAP_macPibIndex(pibAttribute)) == MAC_PIB_INVALID)
+   \                     ??MAC_MlmeSetReq_0:
+   \   00001B                ; Setup parameters for call to function macPibIndex
+   \   00001B   12....       LCALL   `??macPibIndex::?relay`; Banked call to: macPibIndex
+   \   00001E   E9           MOV     A,R1
+   \   00001F   F5..         MOV     ?V0,A
+   \   000021   742E         MOV     A,#0x2e
+   \   000023   65..         XRL     A,?V0
+   \   000025   7005         JNZ     ??MAC_MlmeSetReq_2
+    441            {
+    442              return MAC_UNSUPPORTED_ATTRIBUTE;
+   \   000027   79F4         MOV     R1,#-0xc
+   \   000029   02....       LJMP    ??MAC_MlmeSetReq_3 & 0xFFFF
+    443            }
+    444          
+    445            /* do range check; no range check if min and max are zero */
+    446            if ((macPibTbl[i].min != 0) || (macPibTbl[i].max != 0))
+   \                     ??MAC_MlmeSetReq_2:
+   \   00002C   89..         MOV     ?V4,R1
+   \   00002E   75..00       MOV     ?V5,#0x0
+   \   000031   7402         MOV     A,#0x2
+   \   000033   78..         MOV     R0,#?V4
+   \   000035   12....       LCALL   ?S_SHL
+   \   000038   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00003B   7014         JNZ     ??MAC_MlmeSetReq_4
+   \   00003D   89..         MOV     ?V4,R1
+   \   00003F   75..00       MOV     ?V5,#0x0
+   \   000042   7402         MOV     A,#0x2
+   \   000044   78..         MOV     R0,#?V4
+   \   000046   12....       LCALL   ?S_SHL
+   \   000049   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   00004C   7003         JNZ     $+5
+   \   00004E   02....       LJMP    ??MAC_MlmeSetReq_5 & 0xFFFF
+    447            {
+    448              /* if min == max, this is a read-only attribute */
+    449              if (macPibTbl[i].min == macPibTbl[i].max)
+   \                     ??MAC_MlmeSetReq_4:
+   \   000051   89..         MOV     ?V4,R1
+   \   000053   75..00       MOV     ?V5,#0x0
+   \   000056   7402         MOV     A,#0x2
+   \   000058   78..         MOV     R0,#?V4
+   \   00005A   12....       LCALL   ?S_SHL
+   \   00005D   74..         MOV     A,#macPibTbl & 0xff
+   \   00005F   25..         ADD     A,?V4
+   \   000061   FA           MOV     R2,A
+   \   000062   74..         MOV     A,#(macPibTbl >> 8) & 0xff
+   \   000064   35..         ADDC    A,?V5
+   \   000066   FB           MOV     R3,A
+   \   000067   8A82         MOV     DPL,R2
+   \   000069   8B83         MOV     DPH,R3
+   \   00006B   A3           INC     DPTR
+   \   00006C   A3           INC     DPTR
+   \   00006D   E4           CLR     A
+   \   00006E   93           MOVC    A,@A+DPTR
+   \   00006F   F8           MOV     R0,A
+   \   000070   8A82         MOV     DPL,R2
+   \   000072   8B83         MOV     DPH,R3
+   \   000074   A3           INC     DPTR
+   \   000075   A3           INC     DPTR
+   \   000076   A3           INC     DPTR
+   \   000077   E4           CLR     A
+   \   000078   93           MOVC    A,@A+DPTR
+   \   000079   68           XRL     A,R0
+   \   00007A   7005         JNZ     ??MAC_MlmeSetReq_6
+    450              {
+    451                return MAC_READ_ONLY;
+   \   00007C   79FB         MOV     R1,#-0x5
+   \   00007E   02....       LJMP    ??MAC_MlmeSetReq_3 & 0xFFFF
+    452              }
+    453          
+    454              /* check for special cases */
+    455              if (pibAttribute == MAC_MAX_FRAME_TOTAL_WAIT_TIME)
+   \                     ??MAC_MlmeSetReq_6:
+   \   000081   7458         MOV     A,#0x58
+   \   000083   65..         XRL     A,?V3
+   \   000085   7016         JNZ     ??MAC_MlmeSetReq_7
+    456              {
+    457                if ((*((uint16 *) pValue) < MAC_MAX_FRAME_RESPONSE_MIN) ||
+    458                    (*((uint16 *) pValue) > MAC_MAX_FRAME_RESPONSE_MAX))
+   \   000087   8E82         MOV     DPL,R6
+   \   000089   8F83         MOV     DPH,R7
+   \   00008B   E0           MOVX    A,@DPTR
+   \   00008C   2471         ADD     A,#0x71
+   \   00008E   F8           MOV     R0,A
+   \   00008F   A3           INC     DPTR
+   \   000090   E0           MOVX    A,@DPTR
+   \   000091   34FF         ADDC    A,#-0x1
+   \   000093   F9           MOV     R1,A
+   \   000094   C3           CLR     C
+   \   000095   E8           MOV     A,R0
+   \   000096   9422         SUBB    A,#0x22
+   \   000098   E9           MOV     A,R1
+   \   000099   9464         SUBB    A,#0x64
+   \   00009B   5030         JNC     ??MAC_MlmeSetReq_8
+    459                {
+    460                  return MAC_INVALID_PARAMETER;
+    461                }
+    462              }
+    463          
+    464              /* range check for general case */
+    465              if ((*((uint8 *) pValue) < macPibTbl[i].min) || (*((uint8 *) pValue) > macPibTbl[i].max))
+   \                     ??MAC_MlmeSetReq_7:
+   \   00009D   85....       MOV     ?V4,?V0
+   \   0000A0   75..00       MOV     ?V5,#0x0
+   \   0000A3   7402         MOV     A,#0x2
+   \   0000A5   78..         MOV     R0,#?V4
+   \   0000A7   12....       LCALL   ?S_SHL
+   \   0000AA   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   0000AD   F8           MOV     R0,A
+   \   0000AE   8E82         MOV     DPL,R6
+   \   0000B0   8F83         MOV     DPH,R7
+   \   0000B2   E0           MOVX    A,@DPTR
+   \   0000B3   C3           CLR     C
+   \   0000B4   98           SUBB    A,R0
+   \   0000B5   4016         JC      ??MAC_MlmeSetReq_8
+   \   0000B7   E0           MOVX    A,@DPTR
+   \   0000B8   F9           MOV     R1,A
+   \   0000B9   85....       MOV     ?V4,?V0
+   \   0000BC   75..00       MOV     ?V5,#0x0
+   \   0000BF   7402         MOV     A,#0x2
+   \   0000C1   78..         MOV     R0,#?V4
+   \   0000C3   12....       LCALL   ?S_SHL
+   \   0000C6   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   0000C9   C3           CLR     C
+   \   0000CA   99           SUBB    A,R1
+   \   0000CB   5005         JNC     ??MAC_MlmeSetReq_5
+    466              {
+    467                return MAC_INVALID_PARAMETER;
+   \                     ??MAC_MlmeSetReq_8:
+   \   0000CD   79E8         MOV     R1,#-0x18
+   \   0000CF   02....       LJMP    ??MAC_MlmeSetReq_3 & 0xFFFF
+    468              }
+    469          
+    470            }
+    471          
+    472            /* set value in PIB */
+    473            HAL_ENTER_CRITICAL_SECTION(intState);
+   \                     ??MAC_MlmeSetReq_5:
+   \   0000D2   85A8..       MOV     ?V4,0xa8+0x0
+   \   0000D5   C2AF         CLR     0xa8.7
+    474            osal_memcpy((uint8 *) pMacPib + macPibTbl[i].offset, pValue, macPibTbl[i].len);
+   \   0000D7   75..00       MOV     ?V1,#0x0
+   \   0000DA   7402         MOV     A,#0x2
+   \   0000DC   78..         MOV     R0,#?V0
+   \   0000DE   12....       LCALL   ?S_SHL
+   \   0000E1   74..         MOV     A,#macPibTbl & 0xff
+   \   0000E3   25..         ADD     A,?V0
+   \   0000E5   F8           MOV     R0,A
+   \   0000E6   74..         MOV     A,#(macPibTbl >> 8) & 0xff
+   \   0000E8   35..         ADDC    A,?V1
+   \   0000EA   F9           MOV     R1,A
+   \   0000EB   E8           MOV     A,R0
+   \   0000EC   FA           MOV     R2,A
+   \   0000ED   E9           MOV     A,R1
+   \   0000EE   FB           MOV     R3,A
+   \   0000EF                ; Setup parameters for call to function osal_memcpy
+   \   0000EF   8E..         MOV     ?V0,R6
+   \   0000F1   8F..         MOV     ?V1,R7
+   \   0000F3   75..00       MOV     ?V2,#0x0
+   \   0000F6   78..         MOV     R0,#?V0
+   \   0000F8   12....       LCALL   ?PUSH_XSTACK_I_THREE
+   \   0000FB   8A82         MOV     DPL,R2
+   \   0000FD   8B83         MOV     DPH,R3
+   \   0000FF   A3           INC     DPTR
+   \   000100   E4           CLR     A
+   \   000101   93           MOVC    A,@A+DPTR
+   \   000102   FC           MOV     R4,A
+   \   000103   7D00         MOV     R5,#0x0
+   \   000105   8A82         MOV     DPL,R2
+   \   000107   8B83         MOV     DPH,R3
+   \   000109   E4           CLR     A
+   \   00010A   93           MOVC    A,@A+DPTR
+   \   00010B   F8           MOV     R0,A
+   \   00010C   74..         MOV     A,#macPib & 0xff
+   \   00010E   28           ADD     A,R0
+   \   00010F   FA           MOV     R2,A
+   \   000110   E4           CLR     A
+   \   000111   34..         ADDC    A,#(macPib >> 8) & 0xff
+   \   000113   FB           MOV     R3,A
+   \   000114   12....       LCALL   `??osal_memcpy::?relay`; Banked call to: osal_memcpy
+   \   000117   7403         MOV     A,#0x3
+   \   000119   12....       LCALL   ?DEALLOC_XSTACK8
+    475            HAL_EXIT_CRITICAL_SECTION(intState);
+   \   00011C   E5..         MOV     A,?V4
+   \   00011E   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000120   E4           CLR     A
+   \   000121   33           RLC     A
+   \   000122   F8           MOV     R0,A
+   \   000123   E5..         MOV     A,?V4
+   \   000125   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000127   92AF         MOV     0xa8.7,C
+    476          
+    477            /* handle special cases */
+    478            switch (pibAttribute)
+   \   000129   E5..         MOV     A,?V3
+   \   00012B   24B0         ADD     A,#-0x50
+   \   00012D   601A         JZ      ??MAC_MlmeSetReq_9
+   \   00012F   24FE         ADD     A,#-0x2
+   \   000131   6030         JZ      ??MAC_MlmeSetReq_10
+   \   000133   14           DEC     A
+   \   000134   6020         JZ      ??MAC_MlmeSetReq_11
+   \   000136   2473         ADD     A,#0x73
+   \   000138   604E         JZ      ??MAC_MlmeSetReq_12
+   \   00013A   14           DEC     A
+   \   00013B   6038         JZ      ??MAC_MlmeSetReq_13
+   \   00013D   14           DEC     A
+   \   00013E   603F         JZ      ??MAC_MlmeSetReq_14
+   \   000140   24FD         ADD     A,#-0x3
+   \   000142   604E         JZ      ??MAC_MlmeSetReq_15
+   \   000144   14           DEC     A
+   \   000145   6055         JZ      ??MAC_MlmeSetReq_16
+   \   000147   805C         SJMP    ??MAC_MlmeSetReq_17
+    479            {
+    480              case MAC_PAN_ID:
+    481                /* set pan id in radio */
+    482                macRadioSetPanID(pMacPib->panId);
+   \                     ??MAC_MlmeSetReq_9:
+   \   000149                ; Setup parameters for call to function macRadioSetPanID
+   \   000149   90....       MOV     DPTR,#macPib + 29
+   \   00014C   E0           MOVX    A,@DPTR
+   \   00014D   FA           MOV     R2,A
+   \   00014E   A3           INC     DPTR
+   \   00014F   E0           MOVX    A,@DPTR
+   \   000150   FB           MOV     R3,A
+   \   000151   12....       LCALL   `??macRadioSetPanID::?relay`; Banked call to: macRadioSetPanID
+    483                break;
+   \   000154   804F         SJMP    ??MAC_MlmeSetReq_17
+    484          
+    485              case MAC_SHORT_ADDRESS:
+    486                /* set short address in radio */
+    487                macRadioSetShortAddr(pMacPib->shortAddress);
+   \                     ??MAC_MlmeSetReq_11:
+   \   000156                ; Setup parameters for call to function macRadioSetShortAddr
+   \   000156   90....       MOV     DPTR,#macPib + 33
+   \   000159   E0           MOVX    A,@DPTR
+   \   00015A   FA           MOV     R2,A
+   \   00015B   A3           INC     DPTR
+   \   00015C   E0           MOVX    A,@DPTR
+   \   00015D   FB           MOV     R3,A
+   \   00015E   12....       LCALL   `??macRadioSetShortAddr::?relay`; Banked call to: macRadioSetShortAddr
+    488                break;
+   \   000161   8042         SJMP    ??MAC_MlmeSetReq_17
+    489          
+    490              case MAC_RX_ON_WHEN_IDLE:
+    491                /* turn rx on or off */
+    492                if (pMacPib->rxOnWhenIdle)
+   \                     ??MAC_MlmeSetReq_10:
+   \   000163   90....       MOV     DPTR,#macPib + 32
+   \   000166   E0           MOVX    A,@DPTR
+   \   000167   7902         MOV     R1,#0x2
+   \   000169   6005         JZ      ??MAC_MlmeSetReq_18
+    493                {
+    494                  macRxEnable(MAC_RX_WHEN_IDLE);
+   \   00016B                ; Setup parameters for call to function macRxEnable
+   \   00016B   12....       LCALL   `??macRxEnable::?relay`; Banked call to: macRxEnable
+   \   00016E   8035         SJMP    ??MAC_MlmeSetReq_17
+    495                }
+    496                else
+    497                {
+    498                  macRxDisable(MAC_RX_WHEN_IDLE);
+   \                     ??MAC_MlmeSetReq_18:
+   \   000170                ; Setup parameters for call to function macRxDisable
+   \   000170   12....       LCALL   `??macRxDisable::?relay`; Banked call to: macRxDisable
+   \   000173   8030         SJMP    ??MAC_MlmeSetReq_17
+    499                }
+    500                break;
+    501          
+    502              case MAC_LOGICAL_CHANNEL:
+    503                macRadioSetChannel(pMacPib->logicalChannel);
+   \                     ??MAC_MlmeSetReq_13:
+   \   000175                ; Setup parameters for call to function macRadioSetChannel
+   \   000175   90....       MOV     DPTR,#macPib + 48
+   \   000178   E0           MOVX    A,@DPTR
+   \   000179   F9           MOV     R1,A
+   \   00017A   12....       LCALL   `??macRadioSetChannel::?relay`; Banked call to: macRadioSetChannel
+    504                break;
+   \   00017D   8026         SJMP    ??MAC_MlmeSetReq_17
+    505          
+    506              case MAC_EXTENDED_ADDRESS:
+    507                /* set ext address in radio */
+    508                macRadioSetIEEEAddr(pMacPib->extendedAddress.addr.extAddr);
+   \                     ??MAC_MlmeSetReq_14:
+   \   00017F                ; Setup parameters for call to function macRadioSetIEEEAddr
+   \   00017F   7A..         MOV     R2,#(macPib + 49) & 0xff
+   \   000181   7B..         MOV     R3,#((macPib + 49) >> 8) & 0xff
+   \   000183   12....       LCALL   `??macRadioSetIEEEAddr::?relay`; Banked call to: macRadioSetIEEEAddr
+    509                break;
+   \   000186   801D         SJMP    ??MAC_MlmeSetReq_17
+    510          
+    511              case MAC_PHY_TRANSMIT_POWER_SIGNED:
+    512                (void)macRadioSetTxPower(pMacPib->phyTransmitPower);
+   \                     ??MAC_MlmeSetReq_12:
+   \   000188                ; Setup parameters for call to function macRadioSetTxPower
+   \   000188   90....       MOV     DPTR,#macPib + 47
+   \   00018B   E0           MOVX    A,@DPTR
+   \   00018C   F9           MOV     R1,A
+   \   00018D   12....       LCALL   `??macRadioSetTxPower::?relay`; Banked call to: macRadioSetTxPower
+    513                break;
+   \   000190   8013         SJMP    ??MAC_MlmeSetReq_17
+    514          
+    515              case MAC_RF4CE_POWER_SAVINGS:
+    516                pMacPib->rf4cepowerSavings = *(uint8 *)pValue;
+   \                     ??MAC_MlmeSetReq_15:
+   \   000192   8E82         MOV     DPL,R6
+   \   000194   8F83         MOV     DPH,R7
+   \   000196   E0           MOVX    A,@DPTR
+   \   000197   90....       MOV     DPTR,#macPib + 60
+   \   00019A   8008         SJMP    ??MAC_MlmeSetReq_1
+    517                break;
+    518           
+    519              case MAC_FRAME_VERSION_SUPPORT:
+    520                pMacPib->frameVersionSupport = *(uint8 *)pValue;
+   \                     ??MAC_MlmeSetReq_16:
+   \   00019C   8E82         MOV     DPL,R6
+   \   00019E   8F83         MOV     DPH,R7
+   \   0001A0   E0           MOVX    A,@DPTR
+   \   0001A1   90....       MOV     DPTR,#macPib + 61
+   \                     ??MAC_MlmeSetReq_1:
+   \   0001A4   F0           MOVX    @DPTR,A
+    521                break;
+    522          
+    523              default:
+    524                break;
+    525            }
+    526          
+    527            return MAC_SUCCESS;
+   \                     ??MAC_MlmeSetReq_17:
+   \   0001A5   7900         MOV     R1,#0x0
+   \                     ??MAC_MlmeSetReq_3:
+   \   0001A7   7F06         MOV     R7,#0x6
+   \   0001A9   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   0001AC                REQUIRE _A_IEN0
+    528          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   74..         MOV     A,#(macPibTbl + 3) & 0xff
+   \   000002   25..         ADD     A,?V4
+   \   000004   F582         MOV     DPL,A
+   \   000006   74..         MOV     A,#((macPibTbl + 3) >> 8) & 0xff
+   \   000008   35..         ADDC    A,?V5
+   \   00000A   F583         MOV     DPH,A
+   \   00000C   E4           CLR     A
+   \   00000D   93           MOVC    A,@A+DPTR
+   \   00000E   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   74..         MOV     A,#(macPibTbl + 2) & 0xff
+   \   000002   25..         ADD     A,?V4
+   \   000004   F582         MOV     DPL,A
+   \   000006   74..         MOV     A,#((macPibTbl + 2) >> 8) & 0xff
+   \   000008   35..         ADDC    A,?V5
+   \   00000A   F583         MOV     DPH,A
+   \   00000C   E4           CLR     A
+   \   00000D   93           MOVC    A,@A+DPTR
+   \   00000E   22           RET
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macPibReset::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macPibReset
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??macPibIndex::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    macPibIndex
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MAC_MlmeGetReq::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MAC_MlmeGetReq
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MAC_MlmeGetReqSize::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MAC_MlmeGetReqSize
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??MAC_MlmeSetReq::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MAC_MlmeSetReq
+    529          
+
+   Maximum stack usage in bytes:
+
+   XSTACK Function
+   ------ --------
+     16   MAC_MlmeGetReq
+       13   -> macPibIndex
+       16   -> osal_memcpy
+     10   MAC_MlmeGetReqSize
+       10   -> macPibIndex
+     17   MAC_MlmeSetReq
+       14   -> macPibIndex
+       14   -> macRadioSetChannel
+       14   -> macRadioSetIEEEAddr
+       14   -> macRadioSetPanID
+       14   -> macRadioSetShortAddr
+       14   -> macRadioSetTxPower
+       14   -> macRxDisable
+       14   -> macRxEnable
+       17   -> osal_memcpy
+     14   macPibIndex
+     46   macPibReset
+       43   -> macRadioRandomByte
+       46   -> osal_memcpy
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      15  ?Subroutine0
+      15  ?Subroutine1
+     117  MAC_MlmeGetReq
+       6  MAC_MlmeGetReq::?relay
+      51  MAC_MlmeGetReqSize
+       6  MAC_MlmeGetReqSize::?relay
+     428  MAC_MlmeSetReq
+       6  MAC_MlmeSetReq::?relay
+       1  _A_IEN0
+     126  macPib
+     126  macPibDefaults
+      31  macPibIndex
+       6  macPibIndex::?relay
+     108  macPibReset
+       6  macPibReset::?relay
+     184  macPibTbl
+
+ 
+ 765 bytes in segment BANKED_CODE
+  30 bytes in segment BANK_RELAYS
+ 310 bytes in segment CODE_C
+   1 byte  in segment SFR_AN
+ 126 bytes in segment XDATA_Z
+ 
+ 1 105 bytes of CODE  memory
+     0 bytes of DATA  memory (+ 1 byte shared)
+   126 bytes of XDATA memory
+
+Errors: none
+Warnings: none

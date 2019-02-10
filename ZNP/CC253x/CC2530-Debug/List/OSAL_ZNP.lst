@@ -1,0 +1,688 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V9.30.1.3056 for 8051                21/Nov/2018  13:52:14
+# Copyright 2004-2015 IAR Systems AB.
+# Standalone license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\Source\OSAL_ZNP.c
+#    Command line       =  
+#        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+#        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+#        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR | DEVICE_BUILD_ROUTER
+#        | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL -DZNP_RUN_WDOG=FALSE
+#        -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO -DZIGBEE_FRAGMENTATION
+#        -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE -DSAPI_CB_FUNC=FALSE
+#        -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT -DNUM_DISC_ATTEMPTS=0
+#        -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC -DMT_SAPI_FUNC
+#        -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC -DMT_ZDO_MGMT
+#        -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+#        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+#        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+#        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+#        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+#        -DREJOIN_POLL_RATE=440) -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack
+#        Mesh 1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\Source\OSAL_ZNP.c" -D FEATURE_SYSTEM_STATS
+#        -D POWER_SAVING -lC "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+#        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e --no_code_motion
+#        --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+#        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+#        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+#        -Ohz --require_prototypes
+#    List file          =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\OSAL_ZNP.lst
+#    Object file        =  
+#        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+#        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj\OSAL_ZNP.r51
+#
+###############################################################################
+
+D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Projects\zstack\ZNP\Source\OSAL_ZNP.c
+      1          /**************************************************************************************************
+      2            Filename:       OSAL_ZNP.c
+      3            Revised:        $Date: 2013-11-19 07:12:05 -0800 (Tue, 19 Nov 2013) $
+      4            Revision:       $Revision: 36144 $
+      5          
+      6            Description:    This file is the Application-specific mandatory OSAL file.
+      7          
+      8          
+      9            Copyright 2009-2013 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License"). You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product. Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com. 
+     38          **************************************************************************************************/
+     39          
+     40          /*********************************************************************
+     41           * INCLUDES
+     42           */
+     43          
+     44          #include "ZComDef.h"
+     45          #include "hal_drivers.h"
+     46          #include "hal_mcu.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+     47          #include "OSAL.h"
+     48          #include "OSAL_Clock.h"
+     49          #include "OSAL_PwrMgr.h"
+     50          #include "OSAL_Tasks.h"
+     51          #include "hal_board.h"
+     52          #include "MT.h"
+     53          #include "MT_TASK.h"
+     54          #if defined ( MT_SYS_JAMMER_FEATURE )
+     55            #include "MT_SYS.h"
+     56          #endif
+     57          
+     58          #include "nwk.h"
+     59          #include "APS.h"
+     60          #include "ZDApp.h"
+     61          #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+     62          #include "ZDNwkMgr.h"
+     63          #endif
+     64          #if defined ( ZIGBEE_FRAGMENTATION )
+     65          #include "aps_frag.h"
+     66          #endif
+     67          #if defined ( INTER_PAN )
+     68          #include "stub_aps.h"
+     69          #endif
+     70          #include "sapi.h"
+     71          #include "znp_app.h"
+     72          #if defined ( ZCL_KEY_ESTABLISH )
+     73            #include "zcl_key_establish.h"
+     74          #endif
+     75          
+     76          /*********************************************************************
+     77           * GLOBAL VARIABLES
+     78           */
+     79          
+     80          // The order in this table must be identical to the task initialization calls below in osalInitTask.
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     81          const pTaskEventHandlerFn tasksArr[] = {
+   \                     tasksArr:
+   \   000000   ....         DW `??znpEventLoop::?relay`
+   \   000002   ....         DW `??macEventLoop::?relay`
+   \   000004   ....         DW `??nwk_event_loop::?relay`
+   \   000006   ....         DW `??APS_event_loop::?relay`
+   \   000008   ....         DW `??APSF_ProcessEvent::?relay`
+   \   00000A   ....         DW `??ZDApp_event_loop::?relay`
+   \   00000C   ....         DW `??ZDNwkMgr_event_loop::?relay`
+   \   00000E   ....         DW `??StubAPS_ProcessEvent::?relay`
+   \   000010   ....         DW `??SAPI_ProcessEvent::?relay`
+   \   000012   ....         DW `??Hal_ProcessEvent::?relay`
+     82            znpEventLoop,
+     83            macEventLoop,
+     84            nwk_event_loop,
+     85            APS_event_loop,
+     86          #if defined ( ZIGBEE_FRAGMENTATION )
+     87            APSF_ProcessEvent,
+     88          #endif
+     89            ZDApp_event_loop,
+     90          #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+     91            ZDNwkMgr_event_loop,
+     92          #endif
+     93          #if defined( INTER_PAN )
+     94            StubAPS_ProcessEvent,
+     95          #endif
+     96            SAPI_ProcessEvent,
+     97          #if defined ( ZCL_KEY_ESTABLISH )
+     98            zclKeyEstablish_event_loop,
+     99          #endif
+    100            Hal_ProcessEvent,
+    101          #if defined ( MT_SYS_JAMMER_FEATURE )
+    102            jammerEventLoop,
+    103          #endif
+    104          };
+    105          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+    106          const uint8 tasksCnt = sizeof( tasksArr ) / sizeof( tasksArr[0] );
+   \                     tasksCnt:
+   \   000000   0A           DB 10
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    107          uint16 *tasksEvents;
+   \                     tasksEvents:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+    108          
+    109          /*********************************************************************
+    110           * FUNCTIONS
+    111           *********************************************************************/
+    112          
+    113          void osal_start_znp(void);
+    114          static void osal_run_task(uint8 idx);
+    115          
+    116          /*********************************************************************
+    117           * @fn      osalInitTasks
+    118           *
+    119           * @brief   This function invokes the initialization function for each task.
+    120           *
+    121           * @param   void
+    122           *
+    123           * @return  none
+    124           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    125          void osalInitTasks( void )
+   \                     osalInitTasks:
+    126          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    127            uint8 taskID = 0;
+    128          
+    129            tasksEvents = (uint16 *)osal_mem_alloc( sizeof( uint16 ) * tasksCnt);
+   \   000004                ; Setup parameters for call to function osal_mem_alloc
+   \   000004   7A14         MOV     R2,#0x14
+   \   000006   7B00         MOV     R3,#0x0
+   \   000008   12....       LCALL   `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
+   \   00000B   90....       MOV     DPTR,#tasksEvents
+   \   00000E   EA           MOV     A,R2
+   \   00000F   F0           MOVX    @DPTR,A
+   \   000010   A3           INC     DPTR
+   \   000011   EB           MOV     A,R3
+   \   000012   F0           MOVX    @DPTR,A
+    130            osal_memset( tasksEvents, 0, (sizeof( uint16 ) * tasksCnt));
+   \   000013                ; Setup parameters for call to function osal_memset
+   \   000013   7C14         MOV     R4,#0x14
+   \   000015   7D00         MOV     R5,#0x0
+   \   000017   7900         MOV     R1,#0x0
+   \   000019   12....       LCALL   `??osal_memset::?relay`; Banked call to: osal_memset
+    131          
+    132            znpInit( taskID++ );
+   \   00001C                ; Setup parameters for call to function znpInit
+   \   00001C   7900         MOV     R1,#0x0
+   \   00001E   12....       LCALL   `??znpInit::?relay`  ; Banked call to: znpInit
+    133            macTaskInit( taskID++ );
+   \   000021                ; Setup parameters for call to function macTaskInit
+   \   000021   7901         MOV     R1,#0x1
+   \   000023   12....       LCALL   `??macTaskInit::?relay`; Banked call to: macTaskInit
+    134            nwk_init( taskID++ );
+   \   000026                ; Setup parameters for call to function nwk_init
+   \   000026   7902         MOV     R1,#0x2
+   \   000028   12....       LCALL   `??nwk_init::?relay` ; Banked call to: nwk_init
+    135            APS_Init( taskID++ );
+   \   00002B                ; Setup parameters for call to function APS_Init
+   \   00002B   7903         MOV     R1,#0x3
+   \   00002D   12....       LCALL   `??APS_Init::?relay` ; Banked call to: APS_Init
+    136          #if defined ( ZIGBEE_FRAGMENTATION )
+    137            APSF_Init( taskID++ );
+   \   000030                ; Setup parameters for call to function APSF_Init
+   \   000030   7904         MOV     R1,#0x4
+   \   000032   12....       LCALL   `??APSF_Init::?relay`; Banked call to: APSF_Init
+    138          #endif
+    139            ZDApp_Init( taskID++ );
+   \   000035                ; Setup parameters for call to function ZDApp_Init
+   \   000035   7905         MOV     R1,#0x5
+   \   000037   12....       LCALL   `??ZDApp_Init::?relay`; Banked call to: ZDApp_Init
+    140          #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+    141            ZDNwkMgr_Init( taskID++ );
+   \   00003A                ; Setup parameters for call to function ZDNwkMgr_Init
+   \   00003A   7906         MOV     R1,#0x6
+   \   00003C   12....       LCALL   `??ZDNwkMgr_Init::?relay`; Banked call to: ZDNwkMgr_Init
+    142          #endif
+    143          #if defined( INTER_PAN )
+    144            StubAPS_Init( taskID++ );
+   \   00003F                ; Setup parameters for call to function StubAPS_Init
+   \   00003F   7907         MOV     R1,#0x7
+   \   000041   12....       LCALL   `??StubAPS_Init::?relay`; Banked call to: StubAPS_Init
+    145          #endif
+    146            SAPI_Init( taskID++ );
+   \   000044                ; Setup parameters for call to function SAPI_Init
+   \   000044   7908         MOV     R1,#0x8
+   \   000046   12....       LCALL   `??SAPI_Init::?relay`; Banked call to: SAPI_Init
+    147          #if defined ( ZCL_KEY_ESTABLISH )
+    148            zclGeneral_KeyEstablish_Init( taskID++ );
+    149          #endif
+    150            Hal_Init( taskID++ );
+   \   000049                ; Setup parameters for call to function Hal_Init
+   \   000049   7909         MOV     R1,#0x9
+   \   00004B   12....       LCALL   `??Hal_Init::?relay` ; Banked call to: Hal_Init
+    151          #if defined ( MT_SYS_JAMMER_FEATURE )
+    152            jammerInit( taskID++ );
+    153          #endif
+    154          }
+   \   00004E   D083         POP     DPH
+   \   000050   D082         POP     DPL
+   \   000052   02....       LJMP    ?BRET
+    155          
+    156          /*********************************************************************
+    157           * @fn      osal_start_znp
+    158           *
+    159           * @brief
+    160           *
+    161           *   This function is the main loop function of the task system.  It
+    162           *   will look through all task events and call the task_event_processor()
+    163           *   function for the task with the event.  If there are no events (for
+    164           *   all tasks), this function puts the processor into Sleep.
+    165           *   This Function doesn't return.
+    166           *
+    167           * @param   void
+    168           *
+    169           * @return  none
+    170           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    171          void osal_start_znp( void )
+   \                     osal_start_znp:
+    172          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   8008         SJMP    ??osal_start_znp_0
+    173          #if !defined ( ZBIT ) && !defined ( UBIT )
+    174            for(;;)  // Forever Loop
+    175          #endif
+    176            {
+    177          #if defined( POWER_SAVING )
+    178              uint8 busy = FALSE;
+    179          #endif
+    180              uint8 idx;
+    181          
+    182          #ifndef HAL_BOARD_CC2538
+    183              osalTimeUpdate();
+    184          #endif
+    185              Hal_ProcessPoll();
+    186          
+    187              for (idx = 1; idx < tasksCnt; idx++)
+    188              {
+    189                if (tasksEvents[idx])
+    190                {
+    191                  osal_run_task(idx);
+    192          #if defined( POWER_SAVING )
+    193                  busy = TRUE;
+    194          #endif
+    195                  break;
+    196                }
+    197              }
+    198          
+    199              if (tasksEvents[0])  // Always run the ZNP task.
+    200              {
+    201                osal_run_task(0);
+    202          #if defined( POWER_SAVING )
+    203                busy = TRUE;
+    204          #endif
+    205              }
+    206          
+    207          #if defined( POWER_SAVING )
+    208              if (!busy)  // Complete pass through all task events with no activity?
+   \                     ??osal_start_znp_1:
+   \   000007   EE           MOV     A,R6
+   \   000008   A2E0         MOV     C,0xE0 /* A   */.0
+   \   00000A   4003         JC      ??osal_start_znp_0
+    209              {
+    210                osal_pwrmgr_powerconserve();  // Put the processor/system into sleep.
+   \   00000C                ; Setup parameters for call to function osal_pwrmgr_powerconserve
+   \   00000C   12....       LCALL   `??osal_pwrmgr_powerconserve::?relay`; Banked call to: osal_pwrmgr_powerconserve
+    211              }
+   \                     ??osal_start_znp_0:
+   \   00000F   7E00         MOV     R6,#0x0
+   \   000011                ; Setup parameters for call to function osalTimeUpdate
+   \   000011   12....       LCALL   `??osalTimeUpdate::?relay`; Banked call to: osalTimeUpdate
+   \   000014                ; Setup parameters for call to function Hal_ProcessPoll
+   \   000014   12....       LCALL   `??Hal_ProcessPoll::?relay`; Banked call to: Hal_ProcessPoll
+   \   000017   7901         MOV     R1,#0x1
+   \                     ??osal_start_znp_2:
+   \   000019   E9           MOV     A,R1
+   \   00001A   25E0         ADD     A,0xE0 /* A   */
+   \   00001C   FA           MOV     R2,A
+   \   00001D   E4           CLR     A
+   \   00001E   33           RLC     A
+   \   00001F   FB           MOV     R3,A
+   \   000020   90....       MOV     DPTR,#tasksEvents
+   \   000023   E0           MOVX    A,@DPTR
+   \   000024   2A           ADD     A,R2
+   \   000025   F8           MOV     R0,A
+   \   000026   A3           INC     DPTR
+   \   000027   E0           MOVX    A,@DPTR
+   \   000028   3B           ADDC    A,R3
+   \   000029   8882         MOV     DPL,R0
+   \   00002B   F583         MOV     DPH,A
+   \   00002D   E0           MOVX    A,@DPTR
+   \   00002E   FA           MOV     R2,A
+   \   00002F   A3           INC     DPTR
+   \   000030   E0           MOVX    A,@DPTR
+   \   000031   FB           MOV     R3,A
+   \   000032   EA           MOV     A,R2
+   \   000033   4B           ORL     A,R3
+   \   000034   6007         JZ      ??osal_start_znp_3
+   \   000036                ; Setup parameters for call to function osal_run_task
+   \   000036   12....       LCALL   `??osal_run_task::?relay`; Banked call to: osal_run_task
+   \   000039   7E01         MOV     R6,#0x1
+   \   00003B   8007         SJMP    ??osal_start_znp_4
+   \                     ??osal_start_znp_3:
+   \   00003D   09           INC     R1
+   \   00003E   E9           MOV     A,R1
+   \   00003F   C3           CLR     C
+   \   000040   940A         SUBB    A,#0xa
+   \   000042   40D5         JC      ??osal_start_znp_2
+   \                     ??osal_start_znp_4:
+   \   000044   90....       MOV     DPTR,#tasksEvents
+   \   000047   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   00004A   E0           MOVX    A,@DPTR
+   \   00004B   F8           MOV     R0,A
+   \   00004C   A3           INC     DPTR
+   \   00004D   E0           MOVX    A,@DPTR
+   \   00004E   F9           MOV     R1,A
+   \   00004F   E8           MOV     A,R0
+   \   000050   49           ORL     A,R1
+   \   000051   60B4         JZ      ??osal_start_znp_1
+   \   000053                ; Setup parameters for call to function osal_run_task
+   \   000053   7900         MOV     R1,#0x0
+   \   000055   12....       LCALL   `??osal_run_task::?relay`; Banked call to: osal_run_task
+   \   000058   80B5         SJMP    ??osal_start_znp_0
+    212          #endif
+    213            }
+    214          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F583         MOV     DPH,A
+   \   000006   8882         MOV     DPL,R0
+   \   000008   22           RET
+    215          
+    216          /*********************************************************************
+    217           * @fn      osal_run_task
+    218           *
+    219           * @brief
+    220           *
+    221           *   This function is the main loop function of the task system.  It
+    222           *   will look through all task events and call the task_event_processor()
+    223           *   function for the task with the event.  If there are no events (for
+    224           *   all tasks), this function puts the processor into Sleep.
+    225           *   This Function doesn't return.
+    226           *
+    227           * @param   void
+    228           *
+    229           * @return  none
+    230           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    231          static void osal_run_task(uint8 idx)
+   \                     osal_run_task:
+    232          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   89..         MOV     ?V1,R1
+    233            uint16 events;
+    234            halIntState_t intState;
+    235          
+    236            HAL_ENTER_CRITICAL_SECTION(intState);
+   \   000007   ACA8         MOV     R4,0xa8+0x0
+   \   000009   C2AF         CLR     0xa8.7
+    237            events = tasksEvents[idx];
+   \   00000B   E9           MOV     A,R1
+   \   00000C   29           ADD     A,R1
+   \   00000D   FE           MOV     R6,A
+   \   00000E   E4           CLR     A
+   \   00000F   33           RLC     A
+   \   000010   FF           MOV     R7,A
+   \   000011   90....       MOV     DPTR,#tasksEvents
+   \   000014   E0           MOVX    A,@DPTR
+   \   000015   2E           ADD     A,R6
+   \   000016   F8           MOV     R0,A
+   \   000017   A3           INC     DPTR
+   \   000018   E0           MOVX    A,@DPTR
+   \   000019   3F           ADDC    A,R7
+   \   00001A   F9           MOV     R1,A
+   \   00001B   8882         MOV     DPL,R0
+   \   00001D   8983         MOV     DPH,R1
+   \   00001F   E0           MOVX    A,@DPTR
+   \   000020   FA           MOV     R2,A
+   \   000021   A3           INC     DPTR
+   \   000022   E0           MOVX    A,@DPTR
+   \   000023   FB           MOV     R3,A
+    238            tasksEvents[idx] = 0;  // Clear the Events for this task.
+   \   000024   8882         MOV     DPL,R0
+   \   000026   8983         MOV     DPH,R1
+   \   000028   E4           CLR     A
+   \   000029   F0           MOVX    @DPTR,A
+   \   00002A   A3           INC     DPTR
+   \   00002B   F0           MOVX    @DPTR,A
+    239            HAL_EXIT_CRITICAL_SECTION(intState);
+   \   00002C   EC           MOV     A,R4
+   \   00002D   A2E7         MOV     C,0xE0 /* A   */.7
+   \   00002F   E4           CLR     A
+   \   000030   33           RLC     A
+   \   000031   F5..         MOV     ?V0,A
+   \   000033   EC           MOV     A,R4
+   \   000034   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000036   92AF         MOV     0xa8.7,C
+    240          
+    241            events = (tasksArr[idx])( idx, events );
+   \   000038                ; Setup parameters for indirect call
+   \   000038   A9..         MOV     R1,?V1
+   \   00003A   74..         MOV     A,#tasksArr & 0xff
+   \   00003C   2E           ADD     A,R6
+   \   00003D   F582         MOV     DPL,A
+   \   00003F   74..         MOV     A,#(tasksArr >> 8) & 0xff
+   \   000041   3F           ADDC    A,R7
+   \   000042   F583         MOV     DPH,A
+   \   000044   12....       LCALL   ?Subroutine0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000047   12....       LCALL   ?CALL_IND
+    242          
+    243            HAL_ENTER_CRITICAL_SECTION(intState);
+   \   00004A   A8A8         MOV     R0,0xa8+0x0
+   \   00004C   C2AF         CLR     0xa8.7
+    244            tasksEvents[idx] |= events;  // Add back unprocessed events to the current task.
+   \   00004E   90....       MOV     DPTR,#tasksEvents
+   \   000051   E0           MOVX    A,@DPTR
+   \   000052   2E           ADD     A,R6
+   \   000053   F9           MOV     R1,A
+   \   000054   A3           INC     DPTR
+   \   000055   E0           MOVX    A,@DPTR
+   \   000056   3F           ADDC    A,R7
+   \   000057   8982         MOV     DPL,R1
+   \   000059   F583         MOV     DPH,A
+   \   00005B   E0           MOVX    A,@DPTR
+   \   00005C   4A           ORL     A,R2
+   \   00005D   F0           MOVX    @DPTR,A
+   \   00005E   A3           INC     DPTR
+   \   00005F   E0           MOVX    A,@DPTR
+   \   000060   4B           ORL     A,R3
+   \   000061   F0           MOVX    @DPTR,A
+    245            HAL_EXIT_CRITICAL_SECTION(intState);
+   \   000062   E8           MOV     A,R0
+   \   000063   A2E7         MOV     C,0xE0 /* A   */.7
+   \   000065   E4           CLR     A
+   \   000066   33           RLC     A
+   \   000067   F9           MOV     R1,A
+   \   000068   E8           MOV     A,R0
+   \   000069   A2E7         MOV     C,0xE0 /* A   */.7
+   \   00006B   92AF         MOV     0xa8.7,C
+    246          }
+   \   00006D   7F04         MOV     R7,#0x4
+   \   00006F   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000072                REQUIRE _A_IEN0
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??osalInitTasks::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osalInitTasks
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??osal_start_znp::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_start_znp
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??osal_run_task::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    osal_run_task
+    247          
+    248          /*********************************************************************
+    249          *********************************************************************/
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2      0   osalInitTasks
+        2      0   -> APSF_Init
+        2      0   -> APS_Init
+        2      0   -> Hal_Init
+        2      0   -> SAPI_Init
+        2      0   -> StubAPS_Init
+        2      0   -> ZDApp_Init
+        2      0   -> ZDNwkMgr_Init
+        2      0   -> macTaskInit
+        2      0   -> nwk_init
+        2      0   -> osal_mem_alloc
+        2      0   -> osal_memset
+        2      0   -> znpInit
+      0     21   osal_run_task
+      0      9   osal_start_znp
+        0      9   -> Hal_ProcessPoll
+        0      9   -> osalTimeUpdate
+        0      9   -> osal_pwrmgr_powerconserve
+        0      9   -> osal_run_task
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       9  ?Subroutine0
+       1  _A_IEN0
+      85  osalInitTasks
+       6  osalInitTasks::?relay
+     114  osal_run_task
+       6  osal_run_task::?relay
+      90  osal_start_znp
+       6  osal_start_znp::?relay
+      20  tasksArr
+       1  tasksCnt
+       2  tasksEvents
+
+ 
+ 298 bytes in segment BANKED_CODE
+  18 bytes in segment BANK_RELAYS
+   1 byte  in segment SFR_AN
+  21 bytes in segment XDATA_ROM_C
+   2 bytes in segment XDATA_Z
+ 
+ 316 bytes of CODE  memory
+  21 bytes of CONST memory
+   0 bytes of DATA  memory (+ 1 byte shared)
+   2 bytes of XDATA memory
+
+Errors: none
+Warnings: none

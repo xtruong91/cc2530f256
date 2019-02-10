@@ -1,0 +1,2807 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               21/Nov/2018  13:52:24
+// Copyright 2004-2015 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\Source\znp_spi.c
+//    Command line       =  
+//        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+//        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR |
+//        DEVICE_BUILD_ROUTER | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL
+//        -DZNP_RUN_WDOG=FALSE -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO
+//        -DZIGBEE_FRAGMENTATION -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE
+//        -DSAPI_CB_FUNC=FALSE -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT
+//        -DNUM_DISC_ATTEMPTS=0 -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC
+//        -DMT_SAPI_FUNC -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC
+//        -DMT_ZDO_MGMT -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -f
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\Source\znp_spi.c" -D
+//        FEATURE_SYSTEM_STATS -D POWER_SAVING -lC
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+//        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e
+//        --no_code_motion --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+//        -Ohz --require_prototypes
+//    List file          =  
+//        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\znp_spi.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME znp_spi
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?V0
+        EXTERN ?V1
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?INTERRUPT_ENTER_XSP
+        EXTERN ?INTERRUPT_LEAVE_XSP
+        EXTERN ?PUSH_XSTACK8_X_FOUR
+        EXTERN ?XSP
+        EXTERN __INIT_XDATA_Z
+
+        FUNCTION `??dmaInit::?relay`,0203H
+        PUBLIC `??npSpiAReqAlloc::?relay`
+        FUNCTION `??npSpiAReqAlloc::?relay`,0203H
+        PUBLIC `??npSpiAReqComplete::?relay`
+        FUNCTION `??npSpiAReqComplete::?relay`,0203H
+        PUBLIC `??npSpiAReqReady::?relay`
+        FUNCTION `??npSpiAReqReady::?relay`,0203H
+        PUBLIC `??npSpiGetReqBuf::?relay`
+        FUNCTION `??npSpiGetReqBuf::?relay`,0203H
+        PUBLIC `??npSpiIdle::?relay`
+        FUNCTION `??npSpiIdle::?relay`,0203H
+        PUBLIC `??npSpiInit::?relay`
+        FUNCTION `??npSpiInit::?relay`,0203H
+        PUBLIC `??npSpiMonitor::?relay`
+        FUNCTION `??npSpiMonitor::?relay`,0203H
+        PUBLIC `??npSpiMrdyIsr::?relay`
+        FUNCTION `??npSpiMrdyIsr::?relay`,0203H
+        PUBLIC `??npSpiRxIsr::?relay`
+        FUNCTION `??npSpiRxIsr::?relay`,0203H
+        PUBLIC `??npSpiSRspAlloc::?relay`
+        FUNCTION `??npSpiSRspAlloc::?relay`,0203H
+        PUBLIC `??npSpiSRspReady::?relay`
+        FUNCTION `??npSpiSRspReady::?relay`,0203H
+        PUBLIC `??npSpiTxIsr::?relay`
+        FUNCTION `??npSpiTxIsr::?relay`,0203H
+        PUBWEAK `??port0Isr::??INTVEC 107`
+        PUBWEAK DMAARM
+        PUBWEAK DMAIRQ
+        PUBWEAK DMAREQ
+        PUBWEAK P0DIR
+        PUBWEAK P0IEN
+        PUBWEAK P0IFG
+        PUBWEAK P0INP
+        PUBWEAK P0SEL
+        PUBWEAK P1SEL
+        PUBWEAK P2INP
+        PUBWEAK P2SEL
+        PUBWEAK PERCFG
+        PUBWEAK PICTL
+        PUBWEAK U1GCR
+        PUBWEAK _A_IEN0
+        PUBWEAK _A_IEN1
+        PUBWEAK _A_IRCON
+        PUBWEAK _A_P0
+        PUBWEAK _A_U1CSR
+        PUBWEAK __Constant_a
+        FUNCTION dmaInit,0203H
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC npSpiAReqAlloc
+        FUNCTION npSpiAReqAlloc,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC npSpiAReqComplete
+        FUNCTION npSpiAReqComplete,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC npSpiAReqReady
+        FUNCTION npSpiAReqReady,0203H
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 3, STACK
+        LOCFRAME XSTACK, 1, STACK
+        PUBLIC npSpiGetReqBuf
+        FUNCTION npSpiGetReqBuf,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC npSpiIdle
+        FUNCTION npSpiIdle,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC npSpiInit
+        FUNCTION npSpiInit,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC npSpiMonitor
+        FUNCTION npSpiMonitor,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 14, STACK
+        PUBLIC npSpiMrdyIsr
+        FUNCTION npSpiMrdyIsr,0203H
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 3, STACK
+        LOCFRAME XSTACK, 1, STACK
+        PUBLIC npSpiRxIsr
+        FUNCTION npSpiRxIsr,0a1203H
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC npSpiSRspAlloc
+        FUNCTION npSpiSRspAlloc,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC npSpiSRspReady
+        FUNCTION npSpiSRspReady,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC npSpiTxIsr
+        FUNCTION npSpiTxIsr,021203H
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC port0Isr
+        FUNCTION port0Isr,021233H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA_SP SP IDATA
+          CFI StackFrame CFA_PSP16 PSP16 XDATA
+          CFI StackFrame CFA_XSP16 XSP16 XDATA
+          CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+          CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+          CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+          CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+          CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+          CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+          CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+          CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+          CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+          CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+          CFI VirtualResource ?RET:24
+          CFI Resource ?BRET_EXT:8
+          CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+          CFI ResourceParts PSP16 PSPH, PSPL
+          CFI ResourceParts XSP16 XSPH, XSPL
+          CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-3
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B Undefined
+          CFI A Undefined
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 Undefined
+          CFI R1 Undefined
+          CFI R2 Undefined
+          CFI R3 Undefined
+          CFI R4 Undefined
+          CFI R5 Undefined
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT Frame(CFA_SP, 3)
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 1
+          CFI DataAlign -1
+          CFI ReturnAddress ?RET CODE
+          CFI CFA_DOVERLAY Used
+          CFI CFA_IOVERLAY Used
+          CFI CFA_SP SP+-2
+          CFI CFA_PSP16 PSP16+0
+          CFI CFA_XSP16 XSP16+0
+          CFI `PSW.CY` SameValue
+          CFI `B.BR0` SameValue
+          CFI `B.BR1` SameValue
+          CFI `B.BR2` SameValue
+          CFI `B.BR3` SameValue
+          CFI `B.BR4` SameValue
+          CFI `B.BR5` SameValue
+          CFI `B.BR6` SameValue
+          CFI `B.BR7` SameValue
+          CFI `VB.BR8` SameValue
+          CFI `VB.BR9` SameValue
+          CFI `VB.BR10` SameValue
+          CFI `VB.BR11` SameValue
+          CFI `VB.BR12` SameValue
+          CFI `VB.BR13` SameValue
+          CFI `VB.BR14` SameValue
+          CFI `VB.BR15` SameValue
+          CFI VB SameValue
+          CFI B SameValue
+          CFI A SameValue
+          CFI PSW SameValue
+          CFI DPL0 SameValue
+          CFI DPH0 SameValue
+          CFI R0 SameValue
+          CFI R1 SameValue
+          CFI R2 SameValue
+          CFI R3 SameValue
+          CFI R4 SameValue
+          CFI R5 SameValue
+          CFI R6 SameValue
+          CFI R7 SameValue
+          CFI V0 SameValue
+          CFI V1 SameValue
+          CFI V2 SameValue
+          CFI V3 SameValue
+          CFI V4 SameValue
+          CFI V5 SameValue
+          CFI V6 SameValue
+          CFI V7 SameValue
+          CFI V8 SameValue
+          CFI V9 SameValue
+          CFI V10 SameValue
+          CFI V11 SameValue
+          CFI V12 SameValue
+          CFI V13 SameValue
+          CFI V14 SameValue
+          CFI V15 SameValue
+          CFI PSPH Undefined
+          CFI PSPL Undefined
+          CFI XSPH Undefined
+          CFI XSPL Undefined
+          CFI ?RET Concat
+          CFI ?BRET_EXT SameValue
+          CFI ?RET_HIGH Frame(CFA_SP, 2)
+          CFI ?RET_LOW Frame(CFA_SP, 1)
+          CFI EndCommon cfiCommon1
+        
+ZMacGetReq          SYMBOL "ZMacGetReq"
+`??ZMacGetReq::?relay` SYMBOL "?relay", ZMacGetReq
+npSpiPollCallback   SYMBOL "npSpiPollCallback"
+`??npSpiPollCallback::?relay` SYMBOL "?relay", npSpiPollCallback
+npSpiReadyCallback  SYMBOL "npSpiReadyCallback"
+`??npSpiReadyCallback::?relay` SYMBOL "?relay", npSpiReadyCallback
+osal_clear_event    SYMBOL "osal_clear_event"
+`??osal_clear_event::?relay` SYMBOL "?relay", osal_clear_event
+osal_msg_allocate   SYMBOL "osal_msg_allocate"
+`??osal_msg_allocate::?relay` SYMBOL "?relay", osal_msg_allocate
+osal_msg_deallocate SYMBOL "osal_msg_deallocate"
+`??osal_msg_deallocate::?relay` SYMBOL "?relay", osal_msg_deallocate
+osal_pwrmgr_task_state SYMBOL "osal_pwrmgr_task_state"
+`??osal_pwrmgr_task_state::?relay` SYMBOL "?relay", osal_pwrmgr_task_state
+osal_set_event      SYMBOL "osal_set_event"
+`??osal_set_event::?relay` SYMBOL "?relay", osal_set_event
+osal_start_timerEx  SYMBOL "osal_start_timerEx"
+`??osal_start_timerEx::?relay` SYMBOL "?relay", osal_start_timerEx
+osal_stop_timerEx   SYMBOL "osal_stop_timerEx"
+`??osal_stop_timerEx::?relay` SYMBOL "?relay", osal_stop_timerEx
+npSpiAReqAlloc      SYMBOL "npSpiAReqAlloc"
+`??npSpiAReqAlloc::?relay` SYMBOL "?relay", npSpiAReqAlloc
+npSpiAReqComplete   SYMBOL "npSpiAReqComplete"
+`??npSpiAReqComplete::?relay` SYMBOL "?relay", npSpiAReqComplete
+npSpiAReqReady      SYMBOL "npSpiAReqReady"
+`??npSpiAReqReady::?relay` SYMBOL "?relay", npSpiAReqReady
+npSpiGetReqBuf      SYMBOL "npSpiGetReqBuf"
+`??npSpiGetReqBuf::?relay` SYMBOL "?relay", npSpiGetReqBuf
+npSpiIdle           SYMBOL "npSpiIdle"
+`??npSpiIdle::?relay` SYMBOL "?relay", npSpiIdle
+npSpiInit           SYMBOL "npSpiInit"
+`??npSpiInit::?relay` SYMBOL "?relay", npSpiInit
+npSpiMonitor        SYMBOL "npSpiMonitor"
+`??npSpiMonitor::?relay` SYMBOL "?relay", npSpiMonitor
+npSpiMrdyIsr        SYMBOL "npSpiMrdyIsr"
+`??npSpiMrdyIsr::?relay` SYMBOL "?relay", npSpiMrdyIsr
+npSpiRxIsr          SYMBOL "npSpiRxIsr"
+`??npSpiRxIsr::?relay` SYMBOL "?relay", npSpiRxIsr
+npSpiSRspAlloc      SYMBOL "npSpiSRspAlloc"
+`??npSpiSRspAlloc::?relay` SYMBOL "?relay", npSpiSRspAlloc
+npSpiSRspReady      SYMBOL "npSpiSRspReady"
+`??npSpiSRspReady::?relay` SYMBOL "?relay", npSpiSRspReady
+npSpiTxIsr          SYMBOL "npSpiTxIsr"
+`??npSpiTxIsr::?relay` SYMBOL "?relay", npSpiTxIsr
+port0Isr            SYMBOL "port0Isr"
+`??port0Isr::??INTVEC 107` SYMBOL "??INTVEC 107", port0Isr
+
+        EXTERN `??ZMacGetReq::?relay`
+        FUNCTION `??ZMacGetReq::?relay`,00H
+        EXTERN `??npSpiPollCallback::?relay`
+        FUNCTION `??npSpiPollCallback::?relay`,00H
+        EXTERN `??npSpiReadyCallback::?relay`
+        FUNCTION `??npSpiReadyCallback::?relay`,00H
+        EXTERN `??osal_clear_event::?relay`
+        FUNCTION `??osal_clear_event::?relay`,00H
+        EXTERN `??osal_msg_allocate::?relay`
+        FUNCTION `??osal_msg_allocate::?relay`,00H
+        EXTERN `??osal_msg_deallocate::?relay`
+        FUNCTION `??osal_msg_deallocate::?relay`,00H
+        EXTERN `??osal_pwrmgr_task_state::?relay`
+        FUNCTION `??osal_pwrmgr_task_state::?relay`,00H
+        EXTERN `??osal_set_event::?relay`
+        FUNCTION `??osal_set_event::?relay`,00H
+        EXTERN `??osal_start_timerEx::?relay`
+        FUNCTION `??osal_start_timerEx::?relay`,00H
+        EXTERN `??osal_stop_timerEx::?relay`
+        FUNCTION `??osal_stop_timerEx::?relay`,00H
+        EXTERN MT_TaskID
+        EXTERN ZMacGetReq
+        FUNCTION ZMacGetReq,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN dmaCh1234
+        EXTERN npSpiPollCallback
+        FUNCTION npSpiPollCallback,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN npSpiReadyCallback
+        FUNCTION npSpiReadyCallback,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_clear_event
+        FUNCTION osal_clear_event,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_allocate
+        FUNCTION osal_msg_allocate,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_deallocate
+        FUNCTION osal_msg_deallocate,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_pwrmgr_task_state
+        FUNCTION osal_pwrmgr_task_state,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_set_event
+        FUNCTION osal_set_event,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_start_timerEx
+        FUNCTION osal_start_timerEx,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_stop_timerEx
+        FUNCTION osal_stop_timerEx,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zgDeviceLogicalType
+        EXTERN znpCfg1
+
+// D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Projects\zstack\ZNP\CC253x\Source\znp_spi.c
+//    1 /**************************************************************************************************
+//    2   Filename:       znp_spi.c
+//    3   Revised:        $Date: 2010-07-28 18:42:54 -0700 (Wed, 28 Jul 2010) $
+//    4   Revision:       $Revision: 23203 $
+//    5 
+//    6   Description:
+//    7 
+//    8   This file contains the interface to the H/W-specific ZNP SPI driver.
+//    9 
+//   10 
+//   11   Copyright 2009-2010 Texas Instruments Incorporated. All rights reserved.
+//   12 
+//   13   IMPORTANT: Your use of this Software is limited to those specific rights
+//   14   granted under the terms of a software license agreement between the user
+//   15   who downloaded the software, his/her employer (which must be your employer)
+//   16   and Texas Instruments Incorporated (the "License").  You may not use this
+//   17   Software unless you agree to abide by the terms of the License. The License
+//   18   limits your use, and you acknowledge, that the Software may not be modified,
+//   19   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   20   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   21   frequency transceiver, which is integrated into your product.  Other than for
+//   22   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   23   works of, modify, distribute, perform, display or sell this Software and/or
+//   24   its documentation for any purpose.
+//   25 
+//   26   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   27   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+//   28   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+//   29   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   30   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   31   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   32   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   33   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   34   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   35   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   36   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   37 
+//   38   Should you have any questions regarding your right to use this Software,
+//   39   contact Texas Instruments Incorporated at www.TI.com. 
+//   40 **************************************************************************************************/
+//   41 
+//   42 /* ------------------------------------------------------------------------------------------------
+//   43  *                                          Includes
+//   44  * ------------------------------------------------------------------------------------------------
+//   45  */
+//   46 
+//   47 #include "comdef.h"
+//   48 #include "hal_assert.h"
+//   49 #include "hal_dma.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,080H
+// union <unnamed> volatile __sfr _A_P0
+_A_P0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,089H
+// unsigned char volatile __sfr P0IFG
+P0IFG:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,08cH
+// unsigned char volatile __sfr PICTL
+PICTL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,08fH
+// unsigned char volatile __sfr P0INP
+P0INP:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0a8H
+// union <unnamed> volatile __sfr _A_IEN0
+_A_IEN0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0abH
+// unsigned char volatile __sfr P0IEN
+P0IEN:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0b8H
+// union <unnamed> volatile __sfr _A_IEN1
+_A_IEN1:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0c0H
+// union <unnamed> volatile __sfr _A_IRCON
+_A_IRCON:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0d1H
+// unsigned char volatile __sfr DMAIRQ
+DMAIRQ:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0d6H
+// unsigned char volatile __sfr DMAARM
+DMAARM:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0d7H
+// unsigned char volatile __sfr DMAREQ
+DMAREQ:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f1H
+// unsigned char volatile __sfr PERCFG
+PERCFG:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f3H
+// unsigned char volatile __sfr P0SEL
+P0SEL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f4H
+// unsigned char volatile __sfr P1SEL
+P1SEL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f5H
+// unsigned char volatile __sfr P2SEL
+P2SEL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f7H
+// unsigned char volatile __sfr P2INP
+P2INP:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f8H
+// union <unnamed> volatile __sfr _A_U1CSR
+_A_U1CSR:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0fcH
+// unsigned char volatile __sfr U1GCR
+U1GCR:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0fdH
+// unsigned char volatile __sfr P0DIR
+P0DIR:
+        DATA8
+        DS 1
+//   50 #include "MT_RPC.h"
+//   51 #include "OnBoard.h"
+//   52 #include "osal.h"
+//   53 #if defined POWER_SAVING
+//   54 #include "OSAL_PwrMgr.h"
+//   55 #endif        
+//   56 #include "ZDApp.h"
+//   57 #include "znp_app.h"
+//   58 #include "znp_spi.h"
+//   59 
+//   60 /* ------------------------------------------------------------------------------------------------
+//   61  *                                           Macros
+//   62  * ------------------------------------------------------------------------------------------------
+//   63  */
+//   64 
+//   65 /*
+//   66  *  The MAC_ASSERT macro is for use during debugging.
+//   67  *  The given expression must evaluate as "true" or else fatal error occurs.
+//   68  *  At that point, the call stack feature of the debugger can pinpoint where the problem occurred.
+//   69  *
+//   70  *  To disable this feature and save code size, the project should define NP_SPI_NODEBUG to TRUE.
+//   71  */
+//   72 
+//   73 #if !defined ( NP_SPI_NODEBUG )
+//   74   #define NP_SPI_NODEBUG              TRUE
+//   75 #endif
+//   76 
+//   77 #if ( NP_SPI_NODEBUG )
+//   78   #define NP_SPI_ASSERT( expr )
+//   79 #else
+//   80   #define NP_SPI_ASSERT( expr)        HAL_ASSERT( expr )
+//   81 #endif
+//   82 
+//   83 #if defined CC2530_MK
+//   84 #define DMATRIG_RX  HAL_DMA_TRIG_URX0
+//   85 #define DMATRIG_TX  HAL_DMA_TRIG_UTX0
+//   86 #define DMA_UDBUF   NP_SPI_U0DBUF
+//   87 #else
+//   88 #define DMATRIG_RX  HAL_DMA_TRIG_URX1
+//   89 #define DMATRIG_TX  HAL_DMA_TRIG_UTX1
+//   90 #define DMA_UDBUF   NP_SPI_U1DBUF
+//   91 #endif
+//   92 
+//   93 #define DMA_RX() \ 
+//   94   st( \ 
+//   95     volatile uint8 clearRx = *((uint8 *)DMA_UDBUF); \ 
+//   96     \ 
+//   97     HAL_DMA_CLEAR_IRQ(HAL_DMA_CH_RX); \ 
+//   98     \ 
+//   99     HAL_DMA_ARM_CH(HAL_DMA_CH_RX); \ 
+//  100   )
+//  101 
+//  102 #define DMA_TX( buf ) \ 
+//  103   st( \ 
+//  104     halDMADesc_t *ch = HAL_DMA_GET_DESC1234(HAL_DMA_CH_TX); \ 
+//  105     \ 
+//  106     HAL_DMA_SET_SOURCE(ch, (buf)); \ 
+//  107     \ 
+//  108     HAL_DMA_CLEAR_IRQ(HAL_DMA_CH_TX); \ 
+//  109     \ 
+//  110     HAL_DMA_ARM_CH(HAL_DMA_CH_TX); \ 
+//  111     \ 
+//  112     HAL_DMA_START_CH(HAL_DMA_CH_TX); \ 
+//  113   )
+//  114 
+//  115 #define HAL_DMA_GET_SOURCE( pDesc, src ) \ 
+//  116   st( \ 
+//  117     src = (uint16)(pDesc->srcAddrH) << 8; \ 
+//  118     src += pDesc->srcAddrL; \ 
+//  119   )
+//  120 
+//  121 /* ------------------------------------------------------------------------------------------------
+//  122  *                                           Constants
+//  123  * ------------------------------------------------------------------------------------------------
+//  124  */
+//  125 
+//  126 #define NP_SPI_U0DBUF  0x70C1
+//  127 #define NP_SPI_U1DBUF  0x70F9
+//  128 
+//  129 /* UxCSR - USART Control and Status Register. */
+//  130 #define CSR_MODE       0x80
+//  131 #define CSR_RE         0x40
+//  132 #define CSR_SLAVE      0x20
+//  133 #define CSR_FE         0x10
+//  134 #define CSR_ERR        0x08
+//  135 #define CSR_RX_BYTE    0x04
+//  136 #define CSR_TX_BYTE    0x02
+//  137 #define CSR_ACTIVE     0x01
+//  138 
+//  139 /* UxUCR - USART UART Control Register. */
+//  140 #define UCR_FLUSH      0x80
+//  141 #define UCR_FLOW       0x40
+//  142 #define UCR_D9         0x20
+//  143 #define UCR_BIT9       0x10
+//  144 #define UCR_PARITY     0x08
+//  145 #define UCR_SPB        0x04
+//  146 #define UCR_STOP       0x02
+//  147 #define UCR_START      0x01
+//  148 
+//  149 #define UTX0IE         0x04
+//  150 #define UTX1IE         0x08
+//  151 
+//  152 #define NP_SPI_RX_SREQ_EVENT  ZNP_SPI_RX_SREQ_EVENT
+//  153 #define NP_SPI_RX_AREQ_EVENT  ZNP_SPI_RX_AREQ_EVENT
+//  154 
+//  155 /* Reference data sheet section 8.2.4: When using variable-length transfers, then LEN
+//  156  * should be set to the largest allowed transfer length plus one.
+//  157  */
+//  158 #define NP_SPI_BUF_LEN  (MT_RPC_DATA_MAX + MT_RPC_FRAME_HDR_SZ + 1)
+//  159 
+//  160 #if defined CC2530_MK
+//  161 #define NP_RDYIn_BIT     BV(0)
+//  162 #define NP_RDYIn         P2_0
+//  163 #define NP_RDYOut        P1_0
+//  164 #define NP_RDYOut_BIT    BV(0)
+//  165 
+//  166 #elif !defined CC2530ZNP_MK
+//  167 
+//  168 #define NP_RDYIn_BIT     BV(3)
+//  169 #define NP_RDYIn         P0_3
+//  170 #define NP_RDYOut        P0_4
+//  171 #define NP_RDYOut_BIT    BV(4)
+//  172 #endif
+//  173 
+//  174 #define NP_CSR_MODE      BV(5)  //  CSR_SLAVE
+//  175 
+//  176 /* ------------------------------------------------------------------------------------------------
+//  177  *                                           TypeDefs
+//  178  * ------------------------------------------------------------------------------------------------
+//  179  */
+//  180 
+//  181 typedef enum
+//  182 {
+//  183   NP_SPI_IDLE,           /* Idle, no transaction in progress. */
+//  184   NP_SPI_MRDY,           /* Idle, but got MRDY ISR, so waiting to enable the RX DMA. */
+//  185   NP_SPI_WAIT_RX,        /* Waiting for RX to complete. */
+//  186   NP_SPI_WAIT_TX,        /* Waiting for TX to complete. */
+//  187   NP_SPI_WAIT_AREQ,      /* Waiting for asynchronous request to finish processing. */
+//  188   NP_SPI_WAIT_SREQ       /* Waiting for a synchronous request to finish processing. */
+//  189 } spiState_t;
+//  190 
+//  191 /* ------------------------------------------------------------------------------------------------
+//  192  *                                           Local Variables
+//  193  * ------------------------------------------------------------------------------------------------
+//  194  */
+//  195 
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  196 static uint8 npSpiBuf[NP_SPI_BUF_LEN];
+npSpiBuf:
+        DS 254
+        REQUIRE __INIT_XDATA_Z
+//  197 
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  198 static volatile spiState_t npSpiState;
+npSpiState:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//  199 
+//  200 /* ------------------------------------------------------------------------------------------------
+//  201  *                                           Local Functions
+//  202  * ------------------------------------------------------------------------------------------------
+//  203  */
+//  204 
+//  205 static void dmaInit(void);
+//  206 
+//  207 /**************************************************************************************************
+//  208  * @fn          dmaInit
+//  209  *
+//  210  * @brief       This function initializes the DMA for the SPI driver.
+//  211  *
+//  212  * input parameters
+//  213  *
+//  214  * None.
+//  215  *
+//  216  * output parameters
+//  217  *
+//  218  * None.
+//  219  *
+//  220  * @return      None.
+//  221  **************************************************************************************************
+//  222  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  223 static void dmaInit(void)
+dmaInit:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function dmaInit
+        CODE
+//  224 {
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  225   halDMADesc_t *ch;
+//  226 
+//  227   /* Setup Tx by DMA. */
+//  228   ch = HAL_DMA_GET_DESC1234(HAL_DMA_CH_TX);
+//  229 
+//  230   /* The start address of the source and destination. */
+//  231   HAL_DMA_SET_SOURCE(ch, npSpiBuf);
+        MOV     A,#(npSpiBuf >> 8) & 0xff
+        MOV     R1,A
+        MOV     DPTR,#dmaCh1234 + 24
+        MOVX    @DPTR,A
+        MOV     R0,#npSpiBuf & 0xff
+        MOV     A,R0
+        INC     DPTR
+        MOVX    @DPTR,A
+//  232   HAL_DMA_SET_DEST(ch, DMA_UDBUF);
+        INC     DPTR
+        MOV     A,#0x70
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#-0x7
+        LCALL   ?Subroutine3 & 0xFFFF
+//  233 
+//  234   /* Transfer the first byte + the number of bytes indicated by the first byte + 2 more bytes. */
+//  235   HAL_DMA_SET_VLEN(ch, HAL_DMA_VLEN_1_P_VALOFFIRST_P_2);
+//  236   HAL_DMA_SET_LEN(ch, NP_SPI_BUF_LEN);
+??CrossCallReturnLabel_3:
+        MOV     DPTR,#dmaCh1234 + 28
+        MOV     A,#-0x80
+        MOVX    @DPTR,A
+//  237 
+//  238   /* One byte is transferred each time. */
+//  239   HAL_DMA_SET_WORD_SIZE(ch, HAL_DMA_WORDSIZE_BYTE);
+//  240 
+//  241   /* The bytes are transferred 1-by-1 on Tx Complete trigger. */
+//  242   HAL_DMA_SET_TRIG_MODE(ch, HAL_DMA_TMODE_SINGLE);
+//  243   HAL_DMA_SET_TRIG_SRC(ch, DMATRIG_TX);
+        MOV     DPTR,#dmaCh1234 + 30
+        MOV     A,#0x11
+        MOVX    @DPTR,A
+//  244 
+//  245   /* The source address is decremented by 1 byte after each transfer. */
+//  246   HAL_DMA_SET_SRC_INC(ch, HAL_DMA_SRCINC_1);
+//  247 
+//  248   /* The destination address is constant - the Tx Data Buffer. */
+//  249   HAL_DMA_SET_DST_INC(ch, HAL_DMA_DSTINC_0);
+//  250 
+//  251   /* The DMA shall issue an IRQ upon completion. */
+//  252   HAL_DMA_SET_IRQ(ch, HAL_DMA_IRQMASK_ENABLE);
+//  253 
+//  254   /* Xfer all 8 bits of a byte xfer. */
+//  255   HAL_DMA_SET_M8(ch, HAL_DMA_M8_USE_8_BITS);
+//  256 
+//  257   /* DMA has highest priority for memory access. */
+//  258   HAL_DMA_SET_PRIORITY(ch, HAL_DMA_PRI_HIGH);
+        INC     DPTR
+        MOV     A,#0x4a
+        MOVX    @DPTR,A
+//  259 
+//  260   /* Setup Rx by DMA. */
+//  261   ch = HAL_DMA_GET_DESC1234(HAL_DMA_CH_RX);
+//  262 
+//  263   /* The start address of the source and destination. */
+//  264   HAL_DMA_SET_SOURCE(ch, DMA_UDBUF);
+        MOV     DPTR,#dmaCh1234 + 16
+        MOV     A,#0x70
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#-0x7
+        MOVX    @DPTR,A
+//  265   HAL_DMA_SET_DEST(ch, npSpiBuf);
+        MOV     A,R1
+        INC     DPTR
+        MOVX    @DPTR,A
+        MOV     A,R0
+        INC     DPTR
+        LCALL   ?Subroutine3 & 0xFFFF
+//  266 
+//  267   /* Transfer the first byte + the number of bytes indicated by the first byte + 2 more bytes. */
+//  268   HAL_DMA_SET_VLEN(ch, HAL_DMA_VLEN_1_P_VALOFFIRST_P_2);
+//  269   HAL_DMA_SET_LEN(ch, NP_SPI_BUF_LEN);
+??CrossCallReturnLabel_4:
+        MOV     DPTR,#dmaCh1234 + 20
+        MOV     A,#-0x80
+        MOVX    @DPTR,A
+//  270 
+//  271   HAL_DMA_SET_WORD_SIZE(ch, HAL_DMA_WORDSIZE_BYTE);
+//  272 
+//  273   /* The bytes are transferred 1-by-1 on Rx Complete trigger. */
+//  274   HAL_DMA_SET_TRIG_MODE(ch, HAL_DMA_TMODE_SINGLE);
+//  275   HAL_DMA_SET_TRIG_SRC(ch, DMATRIG_RX);
+        MOV     DPTR,#dmaCh1234 + 22
+        MOV     A,#0x10
+        MOVX    @DPTR,A
+//  276 
+//  277   /* The source address is constant - the Rx Data Buffer. */
+//  278   HAL_DMA_SET_SRC_INC(ch, HAL_DMA_SRCINC_0);
+//  279 
+//  280   /* The destination address is incremented by 1 byte after each transfer. */
+//  281   HAL_DMA_SET_DST_INC(ch, HAL_DMA_DSTINC_1);
+//  282 
+//  283   /* The DMA shall issue an IRQ upon completion. */
+//  284   HAL_DMA_SET_IRQ(ch, HAL_DMA_IRQMASK_ENABLE);
+//  285 
+//  286   /* Xfer all 8 bits of a byte xfer. */
+//  287   HAL_DMA_SET_M8(ch, HAL_DMA_M8_USE_8_BITS);
+//  288 
+//  289   /* DMA has highest priority for memory access. */
+//  290   HAL_DMA_SET_PRIORITY(ch, HAL_DMA_PRI_HIGH);
+        INC     DPTR
+        MOV     A,#0x1a
+        MOVX    @DPTR,A
+//  291 }
+        LJMP    ??Subroutine5_0 & 0xFFFF
+          CFI EndBlock cfiBlock0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine3:
+          CFI Block cfiCond1 Using cfiCommon0
+          CFI Function dmaInit
+          CFI Conditional ??CrossCallReturnLabel_3
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-7
+          CFI Block cfiCond2 Using cfiCommon0
+          CFI (cfiCond2) Function dmaInit
+          CFI (cfiCond2) Conditional ??CrossCallReturnLabel_4
+          CFI (cfiCond2) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond2) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond2) CFA_SP SP+-7
+          CFI Block cfiPicker3 Using cfiCommon1
+          CFI (cfiPicker3) NoFunction
+          CFI (cfiPicker3) Picker
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        ANL     A,#0x1f
+        MOVX    @DPTR,A
+        ORL     A,#0x80
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,#-0x2
+        MOVX    @DPTR,A
+        RET
+          CFI EndBlock cfiCond1
+          CFI EndBlock cfiCond2
+          CFI EndBlock cfiPicker3
+//  292 
+//  293 /**************************************************************************************************
+//  294  * @fn          npSpiInit
+//  295  *
+//  296  * @brief       This function is called to set up the SPI interface.
+//  297  *
+//  298  * input parameters
+//  299  *
+//  300  * None.
+//  301  *
+//  302  * output parameters
+//  303  *
+//  304  * None.
+//  305  *
+//  306  * @return      None.
+//  307  **************************************************************************************************
+//  308  */
+//  309 #if defined CC2530_MK
+//  310 void npSpiInit(void)  // TODO - hard-coded for USART0 alt1 SPI for now.
+//  311 {
+//  312   if (ZNP_CFG1_UART == znpCfg1)
+//  313   {
+//  314     return;
+//  315   }
+//  316 
+//  317   /* Set bit order to MSB */
+//  318   U0GCR |= BV(5);
+//  319 
+//  320   /* Set UART0 I/O to alternate 1 location on P1 pins. */
+//  321   //PERCFG |= 0x02;  /* U1CFG */
+//  322 
+//  323   /* Mode select UART1 SPI Mode as slave. */
+//  324   U0CSR = NP_CSR_MODE;
+//  325 
+//  326   /* Select peripheral function on I/O pins. */
+//  327   P0SEL |= 0x3C;  /* SELP0_[5:2] */
+//  328 
+//  329   /* Give UART1 priority over Timer3. */
+//  330   //P2SEL &= ~0x20;  /* PRI2P1 */
+//  331 
+//  332   /* Set RDY to inactive high. */
+//  333   NP_RDYOut = 1;
+//  334 
+//  335   /* Select general purpose on I/O pins. */
+//  336   P1SEL &= ~(NP_RDYOut_BIT);  /* P1.0 SRDY - GPIO */
+//  337   P2SEL &= ~(NP_RDYIn_BIT);   /* P2.0 MRDY - GPIO */
+//  338 
+//  339   /* Select GPIO direction */
+//  340   P1DIR |= NP_RDYOut_BIT;  /* P1.0 SRDY - OUT */
+//  341   P2DIR &= ~NP_RDYIn_BIT;  /* P2.0 MRDY - IN */
+//  342 
+//  343   /* Falling edge on P2 pins triggers interrupt. */
+//  344   PICTL |= BV(3);  /* P2ICON */
+//  345 
+//  346   /* Trigger an interrupt on MRDY input. */
+//  347   P2IFG &= ~NP_RDYIn_BIT;
+//  348   P2IEN |=  NP_RDYIn_BIT;
+//  349   IEN2 |= 0x02;
+//  350 
+//  351   dmaInit();
+//  352 
+//  353   U0CSR |= CSR_RE;
+//  354 }
+//  355 #else
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  356 void npSpiInit(void)
+npSpiInit:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function npSpiInit
+        CODE
+//  357 {
+        FUNCALL npSpiInit, dmaInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  358   if (ZNP_CFG1_UART == znpCfg1)
+        MOV     DPTR,#znpCfg1
+        MOVX    A,@DPTR
+        JZ      ??npSpiInit_0
+//  359   {
+//  360     return;
+//  361   }
+//  362 
+//  363   /* Set bit order to MSB */
+//  364   U1GCR |= BV(5);
+        ORL     0xfc,#0x20
+//  365 
+//  366   /* Set UART1 I/O to alternate 2 location on P1 pins. */
+//  367   PERCFG |= 0x02;  /* U1CFG */
+        ORL     0xf1,#0x2
+//  368 
+//  369   /* Mode select UART1 SPI Mode as slave. */
+//  370   U1CSR = NP_CSR_MODE;
+        MOV     0xf8,#0x20
+//  371 
+//  372   /* Select peripheral function on I/O pins. */
+//  373   P1SEL |= 0xF0;  /* SELP1_[7:4] */
+        ORL     0xf4,#0xf0
+//  374 
+//  375   /* Give UART1 priority over Timer3. */
+//  376   P2SEL &= ~0x20;  /* PRI2P1 */
+        ANL     0xf5,#0xdf
+//  377 
+//  378   /* Set RDY to inactive high. */
+//  379   NP_RDYOut = 1;
+        SETB    0x80.4
+//  380 
+//  381   /* Select general purpose on I/O pins. */
+//  382   P0SEL &= ~(NP_RDYIn_BIT);   /* P0.3 MRDY - GPIO */
+        ANL     0xf3,#0xf7
+//  383   P0SEL &= ~(NP_RDYOut_BIT);  /* P0.4 SRDY - GPIO */
+        ANL     0xf3,#0xef
+//  384 
+//  385   /* Select GPIO direction */
+//  386   P0DIR &= ~NP_RDYIn_BIT;  /* P0.3 MRDY - IN */
+        ANL     0xfd,#0xf7
+//  387   P0DIR |= NP_RDYOut_BIT;  /* P0.4 SRDY - OUT */
+        ORL     0xfd,#0x10
+//  388 
+//  389   P0INP &= ~NP_RDYIn_BIT;  /* Pullup/down enable of MRDY input. */
+        ANL     0x8f,#0xf7
+//  390   P2INP &= ~BV(5);         /* Pullup all P0 inputs. */
+        ANL     0xf7,#0xdf
+//  391 
+//  392   /* Falling edge on P0 pins triggers interrupt. */
+//  393   PICTL |= BV(0);  /* P0ICON */
+        ORL     0x8c,#0x1
+//  394 
+//  395   /* Trigger an interrupt on MRDY input. */
+//  396   P0IFG &= ~NP_RDYIn_BIT;
+        ANL     0x89,#0xf7
+//  397   P0IEN |=  NP_RDYIn_BIT;
+        ORL     0xab,#0x8
+//  398   P0IE = 1;
+        SETB    0xb8.5
+//  399 
+//  400   dmaInit();
+        ; Setup parameters for call to function dmaInit
+        LCALL   `??dmaInit::?relay`  ; Banked call to: dmaInit
+//  401 
+//  402   U1CSR |= CSR_RE;
+        SETB    0xf8.6
+//  403 }
+??npSpiInit_0:
+        LJMP    ??Subroutine5_0 & 0xFFFF
+          CFI EndBlock cfiBlock4
+        REQUIRE U1GCR
+        REQUIRE PERCFG
+        REQUIRE _A_U1CSR
+        REQUIRE P1SEL
+        REQUIRE P2SEL
+        REQUIRE _A_P0
+        REQUIRE P0SEL
+        REQUIRE P0DIR
+        REQUIRE P0INP
+        REQUIRE P2INP
+        REQUIRE PICTL
+        REQUIRE P0IFG
+        REQUIRE P0IEN
+        REQUIRE _A_IEN1
+//  404 #endif
+//  405 
+//  406 /**************************************************************************************************
+//  407  * @fn          npSpiMonitor
+//  408  *
+//  409  * @brief       This function monitors the SPI signals for error conditions and for the end of a
+//  410  *              transaction. If an error is detected it attempts to recover.
+//  411  *
+//  412  * input parameters
+//  413  *
+//  414  * None.
+//  415  *
+//  416  * output parameters
+//  417  *
+//  418  * None.
+//  419  *
+//  420  * @return      None.
+//  421  **************************************************************************************************
+//  422  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  423 void npSpiMonitor(void)
+npSpiMonitor:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function npSpiMonitor
+        CODE
+//  424 {
+        FUNCALL npSpiMonitor, npSpiReadyCallback
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL npSpiMonitor, npSpiAReqReady
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL npSpiMonitor, npSpiRxIsr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL npSpiMonitor, npSpiTxIsr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL npSpiMonitor, ZMacGetReq
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL npSpiMonitor, osal_start_timerEx
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL npSpiMonitor, osal_set_event
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL npSpiMonitor, osal_stop_timerEx
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL npSpiMonitor, osal_clear_event
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL npSpiMonitor, osal_pwrmgr_task_state
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+//  425   if (ZNP_CFG1_UART == znpCfg1)
+        MOV     DPTR,#znpCfg1
+        MOVX    A,@DPTR
+        JNZ     $+5
+        LJMP    ??npSpiMonitor_0 & 0xFFFF
+//  426   {
+//  427     return;
+//  428   }
+//  429 
+//  430 #if ZNP_RUN_WDOG
+//  431   if ((devState != DEV_HOLD) && (npSpiState == NP_SPI_IDLE))
+//  432   {
+//  433     // Enable the watchdog for 1 second period and pet it.
+//  434     WatchDogEnable( WDTIMX );
+//  435   }
+//  436 #endif
+//  437 
+//  438   switch (npSpiState)
+        MOV     DPTR,#npSpiState
+        MOVX    A,@DPTR
+        XRL     A,#0x1
+        JNZ     ??CrossCallReturnLabel_0
+//  439   {
+//  440   case NP_SPI_IDLE:
+//  441     NP_SPI_ASSERT((P1IFG & NP_RDYIn_BIT) == 0);
+//  442     break;
+//  443 
+//  444 #if defined POWER_SAVING
+//  445   case NP_SPI_MRDY:
+//  446     npSpiState = NP_SPI_WAIT_RX;
+        LCALL   ?Subroutine2 & 0xFFFF
+//  447     DMA_RX();
+//  448     NP_RDYOut = 0;
+//  449     break;
+//  450 #endif        
+//  451 
+//  452   case NP_SPI_WAIT_RX:
+//  453     NP_SPI_ASSERT((HAL_DMA_CHECK_IRQ(HAL_DMA_CH_RX)) == 0);
+//  454     break;
+//  455 
+//  456   case NP_SPI_WAIT_TX:
+//  457     NP_SPI_ASSERT((HAL_DMA_CHECK_IRQ(HAL_DMA_CH_TX)) == 0);
+//  458     break;
+//  459 
+//  460   case NP_SPI_WAIT_AREQ:
+//  461     break;
+//  462 
+//  463   default:
+//  464     NP_SPI_ASSERT(0);
+//  465     break;
+//  466   }
+//  467 
+//  468   if (npSpiState == NP_SPI_IDLE)
+??CrossCallReturnLabel_0:
+        MOV     DPTR,#npSpiState
+        MOVX    A,@DPTR
+        JNZ     ??npSpiMonitor_1
+//  469   {
+//  470     *((uint8 *)DMA_UDBUF) = 0;  // Clear the SPI Tx buffer to zero.
+        MOV     DPTR,#0x70f9
+        CLR     A
+        MOVX    @DPTR,A
+//  471 
+//  472     /* Poll for MRDY in case it was set before slave had setup the ISR.
+//  473      * Also, async responses may get queued, so flush them out here.
+//  474      */
+//  475     if ((NP_RDYIn == 0) || (npSpiReadyCallback()))
+        MOV     C,0x80.3
+        JNC     ??npSpiMonitor_2
+        ; Setup parameters for call to function npSpiReadyCallback
+        LCALL   `??npSpiReadyCallback::?relay`; Banked call to: npSpiReadyCallback
+        MOV     A,R1
+        JZ      ??npSpiMonitor_3
+//  476     {
+//  477       npSpiAReqReady();
+??npSpiMonitor_2:
+        ; Setup parameters for call to function npSpiAReqReady
+        LCALL   `??npSpiAReqReady::?relay`; Banked call to: npSpiAReqReady
+        SJMP    ??npSpiMonitor_3
+//  478     }
+//  479   }
+//  480   else
+//  481   {
+//  482     halIntState_t his;
+//  483 
+//  484     HAL_ENTER_CRITICAL_SECTION(his);
+??npSpiMonitor_1:
+        MOV     C,0xa8.7
+        CLR     A
+        RLC     A
+        MOV     R0,A
+        CLR     0xa8.7
+//  485     if (((npSpiState == NP_SPI_WAIT_RX) &&
+//  486         (!HAL_DMA_CH_ARMED(HAL_DMA_CH_RX) && !HAL_DMA_CHECK_IRQ(HAL_DMA_CH_RX)))
+//  487     ||  ((npSpiState == NP_SPI_WAIT_TX) &&
+//  488         (!HAL_DMA_CH_ARMED(HAL_DMA_CH_TX) && !HAL_DMA_CHECK_IRQ(HAL_DMA_CH_TX))))
+        MOVX    A,@DPTR
+        XRL     A,#0x2
+        JNZ     ??npSpiMonitor_4
+        MOV     A,0xd6
+        MOV     C,0xE0 /* A   */.3
+        JC      ??npSpiMonitor_4
+        MOV     A,0xd1
+        MOV     C,0xE0 /* A   */.3
+        JNC     ??npSpiMonitor_5
+??npSpiMonitor_4:
+        MOVX    A,@DPTR
+        XRL     A,#0x3
+        JNZ     ??npSpiMonitor_6
+        MOV     A,0xd6
+        MOV     C,0xE0 /* A   */.4
+        JC      ??npSpiMonitor_6
+        MOV     A,0xd1
+        MOV     C,0xE0 /* A   */.4
+        JC      ??npSpiMonitor_6
+//  489     {
+//  490       HAL_EXIT_CRITICAL_SECTION(his);
+??npSpiMonitor_5:
+        MOV     A,R0
+        MOV     C,0xE0 /* A   */.0
+        MOV     0xa8.7,C
+//  491 
+//  492       if (npSpiState == NP_SPI_WAIT_RX)
+        MOVX    A,@DPTR
+        XRL     A,#0x2
+        JNZ     ??npSpiMonitor_7
+//  493       {
+//  494         npSpiRxIsr();
+        ; Setup parameters for call to function npSpiRxIsr
+        LCALL   `??npSpiRxIsr::?relay`; Banked call to: npSpiRxIsr
+        SJMP    ??npSpiMonitor_3
+//  495       }
+//  496       else  // if (npSpiState == NP_SPI_WAIT_TX)
+//  497       {
+//  498         npSpiTxIsr();
+??npSpiMonitor_7:
+        ; Setup parameters for call to function npSpiTxIsr
+        LCALL   `??npSpiTxIsr::?relay`; Banked call to: npSpiTxIsr
+        SJMP    ??npSpiMonitor_3
+//  499       }
+//  500     }
+//  501     else
+//  502     {
+//  503       HAL_EXIT_CRITICAL_SECTION(his);
+??npSpiMonitor_6:
+        MOV     A,R0
+        MOV     C,0xE0 /* A   */.0
+        MOV     0xa8.7,C
+//  504     }
+//  505   }
+//  506 
+//  507 #if defined POWER_SAVING
+//  508   /* A simple ZAP application sending a unicast at 2-Hz was seen to bog down to < 1-Hz OTA unicast
+//  509    * when the ZNP was configured to be a ZED (i.e. POWER_SAVING was enabled). So adding this delay
+//  510    * of only 10 msecs before re-enabling CONSERVE showed that the problem was fixed while still
+//  511    * allowing the ZNP to enter sleep.
+//  512    */
+//  513   static uint8 znpSpiActiveShdw;
+//  514 
+//  515   if (ZG_DEVICE_ENDDEVICE_TYPE && (npSpiState == NP_SPI_IDLE))
+??npSpiMonitor_3:
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        XRL     A,#0x2
+        JNZ     ??npSpiMonitor_8
+        MOV     DPTR,#npSpiState
+        MOVX    A,@DPTR
+        JNZ     ??npSpiMonitor_8
+//  516   {
+//  517     if (znpSpiActiveShdw)
+        MOV     DPTR,#??znpSpiActiveShdw
+        MOVX    A,@DPTR
+        JZ      ??npSpiMonitor_0
+//  518     {
+//  519       uint8 rxOnIdle;
+//  520       (void)ZMacGetReq(ZMacRxOnIdle, &rxOnIdle);
+        ; Setup parameters for call to function ZMacGetReq
+        MOV     R2,?XSP + 0
+        MOV     R3,?XSP + 1
+        MOV     R1,#0x52
+        LCALL   `??ZMacGetReq::?relay`; Banked call to: ZMacGetReq
+//  521       if (!rxOnIdle)
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    A,@DPTR
+        JNZ     ??npSpiMonitor_0
+//  522       {
+//  523         znpSpiActiveShdw = FALSE;
+        MOV     DPTR,#??znpSpiActiveShdw
+        CLR     A
+        MOVX    @DPTR,A
+//  524         if (ZSuccess != osal_start_timerEx(znpTaskId, ZNP_PWRMGR_CONSERVE_EVENT,
+//  525                                                       ZNP_PWRMGR_CONSERVE_DELAY))
+        ; Setup parameters for call to function osal_start_timerEx
+        MOV     DPTR,#__Constant_a
+        LCALL   ?PUSH_XSTACK8_X_FOUR
+          CFI CFA_XSP16 add(XSP16, 14)
+        MOV     R2,#-0x80
+        MOV     R3,#0x0
+        MOV     DPTR,#MT_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 10)
+        MOV     A,R1
+        JZ      ??npSpiMonitor_0
+//  526         {
+//  527           (void)osal_set_event(znpTaskId, ZNP_PWRMGR_CONSERVE_EVENT);
+        ; Setup parameters for call to function osal_set_event
+        MOV     R2,#-0x80
+        MOV     R3,#0x0
+        MOV     DPTR,#MT_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??osal_set_event::?relay`; Banked call to: osal_set_event
+        SJMP    ??npSpiMonitor_0
+//  528         }
+//  529       }
+//  530     }
+//  531   }
+//  532   else if (!znpSpiActiveShdw)
+??npSpiMonitor_8:
+        MOV     DPTR,#??znpSpiActiveShdw
+        MOVX    A,@DPTR
+        JNZ     ??npSpiMonitor_0
+//  533   {
+//  534     znpSpiActiveShdw = TRUE;
+        MOV     A,#0x1
+        MOVX    @DPTR,A
+//  535     (void)osal_stop_timerEx(znpTaskId, ZNP_PWRMGR_CONSERVE_EVENT);
+        ; Setup parameters for call to function osal_stop_timerEx
+        MOV     R2,#-0x80
+        MOV     R3,#0x0
+        MOV     DPTR,#MT_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??osal_stop_timerEx::?relay`; Banked call to: osal_stop_timerEx
+//  536     (void)osal_clear_event(znpTaskId, ZNP_PWRMGR_CONSERVE_EVENT);
+        ; Setup parameters for call to function osal_clear_event
+        MOV     R2,#-0x80
+        MOV     R3,#0x0
+        MOV     DPTR,#MT_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??osal_clear_event::?relay`; Banked call to: osal_clear_event
+//  537     (void)osal_pwrmgr_task_state(znpTaskId, PWRMGR_HOLD);
+        ; Setup parameters for call to function osal_pwrmgr_task_state
+        MOV     R2,#0x1
+        MOV     DPTR,#MT_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??osal_pwrmgr_task_state::?relay`; Banked call to: osal_pwrmgr_task_state
+//  538   }
+//  539 #endif
+//  540 }
+??npSpiMonitor_0:
+        MOV     A,#0x1
+        LCALL   ?DEALLOC_XSTACK8
+          CFI EndBlock cfiBlock5
+        REQUIRE ?Subroutine1
+        REQUIRE DMAIRQ
+        REQUIRE DMAARM
+        REQUIRE _A_P0
+        REQUIRE _A_IEN0
+        ; // Fall through to label ?Subroutine1
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine1:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     R7,#0x1
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock6
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+??znpSpiActiveShdw:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+//  541 
+//  542 /**************************************************************************************************
+//  543  * @fn          npSpiSRspAlloc
+//  544  *
+//  545  * @brief       This function is called by MT to allocate a buffer in which to build an SRSP frame.
+//  546  *              MT must only call this function after processing a received SREQ frame.
+//  547  *
+//  548  * input parameters
+//  549  *
+//  550  * @param       len - Length of the buffer required.
+//  551  *
+//  552  * output parameters
+//  553  *
+//  554  * None.
+//  555  *
+//  556  * @return      NULL for failure; a pointer to the npSpiBuf on success. Success is determined by
+//  557  *              the correct npSpiState and H/W signals as well as a valid length request.
+//  558  **************************************************************************************************
+//  559  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  560 uint8 *npSpiSRspAlloc(uint8 len)
+npSpiSRspAlloc:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function npSpiSRspAlloc
+        CODE
+//  561 {
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  562   if (npSpiState == NP_SPI_WAIT_SREQ)
+        MOV     DPTR,#npSpiState
+        MOVX    A,@DPTR
+        XRL     A,#0x5
+        JNZ     ??npSpiSRspAlloc_0
+//  563   {
+//  564     return npSpiBuf;
+        MOV     R2,#npSpiBuf & 0xff
+        MOV     R3,#(npSpiBuf >> 8) & 0xff
+        SJMP    ??npSpiSRspAlloc_1
+//  565   }
+//  566   else
+//  567   {
+//  568     return NULL;
+??npSpiSRspAlloc_0:
+        MOV     R2,#0x0
+        MOV     R3,#0x0
+//  569   }
+??npSpiSRspAlloc_1:
+        SJMP    ??Subroutine5_0
+//  570 }
+          CFI EndBlock cfiBlock7
+//  571 
+//  572 /**************************************************************************************************
+//  573  * @fn          npSpiAReqAlloc
+//  574  *
+//  575  * @brief       This function is called by MT to allocate a buffer in which to buld an AREQ frame.
+//  576  *
+//  577  * input parameters
+//  578  *
+//  579  * @param       len - Length of the buffer required.
+//  580  *
+//  581  * output parameters
+//  582  *
+//  583  * None.
+//  584  *
+//  585  * @return      NULL for failure; otherwise a pointer to the data of an osal message.
+//  586  **************************************************************************************************
+//  587  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  588 uint8 *npSpiAReqAlloc(uint8 len)
+npSpiAReqAlloc:
+          CFI Block cfiBlock8 Using cfiCommon0
+          CFI Function npSpiAReqAlloc
+        CODE
+//  589 {
+        FUNCALL npSpiAReqAlloc, osal_msg_allocate
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV     A,R1
+//  590   return osal_msg_allocate(len + MT_RPC_FRAME_HDR_SZ);
+        ; Setup parameters for call to function osal_msg_allocate
+        ADD     A,#0x3
+        MOV     R2,A
+        CLR     A
+        ADDC    A,#0x0
+        MOV     R3,A
+        LCALL   `??osal_msg_allocate::?relay`; Banked call to: osal_msg_allocate
+        SJMP    ?Subroutine1
+//  591 }
+          CFI EndBlock cfiBlock8
+//  592 
+//  593 /**************************************************************************************************
+//  594  * @fn          npSpiSRspReady
+//  595  *
+//  596  * @brief       This function is called by MT to notify SPI driver that an SRSP is ready to Tx.
+//  597  *
+//  598  * input parameters
+//  599  *
+//  600  * @param       pBuf - Pointer to the buffer to transmit on the SPI.
+//  601  *
+//  602  * output parameters
+//  603  *
+//  604  * None.
+//  605  *
+//  606  * @return      None.
+//  607  **************************************************************************************************
+//  608  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  609 void npSpiSRspReady(uint8 *pBuf)
+npSpiSRspReady:
+          CFI Block cfiBlock9 Using cfiCommon0
+          CFI Function npSpiSRspReady
+        CODE
+//  610 {
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  611   if ((npSpiState == NP_SPI_WAIT_SREQ) && (NP_RDYOut == 0))
+        MOV     DPTR,#npSpiState
+        MOVX    A,@DPTR
+        XRL     A,#0x5
+        JNZ     ??npSpiSRspReady_0
+        MOV     C,0x80.4
+        JC      ??npSpiSRspReady_0
+//  612   {
+//  613     npSpiState = NP_SPI_WAIT_TX;
+        MOV     A,#0x3
+        MOVX    @DPTR,A
+//  614     DMA_TX( pBuf );
+        MOV     A,R3
+        MOV     DPTR,#dmaCh1234 + 24
+        MOVX    @DPTR,A
+        MOV     A,R2
+        LCALL   ?Subroutine4 & 0xFFFF
+//  615     NP_RDYOut = 1;
+??CrossCallReturnLabel_5:
+        SETB    0x80.4
+//  616   }
+//  617 }
+??npSpiSRspReady_0:
+        SJMP    ??Subroutine5_0
+          CFI EndBlock cfiBlock9
+        REQUIRE _A_P0
+        REQUIRE DMAIRQ
+        REQUIRE DMAARM
+        REQUIRE DMAREQ
+//  618 
+//  619 /**************************************************************************************************
+//  620  * @fn          npSpiAReqReady
+//  621  *
+//  622  * @brief       This function is called by MT to notify the SPI driver that an AREQ frame is ready
+//  623  *              to be transmitted.
+//  624  *
+//  625  * input parameters
+//  626  *
+//  627  * None.
+//  628  *
+//  629  * output parameters
+//  630  *
+//  631  * None.
+//  632  *
+//  633  * @return      None.
+//  634  **************************************************************************************************
+//  635  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+          CFI Block cfiBlock10 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI CFA_XSP16 add(XSP16, 1)
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+        MOV     A,#0x1
+        LCALL   ?DEALLOC_XSTACK8
+          CFI EndBlock cfiBlock10
+        REQUIRE ??Subroutine5_0
+        ; // Fall through to label ??Subroutine5_0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+??Subroutine5_0:
+          CFI Block cfiBlock11 Using cfiCommon0
+          CFI NoFunction
+          CFI CFA_SP SP+-5
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+        POP     DPH
+          CFI CFA_SP SP+-4
+          CFI DPH0 SameValue
+        POP     DPL
+          CFI CFA_SP SP+-3
+          CFI DPL0 SameValue
+        LJMP    ?BRET
+          CFI EndBlock cfiBlock11
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  636 void npSpiAReqReady(void)
+npSpiAReqReady:
+          CFI Block cfiBlock12 Using cfiCommon0
+          CFI Function npSpiAReqReady
+        CODE
+//  637 {
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 1)
+//  638   halIntState_t intState;
+//  639   HAL_ENTER_CRITICAL_SECTION(intState);
+        MOV     C,0xa8.7
+        CLR     A
+        RLC     A
+        MOV     R0,A
+        CLR     0xa8.7
+//  640 
+//  641   if (npSpiState == NP_SPI_IDLE)
+        MOV     DPTR,#npSpiState
+        MOVX    A,@DPTR
+        JNZ     ??CrossCallReturnLabel_1
+//  642   {
+//  643     npSpiState = NP_SPI_WAIT_RX;
+        LCALL   ?Subroutine2 & 0xFFFF
+//  644     DMA_RX();
+//  645     NP_RDYOut = 0;
+//  646   }
+//  647 
+//  648   HAL_EXIT_CRITICAL_SECTION(intState);
+??CrossCallReturnLabel_1:
+        MOV     A,R0
+        MOV     C,0xE0 /* A   */.0
+        MOV     0xa8.7,C
+//  649 }
+        SJMP    ?Subroutine0
+          CFI EndBlock cfiBlock12
+        REQUIRE _A_IEN0
+        REQUIRE DMAIRQ
+        REQUIRE DMAARM
+        REQUIRE _A_P0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine2:
+          CFI Block cfiCond13 Using cfiCommon0
+          CFI Function npSpiMonitor
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI CFA_SP SP+-2
+          CFI CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiCond14 Using cfiCommon0
+          CFI (cfiCond14) Function npSpiAReqReady
+          CFI (cfiCond14) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond14) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond14) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond14) CFA_SP SP+-7
+          CFI (cfiCond14) CFA_XSP16 add(XSP16, 1)
+          CFI Block cfiCond15 Using cfiCommon0
+          CFI (cfiCond15) Function npSpiMrdyIsr
+          CFI (cfiCond15) Conditional ??CrossCallReturnLabel_2
+          CFI (cfiCond15) DPL0 Frame(CFA_SP, 4)
+          CFI (cfiCond15) DPH0 Frame(CFA_SP, 5)
+          CFI (cfiCond15) CFA_SP SP+-7
+          CFI (cfiCond15) CFA_XSP16 add(XSP16, 1)
+          CFI Block cfiPicker16 Using cfiCommon1
+          CFI (cfiPicker16) NoFunction
+          CFI (cfiPicker16) Picker
+        MOV     A,#0x2
+        MOVX    @DPTR,A
+        MOV     DPTR,#0x70f9
+        MOVX    A,@DPTR
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOVX    @DPTR,A
+        MOV     0xd1,#-0x9
+        MOV     0xd6,#0x8
+        CLR     0x80.4
+        RET
+          CFI EndBlock cfiCond13
+          CFI EndBlock cfiCond14
+          CFI EndBlock cfiCond15
+          CFI EndBlock cfiPicker16
+//  650 
+//  651 /**************************************************************************************************
+//  652  * @fn          npSpiAReqComplete
+//  653  *
+//  654  * @brief       This function is called by MT to notify the SPI driver that the processing of a
+//  655  *              received AREQ is complete.
+//  656  *
+//  657  * input parameters
+//  658  *
+//  659  * None.
+//  660  *
+//  661  * output parameters
+//  662  *
+//  663  * None.
+//  664  *
+//  665  * @return      None.
+//  666  **************************************************************************************************
+//  667  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  668 void npSpiAReqComplete(void)
+npSpiAReqComplete:
+          CFI Block cfiBlock17 Using cfiCommon0
+          CFI Function npSpiAReqComplete
+        CODE
+//  669 {
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  670   if (npSpiState == NP_SPI_WAIT_AREQ)
+        MOV     DPTR,#npSpiState
+        MOVX    A,@DPTR
+        XRL     A,#0x4
+        JNZ     ??npSpiAReqComplete_0
+//  671   {
+//  672     npSpiState = NP_SPI_IDLE;
+        CLR     A
+        MOVX    @DPTR,A
+//  673   }
+//  674 }
+??npSpiAReqComplete_0:
+        SJMP    ??Subroutine5_0
+          CFI EndBlock cfiBlock17
+//  675 
+//  676 /**************************************************************************************************
+//  677  * @fn          npSpiGetReqBuf
+//  678  *
+//  679  * @brief       This function is called by the application to get the buffer containing the
+//  680  *              currently received AREQ or SREQ.
+//  681  *
+//  682  * input parameters
+//  683  *
+//  684  * None.
+//  685  *
+//  686  * output parameters
+//  687  *
+//  688  * None.
+//  689  *
+//  690  * @return      Pointer to the buffer containing the currently received AREQ or SREQ.
+//  691  **************************************************************************************************
+//  692  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  693 uint8 *npSpiGetReqBuf(void)
+npSpiGetReqBuf:
+          CFI Block cfiBlock18 Using cfiCommon0
+          CFI Function npSpiGetReqBuf
+        CODE
+//  694 {
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  695   if (npSpiState != NP_SPI_IDLE)
+        MOV     DPTR,#npSpiState
+        MOVX    A,@DPTR
+        JZ      ??npSpiGetReqBuf_0
+//  696   {
+//  697     return npSpiBuf;
+        MOV     R2,#npSpiBuf & 0xff
+        MOV     R3,#(npSpiBuf >> 8) & 0xff
+        SJMP    ??npSpiGetReqBuf_1
+//  698   }
+//  699   else
+//  700   {
+//  701     return NULL;
+??npSpiGetReqBuf_0:
+        MOV     R2,#0x0
+        MOV     R3,#0x0
+//  702   }
+??npSpiGetReqBuf_1:
+        SJMP    ??Subroutine5_0
+//  703 }
+          CFI EndBlock cfiBlock18
+//  704 
+//  705 /**************************************************************************************************
+//  706  * @fn          npSpiMrdyIsr
+//  707  *
+//  708  * @brief       This function is called when a GPIO falling-edge interrupt occurs on the MRDY.
+//  709  *
+//  710  * input parameters
+//  711  *
+//  712  * None.
+//  713  *
+//  714  * output parameters
+//  715  *
+//  716  * None.
+//  717  *
+//  718  * @return      None.
+//  719  **************************************************************************************************
+//  720  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  721 void npSpiMrdyIsr(void)
+npSpiMrdyIsr:
+          CFI Block cfiBlock19 Using cfiCommon0
+          CFI Function npSpiMrdyIsr
+        CODE
+//  722 {
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+          CFI CFA_XSP16 add(XSP16, 1)
+//  723   if (npSpiState == NP_SPI_IDLE)
+        MOV     DPTR,#npSpiState
+        MOVX    A,@DPTR
+        JNZ     ??CrossCallReturnLabel_2
+//  724   {
+//  725 #if defined POWER_SAVING
+//  726     if (ZG_DEVICE_ENDDEVICE_TYPE)
+        MOV     DPTR,#zgDeviceLogicalType
+        MOVX    A,@DPTR
+        XRL     A,#0x2
+        MOV     DPTR,#npSpiState
+        JNZ     ??npSpiMrdyIsr_0
+//  727     {
+//  728       npSpiState = NP_SPI_MRDY;
+        MOV     A,#0x1
+        MOVX    @DPTR,A
+        SJMP    ??CrossCallReturnLabel_2
+//  729     }
+//  730     else
+//  731 #endif        
+//  732     {
+//  733       npSpiState = NP_SPI_WAIT_RX;
+??npSpiMrdyIsr_0:
+        LCALL   ?Subroutine2 & 0xFFFF
+//  734       DMA_RX();
+//  735       NP_RDYOut = 0;
+//  736     }
+//  737   }
+//  738 }
+??CrossCallReturnLabel_2:
+        LJMP    ?Subroutine0 & 0xFFFF
+          CFI EndBlock cfiBlock19
+        REQUIRE DMAIRQ
+        REQUIRE DMAARM
+        REQUIRE _A_P0
+//  739 
+//  740 /**************************************************************************************************
+//  741  * @fn          npSpiRxIsr
+//  742  *
+//  743  * @brief       This function handles the DMA Rx complete interrupt.
+//  744  *
+//  745  * input parameters
+//  746  *
+//  747  * None.
+//  748  *
+//  749  * output parameters
+//  750  *
+//  751  * None.
+//  752  *
+//  753  * @return      None.
+//  754  **************************************************************************************************
+//  755  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  756 void npSpiRxIsr(void)
+npSpiRxIsr:
+          CFI Block cfiBlock20 Using cfiCommon0
+          CFI Function npSpiRxIsr
+        CODE
+//  757 {
+        FUNCALL npSpiRxIsr, npSpiPollCallback
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL npSpiRxIsr, osal_set_event
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL npSpiRxIsr, osal_set_event
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        REQUIRE ?V0
+        REQUIRE ?V1
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI CFA_SP SP+0
+          CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+//  758   mtRpcCmdType_t type = (mtRpcCmdType_t)(npSpiBuf[1] & MT_RPC_CMD_TYPE_MASK);
+//  759   uint8 *pBuf, rdy = 1;
+        MOV     R6,#0x1
+//  760 
+//  761   NP_SPI_ASSERT(npSpiState == NP_SPI_WAIT_RX);
+//  762 
+//  763   switch (type)
+        MOV     DPTR,#npSpiBuf + 1
+        MOVX    A,@DPTR
+        ANL     A,#0xe0
+        JZ      ??npSpiRxIsr_0
+        ADD     A,#-0x20
+        JZ      ??npSpiRxIsr_1
+        ADD     A,#-0x20
+        JZ      ??npSpiRxIsr_2
+        SJMP    ??npSpiRxIsr_3
+//  764   {
+//  765   case MT_RPC_CMD_POLL:
+//  766     if ( (pBuf = npSpiPollCallback()) == NULL )
+??npSpiRxIsr_0:
+        ; Setup parameters for call to function npSpiPollCallback
+        LCALL   `??npSpiPollCallback::?relay`; Banked call to: npSpiPollCallback
+        MOV     A,R2
+        MOV     R0,A
+        MOV     A,R3
+        MOV     R1,A
+        MOV     A,R2
+        ORL     A,R3
+        JNZ     ??npSpiRxIsr_4
+//  767     {
+//  768       pBuf = npSpiBuf;
+        MOV     R0,#npSpiBuf & 0xff
+        MOV     R1,#(npSpiBuf >> 8) & 0xff
+//  769       npSpiBuf[0] = 0;
+        MOV     DPTR,#npSpiBuf
+        CLR     A
+        MOVX    @DPTR,A
+//  770       npSpiBuf[1] = 0;
+        INC     DPTR
+        MOVX    @DPTR,A
+//  771       npSpiBuf[2] = 0;
+        INC     DPTR
+        MOVX    @DPTR,A
+//  772     }
+//  773     npSpiState = NP_SPI_WAIT_TX;
+??npSpiRxIsr_4:
+        MOV     DPTR,#npSpiState
+        MOV     A,#0x3
+        MOVX    @DPTR,A
+//  774     DMA_TX(pBuf);
+        MOV     A,R1
+        MOV     DPTR,#dmaCh1234 + 24
+        MOVX    @DPTR,A
+        MOV     A,R0
+        LCALL   ?Subroutine4 & 0xFFFF
+//  775     break;
+??CrossCallReturnLabel_6:
+        SJMP    ??npSpiRxIsr_5
+//  776 
+//  777   case MT_RPC_CMD_SREQ:
+//  778     npSpiState = NP_SPI_WAIT_SREQ;
+??npSpiRxIsr_1:
+        MOV     DPTR,#npSpiState
+        MOV     A,#0x5
+        MOVX    @DPTR,A
+//  779     osal_set_event(znpTaskId, ZNP_SPI_RX_SREQ_EVENT);
+        ; Setup parameters for call to function osal_set_event
+        MOV     R2,#0x0
+        MOV     R3,#0x20
+        MOV     DPTR,#MT_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??osal_set_event::?relay`; Banked call to: osal_set_event
+//  780     rdy = 0;
+        MOV     R6,#0x0
+//  781     break;
+        SJMP    ??npSpiRxIsr_5
+//  782 
+//  783   case MT_RPC_CMD_AREQ:
+//  784     npSpiState = NP_SPI_WAIT_AREQ;
+??npSpiRxIsr_2:
+        MOV     DPTR,#npSpiState
+        MOV     A,#0x4
+        MOVX    @DPTR,A
+//  785     osal_set_event(znpTaskId, ZNP_SPI_RX_AREQ_EVENT);
+        ; Setup parameters for call to function osal_set_event
+        MOV     R2,#0x0
+        MOV     R3,#0x40
+        MOV     DPTR,#MT_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??osal_set_event::?relay`; Banked call to: osal_set_event
+//  786     break;
+        SJMP    ??npSpiRxIsr_5
+//  787 
+//  788   default:
+//  789     npSpiState = NP_SPI_IDLE;
+??npSpiRxIsr_3:
+        MOV     DPTR,#npSpiState
+        CLR     A
+        MOVX    @DPTR,A
+//  790     break;
+//  791   }
+//  792   NP_RDYOut = rdy;
+??npSpiRxIsr_5:
+        MOV     A,R6
+        SWAP    A
+        ANL     A,#0xf0
+        MOV     R0,A
+        MOV     A,0x80
+        ANL     A,#0xef
+        ORL     A,R0
+        MOV     0x80,A
+//  793 }
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+          CFI EndBlock cfiBlock20
+        REQUIRE DMAIRQ
+        REQUIRE DMAARM
+        REQUIRE DMAREQ
+        REQUIRE _A_P0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine4:
+          CFI Block cfiCond21 Using cfiCommon0
+          CFI Function npSpiSRspReady
+          CFI Conditional ??CrossCallReturnLabel_5
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-7
+          CFI Block cfiCond22 Using cfiCommon0
+          CFI (cfiCond22) Function npSpiRxIsr
+          CFI (cfiCond22) Conditional ??CrossCallReturnLabel_6
+          CFI (cfiCond22) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI (cfiCond22) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI (cfiCond22) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI (cfiCond22) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI (cfiCond22) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI (cfiCond22) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI (cfiCond22) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI (cfiCond22) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI (cfiCond22) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI (cfiCond22) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI (cfiCond22) CFA_SP SP+-2
+          CFI (cfiCond22) CFA_XSP16 add(XSP16, 10)
+          CFI Block cfiPicker23 Using cfiCommon1
+          CFI (cfiPicker23) NoFunction
+          CFI (cfiPicker23) Picker
+        INC     DPTR
+        MOVX    @DPTR,A
+        MOV     0xd1,#-0x11
+        MOV     0xd6,#0x10
+        MOV     0xd7,#0x10
+        RET
+          CFI EndBlock cfiCond21
+          CFI EndBlock cfiCond22
+          CFI EndBlock cfiPicker23
+//  794 
+//  795 /**************************************************************************************************
+//  796  * @fn          npSpiTxIsr
+//  797  *
+//  798  * @brief       This function handles the DMA Tx complete interrupt.
+//  799  *
+//  800  * input parameters
+//  801  *
+//  802  * None.
+//  803  *
+//  804  * output parameters
+//  805  *
+//  806  * None.
+//  807  *
+//  808  * @return      None.
+//  809  **************************************************************************************************
+//  810  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  811 void npSpiTxIsr(void)
+npSpiTxIsr:
+          CFI Block cfiBlock24 Using cfiCommon0
+          CFI Function npSpiTxIsr
+        CODE
+//  812 {
+        FUNCALL npSpiTxIsr, osal_msg_deallocate
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  813   halDMADesc_t *ch = HAL_DMA_GET_DESC1234(HAL_DMA_CH_TX);
+//  814   uint16 src;
+//  815 
+//  816   NP_SPI_ASSERT(npSpiState == NP_SPI_WAIT_TX);
+//  817 
+//  818   HAL_DMA_GET_SOURCE( ch, src );
+        MOV     DPTR,#dmaCh1234 + 24
+        MOVX    A,@DPTR
+        MOV     R1,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R2,A
+        MOV     A,R1
+        MOV     R3,A
+//  819 
+//  820   if ((uint8 *)src != npSpiBuf)
+        MOV     A,#npSpiBuf & 0xff
+        XRL     A,R2
+        JNZ     ??npSpiTxIsr_0
+        MOV     A,#(npSpiBuf >> 8) & 0xff
+        XRL     A,R3
+??npSpiTxIsr_0:
+        JZ      ??npSpiTxIsr_1
+//  821   {
+//  822     osal_msg_deallocate((uint8 *)src);
+        ; Setup parameters for call to function osal_msg_deallocate
+        LCALL   `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
+//  823   }
+//  824 
+//  825   npSpiState = NP_SPI_IDLE;
+??npSpiTxIsr_1:
+        MOV     DPTR,#npSpiState
+        CLR     A
+        MOVX    @DPTR,A
+//  826 }
+        LJMP    ??Subroutine5_0 & 0xFFFF
+          CFI EndBlock cfiBlock24
+//  827 
+//  828 /**************************************************************************************************
+//  829  * @fn          npSpiIdle
+//  830  *
+//  831  * @brief       This function returns true if SPI is idle and there is no queued data.
+//  832  *
+//  833  * input parameters
+//  834  *
+//  835  * None.
+//  836  *
+//  837  * output parameters
+//  838  *
+//  839  * None.
+//  840  *
+//  841  * @return      True if SPI is idle with no quequed data.
+//  842  **************************************************************************************************
+//  843  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  844 bool npSpiIdle(void)
+npSpiIdle:
+          CFI Block cfiBlock25 Using cfiCommon0
+          CFI Function npSpiIdle
+        CODE
+//  845 {
+        FUNCALL npSpiIdle, npSpiReadyCallback
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+          CFI DPL0 Frame(CFA_SP, 4)
+          CFI CFA_SP SP+-4
+        PUSH    DPH
+          CFI DPH0 Frame(CFA_SP, 5)
+          CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  846   return (npSpiState == NP_SPI_IDLE && !npSpiReadyCallback());
+        MOV     DPTR,#npSpiState
+        MOVX    A,@DPTR
+        JNZ     ??npSpiIdle_0
+        ; Setup parameters for call to function npSpiReadyCallback
+        LCALL   `??npSpiReadyCallback::?relay`; Banked call to: npSpiReadyCallback
+        MOV     A,R1
+        JNZ     ??npSpiIdle_0
+        MOV     R1,#0x1
+        SJMP    ??npSpiIdle_1
+??npSpiIdle_0:
+        MOV     R1,#0x0
+??npSpiIdle_1:
+        LJMP    ??Subroutine5_0 & 0xFFFF
+//  847 }
+          CFI EndBlock cfiBlock25
+//  848 
+//  849 /**************************************************************************************************
+//  850  * @fn          portN-Isr
+//  851  *
+//  852  * @brief       This function handles the PORT-N interrupt.
+//  853  *
+//  854  * input parameters
+//  855  *
+//  856  * None.
+//  857  *
+//  858  * output parameters
+//  859  *
+//  860  * None.
+//  861  *
+//  862  * @return      None.
+//  863  **************************************************************************************************
+//  864  */
+//  865 #if defined CC2530_MK
+//  866 HAL_ISR_FUNCTION(port2Isr, P2INT_VECTOR)
+//  867 {
+//  868   P2IFG = 0;
+//  869   P2IF = 0;
+//  870 #else
+
+        RSEG NEAR_CODE:CODE:NOROOT(0)
+//  871 HAL_ISR_FUNCTION(port0Isr, P0INT_VECTOR)
+port0Isr:
+          CFI Block cfiBlock26 Using cfiCommon1
+          CFI Function port0Isr
+        CODE
+//  872 {
+        FUNCALL port0Isr, osal_set_event
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL port0Isr, npSpiMrdyIsr
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    A
+          CFI A Frame(CFA_SP, 3)
+          CFI CFA_SP SP+-3
+        MOV     A,#-0xe
+        LCALL   ?INTERRUPT_ENTER_XSP
+          CFI B load(1, XDATA, add(CFA_XSP16, literal(-1)))
+          CFI VB load(1, XDATA, add(CFA_XSP16, literal(-2)))
+          CFI PSW load(1, XDATA, add(CFA_XSP16, literal(-3)))
+          CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-4)))
+          CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-5)))
+          CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+          CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+          CFI R5 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+          CFI R4 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+          CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+          CFI R3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+          CFI R2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+          CFI R1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+          CFI R0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+          CFI CFA_XSP16 add(XSP16, 14)
+        ; Saved register size: 14
+        ; Auto size: 0
+//  873   P0IFG = 0;
+        MOV     0x89,#0x0
+//  874   P0IF = 0;
+        CLR     0xc0.5
+//  875 #endif
+//  876 
+//  877   // Knowing which pin requires a #define from _hal_uart_dma.c
+//  878   //if (P0IFG & NP_RDYIn_BIT)
+//  879   {
+//  880     if (ZNP_CFG1_UART == znpCfg1)
+        MOV     DPTR,#znpCfg1
+        MOVX    A,@DPTR
+        JNZ     ??port0Isr_0
+//  881     {
+//  882       osal_set_event(znpTaskId, ZNP_UART_TX_READY_EVENT);
+        ; Setup parameters for call to function osal_set_event
+        MOV     R2,#0x0
+        MOV     R3,#0x10
+        MOV     DPTR,#MT_TaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   `??osal_set_event::?relay`; Banked call to: osal_set_event
+        SJMP    ??port0Isr_1
+//  883     }
+//  884     else
+//  885     {
+//  886       npSpiMrdyIsr();
+??port0Isr_0:
+        ; Setup parameters for call to function npSpiMrdyIsr
+        LCALL   `??npSpiMrdyIsr::?relay`; Banked call to: npSpiMrdyIsr
+//  887     }
+//  888   }
+//  889 }
+??port0Isr_1:
+        MOV     R7,#0x1
+        LJMP    ?INTERRUPT_LEAVE_XSP
+          CFI EndBlock cfiBlock26
+        REQUIRE P0IFG
+        REQUIRE _A_IRCON
+
+        COMMON INTVEC:CODE:ROOT(0)
+        ORG 107
+`??port0Isr::??INTVEC 107`:
+        LJMP       (port0Isr)
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA32
+__Constant_a:
+        DD 10
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??dmaInit::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    dmaInit
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??npSpiInit::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    npSpiInit
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??npSpiMonitor::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    npSpiMonitor
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??npSpiSRspAlloc::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    npSpiSRspAlloc
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??npSpiAReqAlloc::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    npSpiAReqAlloc
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??npSpiSRspReady::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    npSpiSRspReady
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??npSpiAReqReady::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    npSpiAReqReady
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??npSpiAReqComplete::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    npSpiAReqComplete
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??npSpiGetReqBuf::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    npSpiGetReqBuf
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??npSpiMrdyIsr::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    npSpiMrdyIsr
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??npSpiRxIsr::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    npSpiRxIsr
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??npSpiTxIsr::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    npSpiTxIsr
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+`??npSpiIdle::?relay`:
+        CODE
+        LCALL   ?BDISPATCH
+        DATA24
+        DC24    npSpiIdle
+
+        END
+//  890 
+//  891 /**************************************************************************************************
+//  892 */
+// 
+// 833 bytes in segment BANKED_CODE
+//  78 bytes in segment BANK_RELAYS
+//   3 bytes in segment INTVEC
+//  40 bytes in segment NEAR_CODE
+//  19 bytes in segment SFR_AN
+//   4 bytes in segment XDATA_ROM_C
+// 256 bytes in segment XDATA_Z
+// 
+// 951 bytes of CODE  memory (+  3 bytes shared)
+//   0 bytes of CONST memory (+  4 bytes shared)
+//   0 bytes of DATA  memory (+ 19 bytes shared)
+// 256 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

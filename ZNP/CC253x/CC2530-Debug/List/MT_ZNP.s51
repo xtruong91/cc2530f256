@@ -1,0 +1,502 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V9.30.1.3056 for 8051               21/Nov/2018  13:52:11
+// Copyright 2004-2015 IAR Systems AB.
+// Standalone license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Components\mt\MT_ZNP.c
+//    Command line       =  
+//        -f "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\znp.cfg"
+//        (-DMAC_CFG_APP_PENDING_QUEUE=TRUE
+//        "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR |
+//        DEVICE_BUILD_ROUTER | DEVICE_BUILD_ENDDEVICE)" -DNWK_AUTO_POLL
+//        -DZNP_RUN_WDOG=FALSE -DZNP_UART_BAUD=HAL_UART_BR_115200 -DZIGBEEPRO
+//        -DZIGBEE_FRAGMENTATION -DINTER_PAN -DOSAL_CLOCK -DOSAL_SAPI=FALSE
+//        -DSAPI_CB_FUNC=FALSE -DHOLD_AUTO_START -DNV_RESTORE -DNV_INIT
+//        -DNUM_DISC_ATTEMPTS=0 -DMT_UTIL_FUNC -DMT_SYS_FUNC -DMT_AF_FUNC
+//        -DMT_SAPI_FUNC -DMT_SAPI_CB_FUNC -DMT_ZDO_CB_FUNC -DMT_ZDO_FUNC
+//        -DMT_ZDO_MGMT -DMT_ZDO_EXTENSIONS -DMT_APP_FUNC) -f
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07,
+//        0x09, 0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C,
+//        0x0D}" -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440) -f
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Components\mt\MT_ZNP.c" -D FEATURE_SYSTEM_STATS -D POWER_SAVING
+//        -lC "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" -lA
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List" --diag_suppress
+//        Pe001,Pa010 -o "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj" -e
+//        --no_code_motion --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\SE\Source\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI2530ZNP\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\hal\target\CC2530ZNP\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\high_level\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\mt\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\osal\include\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\saddr\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\services\sdata\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\af\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\nwk\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sec\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\sys\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zcl\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\"
+//        -I "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\" -I
+//        "D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"
+//        -Ohz --require_prototypes
+//    List file          =  
+//        D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh
+//        1.0.0\Projects\zstack\ZNP\CC253x\CC2530-Debug\List\MT_ZNP.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME MT_ZNP
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+
+        END
+// D:\1.embedded\kit\cc2530\Reference\Z-Stack Mesh 1.0.0\Components\mt\MT_ZNP.c
+//    1 /**************************************************************************************************
+//    2   Filename:       MT_ZNP.c
+//    3   Revised:        $Date: 2011-08-22 16:18:12 -0700 (Mon, 22 Aug 2011) $
+//    4   Revision:       $Revision: 27245 $
+//    5 
+//    6   Description:    Definitions for the ZNP sub-module of the MT API.
+//    7 
+//    8 
+//    9   Copyright 2011 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 /* ------------------------------------------------------------------------------------------------
+//   41  *                                          Includes
+//   42  * ------------------------------------------------------------------------------------------------
+//   43  */
+//   44 
+//   45 #include "comdef.h"
+//   46 #include "MT.h"
+//   47 #include "MT_RPC.h"
+//   48 #include "MT_ZNP.h"
+//   49 #include "OnBoard.h"
+//   50 #include "OSAL_Nv.h"
+//   51 #include "znp_app.h"
+//   52 
+//   53 #if defined (MT_ZNP_FUNC)
+//   54 /* ------------------------------------------------------------------------------------------------
+//   55  *                                           Constants
+//   56  * ------------------------------------------------------------------------------------------------
+//   57  */
+//   58 
+//   59 /* ------------------------------------------------------------------------------------------------
+//   60  *                                           Typedefs
+//   61  * ------------------------------------------------------------------------------------------------
+//   62  */
+//   63 
+//   64 /* ------------------------------------------------------------------------------------------------
+//   65  *                                           Macros
+//   66  * ------------------------------------------------------------------------------------------------
+//   67  */
+//   68 
+//   69 /* ------------------------------------------------------------------------------------------------
+//   70  *                                          Global Variables
+//   71  * ------------------------------------------------------------------------------------------------
+//   72  */
+//   73 
+//   74 uint32 MT_PeriodicMsgRate;
+//   75 
+//   76 /* ------------------------------------------------------------------------------------------------
+//   77  *                                           Local Functions
+//   78  * ------------------------------------------------------------------------------------------------
+//   79  */
+//   80 
+//   81 static void znpBasicCfg(uint8 *pBuf);
+//   82 static void znpZCL_Cfg(uint8 *pBuf);
+//   83 static void znpSE_Cfg(uint8 *pBuf);
+//   84 
+//   85 /* ------------------------------------------------------------------------------------------------
+//   86  *                                           Local Variables
+//   87  * ------------------------------------------------------------------------------------------------
+//   88  */
+//   89 
+//   90 
+//   91 /**************************************************************************************************
+//   92  * @fn          MT_ZnpCommandProcessing
+//   93  *
+//   94  * @brief       Process all MT ZNP commands.
+//   95  *
+//   96  * input parameters
+//   97  *
+//   98  * @param       pBuf - Pointer to the MT buffer containing a ZNP command.
+//   99  *
+//  100  * output parameters
+//  101  *
+//  102  * None.
+//  103  *
+//  104  * @return      A 1-byte SRSP value or MT_RPC_SRSP_SENT or MT_RPC_SRSP_SENT;
+//  105  */
+//  106 uint8 MT_ZnpCommandProcessing(uint8 *pBuf)
+//  107 {
+//  108   const uint8 cmd1 = pBuf[MT_RPC_POS_CMD1];
+//  109   pBuf += MT_RPC_FRAME_HDR_SZ;
+//  110 
+//  111   switch (cmd1)
+//  112   {
+//  113     case MT_ZNP_BASIC_CFG:
+//  114       znpBasicCfg(pBuf);
+//  115       break;
+//  116 
+//  117     case MT_ZNP_ZCL_CFG:
+//  118       znpZCL_Cfg(pBuf);
+//  119       break;
+//  120 
+//  121     case MT_ZNP_SE_CFG:
+//  122       znpSE_Cfg(pBuf);
+//  123       break;
+//  124 
+//  125     default:
+//  126       return MT_RPC_ERR_COMMAND_ID;
+//  127   }
+//  128 
+//  129 #if defined MT_RPC_SRSP_SENT
+//  130   return MT_RPC_SRSP_SENT;
+//  131 #else
+//  132   return MT_RPC_SUCCESS;
+//  133 #endif
+//  134 }
+//  135 
+//  136 /**************************************************************************************************
+//  137  * @fn          MT_ZnpBasicRsp
+//  138  *
+//  139  * @brief       Build and send the ZNP Basic Response to the ZAP.
+//  140  *
+//  141  * input parameters
+//  142  *
+//  143  * None.
+//  144  *
+//  145  * output parameters
+//  146  *
+//  147  * None.
+//  148  *
+//  149  * @return      true if message built and sent; false otherwise.
+//  150  */
+//  151 bool MT_ZnpBasicRsp(void)
+//  152 {
+//  153   uint8 *pBuf = osal_mem_alloc(sizeof(mt_znp_basic_rsp_t));
+//  154 
+//  155   if (pBuf == NULL)
+//  156   {
+//  157     return false;
+//  158   }
+//  159 
+//  160   pBuf[0] = BREAK_UINT32(MT_PeriodicMsgRate, 0);
+//  161   pBuf[1] = BREAK_UINT32(MT_PeriodicMsgRate, 1);
+//  162   pBuf[2] = BREAK_UINT32(MT_PeriodicMsgRate, 2);
+//  163   pBuf[3] = BREAK_UINT32(MT_PeriodicMsgRate, 3);
+//  164 
+//  165   pBuf[4] = BREAK_UINT32(zgDefaultChannelList, 0);
+//  166   pBuf[5] = BREAK_UINT32(zgDefaultChannelList, 1);
+//  167   pBuf[6] = BREAK_UINT32(zgDefaultChannelList, 2);
+//  168   pBuf[7] = BREAK_UINT32(zgDefaultChannelList, 3);
+//  169 
+//  170   pBuf[8] = LO_UINT16(zgConfigPANID);
+//  171   pBuf[9] = HI_UINT16(zgConfigPANID);
+//  172 
+//  173   osal_nv_read(ZCD_NV_STARTUP_OPTION, 0, 1, pBuf+10);
+//  174   pBuf[11] = zgDeviceLogicalType;
+//  175 
+//  176   pBuf[12] = LO_UINT16(_NIB.nwkDevAddress);
+//  177   pBuf[13] = HI_UINT16(_NIB.nwkDevAddress);
+//  178 
+//  179   pBuf[14] = LO_UINT16(_NIB.nwkCoordAddress);
+//  180   pBuf[15] = HI_UINT16(_NIB.nwkCoordAddress);
+//  181 
+//  182   pBuf[16] = LO_UINT16(_NIB.nwkPanId);
+//  183   pBuf[17] = HI_UINT16(_NIB.nwkPanId);
+//  184 
+//  185   pBuf[18] = _NIB.nwkLogicalChannel;
+//  186   pBuf[19] = _NIB.nwkState;
+//  187 
+//  188   (void)osal_memcpy(pBuf+20, _NIB.nwkCoordExtAddress, Z_EXTADDR_LEN);
+//  189   (void)osal_memcpy(pBuf+28, aExtendedAddress, Z_EXTADDR_LEN);
+//  190 
+//  191   pBuf[36] = devState;
+//  192 #if defined INTER_PAN
+//  193   extern uint8 appEndPoint;
+//  194   pBuf[37] = appEndPoint;
+//  195   //rsp->spare1[2];
+//  196 #else
+//  197   //rsp->spare1[3];
+//  198 #endif
+//  199 
+//  200   // Initialize list with invalid EndPoints.
+//  201   (void)osal_memset(pBuf+40, AF_BROADCAST_ENDPOINT, (MT_ZNP_EP_ID_LIST_MAX * 3));
+//  202   uint8 idx = 40;
+//  203   epList_t *epItem = epList;
+//  204 
+//  205   for (uint8 cnt = 0; cnt < MT_ZNP_EP_ID_LIST_MAX; cnt++)
+//  206   {
+//  207     if (epItem == NULL)
+//  208     {
+//  209       break;
+//  210     }
+//  211     if ((epItem->epDesc->simpleDesc != NULL) && (epItem->epDesc->simpleDesc->EndPoint != ZDO_EP))
+//  212     {
+//  213       pBuf[idx++] = epItem->epDesc->simpleDesc->EndPoint;
+//  214       pBuf[idx++] = LO_UINT16(epItem->epDesc->simpleDesc->AppProfId);
+//  215       pBuf[idx++] = HI_UINT16(epItem->epDesc->simpleDesc->AppProfId);
+//  216     }
+//  217     epItem = epItem->nextDesc;
+//  218   }
+//  219   idx = 40 + (MT_ZNP_EP_ID_LIST_MAX * 3);
+//  220 
+//  221   // Initialize list with invalid Cluster Id's.
+//  222   (void)osal_memset(pBuf+idx, 0xFF, (MT_ZNP_ZDO_MSG_CB_LIST_MAX * 2));
+//  223   typedef struct
+//  224   {
+//  225     void *next;
+//  226     uint8 taskID;
+//  227     uint16 clusterID;
+//  228   } ZDO_MsgCB_t;
+//  229   extern ZDO_MsgCB_t *zdoMsgCBs;
+//  230   ZDO_MsgCB_t *pItem = zdoMsgCBs;
+//  231 
+//  232   for (uint8 cnt = 0; cnt < MT_ZNP_ZDO_MSG_CB_LIST_MAX; cnt++)
+//  233   {
+//  234     if (pItem == NULL)
+//  235     {
+//  236       break;
+//  237     }
+//  238     else if (pItem->taskID == MT_TaskID)
+//  239     {
+//  240       pBuf[idx++] = LO_UINT16(pItem->clusterID);
+//  241       pBuf[idx++] = HI_UINT16(pItem->clusterID);
+//  242     }
+//  243     pItem = pItem->next;
+//  244   }
+//  245   idx = 40 + (MT_ZNP_EP_ID_LIST_MAX * 3) + (MT_ZNP_ZDO_MSG_CB_LIST_MAX * 2);
+//  246 
+//  247   extern pfnZdoCb zdoCBFunc[MAX_ZDO_CB_FUNC];
+//  248   for (uint8 cnt = 0; cnt < MAX_ZDO_CB_FUNC; cnt++)
+//  249   {
+//  250     pBuf[idx++] = (zdoCBFunc[cnt] == NULL) ? 0 : 1;
+//  251   }
+//  252 
+//  253   MT_BuildAndSendZToolResponse(((uint8)MT_RPC_CMD_AREQ | (uint8)MT_RPC_SYS_ZNP), MT_ZNP_BASIC_RSP,
+//  254       40 + (MT_ZNP_EP_ID_LIST_MAX * 3) + (MT_ZNP_ZDO_MSG_CB_LIST_MAX * 2) + MAX_ZDO_CB_FUNC, pBuf);
+//  255   (void)osal_mem_free(pBuf);
+//  256 
+//  257   return true;
+//  258 }
+//  259 
+//  260 /**************************************************************************************************
+//  261  * @fn          znpBasicCfg
+//  262  *
+//  263  * @brief       Process the Conglomerate Basic Configuration command.
+//  264  *
+//  265  * input parameters
+//  266  *
+//  267  * @param       pBuf - Pointer to the MT buffer containing the conglomerated configuration.
+//  268  *
+//  269  * output parameters
+//  270  *
+//  271  * None.
+//  272  *
+//  273  * @return      None.
+//  274  */
+//  275 static void znpBasicCfg(uint8 *pBuf)
+//  276 {
+//  277   uint32 t32 = BUILD_UINT32(pBuf[0], pBuf[1], pBuf[2], pBuf[3]);
+//  278   if (MT_PeriodicMsgRate != t32)
+//  279   {
+//  280     MT_PeriodicMsgRate = t32;
+//  281     (void)osal_start_reload_timer(MT_TaskID, MT_PERIODIC_MSG_EVENT, t32);
+//  282   }
+//  283 
+//  284   t32 = BUILD_UINT32(pBuf[4], pBuf[5], pBuf[6], pBuf[7]);
+//  285   if (osal_memcmp(&zgDefaultChannelList, &t32, 4) == FALSE)
+//  286   {
+//  287     (void)osal_nv_write(ZCD_NV_CHANLIST, 0, 4, &t32);
+//  288   }
+//  289 
+//  290   uint16 t16 = BUILD_UINT16(pBuf[8], pBuf[9]);
+//  291   if (osal_memcmp(&zgConfigPANID, &t16, 2) == FALSE)
+//  292   {
+//  293     (void)osal_nv_write(ZCD_NV_PANID, 0, 2, &t16);
+//  294   }
+//  295 
+//  296   if (zgDeviceLogicalType != pBuf[10])
+//  297   {
+//  298     (void)osal_nv_write(ZCD_NV_LOGICAL_TYPE, 0, 1, pBuf+10);
+//  299   }
+//  300 
+//  301   if (pBuf[11] & MT_ZNP_CMD_DISC_RESET_NWK)
+//  302   {
+//  303     pBuf[0] = ZCD_STARTOPT_DEFAULT_NETWORK_STATE;
+//  304     (void)osal_nv_write(ZCD_NV_STARTUP_OPTION, 0, 1, pBuf);
+//  305 #if defined CC2531ZNP
+//  306     SystemResetSoft();
+//  307 #else
+//  308     SystemReset();
+//  309 #endif
+//  310   }
+//  311   else if (pBuf[11] & MT_ZNP_CMD_DISC_ZDO_START)
+//  312   {
+//  313     if (devState == DEV_HOLD)
+//  314     {
+//  315       ZDOInitDevice(0);
+//  316     }
+//  317   }
+//  318 }
+//  319 
+//  320 /**************************************************************************************************
+//  321  * @fn          znpZCL_Cfg
+//  322  *
+//  323  * @brief       Process the Conglomerate ZCL Configuration command.
+//  324  *
+//  325  * input parameters
+//  326  *
+//  327  * @param       pBuf - Pointer to the MT buffer containing the conglomerated configuration.
+//  328  *
+//  329  * output parameters
+//  330  *
+//  331  * None.
+//  332  *
+//  333  * @return      None.
+//  334  */
+//  335 static void znpZCL_Cfg(uint8 *pBuf)
+//  336 {
+//  337 }
+//  338 
+//  339 /**************************************************************************************************
+//  340  * @fn          znpSE_Cfg
+//  341  *
+//  342  * @brief       Process the Conglomerate SE Configuration command.
+//  343  *
+//  344  * input parameters
+//  345  *
+//  346  * @param       pBuf - Pointer to the MT buffer containing the conglomerated configuration.
+//  347  *
+//  348  * output parameters
+//  349  *
+//  350  * None.
+//  351  *
+//  352  * @return      None.
+//  353  */
+//  354 static void znpSE_Cfg(uint8 *pBuf)
+//  355 {
+//  356 }
+//  357 
+//  358 #endif
+//  359 /**************************************************************************************************
+//  360 */
+// 
+//
+// 
+//
+//
+//Errors: none
+//Warnings: none
