@@ -8,7 +8,7 @@
 #define BOARD_VERSION_NONE         4
 
 // ----------------------------------- Board selection --------------------------------------------//
-#define BOARD_VERSION           BOARD_VERSION_COORDINATOR
+#define BOARD_VERSION           BOARD_VERSION_ROUTER
 #if (BOARD_VERSION == BOARD_VERSION_COORDINATOR)
     #define COORDINATOR_VERSION      1
 #elif (BOARD_VERSION == BOARD_VERSION_ROUTER)
