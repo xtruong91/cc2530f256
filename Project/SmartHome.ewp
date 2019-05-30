@@ -6834,6 +6834,12 @@
     <file>
       <name>$PROJ_DIR$\..\Application\OSAL_GenericApp.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\Application\SH_App.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Application\SH_App.h</name>
+    </file>
   </group>
   <group>
     <name>HAL</name>
