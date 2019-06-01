@@ -25,49 +25,17 @@
 #include "RTOS_App.h"
 #endif
 
-#include "CompileOption.h"
 #include "Debug.h"
-#include "Config.h"
-#include "SH_App.h"
-/*********************************************************************
- * GLOBAL VARIABLES
- */
-// This list should be filled with Application specific Cluster IDs.
-const cId_t GenericApp_ClusterList[GENERICAPP_MAX_CLUSTERS] =
-    {
-        GENERICAPP_CLUSTERID};
 
-const SimpleDescriptionFormat_t GenericApp_SimpleDesc =
-    {
-        GENERICAPP_ENDPOINT,             //  int Endpoint;
-        GENERICAPP_PROFID,               //  uint16 AppProfId[2];
-        GENERICAPP_DEVICEID,             //  uint16 AppDeviceId[2];
-        GENERICAPP_DEVICE_VERSION,       //  int   AppDevVer:4;
-        GENERICAPP_FLAGS,                //  int   AppFlags:4;
-        GENERICAPP_MAX_CLUSTERS,         //  byte  AppNumInClusters;
-        (cId_t *)GenericApp_ClusterList, //  byte *pAppInClusterList;
-        GENERICAPP_MAX_CLUSTERS,         //  byte  AppNumInClusters;
-        (cId_t *)GenericApp_ClusterList  //  byte *pAppInClusterList;
-};
-
-// This is the Endpoint/Interface description.  It is defined here, but
-// filled-in in GenericApp_Init().  Another way to go would be to fill
-// in the structure here and make it a "const" (in code space).  The
-// way it's defined in this sample app it is define in RAM.
-endPointDesc_t GenericApp_epDesc;
-
-/*********************************************************************
- * LOCAL VARIABLES
- */
 byte GenericApp_TaskID; // Task ID for internal task/event processing
                         // This variable will be received when
                         // GenericApp_Init() is called.
 
 devStates_t GenericApp_NwkState;
 static int rxMsgCount = 0;
-byte GenericApp_TransID; // This is the unique message ID (counter)
 
-afAddrType_t GenericApp_DstAddr;
+
+
 /*********************************************************************
  * LOCAL FUNCTIONS
  */
@@ -214,7 +182,7 @@ uint16 GenericApp_ProcessEvent(uint8 task_id, uint16 events)
     }
     if(events & GENERICAPP_UART_RX_EVT)
     {
-        SHApp_SerialMSGCB();
+        PCApp_SerialMSGCB();
     }
     // Discard unknown events
     return 0;

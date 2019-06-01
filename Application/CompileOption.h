@@ -1,23 +1,19 @@
-#ifndef _COMPILE_OPTION_H
-#define _COMPILE_OPTION_H
+#ifndef COMPILE_OPTION_H
+#define COMPILE_OPTION_H
 
 // select a board for building
-#define BOARD_VERSION_COORDINATOR     1
-#define BOARD_VERSION_ROUTER          2
-#define BOARD_VERSION_ENDDEVICE       3
-#define BOARD_VERSION_NONE         4
+#define BOARD_VERSION_GENERIC           1
+#define BOARD_VERSION_POWERMETER        2
+#define BOARD_VERSION_SMARTDEVICE       3
 
 // ----------------------------------- Board selection --------------------------------------------//
-#define BOARD_VERSION           BOARD_VERSION_ROUTER
-#if (BOARD_VERSION == BOARD_VERSION_COORDINATOR)
-    #define COORDINATOR_VERSION      1
-#elif (BOARD_VERSION == BOARD_VERSION_ROUTER)
-    #define ROUTER_VERSION      1
-#elif(BOARD_VERSION == BOARD_VERSION_ENDDEVICE)
-    #define ENDDEVICE_VERSION      1
-#elif (BOARD_VERSION == BOARD_VERSION_NONE)
-    #define NONE_VERSION     1
-#else
+#define BOARD_VERSION           BOARD_VERSION_GENERIC
+#if (BOARD_VERSION == BOARD_VERSION_GENERIC)
+    #define GENERIC_VERSION      1
+#elif (BOARD_VERSION == BOARD_VERSION_POWERMETER)
+    #define POWERMETER_VERSION      1
+#elif(BOARD_VERSION == BOARD_VERSION_SMARTDEVICE)
+    #define SMARTDEVICE_VERSION      1
     #error Select complied board invalid
 #endif
 

@@ -1242,7 +1242,24 @@ uint8* osal_buffer_uint24( uint8 *buf, uint24 val )
 
   return buf;
 }
-
+/*********************************************************************
+ * @fn      osal_buffer_uint16
+ *
+ * @brief
+ *
+ *   Buffer an uint16 value - LSB first.
+ *
+ * @param   buf - buffer
+ * @param   val - uint16 value
+ *
+ * @return  pointer to end of destination buffer
+ */
+uint8* osal_buffer_uint16( uint8 *buf, uint16 val )
+{
+  *buf++ = BREAK_UINT32( val, 0 );
+  *buf++ = BREAK_UINT32( val, 1 );
+  return buf;
+}
 /*********************************************************************
  * @fn      osal_isbufset
  *

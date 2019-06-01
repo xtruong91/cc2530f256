@@ -2363,20 +2363,18 @@ static zclAttrRecsList *zclFindAttrRecsList( uint8 endpoint )
  */
 uint8 zclFindAttrRec( uint8 endpoint, uint16 clusterID, uint16 attrId, zclAttrRec_t *pAttr )
 {
-  uint8 x;
   zclAttrRecsList *pRec = zclFindAttrRecsList( endpoint );
 
   if ( pRec != NULL )
   {
-    for ( x = 0; x < pRec->numAttributes; x++ )
-    {
-      if ( pRec->attrs[x].clusterID == clusterID && pRec->attrs[x].attr.attrId == attrId )
-      {
-        *pAttr = pRec->attrs[x];
-
-        return ( TRUE ); // EMBEDDED RETURN
+      zclAttrRec_t const __code  * iter =  pRec->attrs;
+      while(iter->clusterID != ACHDJIAN_LAST_CLUSTER){
+              if ( iter->clusterID == clusterID && iter->attr.attrId == attrId )  {
+                      *pAttr = *iter;
+                      return ( TRUE ); // EMBEDDED RETURN
+              }
+              iter++;
       }
-    }
   }
 
   return ( FALSE );

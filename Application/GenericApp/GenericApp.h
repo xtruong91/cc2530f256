@@ -1,7 +1,5 @@
-#ifndef GENERICAPP_H
-#define GENERICAPP_H
-
-#include "Config.h"
+#ifndef GENERIC_APP_H
+#define GENERIC_APP_H
 
 #ifdef __cplusplus
 extern "C"
@@ -19,16 +17,8 @@ extern "C"
 
 // These constants are only for example and should be changed to the
 // device's needs
-#if defined (ROUTER)
-#define GENERICAPP_ENDPOINT           ROUTER_ENDPOINT
-#elif defined (END_DEVICE)
-#define GENERICAPP_ENDPOINT           DEVICE_ENDPOINT
-#else 
-//#define GENERICAPP_ENDPOINT           10
-#endif
 
-
-
+#define GENERICAPP_ENDPOINT           10    
 #define GENERICAPP_PROFID             0x0F04
 #define GENERICAPP_DEVICEID           0x0001
 #define GENERICAPP_DEVICE_VERSION     0
@@ -57,6 +47,16 @@ extern "C"
  * MACROS
  */
 
+extern const cId_t GenericApp_ClusterList[GENERICAPP_MAX_CLUSTERS];
+extern const SimpleDescriptionFormat_t GenericApp_SimpleDesc; 
+
+// This is the Endpoint/Interface description.  It is defined here, but
+// filled-in in GenericApp_Init().  Another way to go would be to fill
+// in the structure here and make it a "const" (in code space).  The
+// way it's defined in this sample app it is define in RAM.
+extern endPointDesc_t GenericApp_epDesc;
+extern afAddrType_t GenericApp_DstAddr;
+extern byte GenericApp_TransID; // This is the unique message ID (counter)
 /*********************************************************************
  * FUNCTIONS
  */
@@ -65,6 +65,10 @@ extern "C"
  * Task Initialization for the Generic Application
  */
 extern void GenericApp_Init( byte task_id );
+extern void PCApp_SerialMSGCB(void);
+extern void PCApp_SendTheMessage(unsigned char dest_endID, unsigned char cmd, unsigned int temp_set);
+extern void PCApp_SendTemperature(void);
+extern void str_reserve(char *str, int length);
 
 /*
  * Task Event Processor for the Generic Application
@@ -78,4 +82,4 @@ extern UINT16 GenericApp_ProcessEvent( byte task_id, UINT16 events );
 }
 #endif
 
-#endif /* GENERICAPP_H */
+#endif

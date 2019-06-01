@@ -95,6 +95,7 @@ extern "C"
 
 #define ZCL_CLUSTER_ID_GREEN_POWER_PROXY                     0x0021
 
+#define ACHDJIAN_LAST_CLUSTER								 0xFFFF
 // Closures Clusters
 #define ZCL_CLUSTER_ID_CLOSURES_SHADE_CONFIG                 0x0100
 #define ZCL_CLUSTER_ID_CLOSURES_DOOR_LOCK                    0x0101
@@ -323,6 +324,7 @@ extern "C"
 /*** Attribute Access Control - bit masks ***/
 #define ACCESS_CONTROL_READ                             0x01  // attribute can be read
 #define ACCESS_CONTROL_WRITE                            0x02  // attribute can be written
+#define ACCESS_CONTROL_R_W                              0x03  // attribute can be written 
 #define ACCESS_REPORTABLE                               0x04  // indicate attribute is reportable
 #define ACCESS_CONTROL_COMMAND                          0x08
 #define ACCESS_CONTROL_AUTH_READ                        0x10
@@ -403,6 +405,7 @@ extern "C"
 
 #define ZCL_CLUSTER_ID_DL( id )       ( (id) == ZCL_CLUSTER_ID_CLOSURES_DOOR_LOCK )
 
+#define LAST_CLUSTER_ATTRIBUTE { ACHDJIAN_LAST_CLUSTER, {  0,  0, 0,  NULL  } } 
 /*********************************************************************
  * TYPEDEFS
  */

@@ -297,7 +297,8 @@ typedef void * osal_msg_q_t;
    * Buffer an uint24 value - LSB first
    */
   extern uint8* osal_buffer_uint24( uint8 *buf, uint24 val );
-
+    
+  extern uint8* osal_buffer_uint16( uint8 *buf, uint16 val );
   /*
    * Is all of the array elements set to a value?
    */
