@@ -7,7 +7,6 @@
 #include "ZDApp.h"
 #include "DebugTrace.h"
 
-#include "zcl.h"
 #include "zcl_general.h"
 #include "zcl_ha.h"
 
@@ -38,7 +37,7 @@
 /*********************************************************************
  * GLOBAL VARIABLES
  */
-byte temperatureSensorTaskID;
+byte powerMeterSensorTaskID;
 
 /*********************************************************************
  * GLOBAL FUNCTIONS
@@ -77,7 +76,7 @@ static ZStatus_t handleClusterCommands(zclIncoming_t *pInMsg);
  */
 void powerMeter_Init(byte task_id)
 {
-    temperatureSensorTaskID = task_id;
+    powerMeterSensorTaskID = task_id;
 
     // Set destination address to indirect
     //zclSampleLight_DstAddr.addrMode = (afAddrMode_t)AddrNotPresent;
@@ -92,10 +91,10 @@ void powerMeter_Init(byte task_id)
     zcl_registerPlugin(ZCL_CLUSTER_ID_GEN_BASIC, ZCL_CLUSTER_ID_GEN_MULTISTATE_VALUE_BASIC, handleClusterCommands);
 
     // Register the application's attribute list
-    zcl_registerAttrList(ENDPOINT, powerMeterAttrs);
+    zcl_registerAttrList(ENDPOINT,0, powerMeterAttrs);
 
     // Register the Application to receive the unprocessed Foundation command/response messages
-    zcl_registerForMsg(temperatureSensorTaskID);
+    zcl_registerForMsg(powerMeterSensorTaskID);
 
     EA = 1;
     clusterTemperatureMeasurementeInit();
@@ -115,7 +114,7 @@ uint16 powerMeterEventLoop( uint8 task_id, uint16 events ){
   
 	  (void)task_id;  // Intentionally unreferenced parameter
 	 if ( events & SYS_EVENT_MSG ){
-		while ( (MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( temperatureSensorTaskID )) )  {
+		while ( (MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( powerMeterSensorTaskID )) )  {
 			switch ( MSGpkt->hdr.event ) {
 				case ZCL_INCOMING_MSG:
           			// Incoming ZCL Foundation command/response messages

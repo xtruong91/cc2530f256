@@ -9,11 +9,12 @@
 // ----------------------------------- Board selection --------------------------------------------//
 #define BOARD_VERSION           BOARD_VERSION_GENERIC
 #if (BOARD_VERSION == BOARD_VERSION_GENERIC)
-    #define GENERIC_VERSION      1
+    #define GENERIC_APP     
 #elif (BOARD_VERSION == BOARD_VERSION_POWERMETER)
-    #define POWERMETER_VERSION      1
+    #define POWERMETER_APP    
 #elif(BOARD_VERSION == BOARD_VERSION_SMARTDEVICE)
-    #define SMARTDEVICE_VERSION      1
+    #define SMARTDEVICE_APP
+#else
     #error Select complied board invalid
 #endif
 

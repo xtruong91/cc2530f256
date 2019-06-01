@@ -2,14 +2,7 @@
  * INCLUDES
  */
 #include "OSAL.h"
-#include "AF.h"
-#include "ZDApp.h"
-#include "ZDObject.h"
-#include "ZDProfile.h"
-
-#include "GenericApp.h"
 #include "DebugTrace.h"
-
 #if !defined(WIN32) || defined(ZBIT)
 #include "OnBoard.h"
 #endif
@@ -26,10 +19,8 @@
 #endif
 
 #include "Debug.h"
+#include "GenericApp.h"
 
-byte GenericApp_TaskID; // Task ID for internal task/event processing
-                        // This variable will be received when
-                        // GenericApp_Init() is called.
 
 devStates_t GenericApp_NwkState;
 static int rxMsgCount = 0;
@@ -55,7 +46,6 @@ void GenericApp_Init(uint8 task_id)
 {
     GenericApp_TaskID = task_id;
     GenericApp_NwkState = DEV_INIT;
-    GenericApp_TransID = 0;
     // Device hardware initialization can be added here or in main() (Zmain.c).
     // If the hardware is application specific - add it here.
     // If the hardware is other parts of the device add it in main().

@@ -20,6 +20,9 @@ typedef struct
 
 EndDeviceInfo_t EndDeviceInfos[16];
 
+endPointDesc_t GenericApp_epDesc;
+afAddrType_t GenericApp_DstAddr;
+byte GenericApp_TaskID;
 /*prototype function*/
 
 void PowerSaving(void);
@@ -168,7 +171,7 @@ void PCApp_SendTemperature()
                        GENERICAPP_CLUSTERID,
                        (byte)osal_strlen( buffer ) + 1,
                        (byte *)buffer,
-                       &GenericApp_TransID,
+                       &GenericApp_TaskID,
                        AF_DISCV_ROUTE,
                        AF_DEFAULT_RADIUS );
 

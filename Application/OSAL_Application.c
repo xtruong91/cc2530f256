@@ -23,6 +23,9 @@
 #endif
 
 #include "SmartDevice.h"
+#include "PowerMeter.h"
+#include "GenericApp.h"
+#include "CompileOption.h"
 
 /*********************************************************************
  * GLOBAL VARIABLES
@@ -42,7 +45,15 @@ const pTaskEventHandlerFn tasksArr[] = {
   ZDNwkMgr_event_loop,
 #endif
   zcl_event_loop,
+
+#if defined ( GENERIC_APP )
+  GenericApp_ProcessEvent
+#elif defined (POWERMETER_APP ) 
+  powerMeterEventLoop
+#elif defined ( SMARTDEVICE_APP )
   SmartDeviceEventLoop
+#endif
+
 };
 
 const uint8 tasksCnt = sizeof( tasksArr ) / sizeof( tasksArr[0] );
@@ -80,7 +91,14 @@ void osalInitTasks( void )
   ZDNwkMgr_Init( taskID++ );
 #endif
   zcl_Init( taskID++ );
+
+#if defined ( GENERIC_APP )
+  GenericApp_Init( taskID );
+#elif defined (POWERMETER_APP ) 
+  powerMeter_Init( taskID ); 
+#elif defined ( SMARTDEVICE_APP )
   SmartDevice_Init( taskID );
+#endif
 }
 
 /*********************************************************************

@@ -5863,17 +5863,11 @@
         <name>$PROJ_DIR$\..\Application\GenericApp\GenericApp_data.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\Application\GenericApp\OSAL_GenericApp.c</name>
-      </file>
-      <file>
         <name>$PROJ_DIR$\..\Application\GenericApp\PCApp.c</name>
       </file>
     </group>
     <group>
       <name>PowerMeter</name>
-      <file>
-        <name>$PROJ_DIR$\..\Application\PowerMeter\OSAL_PowerMeter.c</name>
-      </file>
       <file>
         <name>$PROJ_DIR$\..\Application\PowerMeter\PowerMeter.c</name>
       </file>
@@ -5886,9 +5880,6 @@
     </group>
     <group>
       <name>SmartDevice</name>
-      <file>
-        <name>$PROJ_DIR$\..\Application\SmartDevice\OSAL_SmartDevice.c</name>
-      </file>
       <file>
         <name>$PROJ_DIR$\..\Application\SmartDevice\SmartDevice.c</name>
       </file>
@@ -5919,6 +5910,9 @@
     </group>
     <file>
       <name>$PROJ_DIR$\..\Application\CompileOption.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Application\OSAL_Application.c</name>
     </file>
   </group>
   <group>

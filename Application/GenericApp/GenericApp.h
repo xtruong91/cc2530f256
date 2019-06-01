@@ -9,7 +9,12 @@ extern "C"
 /*********************************************************************
  * INCLUDES
  */
+#include "AF.h"
+#include "ZDApp.h"
+#include "ZDObject.h"
+#include "ZDProfile.h"
 #include "ZComDef.h"
+
 
 /*********************************************************************
  * CONSTANTS
@@ -56,7 +61,10 @@ extern const SimpleDescriptionFormat_t GenericApp_SimpleDesc;
 // way it's defined in this sample app it is define in RAM.
 extern endPointDesc_t GenericApp_epDesc;
 extern afAddrType_t GenericApp_DstAddr;
-extern byte GenericApp_TransID; // This is the unique message ID (counter)
+
+extern byte GenericApp_TaskID; // Task ID for internal task/event processing
+                        // This variable will be received when
+                        // GenericApp_Init() is called.
 /*********************************************************************
  * FUNCTIONS
  */

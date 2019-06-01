@@ -94,7 +94,7 @@ void SmartDevice_Init( byte task_id ){
   
 
   	// Register the application's attribute list
-  	zcl_registerAttrList(ENDPOINT, smartDeviceAttrs );
+  	zcl_registerAttrList(ENDPOINT,0,smartDeviceAttrs );
 
   	// Register the Application to receive the unprocessed Foundation command/response messages
   	zcl_registerForMsg( temperatureSensorTaskID );
@@ -223,7 +223,7 @@ static uint8 zclSampleLight_ProcessInReadRspCmd( zclIncomingMsg_t *pInMsg )
   zclReadRspCmd_t *readRspCmd;
   uint8 i;
 
-  readRspCmd = (zclReadRspCmd_t *)pInMsg->attrCmd;
+  readRspCmd = (zclReadRspCmd_t*)pInMsg->attrCmd;
   for (i = 0; i < readRspCmd->numAttr; i++)
   {
     // Notify the originator of the results of the original read attributes 
