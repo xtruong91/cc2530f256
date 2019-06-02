@@ -21,10 +21,15 @@
 #include "Debug.h"
 #include "GenericApp.h"
 
+endPointDesc_t GenericApp_epDesc;
+afAddrType_t GenericApp_DstAddr;
 
 devStates_t GenericApp_NwkState;
-static int rxMsgCount = 0;
+unsigned char device_count = 0;
+byte GenericApp_TaskID;
+byte GenericApp_TransID;
 
+EndDeviceInfo_t EndDeviceInfos[16];
 
 
 /*********************************************************************
@@ -46,13 +51,8 @@ void GenericApp_Init(uint8 task_id)
 {
     GenericApp_TaskID = task_id;
     GenericApp_NwkState = DEV_INIT;
-    // Device hardware initialization can be added here or in main() (Zmain.c).
-    // If the hardware is application specific - add it here.
-    // If the hardware is other parts of the device add it in main().
-    GenericApp_DstAddr.addrMode = (afAddrMode_t)AddrNotPresent;
-    GenericApp_DstAddr.endPoint = 0;
-    GenericApp_DstAddr.addr.shortAddr = 0;
-
+    GenericApp_TransID = 0;
+    
     // Fill out the endpoint description.
     GenericApp_epDesc.endPoint = GENERICAPP_ENDPOINT;
     GenericApp_epDesc.task_id = &GenericApp_TaskID;
@@ -68,7 +68,7 @@ void GenericApp_Init(uint8 task_id)
     // ZDO_RegisterForZDOMsg( GenericApp_TaskID, Match_Desc_rsp );
     // ZDO_RegisterForZDOMsg( GenericApp_TaskID, NWK_addr_req );
     DebugInit();
-    LREPMaster("Initialize UART module successfully \n");
+    LREPMaster("Initialized debug module \n");
 }
 
 /*********************************************************************
@@ -96,7 +96,6 @@ uint16 GenericApp_ProcessEvent(uint8 task_id, uint16 events)
         MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive(GenericApp_TaskID);
         while (MSGpkt)
         {
-            //LREP("Event: 0x%x \n", MSGpkt->hdr.event);
             switch (MSGpkt->hdr.event)
             {
                 case ZDO_CB_MSG:
@@ -119,7 +118,7 @@ uint16 GenericApp_ProcessEvent(uint8 task_id, uint16 events)
                     // Action taken when confirmation is received.
                     if (sentStatus != ZSuccess)
                     {
-                        LREPMaster("AF_DATA_CONFIRM: Send error! \n");
+                        LREPMaster("AF_DATA_CONFIRM: Send lost! \n");
                     }
                     break;
                 }
@@ -136,10 +135,12 @@ uint16 GenericApp_ProcessEvent(uint8 task_id, uint16 events)
                         (GenericApp_NwkState == DEV_ROUTER) ||
                         (GenericApp_NwkState == DEV_END_DEVICE))
                     {
+#if defined ( ROUTER ) || (ENDDEVICE)
                         // Start sending "the" message in a regular interval.
-                        // osal_start_timerEx(GenericApp_TaskID,
-                        //                    GENERICAPP_SEND_MSG_EVT,
-                        //                    GENERICAPP_SEND_MSG_TIMEOUT);
+                        osal_start_timerEx(GenericApp_TaskID,
+                                           GENERICAPP_SEND_MSG_EVT,
+                                           GENERICAPP_SEND_MSG_TIMEOUT);
+#endif
                     }
                     break;
                 }
@@ -161,12 +162,14 @@ uint16 GenericApp_ProcessEvent(uint8 task_id, uint16 events)
     //  (setup in GenericApp_Init()).
     if (events & GENERICAPP_SEND_MSG_EVT)
     {
+#if defined ( ROUTER ) || (ENDDEVICE)
         // // Send "the" message
-        // GenericApp_SendTheMessage();
+        PCApp_SendTheMessage(0, 0x00, 1);
         // // Setup to send message again
-        // osal_start_timerEx(GenericApp_TaskID,
-        //                    GENERICAPP_SEND_MSG_EVT,
-        //                    GENERICAPP_SEND_MSG_TIMEOUT);
+        osal_start_timerEx(GenericApp_TaskID,
+                           GENERICAPP_SEND_MSG_EVT,
+                           GENERICAPP_SEND_MSG_TIMEOUT);
+#endif
         // return unprocessed events
         return (events ^ GENERICAPP_SEND_MSG_EVT);
     }
@@ -217,12 +220,35 @@ static void GenericApp_ProcessZDOMsgs(zdoIncomingMsg_t *inMsg)
  */
 static void GenericApp_MessageMSGCB(afIncomingMSGPacket_t *pkt)
 {
-    LREP("Received Data: %s \n", (char *)pkt->cmd.Data);
-    switch (pkt->clusterId)
-    {
+  unsigned char temp_extAddr[8];
+  unsigned char i = 0;
+  unsigned char existed = 0;
+  unsigned char buffer[8] = "";
+  switch ( pkt->clusterId )
+  {
     case GENERICAPP_CLUSTERID:
-        rxMsgCount += 1;                          // Count this message
-        HalLedSet(HAL_LED_4, HAL_LED_MODE_BLINK); //  an LED
+      {// "the" message
+        (void)APSME_LookupExtAddr(pkt->srcAddr.addr.shortAddr, temp_extAddr);
+        for (i = 0; i < device_count+1; i++) {  // to see whether the device ever connected
+          if (osal_memcmp(EndDeviceInfos[i].extAddr, temp_extAddr, 8)) { //if existed, break;
+            existed = 1;
+            //HalUARTWrite(0, "Existed!\r\n",12);
+            break;
+          }
+        }
+        if (!existed) {  //not connected before, register
+          //HalUARTWrite(0, "New Device!\r\n",15);
+          osal_memcpy(EndDeviceInfos[device_count].extAddr, temp_extAddr, 8);
+          EndDeviceInfos[device_count].endPoint = pkt->srcAddr.endPoint;
+          EndDeviceInfos[device_count].compressed_addr = GENERICAPP_ENDPOINT | EndDeviceInfos[device_count].endPoint;
+          device_count++;
+        }
+        if (device_count == 16) { device_count = 0;}  //in case to overflow
+        //TO DO: process data received, send it to slave machine
+        osal_memcpy(&buffer[0], pkt->cmd.Data, 8);
+        reserve_string((char*)&buffer[3], 1);
+        HalUARTWrite(0, &buffer[0], 8);
         break;
-    }
+      }
+  }
 }

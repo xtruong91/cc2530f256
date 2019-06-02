@@ -1,4 +1,3 @@
-
 #include "OSAL.h"
 #include "AF.h"
 #include "ZDApp.h"
@@ -11,18 +10,6 @@
 #include "GenericType.h"
 
 
-typedef struct 
-{
-  unsigned char endPoint;
-  unsigned char extAddr[8];
-  unsigned char compressed_addr;
-} EndDeviceInfo_t; /* saved the end device information */
-
-EndDeviceInfo_t EndDeviceInfos[16];
-
-endPointDesc_t GenericApp_epDesc;
-afAddrType_t GenericApp_DstAddr;
-byte GenericApp_TaskID;
 /*prototype function*/
 
 void PowerSaving(void);
@@ -33,7 +20,7 @@ void GetIeeeAddr(uint8 * pIeeeAddr, uint8 *pStr);
 //@para *tr the first byte in a string that needs reserved
 //@para * length the total length that needs to be reserved, 0 included
 // e.g a[]={1,2,3,4} then rt_str_reserve(&a[0], 3) result in {4,3,2,1}
-void str_reserve(char *str, int length)
+void reserve_string(char *str, int length)
 {
     char temp, *end_ptr;
     end_ptr = str + length;
@@ -60,15 +47,15 @@ void PCApp_SendTheMessage(unsigned char dest_endID, unsigned char cmd, unsigned 
     theMessageData[5] = 0x33; // end check byte;
     // set the destination data;
 
-    GenericApp_DstAddr.addrMode = (afAddrMode_t)Addr64Bit;
-    GenericApp_DstAddr.endPoint = EndDeviceInfos[dest_endID].endPoint;
-    osal_memcpy(GenericApp_DstAddr.addr.extAddr, EndDeviceInfos[dest_endID].extAddr,8);
-    byte  transID = 0;
+    GenericApp_DstAddr.addrMode = (afAddrMode_t)Addr16Bit;// (afAddrMode_t)Addr64Bit;
+    GenericApp_DstAddr.endPoint = 10;//EndDeviceInfos[dest_endID].endPoint;
+    GenericApp_DstAddr.addr.shortAddr = 0;
+    //osal_memcpy(GenericApp_DstAddr.addr.extAddr, EndDeviceInfos[dest_endID].extAddr,8);
     if(AF_DataRequest(&GenericApp_DstAddr, &GenericApp_epDesc,
                         GENERICAPP_CLUSTERID,
-                        7, // send one more char or the last char might be missing.
+                        (byte)osal_strlen( theMessageData ) + 1, // send one more char or the last char might be missing.
                         theMessageData,
-                        &transID,
+                        &GenericApp_TransID,
                         AF_DISCV_ROUTE, AF_DEFAULT_RADIUS) == afStatus_SUCCESS)
     {     
         LREPMaster("\r\n AF_DataRequest: Request to send!. \r\n");

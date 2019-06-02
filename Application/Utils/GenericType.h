@@ -27,7 +27,8 @@ struct uint48_t {
 typedef struct uint48_t uint48;
 typedef unsigned char uint8_t;
 typedef unsigned int uint16_t;
-
+typedef char int8_t;
+typedef int int16_t;
 /*********************************************************************
  * VARIABLES
  */

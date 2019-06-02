@@ -307,6 +307,7 @@
           <state>xMT_SYS_FUNC</state>
           <state>xMT_ZDO_FUNC</state>
           <state>xLCD_SUPPORTED=DEBUG</state>
+          <state>ZCL_READ</state>
           <state>COORDINATOR</state>
         </option>
         <option>
@@ -494,6 +495,12 @@
           <state>$PROJ_DIR$\..\Components\stack\zdo</state>
           <state>$PROJ_DIR$\..\Components\zmac</state>
           <state>$PROJ_DIR$\..\Components\zmac\f8w</state>
+          <state>$PROJ_DIR$\..\Components\stack\zcl</state>
+          <state>$PROJ_DIR$\..\Application\Clusters</state>
+          <state>$PROJ_DIR$\..\Application\GenericApp</state>
+          <state>$PROJ_DIR$\..\Application\PowerMeter</state>
+          <state>$PROJ_DIR$\..\Application\SmartDevice</state>
+          <state>$PROJ_DIR$\..\Application\Utils</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -2587,6 +2594,7 @@
           <state>MT_ZDO_FUNC</state>
           <state>LCD_SUPPORTED=DEBUG</state>
           <state>xPOWER_SAVING</state>
+          <state>ZCL_READ</state>
           <state>END_DEVICE</state>
           <state>REFLECTOR</state>
         </option>
@@ -2775,6 +2783,13 @@
           <state>$PROJ_DIR$\..\Components\stack\zdo</state>
           <state>$PROJ_DIR$\..\Components\zmac</state>
           <state>$PROJ_DIR$\..\Components\zmac\f8w</state>
+          <state>$PROJ_DIR$\..\Components\stack\zcl</state>
+          <state>$PROJ_DIR$\..\Application</state>
+          <state>$PROJ_DIR$\..\Application\GenericApp</state>
+          <state>$PROJ_DIR$\..\Application\PowerMeter</state>
+          <state>$PROJ_DIR$\..\Application\SmartDevice</state>
+          <state>$PROJ_DIR$\..\Application\Utils</state>
+          <state>$PROJ_DIR$\..\Application\Clusters</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>

@@ -15,6 +15,14 @@ extern "C"
 #include "ZDProfile.h"
 #include "ZComDef.h"
 
+typedef struct 
+{
+  unsigned char endPoint;
+  unsigned char extAddr[8];
+  unsigned char compressed_addr;
+} EndDeviceInfo_t; /* saved the end device information */
+
+extern EndDeviceInfo_t EndDeviceInfos[16];
 
 /*********************************************************************
  * CONSTANTS
@@ -22,8 +30,8 @@ extern "C"
 
 // These constants are only for example and should be changed to the
 // device's needs
-
-#define GENERICAPP_ENDPOINT           10    
+#define GENERICAPP_ENDPOINT           10 
+   
 #define GENERICAPP_PROFID             0x0F04
 #define GENERICAPP_DEVICEID           0x0001
 #define GENERICAPP_DEVICE_VERSION     0
@@ -62,6 +70,7 @@ extern const SimpleDescriptionFormat_t GenericApp_SimpleDesc;
 extern endPointDesc_t GenericApp_epDesc;
 extern afAddrType_t GenericApp_DstAddr;
 
+extern byte GenericApp_TransID; // This is the unique message ID (counter)
 extern byte GenericApp_TaskID; // Task ID for internal task/event processing
                         // This variable will be received when
                         // GenericApp_Init() is called.
@@ -76,7 +85,7 @@ extern void GenericApp_Init( byte task_id );
 extern void PCApp_SerialMSGCB(void);
 extern void PCApp_SendTheMessage(unsigned char dest_endID, unsigned char cmd, unsigned int temp_set);
 extern void PCApp_SendTemperature(void);
-extern void str_reserve(char *str, int length);
+extern void reserve_string(char *str, int length);
 
 /*
  * Task Event Processor for the Generic Application

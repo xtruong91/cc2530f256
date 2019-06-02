@@ -34,11 +34,11 @@
 
 
 
-#define ZCLSAMPLELIGHT_MAX_OUTCLUSTERS       1
 // This list should be filled with Application specific Cluster IDs.
 const cId_t GenericApp_ClusterList[GENERICAPP_MAX_CLUSTERS] =
     {
-        GENERICAPP_CLUSTERID};
+        GENERICAPP_CLUSTERID
+    };
 
 const SimpleDescriptionFormat_t GenericApp_SimpleDesc =
     {
