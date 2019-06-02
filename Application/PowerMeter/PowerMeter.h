@@ -14,7 +14,7 @@ extern "C"
 /*********************************************************************
  * CONSTANTS
  */
-#define ENDPOINT            13
+#define POWERENDPOINT                    13
 
 #define LIGHT_OFF                       0x00
 #define LIGHT_ON                        0x01

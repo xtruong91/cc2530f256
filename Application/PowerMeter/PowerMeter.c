@@ -91,7 +91,7 @@ void powerMeter_Init(byte task_id)
     zcl_registerPlugin(ZCL_CLUSTER_ID_GEN_BASIC, ZCL_CLUSTER_ID_GEN_MULTISTATE_VALUE_BASIC, handleClusterCommands);
 
     // Register the application's attribute list
-    zcl_registerAttrList(ENDPOINT,0, powerMeterAttrs);
+    zcl_registerAttrList(POWERENDPOINT,0, powerMeterAttrs);
 
     // Register the Application to receive the unprocessed Foundation command/response messages
     zcl_registerForMsg(powerMeterSensorTaskID);

@@ -41,10 +41,10 @@
  * ATTRIBUTE DEFINITIONS - Uses REAL cluster IDs
  */
 CONST zclAttrRec_t powerMeterAttrs[] = {
-//	BASIC_ATTRIBUTE
-//	IDENTIFY_ATTRIBUTES
-//	POWER_ATTRIBUTES
-//	TEMPERATURE_MEASUREMENT_ATTRIBUTES
+	BASIC_ATTRIBUTE
+	IDENTIFY_ATTRIBUTES
+	POWER_ATTRIBUTES
+	TEMPERATURE_MEASUREMENT_ATTRIBUTES
  	LAST_CLUSTER_ATTRIBUTE
 };
 
@@ -70,7 +70,7 @@ const cId_t powerMeter_OutClusterList[ZCLSAMPLELIGHT_MAX_OUTCLUSTERS] =
 
 SimpleDescriptionFormat_t powerMeter_SimpleDesc =
 {
-  ENDPOINT,                  //  int Endpoint;
+  POWERENDPOINT,                  //  int Endpoint;
   ZCL_HA_PROFILE_ID,                     //  uint16 AppProfId[2];
   ZCL_HA_DEVICEID_DIMMABLE_LIGHT,        //  uint16 AppDeviceId[2];
   DEVICE_VERSION,            //  int   AppDevVer:4;

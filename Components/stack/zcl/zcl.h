@@ -715,6 +715,8 @@ typedef struct
   uint8    flag;  // one of CMD_DIR_CLIENT_GENERATED, CMD_DIR_CLIENT_RECEIVED, CMD_DIR_SERVER_GENERATED, CMD_DIR_SERVER_RECEIVED
 } zclCommandRec_t;
 
+typedef void (*AttributeWriteCB)(void);
+
 // Attribute record
 typedef struct
 {
@@ -722,6 +724,7 @@ typedef struct
   uint8   dataType;       // Data Type - defined in AF.h
   uint8   accessControl;  // Read/write - bit field
   void    *dataPtr;       // Pointer to data field
+  AttributeWriteCB writeCB; // The callback called when write attribute command is received for that attribute
 } zclAttribute_t;
 
 typedef struct
