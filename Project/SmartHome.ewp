@@ -6885,6 +6885,9 @@
       <file>
         <name>$PROJ_DIR$\..\Application\GenericApp\PCApp.c</name>
       </file>
+      <file>
+        <name>$PROJ_DIR$\..\Application\GenericApp\PCApp.h</name>
+      </file>
     </group>
     <group>
       <name>PowerMeter</name>

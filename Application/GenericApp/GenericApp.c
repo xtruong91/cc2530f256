@@ -12,6 +12,7 @@
 #include "hal_led.h"
 #include "hal_key.h"
 #include "hal_uart.h"
+#include "aps_groups.h"
 
 /* RTOS */
 #if defined(IAR_ARMCM3_LM)
@@ -20,6 +21,7 @@
 
 #include "Debug.h"
 #include "GenericApp.h"
+#include "PCApp.h"
 
 endPointDesc_t GenericApp_epDesc;
 afAddrType_t GenericApp_DstAddr;
@@ -28,7 +30,7 @@ devStates_t GenericApp_NwkState;
 unsigned char device_count = 0;
 byte GenericApp_TaskID;
 byte GenericApp_TransID;
-
+aps_Group_t SampleApp_Group;
 EndDeviceInfo_t EndDeviceInfos[16];
 
 
@@ -54,13 +56,18 @@ void GenericApp_Init(uint8 task_id)
     GenericApp_TransID = 0;
     
     // Fill out the endpoint description.
-    GenericApp_epDesc.endPoint = GENERICAPP_ENDPOINT;
+    GenericApp_epDesc.endPoint = SAMPLEAPP_ENDPOINT;
     GenericApp_epDesc.task_id = &GenericApp_TaskID;
     GenericApp_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&GenericApp_SimpleDesc;
     GenericApp_epDesc.latencyReq = noLatencyReqs;
 
     // Register the endpoint description with the AF
     afRegister(&GenericApp_epDesc);
+    
+      // By default, all devices start out in Group 1
+    SampleApp_Group.ID = 0x0001;
+    osal_memcpy( SampleApp_Group.name, "Group 1", 7  );
+    aps_AddGroup( SAMPLEAPP_ENDPOINT, &SampleApp_Group );
 
     // Register for all key events - This app will handle all key events
     RegisterForKeys(GenericApp_TaskID);
@@ -162,14 +169,17 @@ uint16 GenericApp_ProcessEvent(uint8 task_id, uint16 events)
     //  (setup in GenericApp_Init()).
     if (events & GENERICAPP_SEND_MSG_EVT)
     {
-#if defined ( ROUTER ) || (ENDDEVICE)
+#if defined ( ROUTER )
         // // Send "the" message
         PCApp_SendTheMessage(0, 0x00, 1);
+#else
+        SampleApp_SendPeriodicMessage();
+#endif         
         // // Setup to send message again
         osal_start_timerEx(GenericApp_TaskID,
                            GENERICAPP_SEND_MSG_EVT,
                            GENERICAPP_SEND_MSG_TIMEOUT);
-#endif
+
         // return unprocessed events
         return (events ^ GENERICAPP_SEND_MSG_EVT);
     }
